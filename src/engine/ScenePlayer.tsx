@@ -508,6 +508,8 @@ export function ScenePlayer({
   const [assetRetryNonce, setAssetRetryNonce] = useState(0);
   const [completedListenInstructionKey, setCompletedListenInstructionKey] =
     useState<string | null>(null);
+  const [lastCompletedTargetWordAudioKey, setLastCompletedTargetWordAudioKey] =
+    useState<string | null>(null);
   const hasLocalAudioPreview =
     __DEV__ &&
     lessonId !== undefined &&
@@ -540,6 +542,7 @@ export function ScenePlayer({
   ).current;
 
   const advanceRequestIdRef = useRef(0);
+  const autoRecordRequestIdRef = useRef(0);
   const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const clearFeedbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(
     null,
@@ -549,6 +552,19 @@ export function ScenePlayer({
   const guidanceAudioSessionIdRef = useRef(0);
   const completedTargetWordAudioKeysRef = useRef<Set<string>>(new Set());
   const isMountedRef = useRef(true);
+
+  const markTargetWordAudioComplete = useCallback((audioKey: string) => {
+    completedTargetWordAudioKeysRef.current.add(audioKey);
+    setLastCompletedTargetWordAudioKey(audioKey);
+  }, []);
+
+  const requestAutoRecording = useCallback((activeStepId: EntityId) => {
+    autoRecordRequestIdRef.current += 1;
+    setAutoRecordRequest({
+      requestId: autoRecordRequestIdRef.current,
+      stepId: activeStepId,
+    });
+  }, []);
 
   const beginGuidanceAudio = useCallback(() => {
     const sessionId = guidanceAudioSessionIdRef.current + 1;
@@ -633,6 +649,7 @@ export function ScenePlayer({
     setIsSpeechPracticeBusy(false);
     setCompletedListenInstructionKey(null);
     completedTargetWordAudioKeysRef.current = new Set();
+    setLastCompletedTargetWordAudioKey(null);
     setSceneCompletion(null);
     setIsPreloading(true);
     setLoadProgress(0);
@@ -968,7 +985,7 @@ export function ScenePlayer({
       setPreparedStepAudioKey(stepAudioPreparationKey);
       if (canBypassMissingAudio) {
         if (targetWordAudioKey) {
-          completedTargetWordAudioKeysRef.current.add(targetWordAudioKey);
+          markTargetWordAudioComplete(targetWordAudioKey);
         }
         if (isListeningStep) {
           setCompletedListenInstructionKey(instructionKey);
@@ -993,15 +1010,12 @@ export function ScenePlayer({
         onAudioSettled: finishGuidanceAudio,
         onTargetWordComplete: () => {
           if (targetWordAudioKey) {
-            completedTargetWordAudioKeysRef.current.add(targetWordAudioKey);
+            markTargetWordAudioComplete(targetWordAudioKey);
           }
         },
         onTeachAudioComplete: () => {
           if (getSpeechPracticeMode(currentScene, currentStep) === 'auto') {
-            setAutoRecordRequest(previousRequest => ({
-              requestId: (previousRequest?.requestId ?? 0) + 1,
-              stepId: currentStep.id,
-            }));
+            requestAutoRecording(currentStep.id);
           }
         },
       });
@@ -1077,6 +1091,8 @@ export function ScenePlayer({
     isLocalizationReady,
     isPreloading,
     lessonId,
+    markTargetWordAudioComplete,
+    requestAutoRecording,
     requiredAssetFailure,
     stepAudioPreparationKey,
     teacherPromptMode,
@@ -1199,6 +1215,19 @@ export function ScenePlayer({
   const isInstructionPreparing =
     isInstructionPending && preparedStepAudioKey !== stepAudioPreparationKey;
   const isInstructionPlaying = isInstructionPending && !isInstructionPreparing;
+  const currentTargetWordAudioKey = getTargetWordAudioKey(
+    currentScene,
+    currentStep,
+  );
+  const hasCompletedCurrentTargetWordAudio = Boolean(
+    currentTargetWordAudioKey &&
+      (lastCompletedTargetWordAudioKey === currentTargetWordAudioKey ||
+        completedTargetWordAudioKeysRef.current.has(currentTargetWordAudioKey)),
+  );
+  const canInterruptSpeechPracticeInstruction =
+    isInstructionPending &&
+    isSpeechPracticeStep(currentScene, currentStep) &&
+    hasCompletedCurrentTargetWordAudio;
   const isFeedbackAudioReady =
     preparedFeedbackAudioKey === feedbackAudioPreparationKey;
   const isContinuePreparingFeedback =
@@ -1281,7 +1310,7 @@ export function ScenePlayer({
       onAudioSettled: finishGuidanceAudio,
       onTargetWordComplete: () => {
         if (targetWordAudioKey) {
-          completedTargetWordAudioKeysRef.current.add(targetWordAudioKey);
+          markTargetWordAudioComplete(targetWordAudioKey);
         }
       },
     });
@@ -1323,6 +1352,14 @@ export function ScenePlayer({
     runAudio(
       playObjectVocabularyAudio(speakPracticeWord, startNarrationSession()),
     );
+  };
+
+  const handleSpeechPracticeRecordingIntent = () => {
+    invalidateStepAudioSequence();
+    setAutoRecordRequest(null);
+    if (canInterruptSpeechPracticeInstruction) {
+      setCompletedListenInstructionKey(currentListenInstructionKey);
+    }
   };
 
   const handleContinue = () => {
@@ -1675,10 +1712,7 @@ export function ScenePlayer({
           stepId: interactiveSpeechPractice.stepId,
         });
         if (interactiveSpeechPractice.mode === 'auto') {
-          setAutoRecordRequest(previousRequest => ({
-            requestId: (previousRequest?.requestId ?? 0) + 1,
-            stepId: interactiveSpeechPractice.stepId,
-          }));
+          requestAutoRecording(interactiveSpeechPractice.stepId);
         } else {
           setAutoRecordRequest(null);
         }
@@ -1737,9 +1771,7 @@ export function ScenePlayer({
         }
         clearTimer(advanceTimerRef);
         if (targetWordResult === 'completed' && narrationSession.isActive()) {
-          completedTargetWordAudioKeysRef.current.add(
-            requiredTargetWordAudioKey,
-          );
+          markTargetWordAudioComplete(requiredTargetWordAudioKey);
         } else if (narrationSession.isActive()) {
           cancelStepAudioSequence();
         }
@@ -2159,11 +2191,17 @@ export function ScenePlayer({
                     autoStartWithPrompt={
                       shouldAutoStartInteractiveSpeechPractice
                     }
-                    disabled={isInstructionPending || isSceneComplete}
+                    disabled={
+                      isSceneComplete ||
+                      isInstructionPreparing ||
+                      (isInstructionPending &&
+                        !canInterruptSpeechPracticeInstruction)
+                    }
                     isInstructionPreparing={isInstructionPreparing}
                     isInstructionPlaying={isInstructionPlaying}
                     onAudioStart={cancelStepAudioSequence}
                     onBusyChange={setIsSpeechPracticeBusy}
+                    onRecordingIntent={handleSpeechPracticeRecordingIntent}
                     onContinue={
                       isInteractiveSpeechPracticeActive ||
                       (isListenStep(currentStep) &&
@@ -2918,8 +2956,12 @@ function playAudioForStep(
 }
 
 function cancelStepAudioSequence() {
-  globalAudioSequenceId += 1;
+  invalidateStepAudioSequence();
   cancelNarration().catch(() => undefined);
+}
+
+function invalidateStepAudioSequence() {
+  globalAudioSequenceId += 1;
 }
 
 async function playObjectVocabularyAudio(

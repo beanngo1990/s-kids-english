@@ -17,6 +17,7 @@ import {
 } from './KidIconButton';
 import { SKidsIcon } from './SKidsIcon';
 import {
+  cancelNarration,
   playSoundEffect,
   playTapSound,
   speakTeacherPromptSegments,
@@ -64,6 +65,7 @@ import {
 
 type RecordingStatus =
   | 'idle'
+  | 'arming'
   | 'prompting'
   | 'recording'
   | 'encouraging'
@@ -81,6 +83,7 @@ type SpeakPracticeControlsProps = {
   onAudioStart?: () => void;
   onBusyChange?: (isBusy: boolean) => void;
   onContinue?: () => void;
+  onRecordingIntent?: () => void;
   onRecordingReady?: (
     recording: SpeakPracticeRecording,
   ) => Promise<void> | void;
@@ -97,6 +100,7 @@ export type SpeakPracticeRecording = {
 
 const levelPollIntervalMs = 120;
 const nativeSafetyMarginMs = 1500;
+const recordingAudioHandoffDelayMs = 200;
 
 function AnimatedAudioWave({ color }: { color: string }) {
   const anim1 = useRef(new Animated.Value(0)).current;
@@ -222,6 +226,7 @@ export function SpeakPracticeControls({
   onAudioStart,
   onBusyChange,
   onContinue,
+  onRecordingIntent,
   onRecordingReady,
   onReplayModel,
   teacherPromptMode = 'vi',
@@ -259,9 +264,10 @@ export function SpeakPracticeControls({
   const appStateRef = useRef<AppStateStatus>(AppState.currentState);
   const isReturningFromSettingsRef = useRef(false);
 
-  useEffect(() => {
-    statusRef.current = status;
-  }, [status]);
+  const setRecordingStatus = useCallback((nextStatus: RecordingStatus) => {
+    statusRef.current = nextStatus;
+    setStatus(nextStatus);
+  }, []);
 
   useEffect(() => {
     isMountedRef.current = true;
@@ -281,7 +287,8 @@ export function SpeakPracticeControls({
 
   useEffect(() => {
     onBusyChange?.(
-      status === 'prompting' ||
+      status === 'arming' ||
+        status === 'prompting' ||
         status === 'recording' ||
         status === 'encouraging',
     );
@@ -306,18 +313,18 @@ export function SpeakPracticeControls({
             return;
           }
           setMicrophoneAccessStatus(permissionStatus);
-          setStatus('idle');
+          setRecordingStatus('idle');
         })
         .catch(() => {
           if (isMountedRef.current) {
             setMicrophoneAccessStatus('unavailable');
-            setStatus('idle');
+            setRecordingStatus('idle');
           }
         });
     });
 
     return () => subscription.remove();
-  }, []);
+  }, [setRecordingStatus]);
 
   useEffect(() => {
     if (status !== 'recording') {
@@ -355,7 +362,7 @@ export function SpeakPracticeControls({
       clearRecordingTimers(timerRef, levelPollTimerRef);
       const recordingSession = recordingSessionRef.current;
       if (!recordingSession) {
-        setStatus('idle');
+        setRecordingStatus('idle');
         isFinishingRecordingRef.current = false;
         return;
       }
@@ -378,7 +385,7 @@ export function SpeakPracticeControls({
       const didDetectSpeech = finalSnapshot?.hadSpeech ?? false;
 
       if (!nextRecordingUri) {
-        setStatus('idle');
+        setRecordingStatus('idle');
         isFinishingRecordingRef.current = false;
         return;
       }
@@ -386,7 +393,7 @@ export function SpeakPracticeControls({
       recordingUriRef.current = nextRecordingUri;
       setRecordingUri(nextRecordingUri);
       setLastRecordingHadDetectedSpeech(didDetectSpeech);
-      setStatus('encouraging');
+      setRecordingStatus('encouraging');
       const persistRecordingPromise = didDetectSpeech
         ? Promise.resolve()
             .then(() =>
@@ -424,12 +431,12 @@ export function SpeakPracticeControls({
       } finally {
         await persistRecordingPromise;
         if (isMountedRef.current) {
-          setStatus('recorded');
+          setRecordingStatus('recorded');
         }
         isFinishingRecordingRef.current = false;
       }
     },
-    [onRecordingReady, teacherPromptMode],
+    [onRecordingReady, setRecordingStatus, teacherPromptMode],
   );
 
   const handleVoiceActivitySnapshot = useCallback(
@@ -549,28 +556,90 @@ export function SpeakPracticeControls({
     [finishRecording, pollVoiceActivity],
   );
 
+  const startRecorderForRequest = useCallback(
+    async (requestId: number, canStart: () => boolean = () => true) => {
+      const isRequestActive = () =>
+        isMountedRef.current && recordingRequestIdRef.current === requestId;
+      const endpointOptions = resolveVoiceEndpointOptions(word, englishAccent);
+      const recordingSession = await startVoiceRecording(endpointOptions);
+      if (!isRequestActive() || !canStart()) {
+        if (recordingSession) {
+          await stopVoiceRecording(recordingSession, 'interrupted');
+        }
+        if (isRequestActive()) {
+          setRecordingStatus('idle');
+        }
+        return;
+      }
+      if (!recordingSession) {
+        setMicrophoneAccessStatus('unavailable');
+        setRecordingStatus('idle');
+        return;
+      }
+
+      recordingSessionRef.current = recordingSession;
+      recordingUriRef.current = recordingSession.uri;
+      setRecordingUri(recordingSession.uri);
+      setRecordingStatus('recording');
+      isFinishingRecordingRef.current = false;
+      startVoiceActivityMonitoring(recordingSession, endpointOptions);
+    },
+    [
+      englishAccent,
+      setRecordingStatus,
+      startVoiceActivityMonitoring,
+      word,
+    ],
+  );
+
   const beginRecording = useCallback(
     async ({
+      interruptAudio,
+      permissionAlreadyGranted,
       permissionRequestSource,
       playPrompt,
       playTap,
     }: {
+      interruptAudio?: boolean;
+      permissionAlreadyGranted?: boolean;
       permissionRequestSource: 'automatic' | 'manual';
       playPrompt: boolean;
       playTap: boolean;
     }) => {
+      const currentStatus = statusRef.current;
+      const isInterruptingPrompt =
+        interruptAudio && currentStatus === 'prompting';
       if (
         disabled ||
-        status === 'prompting' ||
-        status === 'recording' ||
-        status === 'encouraging'
+        currentStatus === 'arming' ||
+        (currentStatus === 'prompting' && !isInterruptingPrompt) ||
+        currentStatus === 'recording' ||
+        currentStatus === 'encouraging'
       ) {
         return;
       }
       const requestId = recordingRequestIdRef.current + 1;
       recordingRequestIdRef.current = requestId;
+      setRecordingStatus('arming');
       const isRequestActive = () =>
         isMountedRef.current && recordingRequestIdRef.current === requestId;
+
+      if (interruptAudio) {
+        try {
+          onRecordingIntent?.();
+        } catch {
+          // Recording should remain available even if the parent cannot update
+          // its lesson-level narration state.
+        }
+        await cancelNarration().catch(() => undefined);
+        if (!isRequestActive()) {
+          return;
+        }
+        await wait(recordingAudioHandoffDelayMs);
+        if (!isRequestActive()) {
+          return;
+        }
+      }
 
       if (playTap) {
         await playTapSound();
@@ -579,30 +648,32 @@ export function SpeakPracticeControls({
         }
       }
 
-      let permissionStatus: VoiceRecordingPermissionStatus;
-      try {
-        permissionStatus = await requestVoiceRecordingPermission(
-          {
-            buttonNegative: t('voiceRecorder.permissionNegative'),
-            buttonPositive: t('voiceRecorder.permissionPositive'),
-            message: t('voiceRecorder.permissionMessage'),
-            title: t('voiceRecorder.permissionTitle'),
-          },
-          { source: permissionRequestSource },
-        );
-      } catch {
-        if (isRequestActive()) {
-          setMicrophoneAccessStatus('unavailable');
-          setStatus('idle');
+      let permissionStatus: VoiceRecordingPermissionStatus = 'granted';
+      if (!permissionAlreadyGranted) {
+        try {
+          permissionStatus = await requestVoiceRecordingPermission(
+            {
+              buttonNegative: t('voiceRecorder.permissionNegative'),
+              buttonPositive: t('voiceRecorder.permissionPositive'),
+              message: t('voiceRecorder.permissionMessage'),
+              title: t('voiceRecorder.permissionTitle'),
+            },
+            { source: permissionRequestSource },
+          );
+        } catch {
+          if (isRequestActive()) {
+            setMicrophoneAccessStatus('unavailable');
+            setRecordingStatus('idle');
+          }
+          return;
         }
-        return;
       }
       if (!isRequestActive()) {
         return;
       }
       setMicrophoneAccessStatus(permissionStatus);
       if (permissionStatus !== 'granted') {
-        setStatus('idle');
+        setRecordingStatus('idle');
         if (
           permissionRequestSource === 'manual' &&
           permissionStatus === 'blocked'
@@ -627,8 +698,10 @@ export function SpeakPracticeControls({
         return;
       }
 
-      setStatus('prompting');
-      onAudioStart?.();
+      setRecordingStatus(playPrompt ? 'prompting' : 'arming');
+      if (!interruptAudio) {
+        onAudioStart?.();
+      }
       const narrationSession = playPrompt ? startNarrationSession() : null;
       if (narrationSession) {
         await narrationSession.ready;
@@ -636,7 +709,7 @@ export function SpeakPracticeControls({
           return;
         }
         if (!narrationSession.isActive()) {
-          setStatus('idle');
+          setRecordingStatus('idle');
           return;
         }
         await speakTeacherPromptSegments(
@@ -648,7 +721,7 @@ export function SpeakPracticeControls({
           return;
         }
         if (!narrationSession.isActive()) {
-          setStatus('idle');
+          setRecordingStatus('idle');
           return;
         }
         await speakWord(word, undefined, narrationSession);
@@ -656,45 +729,23 @@ export function SpeakPracticeControls({
           return;
         }
         if (!narrationSession.isActive()) {
-          setStatus('idle');
+          setRecordingStatus('idle');
           return;
         }
       }
 
-      const endpointOptions = resolveVoiceEndpointOptions(word, englishAccent);
-      const recordingSession = await startVoiceRecording(endpointOptions);
-      if (!isRequestActive()) {
-        if (recordingSession) {
-          await stopVoiceRecording(recordingSession, 'interrupted');
-        }
-        return;
-      }
-      if (narrationSession && !narrationSession.isActive()) {
-        if (recordingSession) {
-          await stopVoiceRecording(recordingSession, 'interrupted');
-        }
-        setStatus('idle');
-        return;
-      }
-      if (!recordingSession) {
-        setMicrophoneAccessStatus('unavailable');
-        setStatus('idle');
-        return;
-      }
-
-      recordingSessionRef.current = recordingSession;
-      recordingUriRef.current = recordingSession.uri;
-      setRecordingUri(recordingSession.uri);
-      setStatus('recording');
-      isFinishingRecordingRef.current = false;
-      startVoiceActivityMonitoring(recordingSession, endpointOptions);
+      setRecordingStatus('arming');
+      await startRecorderForRequest(
+        requestId,
+        narrationSession ? narrationSession.isActive : undefined,
+      );
     },
     [
       disabled,
-      englishAccent,
       onAudioStart,
-      startVoiceActivityMonitoring,
-      status,
+      onRecordingIntent,
+      setRecordingStatus,
+      startRecorderForRequest,
       teacherPromptMode,
       t,
       word,
@@ -716,21 +767,52 @@ export function SpeakPracticeControls({
       playTap: false,
     }).catch(() => {
       setMicrophoneAccessStatus('unavailable');
-      setStatus('idle');
+      setRecordingStatus('idle');
     });
-  }, [autoStartRequestId, autoStartWithPrompt, beginRecording]);
+  }, [
+    autoStartRequestId,
+    autoStartWithPrompt,
+    beginRecording,
+    setRecordingStatus,
+  ]);
 
   const handleRecordPress = async () => {
-    if (disabled || status === 'prompting' || status === 'encouraging') {
-      return;
-    }
-
-    if (status === 'recording') {
-      await finishRecording('manual');
-      return;
-    }
-
     try {
+      const currentStatus = statusRef.current;
+      if (disabled) {
+        return;
+      }
+      if (currentStatus === 'prompting') {
+        await beginRecording({
+          interruptAudio: true,
+          permissionAlreadyGranted: true,
+          permissionRequestSource: 'manual',
+          playPrompt: false,
+          playTap: false,
+        });
+        return;
+      }
+      if (isInstructionPlaying) {
+        await beginRecording({
+          interruptAudio: true,
+          permissionRequestSource: 'manual',
+          playPrompt: false,
+          playTap: false,
+        });
+        return;
+      }
+      if (
+        currentStatus === 'arming' ||
+        currentStatus === 'encouraging'
+      ) {
+        return;
+      }
+
+      if (currentStatus === 'recording') {
+        await finishRecording('manual');
+        return;
+      }
+
       await beginRecording({
         permissionRequestSource: 'manual',
         playPrompt: true,
@@ -739,7 +821,7 @@ export function SpeakPracticeControls({
     } catch {
       if (isMountedRef.current) {
         setMicrophoneAccessStatus('unavailable');
-        setStatus('idle');
+        setRecordingStatus('idle');
       }
     }
   };
@@ -748,6 +830,9 @@ export function SpeakPracticeControls({
     if (
       !recordingUri ||
       disabled ||
+      isInstructionPreparing ||
+      isInstructionPlaying ||
+      status === 'arming' ||
       status === 'recording' ||
       status === 'prompting' ||
       status === 'encouraging'
@@ -764,6 +849,9 @@ export function SpeakPracticeControls({
     if (
       !onReplayModel ||
       disabled ||
+      isInstructionPreparing ||
+      isInstructionPlaying ||
+      status === 'arming' ||
       status === 'recording' ||
       status === 'prompting' ||
       status === 'encouraging'
@@ -775,6 +863,7 @@ export function SpeakPracticeControls({
   };
 
   const isPrompting = status === 'prompting';
+  const isArming = status === 'arming';
   const isEncouraging = status === 'encouraging';
   const isNarrating = isPrompting || isEncouraging;
   const isRecording = status === 'recording';
@@ -792,8 +881,14 @@ export function SpeakPracticeControls({
       : isMicrophoneUnavailable
       ? 'muted'
       : undefined;
-  const isDisabled = disabled || isNarrating;
-  const isModelButtonDisabled = disabled || isNarrating || isRecording;
+  const isDisabled =
+    disabled ||
+    isArming ||
+    isNarrating ||
+    isInstructionPreparing ||
+    isInstructionPlaying;
+  const isRecordButtonDisabled = disabled || isArming || isEncouraging;
+  const isModelButtonDisabled = isDisabled || isRecording;
   const rippleScale = listeningPulse.interpolate({
     inputRange: [0, 1],
     outputRange: [0.86, 1.6],
@@ -810,7 +905,9 @@ export function SpeakPracticeControls({
     inputRange: [0, 0.5, 1],
     outputRange: [0.24, 0.16, 0],
   });
-  const promptText = isInstructionPreparing
+  const promptText = isArming
+    ? t('speakPractice.promptPrepare')
+    : isInstructionPreparing
     ? t('speakPractice.promptPreparingAudio')
     : isInstructionPlaying
     ? t('speakPractice.promptInstruction')
@@ -849,14 +946,16 @@ export function SpeakPracticeControls({
             styles.statusIcon,
             (isNarrating || isInstructionPreparing || isInstructionPlaying) &&
               styles.promptingStatusIcon,
-            isRecording && styles.recordingStatusIcon,
+            (isArming || isRecording) && styles.recordingStatusIcon,
             hasRecording && styles.recordedStatusIcon,
             hasMicrophoneIssue &&
               !hasRecording &&
               styles.microphoneIssueStatusIcon,
           ]}
         >
-          {isNarrating || isInstructionPlaying ? (
+          {isArming ? (
+            <SKidsIcon name="speak" size={26} />
+          ) : isNarrating || isInstructionPlaying ? (
             <AnimatedAudioWave color={colors.primaryDark} />
           ) : isInstructionPreparing ? (
             <SKidsIcon name="listen" size={26} />
@@ -924,7 +1023,7 @@ export function SpeakPracticeControls({
                 ? t('speakPractice.recordAgainAccessibility')
                 : microphoneActionAccessibilityLabel
             }
-            disabled={isDisabled || isMicrophoneUnavailable}
+            disabled={isRecordButtonDisabled || isMicrophoneUnavailable}
             icon="speak"
             iconBadge={hasMicrophoneIssue ? microphoneBadgeTone : undefined}
             label={
@@ -963,13 +1062,13 @@ export function SpeakPracticeControls({
                 : t('speakPractice.speakAccessibility', { word })
             }
             accessibilityRole="button"
-            disabled={isDisabled}
+            disabled={isRecordButtonDisabled}
             onPress={handleRecordPress}
             style={({ pressed }) => [
               styles.recordButton,
               isRecording && styles.listeningButton,
-              pressed && !isDisabled && styles.pressed,
-              isDisabled && styles.disabled,
+              pressed && !isRecordButtonDisabled && styles.pressed,
+              isRecordButtonDisabled && styles.disabled,
             ]}
           >
             {isRecording ? (
@@ -1011,6 +1110,8 @@ export function SpeakPracticeControls({
               <Text numberOfLines={1} style={styles.recordLabel}>
                 {isRecording
                   ? t('speakPractice.tapToStop')
+                  : isArming
+                  ? t('speakPractice.promptPrepare')
                   : t('speakPractice.speak')}
               </Text>
             </View>
@@ -1045,6 +1146,12 @@ function clearRecordingTimers(
     clearInterval(intervalRef.current);
     intervalRef.current = null;
   }
+}
+
+function wait(durationMs: number) {
+  return new Promise<void>(resolve => {
+    setTimeout(resolve, durationMs);
+  });
 }
 
 function resolveVoiceEndpointOptions(

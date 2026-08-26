@@ -930,6 +930,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   đưa snapshot mức cao (`waitingForSpeech`, `candidateSpeech`, `speaking`, `trailingSilence`,
   `ended`) qua React Native bridge; PCM không được truyền qua bridge. Sau khi prompt và từ mẫu
   phát xong, lượt tự ghi chuyển thẳng sang khởi động recorder, không tạo thêm narration session.
+- Sau khi từ tiếng Anh mục tiêu đã phát xong, nút mic vẫn nhận thao tác trong phần hướng dẫn
+  **Bé nói theo cô** hoặc auto prompt/từ mẫu của speech practice. Bé chạm sớm sẽ thấy trạng thái
+  chuẩn bị ngay, request auto cũ bị vô hiệu hóa, narration được dừng và recorder chỉ bắt đầu sau
+  handoff yên lặng 200 ms; chạm lặp trong lúc handoff bị bỏ qua. Trước mốc nghe từ mục tiêu, mic
+  vẫn khóa; nếu bé không chạm, luồng prompt/từ mẫu rồi auto-record tiếp tục như trước.
 - Parent setting `voiceRecordingLibrary` mặc định tắt và là local-only. Settings chỉ hiển thị một
   hàng toggle gọn cùng icon thông tin; lần bật đầu tiên cần xác nhận disclosure, các lần bật lại sau
   khi consent hiện hành đã được lưu thì áp dụng trực tiếp. Tắt toggle chỉ ngừng lưu bản mới và luôn

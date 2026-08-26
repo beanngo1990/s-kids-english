@@ -2070,6 +2070,9 @@ test('hides Continue while a teach-and-listen instruction is playing', async () 
 
   expect(getTextValues(tree)).toContain('Cô đang nói...');
   expect(getTextValues(tree)).not.toContain('Tiếp tục');
+  expect(tree?.root.findByType(SpeakPracticeControls).props.disabled).toBe(
+    true,
+  );
   expect(tree?.root.findByType(SceneObjectRenderer).props.isDisabled).toBe(
     true,
   );
@@ -2079,6 +2082,56 @@ test('hides Continue while a teach-and-listen instruction is playing', async () 
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
+  });
+});
+
+test('enables the mic after the target word while the practice prompt is playing', async () => {
+  jest.useFakeTimers();
+  mockedSpeakVi.mockImplementation(text =>
+    text === 'Bé nói theo cô nhé.'
+      ? new Promise<void>(() => undefined)
+      : Promise.resolve(),
+  );
+  const tree = await renderScenePlayer(teachListenScene);
+
+  expect(tree.root.findByType(SpeakPracticeControls).props.disabled).toBe(
+    true,
+  );
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(101);
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(121);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedSpeakWord).toHaveBeenCalledWith('blanket');
+  expect(mockedSpeakVi).toHaveBeenCalledWith('Bé nói theo cô nhé.');
+  const practice = tree.root.findByType(SpeakPracticeControls);
+  expect(practice.props.isInstructionPlaying).toBe(true);
+  expect(practice.props.disabled).toBe(false);
+  expect(
+    tree.root.findAll(
+      node => node.props.accessibilityLabel === 'Nghe mẫu từ blanket',
+    )[0].props.disabled,
+  ).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    practice.props.onRecordingIntent();
+    await flushPromises();
+  });
+
+  const interruptedPractice = tree.root.findByType(SpeakPracticeControls);
+  expect(interruptedPractice.props.isInstructionPlaying).toBe(false);
+  expect(interruptedPractice.props.autoStartRequestId).toBe(0);
+  expect(interruptedPractice.props.onContinue).toEqual(expect.any(Function));
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
   });
 });
 
