@@ -224,12 +224,17 @@ function AppStackHeader({
   const showsVoiceLibraryInfo = route.name === 'ParentVoiceLibrary';
   const handleHeaderAction = () => {
     if (route.name === 'Reward') {
-      const rewardParams = route.params as
-        | RootStackParamList['Reward']
-        | undefined;
-      navigation.navigate('Home', {
-        activeTab:
-          rewardParams?.sourceScreen === 'ReviewGame' ? 'play' : 'map',
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home', params: { activeTab: 'map' } }],
+      });
+      return;
+    }
+
+    if (route.name === 'StickerPlayground') {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home', params: { activeTab: 'play' } }],
       });
       return;
     }
@@ -239,10 +244,7 @@ function AppStackHeader({
       return;
     }
 
-    navigation.navigate(
-      'Home',
-      route.name === 'StickerPlayground' ? { activeTab: 'play' } : undefined,
-    );
+    navigation.navigate('Home');
   };
 
   return (

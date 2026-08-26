@@ -254,8 +254,9 @@ cả registration, param types và call sites.
 Các route còn hiển thị stack header dùng chung `KidSafeRouteHeader`: title pill một dòng và
 safe-area spacing giống header trong Lesson Pack/Review. Route phân cấp dùng nút quay lại không
 kèm tên route trước đó; `Reward` và `StickerPlayground` dùng nút đóng vì là flow toàn màn hình.
-Đóng Reward kết thúc flow về Home thay vì quay lại game vừa hoàn thành. Các route fullscreen khác
-(`Home`, lesson runtime và review library) tiếp tục tự sở hữu header/HUD.
+Đóng Reward kết thúc flow về tab Map của Home thay vì quay lại game vừa hoàn thành. Đóng
+Sticker Playground kết thúc về tab Play. Các route fullscreen khác (`Home`, lesson runtime và
+review library) tiếp tục tự sở hữu header/HUD.
 
 ## 4. Source architecture
 
@@ -644,8 +645,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   riêng nền hiện tại có xác nhận.
 - `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
-- Sau reward, CTA **Bài tiếp theo** mở lesson pack kế tiếp thay vì đi thẳng vào scene/review;
-  nếu lesson kế tiếp thuộc theme khác thì `activeThemeId` được đồng bộ trước khi mở pack.
+- Sau reward, CTA **Bài tiếp theo** đồng bộ `activeThemeId` khi cần rồi mở thẳng scene chưa hoàn
+  tất đầu tiên của lesson kế tiếp; navigation history được làm mới về Home/Map + scene mới để thao
+  tác đóng không quay lại reward hoặc lesson vừa hoàn thành.
 - **Implemented:** trong theme map, trạm/review bị khóa do tiến độ vẫn nhận thao tác chạm để hiện
   giải thích; khóa tiến độ, Premium và trạng thái đang kiểm tra Premium phát lời nhắc ngắn theo
   `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry cùng một số lời Sungy

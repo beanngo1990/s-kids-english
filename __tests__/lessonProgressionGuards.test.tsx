@@ -56,7 +56,7 @@ beforeEach(async () => {
   await resetProgress();
 });
 
-test('next lesson from Reward opens its pack and keeps the active theme aligned', async () => {
+test('next lesson from Reward opens its next scene and keeps the active theme aligned', async () => {
   const boundaryIndex = lessons.findIndex(
     (lesson, index) =>
       index < lessons.length - 1 &&
@@ -67,13 +67,73 @@ test('next lesson from Reward opens its pack and keeps the active theme aligned'
 
   expect(lesson).toBeDefined();
   expect(nextLesson).toBeDefined();
+  expect(nextLesson.scenes.length).toBeGreaterThan(1);
 
   await saveProgress(
     normalizeProgress({
       activeThemeId: lesson.themeId,
+      completedSceneIds: [
+        getSceneProgressId(nextLesson.id, nextLesson.scenes[0].id),
+      ],
     }),
   );
 
+  const navigation = createNavigation();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <RewardScreen
+        navigation={navigation as never}
+        route={{
+          key: 'Reward',
+          name: 'Reward',
+          params: {
+            gameType: 'memory',
+            lessonId: lesson.id,
+            learningMode: 'challenge',
+            sourceScreen: 'ReviewGame',
+          },
+        }}
+      />,
+    );
+    await flushPromises();
+  });
+
+  const nextButton = tree?.root
+    .findAllByType(AppButton)
+    .find(node => node.props.title === 'Bài tiếp theo');
+
+  expect(nextButton).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    nextButton?.props.onPress();
+    await flushPromises();
+  });
+
+  expect(navigation.reset).toHaveBeenCalledWith({
+    index: 1,
+    routes: [
+      { name: 'Home', params: { activeTab: 'map' } },
+      {
+        name: 'ScenePlayer',
+        params: {
+          learningMode: 'challenge',
+          lessonId: nextLesson.id,
+          sceneId: nextLesson.scenes[1].id,
+        },
+      },
+    ],
+  });
+  expect((await getProgress()).activeThemeId).toBe(nextLesson.themeId);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('Reward map action always ends on the Home map', async () => {
+  const lesson = lessons[0];
   const navigation = createNavigation();
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
 
@@ -95,32 +155,25 @@ test('next lesson from Reward opens its pack and keeps the active theme aligned'
     await flushPromises();
   });
 
-  const nextButton = tree?.root
+  const mapButton = tree?.root
     .findAllByType(AppButton)
-    .find(node => node.props.title === 'Bài tiếp theo');
+    .find(node => node.props.title === 'Bản đồ');
 
-  expect(nextButton).toBeDefined();
-
-  await ReactTestRenderer.act(async () => {
-    nextButton?.props.onPress();
-    await flushPromises();
+  expect(mapButton).toBeDefined();
+  ReactTestRenderer.act(() => {
+    mapButton?.props.onPress();
   });
-
-  expect(navigation.replace).toHaveBeenCalledWith('LessonPack', {
-    lessonId: nextLesson.id,
+  expect(navigation.reset).toHaveBeenCalledWith({
+    index: 0,
+    routes: [{ name: 'Home', params: { activeTab: 'map' } }],
   });
-  expect(navigation.replace).not.toHaveBeenCalledWith(
-    'ReviewGame',
-    expect.anything(),
-  );
-  expect((await getProgress()).activeThemeId).toBe(nextLesson.themeId);
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
   });
 });
 
-test('new sticker reward offers a contextual shortcut to Sticker Playground', async () => {
+test('new sticker reward offers collection and decoration shortcuts', async () => {
   const lesson = lessons[0];
   const navigation = createNavigation();
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
@@ -155,7 +208,25 @@ test('new sticker reward offers a contextual shortcut to Sticker Playground', as
   ReactTestRenderer.act(() => {
     decorateButton?.props.onPress();
   });
-  expect(navigation.navigate).toHaveBeenCalledWith('StickerPlayground');
+  expect(navigation.reset).toHaveBeenCalledWith({
+    index: 1,
+    routes: [
+      { name: 'Home', params: { activeTab: 'play' } },
+      { name: 'StickerPlayground' },
+    ],
+  });
+
+  const collectionButton = tree?.root
+    .findAllByType(AppButton)
+    .find(node => node.props.title === 'Xem bộ sưu tập');
+
+  expect(collectionButton).toBeDefined();
+  ReactTestRenderer.act(() => {
+    collectionButton?.props.onPress();
+  });
+  expect(navigation.navigate).toHaveBeenCalledWith('StickerCollection', {
+    highlightedStickerId: 'sticker-test',
+  });
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
@@ -193,9 +264,70 @@ test('reward replay preserves the selected challenge mode', async () => {
   ReactTestRenderer.act(() => {
     replayButton?.props.onPress();
   });
-  expect(navigation.replace).toHaveBeenCalledWith('ScenePlayer', {
-    learningMode: 'challenge',
-    lessonId: lesson.id,
+  expect(navigation.reset).toHaveBeenCalledWith({
+    index: 1,
+    routes: [
+      { name: 'Home', params: { activeTab: 'map' } },
+      {
+        name: 'ScenePlayer',
+        params: {
+          learningMode: 'challenge',
+          lessonId: lesson.id,
+        },
+      },
+    ],
+  });
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('reward replay preserves the selected review game and learning mode', async () => {
+  const lesson = lessons[0];
+  const navigation = createNavigation();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <RewardScreen
+        navigation={navigation as never}
+        route={{
+          key: 'Reward',
+          name: 'Reward',
+          params: {
+            gameType: 'matching',
+            lessonId: lesson.id,
+            learningMode: 'expanded',
+            sourceScreen: 'ReviewGame',
+          },
+        }}
+      />,
+    );
+    await flushPromises();
+  });
+
+  const replayButton = tree?.root
+    .findAllByType(AppButton)
+    .find(node => node.props.title === 'Chơi lại');
+
+  expect(replayButton).toBeDefined();
+  ReactTestRenderer.act(() => {
+    replayButton?.props.onPress();
+  });
+  expect(navigation.reset).toHaveBeenCalledWith({
+    index: 1,
+    routes: [
+      { name: 'Home', params: { activeTab: 'map' } },
+      {
+        name: 'ReviewGame',
+        params: {
+          gameType: 'matching',
+          learningMode: 'expanded',
+          lessonId: lesson.id,
+        },
+      },
+    ],
   });
 
   await ReactTestRenderer.act(async () => {
@@ -297,6 +429,7 @@ function createNavigation() {
     goBack: jest.fn(),
     navigate: jest.fn(),
     replace: jest.fn(),
+    reset: jest.fn(),
   };
 }
 
