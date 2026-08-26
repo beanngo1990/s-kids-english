@@ -2160,6 +2160,108 @@ test('opens speech practice after completing a teach-and-tap interaction', async
   });
 });
 
+test('plays the target English word before feedback after an early teach interaction', async () => {
+  jest.useFakeTimers();
+  let finishTargetWord: (() => void) | undefined;
+  mockedSpeakVi.mockImplementation(text =>
+    text === 'Chạm vào vòi bình tưới nhé.'
+      ? new Promise<void>(() => undefined)
+      : Promise.resolve(),
+  );
+  mockedSpeakWord.mockImplementation(text =>
+    text === 'spout'
+      ? new Promise<void>(resolve => {
+          finishTargetWord = resolve;
+        })
+      : Promise.resolve(),
+  );
+  const tree = await renderScenePlayer(teachTapScene);
+
+  await ReactTestRenderer.act(async () => {
+    findSceneObject(tree, 'bed')?.props.onPress('bed');
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Vòi bình giúp rót nước nhẹ nhàng.');
+  expect(mockedSpeakWord).toHaveBeenCalledWith('spout');
+  expect(mockedSpeakVi).not.toHaveBeenCalledWith(
+    'Vòi bình giúp rót nước nhẹ nhàng.',
+  );
+  expect(tree.root.findAllByType(SpeakPracticeControls)).toHaveLength(0);
+
+  await ReactTestRenderer.act(async () => {
+    finishTargetWord?.();
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(121);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedSpeakVi).toHaveBeenCalledWith(
+    'Vòi bình giúp rót nước nhẹ nhàng.',
+  );
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(261);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(tree.root.findByType(SpeakPracticeControls).props.word).toBe('spout');
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
+test('continues after the target-word playback failsafe expires', async () => {
+  jest.useFakeTimers();
+  mockedSpeakVi.mockImplementation(text =>
+    text === 'Chạm vào vòi bình tưới nhé.'
+      ? new Promise<void>(() => undefined)
+      : Promise.resolve(),
+  );
+  mockedSpeakWord.mockImplementation(() => new Promise<void>(() => undefined));
+  const tree = await renderScenePlayer(teachTapScene);
+
+  await ReactTestRenderer.act(async () => {
+    findSceneObject(tree, 'bed')?.props.onPress('bed');
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(2999);
+    await flushPromises();
+  });
+
+  expect(mockedSpeakVi).not.toHaveBeenCalledWith(
+    'Vòi bình giúp rót nước nhẹ nhàng.',
+  );
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(1);
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(121);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedSpeakVi).toHaveBeenCalledWith(
+    'Vòi bình giúp rót nước nhẹ nhàng.',
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree.unmount();
+  });
+});
+
 test.each([
   ['auto', autoSpeechPracticeScene, true],
   ['optional', optionalSpeechPracticeScene, false],

@@ -592,6 +592,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   success/fail feedback; chỉ kết quả đúng mới trả `successStateChanges` cho runtime.
 - `ScenePlayer` render scene, phát instruction/audio, khóa tương tác trong thời điểm cần thiết,
   điều phối effects, scene object state, prefetch và progress.
+- Với step `teach` có từ vựng và tương tác `tap`/`drag`/`find`, bé vẫn có thể thao tác trong lúc
+  instruction đang phát. Kết quả đúng phản hồi hình ảnh ngay, nhưng runtime phải bảo đảm từ tiếng
+  Anh mục tiêu đã phát xong ít nhất một lần trước success feedback và chuyển bước; nếu playback
+  bị treo hoặc không khả dụng, failsafe tối đa 3 giây cho phép lesson tiếp tục để không khóa bé
+  trong scene.
 - Scene State v1 có ba action: `setObjectVariant`, `showObject`, `hideObject`. Không có branching,
   inventory, biến tùy ý hoặc state xuyên scene.
 - Object có `initialVisibility: hidden` được `showObject` sẽ fade-scale trong 260 ms; Reduce Motion
