@@ -58,6 +58,23 @@ test('adds an unlocked sticker from the tray to the playground canvas', async ()
       typeof node.props.onPress === 'function',
   );
   expect(trayItem).toBeDefined();
+  expect(trayItem?.props.accessibilityHint).toBe(
+    'Chạm để thêm vào giữa hoặc kéo thẳng lên để đặt vào tranh.',
+  );
+
+  const trayDragDetector = tree?.root.find(
+    node => node.props.gesture?.config?.testID === 'sticker-tray-drag',
+  );
+  expect(trayDragDetector?.props.gesture.config).toMatchObject({
+    activeOffsetYStart: -8,
+    failOffsetXEnd: 14,
+    failOffsetXStart: -14,
+    failOffsetYEnd: 10,
+  });
+  expect(
+    trayDragDetector?.props.gesture.config.activateAfterLongPress,
+  ).toBeUndefined();
+  expect(trayDragDetector?.props.gesture.config.minDist).toBeUndefined();
 
   const backgroundSelector = tree?.root.findByProps({
     testID: 'sticker-background-selector',

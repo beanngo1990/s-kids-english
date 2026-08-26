@@ -640,9 +640,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Play tab có card mở `StickerPlaygroundScreen`. Bé chọn một trong ba nền phòng ngủ, công viên và
   bãi biển; chỉ sticker bài học/thành tựu đã mở khóa mới xuất hiện trong khay. Mỗi sticker chỉ có
   một placement trên từng nền: chạm lần đầu thêm ở giữa canvas, chạm lại chọn/đưa bản hiện có lên
-  trên, còn nhấn giữ và kéo lại sẽ chuyển bản hiện có tới vị trí thả. Sticker trên canvas hỗ trợ
-  pan, pinch zoom và rotation đồng thời, cùng các thao tác hoàn tác, xóa sticker đang chọn và dọn
-  riêng nền hiện tại có xác nhận.
+  trên, còn kéo thẳng lên từ khay sẽ đặt sticker tại vị trí thả hoặc chuyển bản hiện có tới đó.
+  Gesture kéo dọc được ưu tiên theo ngưỡng hướng, còn vuốt ngang tiếp tục cuộn khay; thả ngoài
+  canvas không thay đổi board. Sticker trên canvas hỗ trợ pan, pinch zoom và rotation đồng thời,
+  cùng các thao tác hoàn tác, xóa sticker đang chọn và dọn riêng nền hiện tại có xác nhận.
 - `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
 - Sau reward, CTA **Bài tiếp theo** đồng bộ `activeThemeId` khi cần rồi mở thẳng scene chưa hoàn

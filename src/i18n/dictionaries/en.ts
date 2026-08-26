@@ -868,9 +868,11 @@ export const en: TranslationDictionary = {
     'Remove a few stickers before adding another one.',
   'stickerPlayground.trayTitle': 'Your stickers',
   'stickerPlayground.trayHint':
-    'Tap to add or select; press and hold to drag onto the picture.',
+    'Tap to add or select; drag straight up to place it on the picture.',
+  'stickerPlayground.unplacedHint':
+    'Tap to add in the middle or drag straight up to place it.',
   'stickerPlayground.placedHint':
-    'This sticker is already on this background. Tap to select it.',
+    'Already on this background. Tap to select or drag up to move it.',
   'stickerPlayground.empty':
     'No stickers yet. Tap to open the album and see how to earn one!',
   'themeLibrary.badge': 'Theme library',

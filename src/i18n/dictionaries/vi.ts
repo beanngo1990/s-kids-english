@@ -864,9 +864,11 @@ export const vi = {
     'Bé hãy gỡ bớt sticker trước khi thêm sticker mới nhé.',
   'stickerPlayground.trayTitle': 'Sticker của bé',
   'stickerPlayground.trayHint':
-    'Chạm để thêm hoặc chọn; nhấn giữ rồi kéo lên tranh.',
+    'Chạm để thêm hoặc chọn; kéo thẳng lên để đặt vào tranh.',
+  'stickerPlayground.unplacedHint':
+    'Chạm để thêm vào giữa hoặc kéo thẳng lên để đặt vào tranh.',
   'stickerPlayground.placedHint':
-    'Sticker đã có trên nền này. Chạm để chọn lại.',
+    'Sticker đã có trên nền này. Chạm để chọn hoặc kéo lên để chuyển vị trí.',
   'stickerPlayground.empty':
     'Bé chưa có sticker. Chạm để mở album và xem cách nhận sticker nhé!',
   'themeLibrary.badge': 'Thư viện chủ đề',
