@@ -49,6 +49,7 @@ import {
   resolveLearningModePreference,
 } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
+import { hasSceneVocabularyVisuals } from '../engine/VocabularyVisualResolver';
 import {
   getLocalizedLessonTitle,
   getLocalizedSceneTitle,
@@ -155,6 +156,17 @@ export function HomeScreen({ navigation, route }: Props) {
     () => buildThemeMapSections(themeLessons, appLanguage),
     [appLanguage, themeLessons],
   );
+  const vocabularyPlaygroundNodeKeys = useMemo(() => {
+    if (!learningMode) {
+      return new Set<string>();
+    }
+
+    return new Set(
+      mapNodes
+        .filter(node => hasSceneVocabularyVisuals(node.scene, learningMode))
+        .map(node => node.key),
+    );
+  }, [learningMode, mapNodes]);
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -496,6 +508,29 @@ export function HomeScreen({ navigation, route }: Props) {
         learningMode,
       );
       navigation.navigate('ScenePlayer', {
+        learningMode: activeLearningMode,
+        lessonId: node.lessonId,
+        sceneId: node.scene.id,
+      });
+    },
+    [learningMode, navigation, showPremiumLock],
+  );
+
+  const openVocabularyPlayground = useCallback(
+    async (node: ThemeMapNode) => {
+      if (!canAccessLesson(node.lessonId, getMonetizationSnapshot())) {
+        showPremiumLock(node.lessonId);
+        return;
+      }
+
+      const activeLearningMode = await resolveLearningModePreference(
+        learningMode,
+      );
+      if (!hasSceneVocabularyVisuals(node.scene, activeLearningMode)) {
+        return;
+      }
+
+      navigation.navigate('SceneVocabularyPlayground', {
         learningMode: activeLearningMode,
         lessonId: node.lessonId,
         sceneId: node.scene.id,
@@ -954,6 +989,11 @@ export function HomeScreen({ navigation, route }: Props) {
                                   ctaNode?.key === node.key ||
                                   nextNode?.key === node.key ||
                                   isThemeComplete;
+                                const hasVocabularyPlayground = Boolean(
+                                  isCompleted &&
+                                    !isLessonPremiumLocked &&
+                                    vocabularyPlaygroundNodeKeys.has(node.key),
+                                );
 
                                 return (
                                   <React.Fragment key={node.key}>
@@ -980,6 +1020,9 @@ export function HomeScreen({ navigation, route }: Props) {
                                         node.sceneIndexInLesson
                                       }
                                       sceneTitle={node.sceneTitle}
+                                      hasVocabularyPlayground={
+                                        hasVocabularyPlayground
+                                      }
                                       onLayout={(event: LayoutChangeEvent) =>
                                         updateMapLayoutY(
                                           mapNodeYByKeyRef,
@@ -1004,6 +1047,9 @@ export function HomeScreen({ navigation, route }: Props) {
 
                                         openNode(node);
                                       }}
+                                      onVocabularyPlaygroundPress={() =>
+                                        openVocabularyPlayground(node)
+                                      }
                                     />
                                     {nodeIndex < section.nodes.length - 1 ? (
                                       <MapConnector
@@ -1457,6 +1503,7 @@ function SKidsHubSheet({
 
 type SceneMapStopProps = {
   alignment: MapAlignment;
+  hasVocabularyPlayground: boolean;
   iconName: SKidsIconName;
   isCompleted: boolean;
   isCurrent: boolean;
@@ -1468,6 +1515,7 @@ type SceneMapStopProps = {
   lessonTitle: string;
   onLayout: (event: LayoutChangeEvent) => void;
   onPress: () => void;
+  onVocabularyPlaygroundPress: () => void;
   sceneCountInLesson: number;
   sceneIndexInLesson: number;
   sceneTitle: string;
@@ -1475,6 +1523,7 @@ type SceneMapStopProps = {
 
 function SceneMapStop({
   alignment,
+  hasVocabularyPlayground,
   iconName,
   isCompleted,
   isCurrent,
@@ -1486,6 +1535,7 @@ function SceneMapStop({
   lessonTitle,
   onLayout,
   onPress,
+  onVocabularyPlaygroundPress,
   sceneCountInLesson,
   sceneIndexInLesson,
   sceneTitle,
@@ -1517,85 +1567,112 @@ function SceneMapStop({
         sceneTitle,
       });
 
+  const alignmentTransform =
+    alignment === 'left'
+      ? [{ translateX: -90 }]
+      : alignment === 'right'
+      ? [{ translateX: 90 }]
+      : [];
+
   return (
-    <Pressable
-      accessibilityLabel={accessibilityLabel}
-      accessibilityRole="button"
+    <View
       onLayout={onLayout}
-      onPress={onPress}
-      style={({ pressed }) => {
-        const isPressed = pressed;
-        return [
-          styles.mapStop,
-          alignment === 'left' && styles.mapStopLeft,
-          alignment === 'center' && styles.mapStopCenter,
-          alignment === 'right' && styles.mapStopRight,
-          isVisuallyLocked && styles.mapStopLocked,
-          isPressed && { opacity: 0.92 },
-          {
-            transform: [
-              ...(alignment === 'left' ? [{ translateX: -90 }] : []),
-              ...(alignment === 'right' ? [{ translateX: 90 }] : []),
-              ...(isPressed ? [{ translateY: 2 }, { scale: 0.98 }] : []),
-            ],
-          },
-        ];
-      }}
+      style={[
+        styles.mapStop,
+        alignment === 'left' && styles.mapStopLeft,
+        alignment === 'center' && styles.mapStopCenter,
+        alignment === 'right' && styles.mapStopRight,
+        isVisuallyLocked && styles.mapStopLocked,
+        { transform: alignmentTransform },
+      ]}
     >
-      {isCurrent && !isPremiumLocked ? (
-        <CurrentStopNode>
-          <SKidsIcon name={iconName} size={64} />
-          <View style={[styles.stopNumber, styles.stopNumberCurrent]}>
-            <Text style={styles.stopNumberText}>{sceneIndexInLesson + 1}</Text>
-          </View>
-        </CurrentStopNode>
-      ) : (
-        <View
-          style={[
-            styles.stopNode,
-            isAvailable && styles.stopNodeAvailable,
-            isCompleted && styles.stopNodeDone,
-            isVisuallyLocked && styles.stopNodeLocked,
-          ]}
-        >
-          {isVisuallyLocked ? (
-            <View pointerEvents="none" style={styles.lockedOverlay} />
-          ) : null}
-          <SKidsIcon
-            name={iconName}
-            size={isVisuallyLocked ? 44 : 52}
-            style={isVisuallyLocked ? styles.lockedIcon : undefined}
-          />
+      <Pressable
+        accessibilityLabel={accessibilityLabel}
+        accessibilityRole="button"
+        onPress={onPress}
+        style={({ pressed }) => [
+          styles.mapStopPrimaryAction,
+          pressed && styles.mapStopPrimaryActionPressed,
+        ]}
+      >
+        {isCurrent && !isPremiumLocked ? (
+          <CurrentStopNode>
+            <SKidsIcon name={iconName} size={64} />
+            <View style={[styles.stopNumber, styles.stopNumberCurrent]}>
+              <Text style={styles.stopNumberText}>
+                {sceneIndexInLesson + 1}
+              </Text>
+            </View>
+          </CurrentStopNode>
+        ) : (
           <View
             style={[
-              styles.stopNumber,
-              isCompleted && styles.stopNumberDone,
-              isVisuallyLocked && styles.stopNumberLocked,
+              styles.stopNode,
+              isAvailable && styles.stopNodeAvailable,
+              isCompleted && styles.stopNodeDone,
+              isVisuallyLocked && styles.stopNodeLocked,
             ]}
           >
-            <Text
+            {isVisuallyLocked ? (
+              <View pointerEvents="none" style={styles.lockedOverlay} />
+            ) : null}
+            <SKidsIcon
+              name={iconName}
+              size={isVisuallyLocked ? 44 : 52}
+              style={isVisuallyLocked ? styles.lockedIcon : undefined}
+            />
+            <View
               style={[
-                styles.stopNumberText,
-                isCompleted && styles.stopNumberTextDone,
-                isVisuallyLocked && styles.stopNumberTextLocked,
+                styles.stopNumber,
+                isCompleted && styles.stopNumberDone,
+                isVisuallyLocked && styles.stopNumberLocked,
               ]}
             >
-              {sceneIndexInLesson + 1}
-            </Text>
+              <Text
+                style={[
+                  styles.stopNumberText,
+                  isCompleted && styles.stopNumberTextDone,
+                  isVisuallyLocked && styles.stopNumberTextLocked,
+                ]}
+              >
+                {sceneIndexInLesson + 1}
+              </Text>
+            </View>
+            {isCompleted ? (
+              <View style={styles.doneBadge}>
+                <Text style={styles.doneBadgeText}>✓</Text>
+              </View>
+            ) : null}
+            {isVisuallyLocked ? (
+              <View style={styles.lockBadge}>
+                <SKidsIcon name="parentLock" size={28} />
+              </View>
+            ) : null}
           </View>
-          {isCompleted ? (
-            <View style={styles.doneBadge}>
-              <Text style={styles.doneBadgeText}>✓</Text>
-            </View>
-          ) : null}
-          {isVisuallyLocked ? (
-            <View style={styles.lockBadge}>
-              <SKidsIcon name="parentLock" size={28} />
-            </View>
-          ) : null}
-        </View>
-      )}
-    </Pressable>
+        )}
+      </Pressable>
+      {hasVocabularyPlayground ? (
+        <Pressable
+          accessibilityLabel={t(
+            'home.mapStop.vocabularyPlaygroundAccessibility',
+            { sceneTitle },
+          )}
+          accessibilityRole="button"
+          hitSlop={6}
+          onPress={onVocabularyPlaygroundPress}
+          style={({ pressed }) => [
+            styles.mapVocabularyPlaygroundButton,
+            alignment === 'right'
+              ? styles.mapVocabularyPlaygroundButtonOuterRight
+              : styles.mapVocabularyPlaygroundButtonOuterLeft,
+            pressed && styles.mapVocabularyPlaygroundButtonPressed,
+          ]}
+          testID={`map-vocabulary-playground-${lessonIndex}-${sceneIndexInLesson}`}
+        >
+          <SKidsIcon name="vocabularyReview" size={38} />
+        </Pressable>
+      ) : null}
+    </View>
   );
 }
 
@@ -3424,11 +3501,40 @@ const styles = createThemedStyles(() => ({
   mapStopLocked: {
     opacity: 0.82,
   },
-  mapStopPressed: {
-    opacity: 0.92,
-  },
   mapStopRight: {
     alignSelf: 'center',
+  },
+  mapStopPrimaryAction: {
+    alignItems: 'center',
+    width: 136,
+  },
+  mapStopPrimaryActionPressed: {
+    opacity: 0.92,
+    transform: [{ translateY: 2 }, { scale: 0.98 }],
+  },
+  mapVocabularyPlaygroundButton: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 48,
+    justifyContent: 'center',
+    position: 'absolute',
+    top: 16,
+    width: 48,
+    zIndex: 4,
+    ...shadows.soft,
+  },
+  mapVocabularyPlaygroundButtonOuterLeft: {
+    left: -14,
+  },
+  mapVocabularyPlaygroundButtonOuterRight: {
+    right: -14,
+  },
+  mapVocabularyPlaygroundButtonPressed: {
+    opacity: 0.9,
+    transform: [{ translateY: 2 }, { scale: 0.96 }],
   },
   scrollArea: {
     flex: 1,

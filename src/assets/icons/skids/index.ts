@@ -166,6 +166,7 @@ export const skidsIcons = {
   toiletSignals: require('./toilet-signals.png'),
   toiletSteps: require('./toilet-steps.png'),
   underTheLeaf: require('./under-the-leaf.png'),
+  vocabularyReview: require('./vocabulary-review.png'),
   saveForNextSeason: require('./save-for-next-season.png'),
   windAndSupport: require('./wind-and-support.png'),
   welcomeTheKitten: require('./welcome-the-kitten.png'),

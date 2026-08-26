@@ -18,6 +18,7 @@ let syncCurrentManager: (() => void) | null = null;
 const learningRoutesWithoutBackgroundMusic = new Set([
   'ReviewGame',
   'ScenePlayer',
+  'SceneVocabularyPlayground',
 ]);
 
 export function isBackgroundMusicSuppressedRoute(routeName?: string) {

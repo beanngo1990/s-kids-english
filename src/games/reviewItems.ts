@@ -1,12 +1,14 @@
 import type { ImageSourcePropType } from 'react-native';
 
 import { getSceneForLearningMode } from '../data/learningModes';
-import { resolveAsset } from '../engine/AssetRegistry';
+import {
+  areVocabularyVisualsEquivalent,
+  getLessonVocabularyVisuals as resolveLessonVocabularyVisuals,
+  type VocabularyVisual,
+} from '../engine/VocabularyVisualResolver';
 import type {
   LearningMode,
   Lesson,
-  Scene,
-  SceneObject,
   VocabularyItem,
   VocabularyLevel,
 } from '../types/lesson';
@@ -17,6 +19,7 @@ import {
 } from './difficulty';
 
 export type ReviewGameItem = {
+  assetSource: string;
   id: string;
   imageSource: ImageSourcePropType;
   level: VocabularyLevel;
@@ -25,10 +28,7 @@ export type ReviewGameItem = {
   word: string;
 };
 
-export type LessonVocabularyVisual = Pick<
-  ReviewGameItem,
-  'imageSource' | 'visualId'
->;
+export type LessonVocabularyVisual = VocabularyVisual;
 
 const maxReviewItemCount = 6;
 
@@ -36,11 +36,11 @@ export function getReviewGameItems(
   lesson: Lesson,
   learningMode: LearningMode,
 ): ReviewGameItem[] {
-  const { objectByVocabId, vocabularyById } = collectVocabularyContext(
+  const vocabularyById = collectVocabularyContext(lesson, learningMode);
+  const vocabularyVisuals = resolveLessonVocabularyVisuals(
     lesson,
     learningMode,
   );
-  const vocabularyVisuals = createVocabularyVisuals(objectByVocabId);
   const configuredIds = getConfiguredVocabularyIds(lesson.reviewGame?.config);
   const maxItems = getReviewItemCount(lesson.reviewGame?.config, learningMode);
   const availableItems = Array.from(vocabularyById.values())
@@ -69,51 +69,22 @@ export function getReviewGameItems(
 export function getLessonVocabularyVisuals(
   lesson: Lesson,
   learningMode: LearningMode,
-): Map<string, LessonVocabularyVisual> {
-  const { objectByVocabId } = collectVocabularyContext(lesson, learningMode);
-  return createVocabularyVisuals(objectByVocabId);
+) {
+  return resolveLessonVocabularyVisuals(lesson, learningMode);
 }
 
-function collectVocabularyContext(
-  lesson: Lesson,
-  learningMode: LearningMode,
-) {
+function collectVocabularyContext(lesson: Lesson, learningMode: LearningMode) {
   const vocabularyById = new Map<string, VocabularyItem>();
-  const objectByVocabId = new Map<string, SceneObject>();
 
   lesson.scenes
     .map(scene => getSceneForLearningMode(scene, learningMode))
     .forEach(scene => {
-      const renderableObjects = getRenderableObjects(scene);
-      const objectById = new Map(
-        renderableObjects.map(object => [object.id, object]),
-      );
-
       scene.vocabulary?.forEach(item => {
         vocabularyById.set(item.id, item);
       });
-
-      renderableObjects.forEach(object => {
-        if (object.vocabId && !objectByVocabId.has(object.vocabId)) {
-          objectByVocabId.set(object.vocabId, object);
-        }
-      });
-
-      scene.steps.forEach(step => {
-        if (!step.vocabId || objectByVocabId.has(step.vocabId)) {
-          return;
-        }
-
-        const representativeObject = step.targetObjectIds
-          .map(objectId => objectById.get(objectId))
-          .find((object): object is SceneObject => Boolean(object));
-        if (representativeObject) {
-          objectByVocabId.set(step.vocabId, representativeObject);
-        }
-      });
     });
 
-  return { objectByVocabId, vocabularyById };
+  return vocabularyById;
 }
 
 export function getReviewItemCount(
@@ -140,7 +111,7 @@ function selectReviewItems(
     if (selectedItems.length >= maxItems) {
       break;
     }
-    if (!selectedItems.some(selected => selected.visualId === item.visualId)) {
+    if (!selectedItems.some(selected => hasSameVisual(selected, item))) {
       selectedItems.push(item);
     }
   }
@@ -161,7 +132,7 @@ function selectReviewItems(
       const nextIndex = remainingItems.findIndex(
         item =>
           item.level === level &&
-          !selectedItems.some(selected => selected.visualId === item.visualId),
+          !selectedItems.some(selected => hasSameVisual(selected, item)),
       );
       if (nextIndex < 0) {
         break;
@@ -177,7 +148,7 @@ function selectReviewItems(
     if (selectedItems.length >= maxItems) {
       break;
     }
-    if (!selectedItems.some(selected => selected.visualId === item.visualId)) {
+    if (!selectedItems.some(selected => hasSameVisual(selected, item))) {
       selectedItems.push(item);
     }
   }
@@ -208,6 +179,7 @@ function createReviewGameItem(
   }
 
   return {
+    assetSource: visual.assetSource,
     id: vocabularyItem.id,
     imageSource: visual.imageSource,
     level: vocabularyItem.level,
@@ -217,21 +189,6 @@ function createReviewGameItem(
   };
 }
 
-function createVocabularyVisuals(
-  objectByVocabId: Map<string, SceneObject>,
-) {
-  const visuals = new Map<string, LessonVocabularyVisual>();
-
-  objectByVocabId.forEach((object, vocabId) => {
-    const imageSource = resolveAsset(object.asset.source);
-    if (imageSource) {
-      visuals.set(vocabId, { imageSource, visualId: object.id });
-    }
-  });
-
-  return visuals;
-}
-
-function getRenderableObjects(scene: Scene) {
-  return scene.character ? [scene.character, ...scene.objects] : scene.objects;
+function hasSameVisual(left: ReviewGameItem, right: ReviewGameItem) {
+  return areVocabularyVisualsEquivalent(left, right);
 }

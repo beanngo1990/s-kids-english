@@ -39,6 +39,7 @@ export const en: TranslationDictionary = {
   'nav.themeLibrary': 'Theme Library',
   'nav.lessonList': 'Lessons',
   'nav.lessonPack': 'Lesson Pack',
+  'nav.sceneVocabularyPlayground': 'Vocabulary Playground',
   'nav.reviewGame': 'Review Game',
   'nav.reward': 'Reward',
   'nav.stickerCollection': 'Sticker Collection',
@@ -621,6 +622,19 @@ export const en: TranslationDictionary = {
   'scene.completion.tapReward': 'Sungy is keeping a new sticker for you.',
   'scene.completion.tapContinue': 'Tap the yellow button to continue.',
   'scene.completion.title': 'Great job!',
+  'scene.completion.vocabularyPlayground': 'Play with words',
+
+  'sceneVocabularyPlayground.coach':
+    'Let’s play with the words you just learned!',
+  'sceneVocabularyPlayground.emptyVocabulary':
+    'This scene does not have any words to play with yet.',
+  'sceneVocabularyPlayground.hint':
+    'Tap an object to listen · Drag an object to play',
+  'sceneVocabularyPlayground.notFound':
+    'This scene’s vocabulary playground could not be found.',
+  'sceneVocabularyPlayground.reset': 'Restore',
+
+  'lessonPack.openVocabularyPlayground': 'Play with words',
   'scene.characterLabel': 'kid',
   'scene.continue': 'Continue',
   'scene.continueAccessibility': 'Continue',
@@ -756,6 +770,8 @@ export const en: TranslationDictionary = {
   'home.mapStop.actionAccessibility': '{position}: {action} {sceneTitle}',
   'home.mapStop.replayAction': 'Replay',
   'home.mapStop.continueAction': 'Continue',
+  'home.mapStop.vocabularyPlaygroundAccessibility':
+    'Review words from {sceneTitle}',
   'home.lessonMilestone.accessibility': 'Lesson {title} has {stars} of 3 stars',
   'lessonList.mapTitle': 'Lesson map',
   'lessonList.title': 'English learning journey',

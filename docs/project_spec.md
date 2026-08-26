@@ -46,6 +46,10 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 Đặc điểm hiện tại:
 
 - **Implemented:** học theo theme -> lesson pack -> mini-scene -> review -> reward.
+- **Implemented:** mỗi scene đã hoàn thành mở được `Góc chơi từ vựng`, một sandbox theo
+  `learningMode`; một bản của từng từ được đặt sẵn trên background để bé chạm nghe English, kéo
+  tự do hoặc cất khỏi tranh. Bố cục chỉ sống trong phiên chơi, không thay đổi progress/reward và
+  không thay thế review game cuối lesson.
 - **Implemented:** tương tác nghe, chạm, tìm object, kéo thả và luyện nói bằng cách ghi/phát lại.
 - **Implemented:** Scene State v1 cho object variants, trạng thái ẩn/hiện và thay đổi state chỉ sau
   tương tác đúng trong phạm vi lượt chạy scene hiện tại.
@@ -70,8 +74,7 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   lượt đầu và xác nhận giỏ có đủ hai quả; scene cuối xác nhận riêng khay người lớn và payoff ba
   giỏ đã phân loại. Vocabulary/pronunciation hiện là 8/12/16, review vẫn 4/5/6 và nhịp ngoài intro
   vẫn là 18/27/36 meaningful turns theo core/expanded/challenge. Google TTS đã tạo đúng 46 audio
-  delta cho revision; lesson audit 459 target và full-corpus audit 15.903 target đều thiếu 0, lỗi
-  0. Production R2 hiện có 34 WebP + 413 audio, verify đủ 447/447 ngày 2026-08-25 và post-upload
+  delta cho revision; lesson audit 459 target và full-corpus audit 15.903 target đều thiếu 0, lỗi 0. Production R2 hiện có 34 WebP + 413 audio, verify đủ 447/447 ngày 2026-08-25 và post-upload
   delta bằng 0; audio `separate.mp3` tải qua production CDN khớp local theo size và SHA-256. Local
   image build/verify pass 34/34. Sau khi sửa cutter làm mất alpha nội bộ, 30 cutout cũ đã được
   rebuild/upload với asset revision mới; device smoke test sau audio revision 8/12/16 chưa chạy.
@@ -109,7 +112,7 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   lỗi 0. Bản tối ưu cue-anchor tiếp theo upload thêm 6 WebP; tập authoring hiện hành verify đủ
   798/798 object với lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Publish không xóa key cũ
   khỏi bucket. Revision meal/cleanup tiếp theo sửa scene dùng bữa thành `wait -> feed -> eat -> finished ->
-  celebrate -> carry -> ask an adult -> put it down -> step back`, chỉ kéo bát một lần và không phục
+celebrate -> carry -> ask an adult -> put it down -> step back`, chỉ kéo bát một lần và không phục
   hồi bát đầy sau khi cún ăn. Google TTS đã tạo thêm 36 clip; audio audit revision có 629 target,
   thiếu 0 và lỗi 0. R2 đã upload delta 36 audio, verify đủ 834/834 object với lỗi 0 và post-upload
   dry-run còn `Changed/new: 0`. Revision hình bát trống đã publish thêm năm WebP; R2 verify đủ
@@ -163,7 +166,7 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** parent account sign-in qua Firebase Authentication với Google và Apple.
 - **Implemented:** parent opt-in cloud learning data sync qua Firestore; mặc định tắt và sync
   các field học tập của `LocalProgress` cùng selected parent settings/child profile, không sync
-  activity/voice recordings hoặc bố cục Sticker Playground local-only.
+  activity/voice recordings, bố cục Sticker Playground hoặc bố cục Góc chơi từ vựng local-only.
 - **Implemented:** client monetization foundation với free tier cố định, content locks, Parent
   adult gate, màn Premium và RevenueCat entitlement lifecycle.
 - **Implemented trong repository:** Remote Config purchase kill switch và Founder cutoff/duration;
@@ -240,6 +243,7 @@ Contract params nằm trong `src/types/navigation.ts`:
 - `LessonList`
 - `LessonPack { lessonId, openedFromParent? }`
 - `ScenePlayer { lessonId, learningMode?, openedFromParent?, sceneId? }`
+- `SceneVocabularyPlayground { lessonId, sceneId, learningMode?, openedFromParent? }`
 - `ReviewGame { lessonId, learningMode?, openedFromParent? }`
 - `ReviewLibrary`
 - `Reward { lessonId, playedWordIds?, xp/reward fields... }`
@@ -631,6 +635,31 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 - `HomeScreen` là trải nghiệm Kid Mode chính với Map và Play tabs.
 - Theme map hiển thị lesson/scene progression, CTA hiện tại và review đang chờ.
+- Node cảnh đã hoàn thành giữ thao tác chính để học lại cảnh. Nếu scene có ít nhất một vocabulary
+  visual hợp lệ trong `learningMode` hiện tại và lesson vẫn truy cập được, node có thêm nút ôn từ
+  48×48 với icon hai thẻ từ và mũi tên vòng, neo chồng nhẹ vào cạnh ngoài node để thể hiện quan hệ
+  với scene nhưng vẫn tránh đường nối và dấu hoàn thành. Nút mở thẳng `Góc chơi từ vựng`; cảnh chưa
+  hoàn thành, bị khóa hoặc không có visual không hiện shortcut này. Shortcut là action phụ gắn với
+  scene, không tạo thêm map station và không thay thế review milestone cuối lesson.
+- Màn hoàn thành scene và card scene đã hoàn thành trong Lesson Pack có CTA mở `Góc chơi từ
+  vựng` khi scene có ít nhất một vocabulary visual hợp lệ. Màn này chỉ dùng vocabulary thuộc scene
+  sau khi lọc theo `learningMode`; từ không resolve được hình riêng sẽ bị ẩn. Resolver visual dùng
+  chung với review games và chọn đúng object/variant đang hiện ở đầu teach step của từ đó, nên các
+  trạng thái theo timeline như `meal` và `ready` dùng đúng hình thay vì asset base. Trong cùng một
+  scene, mỗi object variant/asset chỉ đại diện cho tối đa một từ; noun và direct `vocabId` được ưu
+  tiên khi nhiều từ trỏ tới cùng hình để tránh hình trùng hoặc gắn nhãn mơ hồ. Mọi visual được đặt
+  sẵn trên scene background, ưu tiên tâm position của đúng variant rồi tự dịch các placement trùng
+  nhau. Đồ vật luôn ở trên tranh, không có thao tác xoá hoặc khay từ; bé chạm để nghe và kéo để chơi
+  tự do. Mỗi lần chạm thật sự, đồ vật squish-bounce kèm halo, sparkle và nhãn từ tạm thời cạnh đồ
+  vật trong lúc phát âm. Nhãn co giãn theo độ dài, tự xuống dòng không ellipsis, giữ font tối thiểu
+  18dp và clamp trong lề canvas; từ ngắn dùng capsule còn cụm/câu dài dùng bubble bo góc rộng hơn.
+  Thao tác kéo không kích hoạt hiệu ứng chạm và khi thả chỉ có một nhịp nảy nhẹ. Với Reduce Motion,
+  runtime bỏ bounce/sparkle và chỉ flash halo cùng nhãn từ. Nút `×` đóng màn, còn `Đặt lại` khôi
+  phục bố cục mặc định. Điều khiển và hướng dẫn chỉ là overlay gọn trên canvas. Sau mỗi lần thả,
+  vị trí chuẩn hóa và thứ tự chồng lớp của toàn bộ đồ vật được lưu local theo
+  `lessonId + sceneId + learningMode`; lần mở sau khôi phục các item vẫn còn hợp lệ, bỏ item đã
+  bị xóa khỏi content và dùng vị trí mặc định cho item mới. `Đặt lại` đồng thời xóa bố cục đã lưu
+  của đúng cảnh/chế độ hiện tại.
 - Mỗi scene node trên theme map dùng đúng bundled icon riêng của scene; icon milestone đại diện
   lesson không được dùng làm lý do thay scene icon bằng một fallback chung.
 - Mỗi milestone/review node cuối lesson dùng một bundled milestone icon riêng theo chủ đề bài học,
@@ -872,6 +901,13 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Scene object state chỉ sống trong lượt chạy scene hiện tại và reset khi replay hoặc chuyển scene.
   State này không persist qua scene/app session và current-step pointer hiện tại không khôi phục
   chính xác state trung gian.
+- `Góc chơi từ vựng` không chạy lại Scene State hoặc interaction đúng/sai. Visual của mỗi từ ưu
+  tiên object có `vocabId`, sau đó representative target của vocabulary step. Resolver mô phỏng
+  tuần tự các `successStateChanges` và `afterSuccessStateChanges` trước từng step để chọn asset,
+  position và variant đúng với lúc từ bắt đầu được dạy; cùng resolver này cung cấp visual cho các
+  review games. Từ không có visual renderable và từ dùng trùng object variant/asset với một lựa chọn
+  mạnh hơn sẽ không xuất hiện trong playground. Tâm authored của đúng variant là anchor cho
+  placement mặc định; collision fallback chỉ thay đổi vị trí sandbox, không sửa lesson data.
 - Step `intro`/`teach` highlight `targetObjectIds` ngay để bé nối instruction/từ mới với hình;
   highlight hướng dẫn ban đầu này không làm mờ các object khác. Step `practice`/`review` giữ đáp
   án trung tính lúc bắt đầu để bé có cơ hội tự nhớ; drag vẫn luôn hiển thị drop zone và affordance
@@ -1117,7 +1153,7 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
 
 ## 7. Local persistence, parent auth và cloud learning data
 
-App luôn dùng bảy AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
+App luôn dùng tám AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
 của learning progress và selected parent settings sau parent opt-in:
 
 ### Parent settings
@@ -1163,6 +1199,19 @@ của learning progress và selected parent settings sau parent opt-in:
   timestamp để một remote learning snapshot không xóa trang trí trên thiết bị.
 - Playground không hiện nhãn khi autosave đã hoàn tất; trạng thái chỉ xuất hiện tạm thời khi đang
   lưu hoặc khi lần lưu gần nhất gặp lỗi để giữ thanh chọn hình nền gọn trên màn hình hẹp.
+
+### Scene vocabulary playground layouts
+
+- Key: `@skidsenglish/scene-vocabulary-layouts/v1`.
+- Manager: `src/engine/SceneVocabularyLayoutStore.ts`.
+- Mỗi layout được tách theo `lessonId + sceneId + learningMode` và giữ danh sách
+  `itemId + normalized x/y + zIndex`; tọa độ chuẩn hóa giúp bố cục thích ứng với kích thước màn
+  hình khác nhau. Runtime chỉ ghi best-effort sau khi bé thả đồ vật, không ghi theo từng frame kéo.
+- Parser bỏ key/item malformed, clamp tọa độ và z-index, bỏ duplicate item ID, giới hạn 64 item mỗi
+  layout và 256 layout mới nhất. Các thao tác đọc/ghi/xóa dùng chung operation queue để hai lần thả
+  hoặc hai cảnh lưu sát nhau không ghi đè state của nhau.
+- Store này local-only, không nằm trong Firestore payload/fingerprint. Nút `Đặt lại` xóa riêng
+  layout hiện tại; thao tác xóa dữ liệu local của tài khoản phụ huynh xóa toàn bộ store.
 
 ### Cloud sync checkpoint
 
@@ -1246,14 +1295,15 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Apple account deletion flow gọi `revokeToken` trước `deleteUser` khi tài khoản có provider
   `apple.com`.
 - Sign-out confirmation có hai nhánh: đăng xuất và giữ local learning data trên thiết bị, hoặc đăng
-  xuất rồi xóa local settings/progress/daily activity/voice recordings/cloud-sync checkpoint. Nhánh
-  giữ local là mặc định để tránh mất tiến độ ngoài ý muốn.
+  xuất rồi xóa local settings, progress, daily activity, voice recordings, bố cục Góc chơi từ vựng
+  và cloud-sync checkpoint. Nhánh giữ local là mặc định để tránh mất tiến độ ngoài ý muốn.
 - Account deletion UI xóa `users/{uid}/progress/current` và `users/{uid}/settings/current` trước
   khi xóa Firebase Auth. Nếu cloud deletion thất bại, auth deletion dừng để tránh để lại document
   không còn owner đăng nhập. Sau khi xóa cloud data, RevenueCat customer và Firebase Auth thành
   công, app xóa các local stores `@skidsenglish/parent-settings/v1`, `@skidsenglish/progress/v1`,
   `@skidsenglish/daily-activity/v1`, `@skidsenglish/cloud-progress-sync-state/v1`, metadata/file
-  của `@skidsenglish/voice-recordings/v1` và hủy daily reminder local.
+  của `@skidsenglish/voice-recordings/v1`, `@skidsenglish/scene-vocabulary-layouts/v1` và hủy
+  daily reminder local.
 
 ### Crash reporting
 

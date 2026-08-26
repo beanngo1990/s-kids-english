@@ -11,3 +11,4 @@ export { StickerCollectionScreen } from './StickerCollectionScreen';
 export { StickerPlaygroundScreen } from './StickerPlaygroundScreen';
 export { ThemeLibraryScreen } from './ThemeLibraryScreen';
 export { ScenePlayerScreen } from './ScenePlayerScreen';
+export { SceneVocabularyPlaygroundScreen } from './SceneVocabularyPlaygroundScreen';

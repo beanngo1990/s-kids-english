@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Alert, Pressable, Text, View } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
@@ -26,6 +32,7 @@ import {
   type LocalProgress,
   type ProgressCompletionResult,
 } from '../engine/ProgressManager';
+import { hasSceneVocabularyVisuals } from '../engine/VocabularyVisualResolver';
 import {
   getLocalizedLessonSubtitle,
   getLocalizedLessonTitle,
@@ -74,7 +81,8 @@ export function LessonPackScreen({ navigation, route }: Props) {
   ).length;
   const nextScene =
     scenes.find(
-      scene => !isSceneProgressComplete(completedSceneIds, lesson?.id, scene.id),
+      scene =>
+        !isSceneProgressComplete(completedSceneIds, lesson?.id, scene.id),
     ) ?? scenes[0];
   const isPackComplete =
     scenes.length > 0 && completedSceneCount === scenes.length;
@@ -92,15 +100,15 @@ export function LessonPackScreen({ navigation, route }: Props) {
     lesson?.reviewGame?.type === 'listenAndChoose'
       ? t('reviewGame.listenAndChooseBadge')
       : lesson?.reviewGame?.type === 'matching'
-        ? t('reviewGame.matchingBadge')
-        : lesson?.reviewGame?.type === 'random'
-          ? t('reviewGame.randomBadge')
-          : t('lessonPack.playMemory');
+      ? t('reviewGame.matchingBadge')
+      : lesson?.reviewGame?.type === 'random'
+      ? t('reviewGame.randomBadge')
+      : t('lessonPack.playMemory');
   const primaryActionTitle = !isPackComplete
     ? t('lessonPack.continue')
     : shouldPlayReviewGame
-      ? reviewGameActionTitle
-      : t('lessonPack.claimSticker');
+    ? reviewGameActionTitle
+    : t('lessonPack.claimSticker');
 
   const difficultyOption = getLearningModeCopy(learningMode ?? 'core', t);
 
@@ -147,7 +155,12 @@ export function LessonPackScreen({ navigation, route }: Props) {
   }, [navigation]);
 
   const showPremiumAccessPrompt = useCallback(
-    (options?: Readonly<{ onClose?: () => void; replaceCurrentRoute?: boolean }>) => {
+    (
+      options?: Readonly<{
+        onClose?: () => void;
+        replaceCurrentRoute?: boolean;
+      }>,
+    ) => {
       if (!lesson) {
         return;
       }
@@ -168,7 +181,11 @@ export function LessonPackScreen({ navigation, route }: Props) {
         t('premium.kidLockedTitle'),
         t('premium.kidLockedText'),
         [
-          { onPress: options?.onClose, style: 'cancel', text: t('common.close') },
+          {
+            onPress: options?.onClose,
+            style: 'cancel',
+            text: t('common.close'),
+          },
           {
             onPress: () => {
               const params = {
@@ -193,11 +210,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
   );
 
   useEffect(() => {
-    if (
-      !lesson ||
-      isAccessGranted ||
-      hasShownAccessPromptRef.current
-    ) {
+    if (!lesson || isAccessGranted || hasShownAccessPromptRef.current) {
       return;
     }
 
@@ -236,6 +249,22 @@ export function LessonPackScreen({ navigation, route }: Props) {
       learningMode,
     );
     navigation.navigate('ScenePlayer', {
+      learningMode: activeLearningMode,
+      lessonId: lesson.id,
+      openedFromParent,
+      sceneId,
+    });
+  };
+
+  const openVocabularyPlayground = async (sceneId: string) => {
+    if (!lesson) {
+      return;
+    }
+
+    const activeLearningMode = await resolveLearningModePreference(
+      learningMode,
+    );
+    navigation.navigate('SceneVocabularyPlayground', {
       learningMode: activeLearningMode,
       lessonId: lesson.id,
       openedFromParent,
@@ -336,17 +365,11 @@ export function LessonPackScreen({ navigation, route }: Props) {
       ) : null}
 
       <AppCard
-        style={[
-          styles.headerCard,
-          openedFromParent && styles.headerCardParent,
-        ]}
+        style={[styles.headerCard, openedFromParent && styles.headerCardParent]}
       >
         <View style={styles.headerTopRow}>
           <View
-            style={[
-              styles.packIcon,
-              openedFromParent && styles.packIconParent,
-            ]}
+            style={[styles.packIcon, openedFromParent && styles.packIconParent]}
           >
             <SKidsIcon
               name={getLessonIconName(lesson)}
@@ -359,13 +382,15 @@ export function LessonPackScreen({ navigation, route }: Props) {
                 {hasCompletedLesson
                   ? t('lessonPack.rewardClaimed')
                   : shouldPlayReviewGame
-                    ? t('lessonPack.readyToReview')
-                    : isPackComplete
-                      ? t('lessonPack.scenesCompleted')
-                      : t('lessonPack.lessonPack')}
+                  ? t('lessonPack.readyToReview')
+                  : isPackComplete
+                  ? t('lessonPack.scenesCompleted')
+                  : t('lessonPack.lessonPack')}
               </KidBadge>
               <KidBadge tone="sky">
-                {t('lessonPack.difficulty', { difficulty: difficultyOption.title })}
+                {t('lessonPack.difficulty', {
+                  difficulty: difficultyOption.title,
+                })}
               </KidBadge>
             </View>
             <Text
@@ -383,9 +408,15 @@ export function LessonPackScreen({ navigation, route }: Props) {
           </View>
         </View>
         <View style={styles.headerProgress}>
-          <ProgressStars completed={completedSceneCount} total={scenes.length} />
+          <ProgressStars
+            completed={completedSceneCount}
+            total={scenes.length}
+          />
           <Text style={styles.progressText}>
-            {t('lessonPack.scenesLearned', { completed: String(completedSceneCount), total: String(scenes.length) })}
+            {t('lessonPack.scenesLearned', {
+              completed: String(completedSceneCount),
+              total: String(scenes.length),
+            })}
           </Text>
         </View>
       </AppCard>
@@ -401,12 +432,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
             !isPackComplete && !isCompleted && nextScene?.id === scene.id;
           const isUnlocked =
             journeyMode === 'free' ||
-            isSceneUnlocked(
-              scenes,
-              scene,
-              completedSceneIds,
-              lesson.id,
-            );
+            isSceneUnlocked(scenes, scene, completedSceneIds, lesson.id);
           const isLocked = !isUnlocked;
           const rewardStars = scene.completionReward?.stars ?? 3;
           const modeScene = getSceneForLearningMode(
@@ -415,102 +441,116 @@ export function LessonPackScreen({ navigation, route }: Props) {
           );
           const vocabularyText =
             modeScene.vocabulary?.map(item => item.word).join(' · ') ?? '';
+          const hasVocabularyPlayground = Boolean(
+            learningMode && hasSceneVocabularyVisuals(scene, learningMode),
+          );
 
           return (
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ disabled: false }}
-              key={scene.id}
-              onPress={() => openScene(scene.id)}
-              style={({ pressed }) => [
-                styles.scenePressable,
-                pressed && !isLocked && styles.pressed,
-              ]}
-            >
-              <AppCard
-                style={[
-                  styles.sceneCard,
-                  openedFromParent && styles.sceneCardParent,
-                  isCompleted && styles.sceneCardDone,
-                  isNext && styles.sceneCardNext,
-                  isLocked && styles.sceneCardLocked,
+            <View key={scene.id} style={styles.sceneEntry}>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ disabled: false }}
+                onPress={() => openScene(scene.id)}
+                style={({ pressed }) => [
+                  styles.scenePressable,
+                  pressed && !isLocked && styles.pressed,
                 ]}
               >
-                <View style={styles.sceneTopRow}>
-                  <KidBadge
-                    tone={isCompleted ? 'teal' : isNext ? 'coral' : 'sky'}
-                  >
-                    {t('lessonPack.station', { index: String(index + 1) })}
-                  </KidBadge>
-                  <View style={styles.sceneStars}>
-                    <Text
-                      style={[
-                        styles.sceneStatus,
-                        isCompleted && styles.sceneStatusDone,
-                        isNext && styles.sceneStatusNext,
-                      ]}
+                <AppCard
+                  style={[
+                    styles.sceneCard,
+                    openedFromParent && styles.sceneCardParent,
+                    isCompleted && styles.sceneCardDone,
+                    isNext && styles.sceneCardNext,
+                    isLocked && styles.sceneCardLocked,
+                  ]}
+                >
+                  <View style={styles.sceneTopRow}>
+                    <KidBadge
+                      tone={isCompleted ? 'teal' : isNext ? 'coral' : 'sky'}
                     >
-                      {isCompleted
-                        ? t('lessonPack.sceneStatusDone', { stars: String(rewardStars) })
-                        : isNext
+                      {t('lessonPack.station', { index: String(index + 1) })}
+                    </KidBadge>
+                    <View style={styles.sceneStars}>
+                      <Text
+                        style={[
+                          styles.sceneStatus,
+                          isCompleted && styles.sceneStatusDone,
+                          isNext && styles.sceneStatusNext,
+                        ]}
+                      >
+                        {isCompleted
+                          ? t('lessonPack.sceneStatusDone', {
+                              stars: String(rewardStars),
+                            })
+                          : isNext
                           ? t('lessonPack.continue')
                           : t('lessonPack.locked')}
-                    </Text>
-                  </View>
-                </View>
-
-                <View style={styles.sceneMainContent}>
-                  <View
-                    style={[
-                      styles.sceneIconContainer,
-                      openedFromParent && styles.sceneIconContainerParent,
-                      isLocked && styles.sceneIconContainerLocked,
-                    ]}
-                  >
-                    <SKidsIcon
-                      name={isLocked ? 'parentLock' : getSceneIconName(scene)}
-                      size={openedFromParent ? 48 : 64}
-                    />
-                  </View>
-                  <View style={styles.sceneTextContainer}>
-                    <Text
-                      numberOfLines={openedFromParent ? 2 : undefined}
-                      style={styles.sceneTitle}
-                    >
-                      {getLocalizedSceneTitle(scene, appLanguage)}
-                    </Text>
-                    <Text
-                      numberOfLines={openedFromParent ? 2 : undefined}
-                      style={styles.sceneSubtitle}
-                    >
-                      {getLocalizedSceneSubtitle(scene, appLanguage)}
-                    </Text>
-                    {vocabularyText ? (
-                      <Text
-                        numberOfLines={openedFromParent ? 1 : undefined}
-                        style={styles.vocabulary}
-                      >
-                        {vocabularyText}
                       </Text>
-                    ) : null}
+                    </View>
                   </View>
-                </View>
-                {isNext ? (
-                  <View style={styles.nextHintBubble}>
-                    <Text style={styles.nextHint}>
-                      {t('lessonPack.nextHint')}
-                    </Text>
+
+                  <View style={styles.sceneMainContent}>
+                    <View
+                      style={[
+                        styles.sceneIconContainer,
+                        openedFromParent && styles.sceneIconContainerParent,
+                        isLocked && styles.sceneIconContainerLocked,
+                      ]}
+                    >
+                      <SKidsIcon
+                        name={isLocked ? 'parentLock' : getSceneIconName(scene)}
+                        size={openedFromParent ? 48 : 64}
+                      />
+                    </View>
+                    <View style={styles.sceneTextContainer}>
+                      <Text
+                        numberOfLines={openedFromParent ? 2 : undefined}
+                        style={styles.sceneTitle}
+                      >
+                        {getLocalizedSceneTitle(scene, appLanguage)}
+                      </Text>
+                      <Text
+                        numberOfLines={openedFromParent ? 2 : undefined}
+                        style={styles.sceneSubtitle}
+                      >
+                        {getLocalizedSceneSubtitle(scene, appLanguage)}
+                      </Text>
+                      {vocabularyText ? (
+                        <Text
+                          numberOfLines={openedFromParent ? 1 : undefined}
+                          style={styles.vocabulary}
+                        >
+                          {vocabularyText}
+                        </Text>
+                      ) : null}
+                    </View>
                   </View>
-                ) : null}
-                {isLocked ? (
-                  <View style={styles.lockedHintBubble}>
-                    <Text style={styles.lockedHint}>
-                      {t('lessonPack.lockedHint')}
-                    </Text>
-                  </View>
-                ) : null}
-              </AppCard>
-            </Pressable>
+                  {isNext ? (
+                    <View style={styles.nextHintBubble}>
+                      <Text style={styles.nextHint}>
+                        {t('lessonPack.nextHint')}
+                      </Text>
+                    </View>
+                  ) : null}
+                  {isLocked ? (
+                    <View style={styles.lockedHintBubble}>
+                      <Text style={styles.lockedHint}>
+                        {t('lessonPack.lockedHint')}
+                      </Text>
+                    </View>
+                  ) : null}
+                </AppCard>
+              </Pressable>
+              {isCompleted && hasVocabularyPlayground ? (
+                <AppButton
+                  iconName="sticker"
+                  title={t('lessonPack.openVocabularyPlayground')}
+                  variant="outlined"
+                  onPress={() => openVocabularyPlayground(scene.id)}
+                />
+              ) : null}
+            </View>
           );
         })}
       </View>
@@ -533,9 +573,7 @@ export function LessonPackScreen({ navigation, route }: Props) {
             variant="secondary"
             onPress={async () =>
               navigation.navigate('ReviewGame', {
-                learningMode: await resolveLearningModePreference(
-                  learningMode,
-                ),
+                learningMode: await resolveLearningModePreference(learningMode),
                 lessonId: lesson.id,
                 openedFromParent,
               })
@@ -682,6 +720,9 @@ const styles = createThemedStyles(() => ({
   },
   sceneList: {
     gap: spacing.md,
+  },
+  sceneEntry: {
+    gap: spacing.sm,
   },
   scenePressable: {
     borderRadius: radius.xl,

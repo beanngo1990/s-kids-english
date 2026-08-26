@@ -19,11 +19,13 @@ export type KidRouteHeaderAction = 'back' | 'close';
 type KidHeaderActionButtonProps = {
   action: KidRouteHeaderAction;
   onPress: () => void;
+  testID?: string;
 };
 
 export function KidHeaderActionButton({
   action,
   onPress,
+  testID,
 }: KidHeaderActionButtonProps) {
   useThemeSync();
   const t = useI18n();
@@ -40,6 +42,7 @@ export function KidHeaderActionButton({
         styles.actionButton,
         pressed && styles.actionButtonPressed,
       ]}
+      testID={testID}
     >
       {action === 'back' ? (
         <View style={styles.backIcon} />

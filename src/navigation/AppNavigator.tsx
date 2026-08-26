@@ -20,6 +20,7 @@ import {
   ReviewGameScreen,
   ReviewLibraryScreen,
   ScenePlayerScreen,
+  SceneVocabularyPlaygroundScreen,
   StickerCollectionScreen,
   StickerPlaygroundScreen,
   ThemeLibraryScreen,
@@ -167,6 +168,11 @@ function AnimatedSplashMascot() {
           name="ScenePlayer"
           component={ScenePlayerScreen}
           options={{ headerShown: false, gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="SceneVocabularyPlayground"
+          component={SceneVocabularyPlaygroundScreen}
+          options={{ gestureEnabled: false, headerShown: false }}
         />
         <Stack.Screen
           name="ReviewGame"

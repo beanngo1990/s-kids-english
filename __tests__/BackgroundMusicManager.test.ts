@@ -87,6 +87,9 @@ afterEach(() => {
 test('suppresses background music on active learning routes', () => {
   expect(isBackgroundMusicSuppressedRoute('ScenePlayer')).toBe(true);
   expect(isBackgroundMusicSuppressedRoute('ReviewGame')).toBe(true);
+  expect(
+    isBackgroundMusicSuppressedRoute('SceneVocabularyPlayground'),
+  ).toBe(true);
   expect(isBackgroundMusicSuppressedRoute('LessonPack')).toBe(false);
 });
 

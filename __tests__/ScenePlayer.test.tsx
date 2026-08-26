@@ -10,7 +10,7 @@ import {
   speakVi,
   speakWord,
 } from '../src/engine/AudioManager';
-import { prefetchAssets } from '../src/engine/AssetRegistry';
+import { prefetchAssets, resolveAsset } from '../src/engine/AssetRegistry';
 import {
   prefetchRemoteAssets,
   prepareRemoteAssets,
@@ -166,6 +166,9 @@ const mockedSaveVoiceRecordingCandidate =
 const mockedPrefetchAssets = prefetchAssets as jest.MockedFunction<
   typeof prefetchAssets
 >;
+const mockedResolveAsset = resolveAsset as jest.MockedFunction<
+  typeof resolveAsset
+>;
 const mockedPrefetchRemoteAssets = prefetchRemoteAssets as jest.MockedFunction<
   typeof prefetchRemoteAssets
 >;
@@ -198,10 +201,105 @@ const listenScene: Scene = {
   titleVi: 'Lắng nghe',
 };
 
+const vocabularyPlaygroundScene: Scene = {
+  ...listenScene,
+  id: 'vocabulary-playground-scene',
+  objects: [
+    {
+      asset: {
+        id: 'bed',
+        source: 'bed',
+        type: 'image',
+      },
+      id: 'bed',
+      isInteractive: true,
+      position: { height: 20, width: 20, x: 20, y: 20 },
+      role: 'learning',
+      vocabId: 'vocab-bed',
+    },
+  ],
+  vocabulary: [
+    {
+      id: 'vocab-bed',
+      level: 'easy',
+      meaningVi: 'chiếc giường',
+      type: 'noun',
+      word: 'bed',
+    },
+  ],
+};
+
 test('HUD shows the selected mode and progress within the current scene', async () => {
   const tree = await renderScenePlayer(listenScene, 'challenge');
 
   expect(getTextValues(tree)).toContain('Khó · cảnh 1/1 · bước 1/1');
+});
+
+test('offers the vocabulary playground after completing a scene', async () => {
+  jest.useFakeTimers();
+  mockedResolveAsset.mockImplementation(source => ({
+    uri: `test://${source}`,
+  }));
+  const onOpenVocabularyPlayground = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SafeAreaProvider
+        initialMetrics={{
+          frame: { height: 800, width: 400, x: 0, y: 0 },
+          insets: { bottom: 0, left: 0, right: 0, top: 0 },
+        }}
+      >
+        <ScenePlayer
+          completeCurrentSceneOnly
+          onOpenVocabularyPlayground={onOpenVocabularyPlayground}
+          scene={vocabularyPlaygroundScene}
+        />
+      </SafeAreaProvider>,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const continueButton = tree?.root
+    .findAllByType(KidIconButton)
+    .find(node => node.props.accessibilityLabel === 'Tiếp tục');
+  expect(continueButton).toBeDefined();
+
+  await ReactTestRenderer.act(async () => {
+    continueButton?.props.onPress();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(121);
+    await flushPromises();
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(261);
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Giỏi quá!');
+
+  const playgroundButton = tree?.root
+    .findAllByType(AppButton)
+    .find(node => node.props.title === 'Chơi với từ');
+  expect(playgroundButton).toBeDefined();
+
+  ReactTestRenderer.act(() => {
+    playgroundButton?.props.onPress();
+  });
+  expect(onOpenVocabularyPlayground).toHaveBeenCalledWith(
+    vocabularyPlaygroundScene.id,
+  );
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+  jest.useRealTimers();
 });
 
 const teachListenScene: Scene = {
@@ -507,6 +605,8 @@ beforeEach(() => {
   mockedSaveVoiceRecordingCandidate.mockClear();
   mockedPrefetchAssets.mockReset();
   mockedPrefetchAssets.mockResolvedValue(true);
+  mockedResolveAsset.mockReset();
+  mockedResolveAsset.mockReturnValue(undefined);
   mockedPrefetchRemoteAssets.mockReset();
   mockedPrefetchRemoteAssets.mockResolvedValue(true);
   mockedPrepareRemoteAssets.mockReset();
@@ -2094,9 +2194,7 @@ test('enables the mic after the target word while the practice prompt is playing
   );
   const tree = await renderScenePlayer(teachListenScene);
 
-  expect(tree.root.findByType(SpeakPracticeControls).props.disabled).toBe(
-    true,
-  );
+  expect(tree.root.findByType(SpeakPracticeControls).props.disabled).toBe(true);
 
   await ReactTestRenderer.act(async () => {
     jest.advanceTimersByTime(101);

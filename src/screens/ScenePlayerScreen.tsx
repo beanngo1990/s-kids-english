@@ -214,6 +214,15 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
     });
   };
 
+  const handleOpenVocabularyPlayground = (sceneId: string) => {
+    navigation.navigate('SceneVocabularyPlayground', {
+      learningMode,
+      lessonId: lesson.id,
+      openedFromParent,
+      sceneId,
+    });
+  };
+
   const handleComplete = async () => {
     if (hasPlayableReviewGame(lesson.reviewGame)) {
       if (
@@ -261,6 +270,7 @@ export function ScenePlayerScreen({ navigation, route }: Props) {
         lessonId={route.params.lessonId}
         onComplete={handleComplete}
         onExit={handleExitToPack}
+        onOpenVocabularyPlayground={handleOpenVocabularyPlayground}
       />
     </Screen>
   );

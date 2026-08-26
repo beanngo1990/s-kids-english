@@ -23,7 +23,10 @@ import {
   getCloudProgressSyncState,
   saveCloudProgressSyncState,
 } from '../src/engine/CloudProgressSyncState';
-import { getActivityLog, recordActivity } from '../src/engine/DailyActivityTracker';
+import {
+  getActivityLog,
+  recordActivity,
+} from '../src/engine/DailyActivityTracker';
 import {
   defaultChildProfile,
   getParentSettings,
@@ -34,6 +37,10 @@ import {
   normalizeProgress,
   saveProgress,
 } from '../src/engine/ProgressManager';
+import {
+  loadSceneVocabularyLayout,
+  saveSceneVocabularyLayout,
+} from '../src/engine/SceneVocabularyLayoutStore';
 import { deleteLocalAccountData } from '../src/services/LocalAccountDataDeletion';
 import { NotificationService } from '../src/services/NotificationService';
 import {
@@ -99,6 +106,9 @@ describe('local account data deletion', () => {
       lastSyncedFingerprint: 'fingerprint-a',
       ownerUid: 'parent-a',
     });
+    await saveSceneVocabularyLayout('lesson-a', 'scene-a', 'core', [
+      { itemId: 'word-a', x: 0.72, y: 0.64, zIndex: 4 },
+    ]);
     await upsertVoiceRecordingSample({
       accent: 'en-US',
       createdAt: '2026-08-01T08:00:00.000Z',
@@ -137,6 +147,9 @@ describe('local account data deletion', () => {
       longestStreak: 0,
     });
     await expect(getCloudProgressSyncState()).resolves.toEqual({});
+    await expect(
+      loadSceneVocabularyLayout('lesson-a', 'scene-a', 'core'),
+    ).resolves.toEqual([]);
     await expect(getVoiceRecordingSamples()).resolves.toEqual([]);
     expect(mockClearLocalCloudSync).toHaveBeenCalledTimes(1);
     expect(mockCancelDailyReminder).toHaveBeenCalledTimes(1);

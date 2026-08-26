@@ -37,6 +37,7 @@ export const vi = {
   'nav.themeLibrary': 'Thư viện chủ đề',
   'nav.lessonList': 'Bài học',
   'nav.lessonPack': 'Gói bài học',
+  'nav.sceneVocabularyPlayground': 'Góc chơi từ vựng',
   'nav.reviewGame': 'Game ôn tập',
   'nav.reward': 'Phần thưởng',
   'nav.stickerCollection': 'Bộ sưu tập',
@@ -616,6 +617,19 @@ export const vi = {
   'scene.completion.tapReward': 'Sungy đang giữ sticker mới cho bé đây.',
   'scene.completion.tapContinue': 'Chạm nút màu vàng để tiếp tục nào!',
   'scene.completion.title': 'Giỏi quá!',
+  'scene.completion.vocabularyPlayground': 'Chơi với từ',
+
+  'sceneVocabularyPlayground.coach':
+    'Mình cùng chơi với những từ vừa học nhé!',
+  'sceneVocabularyPlayground.emptyVocabulary':
+    'Cảnh này chưa có từ vựng để chơi.',
+  'sceneVocabularyPlayground.hint':
+    'Chạm đồ vật để nghe · Kéo đồ vật để chơi',
+  'sceneVocabularyPlayground.notFound':
+    'Không tìm thấy góc chơi của cảnh này.',
+  'sceneVocabularyPlayground.reset': 'Đặt lại',
+
+  'lessonPack.openVocabularyPlayground': 'Chơi với từ',
   'scene.characterLabel': 'bé',
   'scene.continue': 'Tiếp tục',
   'scene.continueAccessibility': 'Tiếp tục',
@@ -752,6 +766,8 @@ export const vi = {
   'home.mapStop.actionAccessibility': '{position}: {action} {sceneTitle}',
   'home.mapStop.replayAction': 'Chơi lại',
   'home.mapStop.continueAction': 'Học tiếp',
+  'home.mapStop.vocabularyPlaygroundAccessibility':
+    'Ôn từ trong cảnh {sceneTitle}',
   'home.lessonMilestone.accessibility': 'Bài {title} đạt {stars} trên 3 sao',
   'lessonList.mapTitle': 'Bản đồ bài học',
   'lessonList.title': 'Hành trình tiếng Anh của bé',

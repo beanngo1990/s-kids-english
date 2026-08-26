@@ -2,6 +2,7 @@ import { clearLocalCloudProgressSyncData } from '../engine/CloudProgressSyncMana
 import { resetActivityLog } from '../engine/DailyActivityTracker';
 import { resetParentSettings } from '../engine/ParentSettingsManager';
 import { resetProgress } from '../engine/ProgressManager';
+import { clearAllSceneVocabularyLayouts } from '../engine/SceneVocabularyLayoutStore';
 import { clearVoiceRecordings } from '../engine/VoiceRecordingStore';
 import { NotificationService } from './NotificationService';
 
@@ -13,6 +14,7 @@ export async function deleteLocalAccountData(): Promise<void> {
     resetParentSettings(),
     resetProgress(),
     resetActivityLog(),
+    clearAllSceneVocabularyLayouts(),
     clearVoiceRecordingsForAccountDeletion(),
     cancelDailyReminderBestEffort(),
   ]);

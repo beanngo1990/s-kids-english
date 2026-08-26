@@ -106,6 +106,7 @@ import {
   resolveSceneObject,
   type SceneRuntimeState,
 } from './SceneState';
+import { hasSceneVocabularyVisuals } from './VocabularyVisualResolver';
 import {
   getParentSettings,
   subscribeParentSettings,
@@ -178,6 +179,7 @@ type ScenePlayerProps = {
   completeCurrentSceneOnly?: boolean;
   onExit?: () => void;
   onComplete?: () => void;
+  onOpenVocabularyPlayground?: (sceneId: string) => void;
 };
 
 function AnimatedLoadingMascot() {
@@ -411,6 +413,7 @@ export function ScenePlayer({
   completeCurrentSceneOnly = false,
   onExit,
   onComplete,
+  onOpenVocabularyPlayground,
 }: ScenePlayerProps) {
   useThemeSync();
   const appLanguage = useSavedAppLanguage();
@@ -1291,10 +1294,7 @@ export function ScenePlayer({
 
     runAudio(playTapSound());
     const finishGuidanceAudio = beginGuidanceAudio();
-    const targetWordAudioKey = getTargetWordAudioKey(
-      currentScene,
-      currentStep,
-    );
+    const targetWordAudioKey = getTargetWordAudioKey(currentScene, currentStep);
     playAudioForStep(currentScene, currentStep, teacherPromptMode, {
       onAudioFailure: () => {
         if (!canBypassMissingAudio) {
@@ -2057,6 +2057,19 @@ export function ScenePlayer({
     onComplete?.();
   };
 
+  const handleOpenVocabularyPlayground = () => {
+    if (
+      !sceneCompletion ||
+      !onOpenVocabularyPlayground ||
+      !hasSceneVocabularyVisuals(sceneCompletion.scene, learningMode)
+    ) {
+      return;
+    }
+
+    runAudio(playTapSound());
+    onOpenVocabularyPlayground(sceneCompletion.scene.id);
+  };
+
   return (
     <View
       style={[
@@ -2384,6 +2397,10 @@ export function ScenePlayer({
         : t('scene.completion.defaultMessage', {
             sceneTitle: completionSceneTitle,
           });
+    const canOpenVocabularyPlayground = Boolean(
+      onOpenVocabularyPlayground &&
+        hasSceneVocabularyVisuals(completion.scene, learningMode),
+    );
 
     return (
       <View style={styles.completionOverlay}>
@@ -2455,12 +2472,26 @@ export function ScenePlayer({
               title={primaryTitle}
               onPress={handleCompletionPrimaryAction}
             />
+            {canOpenVocabularyPlayground ? (
+              <AppButton
+                iconName="sticker"
+                iconSize={22}
+                title={t('scene.completion.vocabularyPlayground')}
+                variant="outlined"
+                onPress={handleOpenVocabularyPlayground}
+              />
+            ) : null}
             {!(completeCurrentSceneOnly && !hasNextScene) && (
               <AppButton
                 iconName={secondaryIcon}
                 iconSize={22}
                 title={secondaryTitle}
-                variant="secondary"
+                style={
+                  canOpenVocabularyPlayground
+                    ? styles.completionTertiaryAction
+                    : undefined
+                }
+                variant={canOpenVocabularyPlayground ? 'ghost' : 'secondary'}
                 onPress={handleCompletionSecondaryAction}
               />
             )}
@@ -3343,6 +3374,10 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     textAlign: 'center',
     ...typography.title,
+  },
+  completionTertiaryAction: {
+    minHeight: 44,
+    paddingVertical: spacing.xxs,
   },
   contentArea: {
     flex: 1,

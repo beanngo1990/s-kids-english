@@ -6,14 +6,17 @@ import React from 'react';
 import { Text } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 
+import { SKidsIcon } from '../src/components/SKidsIcon';
 import { lessons } from '../src/data/lessons';
 import { DEFAULT_THEME_ID } from '../src/data/themes';
 import { FREE_LESSON_IDS } from '../src/engine/ContentAccessPolicy';
+import { resetParentSettings } from '../src/engine/ParentSettingsManager';
 import {
   resetProgress,
   saveProgress,
   type LocalProgress,
 } from '../src/engine/ProgressManager';
+import { hasSceneVocabularyVisuals } from '../src/engine/VocabularyVisualResolver';
 import { HomeScreen } from '../src/screens/HomeScreen';
 import { OnboardingScreen } from '../src/screens/OnboardingScreen';
 import { createEmptyStickerPlaygroundState } from '../src/types/stickerPlayground';
@@ -30,6 +33,7 @@ jest.mock('../src/engine/MonetizationManager', () => {
 
 beforeEach(async () => {
   mockMonetizationStatus = 'free';
+  await resetParentSettings();
   await resetProgress();
 });
 
@@ -155,6 +159,81 @@ test('shows a progress-based Premium CTA after free lessons are complete', async
   });
 });
 
+test('completed map scene keeps replay and adds a direct vocabulary shortcut', async () => {
+  mockMonetizationStatus = 'premium';
+  const lesson = lessons.find(item =>
+    item.scenes.some(scene => hasSceneVocabularyVisuals(scene, 'core')),
+  );
+  const scene = lesson?.scenes.find(item =>
+    hasSceneVocabularyVisuals(item, 'core'),
+  );
+
+  expect(lesson).toBeDefined();
+  expect(scene).toBeDefined();
+  await saveProgress({
+    ...createCompletedFreeProgress(),
+    activeThemeId: lesson!.themeId,
+    completedLessonIds: [],
+    completedReviewGameIds: [],
+    completedSceneIds: [getSceneProgressId(lesson!.id, scene!.id)],
+  });
+  const navigate = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <HomeScreen
+        navigation={
+          {
+            addListener: jest.fn(() => jest.fn()),
+            navigate,
+          } as never
+        }
+        route={{ key: 'Home', name: 'Home' } as never}
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const shortcutLabel = `Ôn từ trong cảnh ${scene!.titleVi}`;
+  const shortcut = tree?.root.findByProps({
+    accessibilityLabel: shortcutLabel,
+  });
+  const replayAction = tree?.root
+    .findAll(
+      node =>
+        node.props.accessibilityRole === 'button' &&
+        typeof node.props.accessibilityLabel === 'string',
+    )
+    .find(node =>
+      node.props.accessibilityLabel.includes(`Chơi lại ${scene!.titleVi}`),
+    );
+
+  expect(shortcut).toBeDefined();
+  expect(replayAction).toBeDefined();
+  expect(
+    shortcut
+      ?.findAllByType(SKidsIcon)
+      .some(node => node.props.name === 'vocabularyReview'),
+  ).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    shortcut?.props.onPress();
+    await flushPromises();
+  });
+
+  expect(navigate).toHaveBeenCalledWith('SceneVocabularyPlayground', {
+    learningMode: 'core',
+    lessonId: lesson!.id,
+    sceneId: scene!.id,
+  });
+
+  await ReactTestRenderer.act(() => {
+    tree?.unmount();
+  });
+});
+
 test('renders parent onboarding before first use', async () => {
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
 
@@ -237,4 +316,9 @@ function flattenText(value: unknown): string {
   }
 
   return '';
+}
+
+async function flushPromises() {
+  await Promise.resolve();
+  await Promise.resolve();
 }

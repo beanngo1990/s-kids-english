@@ -15,6 +15,12 @@ export type RootStackParamList = {
     openedFromParent?: boolean;
     sceneId?: string;
   };
+  SceneVocabularyPlayground: {
+    lessonId: string;
+    learningMode?: LearningMode;
+    openedFromParent?: boolean;
+    sceneId: string;
+  };
   ReviewGame: {
     lessonId: string;
     learningMode?: LearningMode;
