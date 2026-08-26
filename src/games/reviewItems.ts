@@ -25,12 +25,59 @@ export type ReviewGameItem = {
   word: string;
 };
 
+export type LessonVocabularyVisual = Pick<
+  ReviewGameItem,
+  'imageSource' | 'visualId'
+>;
+
 const maxReviewItemCount = 6;
 
 export function getReviewGameItems(
   lesson: Lesson,
   learningMode: LearningMode,
 ): ReviewGameItem[] {
+  const { objectByVocabId, vocabularyById } = collectVocabularyContext(
+    lesson,
+    learningMode,
+  );
+  const vocabularyVisuals = createVocabularyVisuals(objectByVocabId);
+  const configuredIds = getConfiguredVocabularyIds(lesson.reviewGame?.config);
+  const maxItems = getReviewItemCount(lesson.reviewGame?.config, learningMode);
+  const availableItems = Array.from(vocabularyById.values())
+    .filter(item => isVocabularyLevelAvailable(item.level, learningMode))
+    .map(item => createReviewGameItem(item, vocabularyVisuals.get(item.id)))
+    .filter((item): item is ReviewGameItem => Boolean(item));
+  const availableItemsById = new Map(
+    availableItems.map(item => [item.id, item]),
+  );
+  const authoredItems = configuredIds
+    .map(vocabId => availableItemsById.get(vocabId))
+    .filter((item): item is ReviewGameItem => Boolean(item));
+  const authoredIds = new Set(authoredItems.map(item => item.id));
+  const supplementalItems = availableItems.filter(
+    item => !authoredIds.has(item.id),
+  );
+
+  return selectReviewItems(
+    authoredItems,
+    supplementalItems,
+    learningMode,
+    maxItems,
+  );
+}
+
+export function getLessonVocabularyVisuals(
+  lesson: Lesson,
+  learningMode: LearningMode,
+): Map<string, LessonVocabularyVisual> {
+  const { objectByVocabId } = collectVocabularyContext(lesson, learningMode);
+  return createVocabularyVisuals(objectByVocabId);
+}
+
+function collectVocabularyContext(
+  lesson: Lesson,
+  learningMode: LearningMode,
+) {
   const vocabularyById = new Map<string, VocabularyItem>();
   const objectByVocabId = new Map<string, SceneObject>();
 
@@ -66,29 +113,7 @@ export function getReviewGameItems(
       });
     });
 
-  const configuredIds = getConfiguredVocabularyIds(lesson.reviewGame?.config);
-  const maxItems = getReviewItemCount(lesson.reviewGame?.config, learningMode);
-  const availableItems = Array.from(vocabularyById.values())
-    .filter(item => isVocabularyLevelAvailable(item.level, learningMode))
-    .map(item => createReviewGameItem(item, objectByVocabId.get(item.id)))
-    .filter((item): item is ReviewGameItem => Boolean(item));
-  const availableItemsById = new Map(
-    availableItems.map(item => [item.id, item]),
-  );
-  const authoredItems = configuredIds
-    .map(vocabId => availableItemsById.get(vocabId))
-    .filter((item): item is ReviewGameItem => Boolean(item));
-  const authoredIds = new Set(authoredItems.map(item => item.id));
-  const supplementalItems = availableItems.filter(
-    item => !authoredIds.has(item.id),
-  );
-
-  return selectReviewItems(
-    authoredItems,
-    supplementalItems,
-    learningMode,
-    maxItems,
-  );
+  return { objectByVocabId, vocabularyById };
 }
 
 export function getReviewItemCount(
@@ -176,25 +201,35 @@ function getConfiguredVocabularyIds(
 
 function createReviewGameItem(
   vocabularyItem: VocabularyItem | undefined,
-  object: SceneObject | undefined,
+  visual: LessonVocabularyVisual | undefined,
 ) {
-  if (!vocabularyItem || !object) {
-    return undefined;
-  }
-
-  const imageSource = resolveAsset(object.asset.source);
-  if (!imageSource) {
+  if (!vocabularyItem || !visual) {
     return undefined;
   }
 
   return {
     id: vocabularyItem.id,
-    imageSource,
+    imageSource: visual.imageSource,
     level: vocabularyItem.level,
     meaningVi: vocabularyItem.meaningVi,
-    visualId: object.id,
+    visualId: visual.visualId,
     word: vocabularyItem.word,
   };
+}
+
+function createVocabularyVisuals(
+  objectByVocabId: Map<string, SceneObject>,
+) {
+  const visuals = new Map<string, LessonVocabularyVisual>();
+
+  objectByVocabId.forEach((object, vocabId) => {
+    const imageSource = resolveAsset(object.asset.source);
+    if (imageSource) {
+      visuals.set(vocabId, { imageSource, visualId: object.id });
+    }
+  });
+
+  return visuals;
 }
 
 function getRenderableObjects(scene: Scene) {

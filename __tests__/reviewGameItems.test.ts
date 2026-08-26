@@ -1,8 +1,10 @@
 import { bedtimeLesson } from '../src/data/lessons/bedtime';
 import { lessons } from '../src/data/lessons';
+import { playWithThePuppyLesson } from '../src/data/lessons/playWithThePuppy';
 import {
   getReviewGameItems,
   getReviewItemCount,
+  getLessonVocabularyVisuals,
 } from '../src/games/reviewItems';
 import { hasPlayableReviewGame } from '../src/games/GameRegistry';
 import type { Lesson } from '../src/types/lesson';
@@ -48,6 +50,22 @@ test('challenge review progresses from easy to medium and hard without duplicate
     'hard',
   ]);
   expect(new Set(reviewedItems.map(item => item.visualId)).size).toBe(6);
+});
+
+test('lesson vocabulary visuals reuse step targets when objects have no direct vocabId', () => {
+  const visuals = getLessonVocabularyVisuals(
+    playWithThePuppyLesson,
+    'challenge',
+  );
+  const playId =
+    'vocab-play-with-the-puppy-choose-the-ball-play';
+  const ballId =
+    'vocab-play-with-the-puppy-choose-the-ball-ball';
+
+  expect(visuals.get(playId)?.visualId).toBe('choose-the-ball-hero');
+  expect(visuals.get(ballId)?.visualId).toBe('choose-the-ball-red-ball');
+  expect(visuals.get(playId)?.imageSource).toBeDefined();
+  expect(visuals.get(ballId)?.imageSource).toBeDefined();
 });
 
 test('review items still respect learning mode scope when config includes later words', () => {

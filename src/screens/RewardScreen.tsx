@@ -23,14 +23,13 @@ import {
   type LocalProgress,
 } from '../engine/ProgressManager';
 import { playCompleteSound, playTapSound, speakVi, speakWord } from '../engine/AudioManager';
+import { getLessonVocabularyVisuals } from '../games/reviewItems';
 import {
   getKidLockAudioPrompt,
   type KidLockReason,
 } from '../data/kidLockAudioPrompts';
-import { resolveAsset } from '../engine/AssetRegistry';
 import { getLocalizedLessonTitle } from '../i18n/domainCopy';
 import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
-import type { SceneObject } from '../types/lesson';
 import { getNextScene } from '../utils/lessonProgress';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { useResponsiveLayout } from '../theme/responsive';
@@ -73,21 +72,14 @@ export function RewardScreen({ navigation, route }: Props) {
 
   const vocabImages = useMemo(() => {
     if (!lesson) {
-      return new Map<string, SceneObject>();
+      return new Map();
     }
-    const objectByVocabId = new Map<string, SceneObject>();
-    lesson.scenes.forEach(scene => {
-      const renderables = scene.character
-        ? [scene.character, ...scene.objects]
-        : scene.objects;
-      renderables.forEach(object => {
-        if (object.vocabId && !objectByVocabId.has(object.vocabId)) {
-          objectByVocabId.set(object.vocabId, object);
-        }
-      });
-    });
-    return objectByVocabId;
-  }, [lesson]);
+
+    return getLessonVocabularyVisuals(
+      lesson,
+      route.params.learningMode ?? 'core',
+    );
+  }, [lesson, route.params.learningMode]);
 
   const currentLessonIndex = lesson
     ? lessons.findIndex(l => l.id === lesson.id)
@@ -357,8 +349,7 @@ export function RewardScreen({ navigation, route }: Props) {
               </View>
               <View style={styles.wordList}>
                 {displayWords.map(item => {
-                  const obj = vocabImages.get(item.id);
-                  const imgSource = obj ? resolveAsset(obj.asset.source) : null;
+                  const imgSource = vocabImages.get(item.id)?.imageSource;
 
                   return (
                     <Pressable

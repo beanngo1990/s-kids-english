@@ -1,4 +1,5 @@
 import React from 'react';
+import { Image, Text } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 
 import { AppButton } from '../src/components/AppButton';
@@ -13,6 +14,7 @@ import {
   resetProgress,
   saveProgress,
 } from '../src/engine/ProgressManager';
+import { getReviewGameItems } from '../src/games/reviewItems';
 import { RewardScreen } from '../src/screens/RewardScreen';
 import { ReviewGameScreen } from '../src/screens/ReviewGameScreen';
 import { getSceneProgressId } from '../src/utils/lessonProgress';
@@ -226,6 +228,61 @@ test('new sticker reward offers collection and decoration shortcuts', async () =
   });
   expect(navigation.navigate).toHaveBeenCalledWith('StickerCollection', {
     highlightedStickerId: 'sticker-test',
+  });
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('Reward renders the same six vocabulary visuals used by the review game', async () => {
+  const lesson = lessons.find(item => item.id === 'play-with-the-puppy');
+  expect(lesson).toBeDefined();
+  if (!lesson) {
+    throw new Error('Play with the Puppy lesson is missing.');
+  }
+
+  const navigation = createNavigation();
+  const reviewItems = getReviewGameItems(lesson, 'challenge');
+  const words = reviewItems.map(item => item.word);
+  const playedWordIds = reviewItems.map(item => item.id);
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  expect(words).toEqual([
+    'play',
+    'ball',
+    'roll',
+    'catch',
+    'hold',
+    'your turn',
+  ]);
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <RewardScreen
+        navigation={navigation as never}
+        route={{
+          key: 'Reward',
+          name: 'Reward',
+          params: {
+            lessonId: lesson.id,
+            learningMode: 'challenge',
+            playedWordIds,
+            sourceScreen: 'ReviewGame',
+          },
+        }}
+      />,
+    );
+    await flushPromises();
+  });
+
+  words.forEach(word => {
+    const wordLabel = tree?.root
+      .findAllByType(Text)
+      .find(node => node.props.children === word);
+
+    expect(wordLabel).toBeDefined();
+    expect(wordLabel?.parent?.findAllByType(Image)).toHaveLength(1);
   });
 
   await ReactTestRenderer.act(async () => {
