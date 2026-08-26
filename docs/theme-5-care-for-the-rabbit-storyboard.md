@@ -3,8 +3,8 @@
 **Lesson ID:** `care-for-the-rabbit`  
 **Theme:** `nhung-nguoi-ban-dong-vat`  
 **Freeze date:** 2026-08-17  
-**Status:** Production baseline and audit revision 2026-08-25 assets/audio were published and
-R2-verified. Device QA remains.
+**Status:** Production baseline/audio audit và visual-consistency revision 2026-08-25 đã publish,
+R2-verify. Device QA chưa chạy.
 
 **Track:** `3-8 tuổi · Làm quen` (Foundation)
 
@@ -141,7 +141,8 @@ Executable pool tương ứng từng mode:
 
 ## 5. Visual and safety guardrails
 
-- **Nhân vật nhất quán:** Một chú thỏ trắng tai dài, mắt đen nhánh, mũi hồng nhỏ nhắn xuyên suốt cả 3 scene.
+- **Nhân vật nhất quán:** Một chú thỏ trắng tai dài, mắt nâu ấm, mũi hồng nhỏ, thân tròn và đuôi
+  bông xuyên suốt cả 3 scene; mọi pose dùng cùng phong cách hoạt hình 3D mềm.
 - **Bối cảnh:** Không gian góc phòng chăm thú cưng ấm áp, sạch sẽ, đồng bộ phong cách với các bài cún và mèo trong Theme 5.
 - **Đồ họa Cutout:** 
   - PNG master 1024x1024, nền transparent (alpha thật), không có viền đen, không có chữ hay caption dính trên ảnh.
@@ -153,7 +154,10 @@ Executable pool tương ứng từng mode:
 
 Production baseline đã có trên R2. Current audit cập nhật nghĩa trực tiếp cho `hutch`, `thirsty`,
 `gentle rabbit`, `long ears`, `fluffy fur`, `calm` và `the rabbit hops`, đồng thời bỏ suy diễn cảm
-xúc từ dáng nhảy. Audio delta đã publish và R2-verify; device QA chưa chạy.
+xúc từ dáng nhảy. Audio delta đã publish và R2-verify. Follow-up visual-consistency revision gom
+11/9/11 asset của ba scene vào ba sheet 4×3, khóa một thỏ trắng duy nhất và build/verify local
+37/37 image. R2 upload đúng 34 WebP đổi, verify đủ 637/637 lesson object, lỗi 0; post-upload
+dry-run còn `Changed/new: 0`. Device QA chưa chạy.
 
 ---
 

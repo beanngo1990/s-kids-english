@@ -6,6 +6,7 @@ import sharp from 'sharp';
 import { repoRoot, toMasterPath } from './config.mjs';
 
 const force = process.argv.includes('--force');
+const importArtifacts = process.argv.includes('--import-artifacts');
 const lessonId = 'groom-the-kitten';
 const sheetRoot = join(
   repoRoot,
@@ -20,7 +21,9 @@ const sharedBackgroundPath = join(
 
 mkdirSync(sheetRoot, { recursive: true });
 
-// Artifact sources
+// Import the legacy generation artifacts only when explicitly requested. The
+// production chroma sheets are otherwise the source of truth, including when
+// --force is used to rebuild their alpha sheets and cutouts.
 const artifactDir = '/Users/sangngo/.gemini/antigravity-ide/brain/bbacb931-9a54-4851-a39f-c63efb629450';
 const rawFiles = {
   scene1: join(artifactDir, 'kitten_scene1_sheet_1786955577458.jpg'),
@@ -45,7 +48,11 @@ const sheets = {
 
 for (const [key, artifactPath] of Object.entries(rawFiles)) {
   const destPath = sheets[key].sourcePath;
-  if (existsSync(artifactPath) && (!existsSync(destPath) || force)) {
+  if (
+    importArtifacts &&
+    existsSync(artifactPath) &&
+    (!existsSync(destPath) || force)
+  ) {
     const buffer = await sharp(artifactPath).png().toBuffer();
     writeFileSync(destPath, buffer);
   }
@@ -81,25 +88,25 @@ for (const sceneId of [
 
 // Scene 1: get-the-brush
 await cutObjects('get-the-brush', 'scene1', [
-  ['kitten-sitting-messy', [[0.58, 0.20]]],
-  ['kitten-sitting-calm', [[0.85, 0.20]]],
-  ['grooming-brush', [[0.18, 0.52]]],
-  ['sitting-mat', [[0.50, 0.52]]],
-  ['kitten-fur-closeup', [[0.18, 0.83]]],
-  ['fur-tangle-closeup', [[0.50, 0.83]]],
-  ['soft-kitten-fur', [[0.83, 0.83]]],
+  ['kitten-sitting-messy', 0],
+  ['kitten-sitting-calm', 1],
+  ['grooming-brush', 2],
+  ['sitting-mat', 3],
+  ['kitten-fur-closeup', 4],
+  ['fur-tangle-closeup', 5],
 ]);
 
 // Scene 2: brush-the-fur
 await cutObjects('brush-the-fur', 'scene2', [
-  ['kitten-being-brushed', [[0.61, 0.18]]],
-  ['kitten-smooth-fur', [[0.88, 0.18]]],
-  ['kitten-fluffy-neat', [[0.38, 0.50]]],
-  ['grooming-brush-active', [[0.62, 0.50]]],
-  ['stroke-fur-action', [[0.85, 0.50]]],
-  ['gentle-brushing-cue', [[0.13, 0.83]]],
-  ['brush-fur-action', [[0.38, 0.83]]],
-  ['brush-softly-cue', [[0.62, 0.83]]],
+  ['kitten-being-brushed', 0],
+  ['kitten-smooth-fur', 1],
+  ['kitten-fluffy-neat', 2],
+  ['grooming-brush-active', 3],
+  ['stroke-fur-action', 4],
+  ['gentle-brushing-cue', 5],
+  ['brush-fur-action', 6],
+  ['brush-softly-cue', 7],
+  ['kitten-shiny-coat', 8],
 ]);
 
 // Also ensure kitten-sitting-calm is present in scene 2 if referenced
@@ -110,15 +117,15 @@ if (calmKittenBuf) {
 
 // Scene 3: kitten-purrs
 await cutObjects('kitten-purrs', 'scene3', [
-  ['kitten-content', [[0.38, 0.18]]],
-  ['kitten-purring-hearts', [[0.62, 0.18]]],
-  ['kitten-happy-smile', [[0.88, 0.18]]],
-  ['kitten-cozy-curled', [[0.38, 0.50]]],
-  ['kitten-loved-peaceful', [[0.62, 0.50]]],
-  ['kitten-tail-closeup', [[0.86, 0.50]]],
-  ['snuggle-action-cue', [[0.16, 0.85]]],
-  ['listen-purr-cue', [[0.62, 0.83]]],
-  ['sweet-purr-soundwave', [[0.88, 0.83]]],
+  ['kitten-content', 0],
+  ['kitten-purring-hearts', 1],
+  ['kitten-happy-smile', 2],
+  ['kitten-cozy-curled', 3],
+  ['kitten-loved-peaceful', 4],
+  ['kitten-tail-closeup', 5],
+  ['snuggle-action-cue', 6],
+  ['listen-purr-cue', 7],
+  ['sweet-purr-soundwave', 8],
 ]);
 
 await generateMapIcons();
@@ -207,12 +214,86 @@ async function removeChromaMagenta(sourcePath, targetPath) {
 }
 
 async function cutObjects(sceneId, sheetId, specs) {
-  for (const [assetName, seeds] of specs) {
-    const buffer = await extractSeededComponents(sheetId, seeds);
+  for (const [assetName, cellOrSeeds] of specs) {
+    const buffer = typeof cellOrSeeds === 'number'
+      ? await extractCellComponents(sheetId, cellOrSeeds)
+      : await extractSeededComponents(sheetId, cellOrSeeds);
     await assertSafeCutout(buffer, sceneId, assetName);
     masterBuffers.set(`${sceneId}/${assetName}`, buffer);
     await writeMaster(sceneId, assetName, buffer);
   }
+}
+
+async function extractCellComponents(sheetId, cellIndex) {
+  const sheet = await loadSheet(sheetId);
+  const columns = 4;
+  const rows = 3;
+  const col = cellIndex % columns;
+  const row = Math.floor(cellIndex / columns);
+  const minCellX = (col / columns) * sheet.info.width;
+  const maxCellX = ((col + 1) / columns) * sheet.info.width;
+  const minCellY = (row / rows) * sheet.info.height;
+  const maxCellY = ((row + 1) / rows) * sheet.info.height;
+
+  const meaningful = [];
+  for (const component of sheet.components) {
+    if (component.size < 50) continue;
+    const centerX = (component.minX + component.maxX) / 2;
+    const centerY = (component.minY + component.maxY) / 2;
+    if (
+      centerX >= minCellX - 10 &&
+      centerX <= maxCellX + 10 &&
+      centerY >= minCellY - 10 &&
+      centerY <= maxCellY + 10
+    ) {
+      meaningful.push(component.id);
+    }
+  }
+
+  if (meaningful.length === 0) {
+    throw new Error(`No meaningful component in ${sheetId} cell ${cellIndex}`);
+  }
+
+  let minX = sheet.info.width;
+  let minY = sheet.info.height;
+  let maxX = 0;
+  let maxY = 0;
+  for (const id of meaningful) {
+    const component = sheet.components[id];
+    minX = Math.min(minX, component.minX);
+    minY = Math.min(minY, component.minY);
+    maxX = Math.max(maxX, component.maxX);
+    maxY = Math.max(maxY, component.maxY);
+  }
+
+  const rgba = Buffer.alloc(sheet.info.width * sheet.info.height * 4);
+  const selectedLabels = new Set(meaningful);
+  for (let index = 0; index < sheet.labels.length; index += 1) {
+    if (!selectedLabels.has(sheet.labels[index])) continue;
+    const sourceOffset = index * sheet.info.channels;
+    const targetOffset = index * 4;
+    rgba[targetOffset] = sheet.data[sourceOffset];
+    rgba[targetOffset + 1] = sheet.data[sourceOffset + 1];
+    rgba[targetOffset + 2] = sheet.data[sourceOffset + 2];
+    rgba[targetOffset + 3] = sheet.data[sourceOffset + 3];
+  }
+
+  const padding = 8;
+  const left = Math.max(0, minX - padding);
+  const top = Math.max(0, minY - padding);
+  const width = Math.min(sheet.info.width - left, maxX - minX + 1 + padding * 2);
+  const height = Math.min(sheet.info.height - top, maxY - minY + 1 + padding * 2);
+  const isolated = await sharp(rgba, {
+    raw: {
+      width: sheet.info.width,
+      height: sheet.info.height,
+      channels: 4,
+    },
+  })
+    .extract({ height, left, top, width })
+    .png()
+    .toBuffer();
+  return normalizeObject(isolated);
 }
 
 async function loadSheet(sheetId) {

@@ -140,6 +140,13 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   37 PNG master cùng bốn bundled icon; cutout audit pass. Google TTS đã tạo 512 clip; production
   audio audit có 14.791 target, missing 0 và invalid 0. R2 upload/verify đủ 549/549 object, lỗi 0;
   post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy.
+- **Published asset revision:** `care-for-the-rabbit` và `groom-the-kitten` đã khóa
+  lại character identity theo cùng phong cách hoạt hình 3D mềm của Theme 5. Sáu sheet 4×3 tạo
+  cùng lúc các pose/prop liên quan rồi crop theo cell tuần tự; bài thỏ dùng một thỏ trắng xuyên
+  suốt, bài mèo dùng đúng mèo cam vằn mắt nâu, vòng cổ xanh và chuông vàng của
+  `find-the-kitten`. Local cutout/audit/build/image verify đạt 37/37 và 28/28, 0 missing/orphan;
+  R2 upload đúng 34 + 25 WebP, verify đủ 637/637 và 768/768 lesson object, lỗi 0; post-upload
+  dry-run của cả hai còn `Changed/new: 0`. Device QA chưa chạy.
 - **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker collection, activity/streak, daily
   reminder, Sticker Playground, Light/Dark/System theme.
 - **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
@@ -507,8 +514,10 @@ và quan sát thỏ bật nhảy nhẹ quanh chỗ đứng (`hop`). Review trả
 `rabbit`/`hay`/`water`/`hop` + `hay rack` +
 `feed the rabbit`. Local asset pipeline có 37 PNG master, 37 WebP và bốn icon map/milestone;
 cutout audit pass. Google TTS đã tạo 495 clip; audio audit có 607 target, missing 0 và invalid 0.
-R2 upload/verify đủ 532/532 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Device QA chưa
-chạy.
+R2 upload/verify đủ 532/532 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Follow-up
+visual revision tạo ba sheet 4×3 với một character thỏ trắng duy nhất, tái tạo 37/37 local image;
+cutout audit, lesson audit và image verify đều pass, 0 missing/orphan. R2 upload đúng 34 WebP,
+verify đủ 637/637 object, lỗi 0 và post-upload dry-run còn `Changed/new: 0`; device QA chưa chạy.
 
 Storyboard `docs/theme-5-groom-the-kitten-storyboard.md` khóa lesson thứ sáu thành
 `get-the-brush` -> `brush-the-fur` -> `kitten-purrs`. Runtime author 9/18/27 vocabulary,
@@ -517,7 +526,11 @@ lông chuyên dụng, chải lông nhẹ nhàng xuôi chiều gỡ rối, đến
 nghỉ và phát tiếng gừ gừ (`purr`). Review trả 4/5/6 item `kitten`/`brush`/`smooth`/`purr` + `mat` +
 `brush the fur`. Local asset pipeline có 28 PNG master, 28 WebP và bốn icon map/milestone;
 cutout audit pass. Google TTS đã tạo 587 clip; audio audit có 610 target, missing 0 và invalid 0.
-R2 upload/verify đủ 615/615 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Device QA chưa
+R2 upload/verify đủ 615/615 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Follow-up
+visual revision tạo ba sheet 4×3 bằng đúng identity mèo cam vằn của `find-the-kitten`, đồng thời
+đưa `kitten-shiny-coat` vào cell thứ chín của sheet chải lông để loại hình phẳng mắt xanh cũ.
+Cutout audit, lesson audit và image verify local đạt 28/28, 0 missing/orphan. R2 upload đúng 25
+WebP, verify đủ 768/768 object, lỗi 0 và post-upload dry-run còn `Changed/new: 0`; device QA chưa
 chạy.
 
 Revision vocabulary ownership ngày 2026-08-25 giữ `happy` là New Anchor của `my-feelings` ở
@@ -1652,11 +1665,12 @@ Tại lần kiểm chứng gần nhất:
   `kitten-shiny-coat.webp` và audio en-US `shiny_coat_teach_success_77a8ad20.mp3` với HTTP 200,
   đúng content type và immutable cache headers.
 - Image audit/build/verify của các delta trực tiếp đạt: `help-it-grow` 39/39,
-  `feed-the-puppy` 37/37 và `groom-the-kitten` 28/28; cả ba đều 0 missing, 0 oversized. Các WebP
+  `feed-the-puppy` 37/37, visual revision `care-for-the-rabbit` 37/37 và `groom-the-kitten` 28/28;
+  tất cả đều 0 missing, 0 oversized; hai lesson visual revision cũng 0 orphan. Các WebP
   cũ không còn được tham chiếu vẫn được giữ local, không bị xóa trong audit này. Full image
   reference check có 1.241 asset và không thiếu ảnh. Generated manifest local cũng có đủ 1.241
-  entry ở revision `0022b69c41a30492`; `wag-action`, các installed-state asset và dedicated
-  `kitten-shiny-coat` đã upload/verify R2 trong revision hiện tại.
+  entry ở revision `ca34c03471b10985`. Visual revision thỏ/mèo đã upload 59 WebP; remote verify
+  đạt 637/637 và 768/768 lesson object, lỗi 0, còn post-upload delta bằng 0.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
 - Native build-only: iOS Simulator arm64 pass cho working tree trước đó. Android full
   `assembleDebug` pass ngày 2026-08-14 sau pacing revision `feed-the-puppy`. Store sandbox/physical-

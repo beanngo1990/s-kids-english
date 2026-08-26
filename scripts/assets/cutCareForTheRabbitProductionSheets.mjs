@@ -6,6 +6,7 @@ import sharp from 'sharp';
 import { repoRoot, toMasterPath } from './config.mjs';
 
 const force = process.argv.includes('--force');
+const importArtifacts = process.argv.includes('--import-artifacts');
 const lessonId = 'care-for-the-rabbit';
 const sheetRoot = join(
   repoRoot,
@@ -20,7 +21,9 @@ const backgroundPath = join(
 
 mkdirSync(sheetRoot, { recursive: true });
 
-// Copy artifacts if available
+// Import the legacy generation artifacts only when explicitly requested. The
+// production chroma sheets are otherwise the source of truth, including when
+// --force is used to rebuild their alpha sheets and cutouts.
 const artifactDir = '/Users/sangngo/.gemini/antigravity-ide/brain/bbacb931-9a54-4851-a39f-c63efb629450';
 const rawFiles = {
   hay: join(artifactDir, 'rabbit_scene1_sheet_1786939392000.jpg'),
@@ -45,7 +48,11 @@ const sheets = {
 
 for (const [key, artifactPath] of Object.entries(rawFiles)) {
   const destPath = sheets[key].sourcePath;
-  if (existsSync(artifactPath) && (!existsSync(destPath) || force)) {
+  if (
+    importArtifacts &&
+    existsSync(artifactPath) &&
+    (!existsSync(destPath) || force)
+  ) {
     const buffer = await sharp(artifactPath).png().toBuffer();
     writeFileSync(destPath, buffer);
   }

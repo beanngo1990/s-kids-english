@@ -6266,8 +6266,8 @@
       ],
       "maxPercent": 28,
       "output": "lessons/care-for-the-rabbit/fill-the-water/images/bowl-empty.webp",
-      "outputBytes": 23806,
-      "outputSha256": "c4f8886379b35bf190936389fbf24bb72864b46e3238edb81dd75133d2a1e209",
+      "outputBytes": 23794,
+      "outputSha256": "31f547a23acdbf268306fd238d783ea14af5053b9c04cd4ac85cdc4e9ab641b4",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6276,8 +6276,8 @@
         "fill-the-water"
       ],
       "source": "lessons/care-for-the-rabbit/fill-the-water/images/bowl-empty.png",
-      "sourceBytes": 462288,
-      "sourceSha256": "14b75a425e6d870efc023b324f1a81fe07309d36d48132811c10a7d8a56fb665",
+      "sourceBytes": 477436,
+      "sourceSha256": "e9c6ce771531e6d97f21734fea1d8d1847f942ffe34af492db5f8133723752be",
       "width": 768
     },
     {
@@ -6289,8 +6289,8 @@
       ],
       "maxPercent": 28,
       "output": "lessons/care-for-the-rabbit/fill-the-water/images/bowl-filled.webp",
-      "outputBytes": 24438,
-      "outputSha256": "920e0972452f5a80deb069bef66b47dfbb84a700de82a6df138b6d6e546cd3a7",
+      "outputBytes": 24666,
+      "outputSha256": "c6f5aa2ed12ae8c8ba50876e89165926cd796caf91dc44b3e1e73bf1078dd60b",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6299,8 +6299,8 @@
         "fill-the-water"
       ],
       "source": "lessons/care-for-the-rabbit/fill-the-water/images/bowl-filled.png",
-      "sourceBytes": 483915,
-      "sourceSha256": "a764c151d6af33c44668d0334ded3bb655cb966f651f29443ef51e5f45c237a8",
+      "sourceBytes": 494088,
+      "sourceSha256": "b4e8e49783dfd57e658b9f70c68051d13fa2630d5e08cf0d45f749acd461073b",
       "width": 768
     },
     {
@@ -6312,8 +6312,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/fill-the-water/images/clean-water-stream.webp",
-      "outputBytes": 27296,
-      "outputSha256": "54c6ac606dd57d26e68eda755d8c153bc8be878de60900ed8b536c56f3da0c98",
+      "outputBytes": 26790,
+      "outputSha256": "83913c40f38c5f0ba15d573bdec44093850182367963f068112d7af0770adbc5",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6322,8 +6322,8 @@
         "fill-the-water"
       ],
       "source": "lessons/care-for-the-rabbit/fill-the-water/images/clean-water-stream.png",
-      "sourceBytes": 370876,
-      "sourceSha256": "20ad1d2b5ad3285bfd4bcb1f9f6dae2d35b4f4cb3687de9385f78016e46c9da9",
+      "sourceBytes": 334948,
+      "sourceSha256": "d33b1397e140ec252aaad4aa41cb4553b1043262b332a75271138490948bb1f0",
       "width": 768
     },
     {
@@ -6335,8 +6335,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/fill-the-water/images/drink-water-action.webp",
-      "outputBytes": 32540,
-      "outputSha256": "4da6162f33ad1a0b9b9bac22ed74f40f572d1c2c0d176233f7f76e0a9306c328",
+      "outputBytes": 37798,
+      "outputSha256": "0643465c8ca4bec49450c7c7f026cd3322cc4d1601b0135ab1c29655b5b8bf6a",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6345,8 +6345,8 @@
         "fill-the-water"
       ],
       "source": "lessons/care-for-the-rabbit/fill-the-water/images/drink-water-action.png",
-      "sourceBytes": 672378,
-      "sourceSha256": "b56f67d5bfcb439d4cee9392b931cdab1adccc34713f0c444ed8001b46550808",
+      "sourceBytes": 697172,
+      "sourceSha256": "e40041bd289cc8c586238b71a22a516bf66a1b5c47fcf9c2c13392669996f7cd",
       "width": 768
     },
     {
@@ -6358,8 +6358,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/fill-the-water/images/put-bowl-down-action.webp",
-      "outputBytes": 30796,
-      "outputSha256": "955f35109c7478e20c92003530f8ce95f1304c1837c69efc844087741915aa4b",
+      "outputBytes": 31608,
+      "outputSha256": "8b210a0f0a8c2e96d5c525f9c54317a5e59b4a0ae5d5d08a4b535df1b77644a4",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6368,8 +6368,8 @@
         "fill-the-water"
       ],
       "source": "lessons/care-for-the-rabbit/fill-the-water/images/put-bowl-down-action.png",
-      "sourceBytes": 536280,
-      "sourceSha256": "faea344840de56365504d49f7f5ae01100e32db6af5ba6b5ae616eba0d2a0ce1",
+      "sourceBytes": 565578,
+      "sourceSha256": "505662474ae05785bb1dd9b8b9c9d42af1d07a78a34722b61d86a640c3af67ac",
       "width": 768
     },
     {
@@ -6381,8 +6381,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-drinking-water.webp",
-      "outputBytes": 55846,
-      "outputSha256": "ffd6dc232c5200a91ce9c87c19b7ed52478ae6213982ccc6a16ddf3e7ab22bb2",
+      "outputBytes": 44510,
+      "outputSha256": "945a2d3f6e8bba0448f782d707245de8dbee8c04e17577c5fac63ed62cefa3b2",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6391,8 +6391,8 @@
         "fill-the-water"
       ],
       "source": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-drinking-water.png",
-      "sourceBytes": 647599,
-      "sourceSha256": "334d0462223f9e805f021bc58a2a11c2b16fb3db1ffe64df28f8d1c26ad3a861",
+      "sourceBytes": 672631,
+      "sourceSha256": "e475041a28865d36474594fa4615b519bbc9941216fd104ee3559b40c2983e70",
       "width": 1024
     },
     {
@@ -6404,8 +6404,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-refreshed.webp",
-      "outputBytes": 38826,
-      "outputSha256": "08ce67fbe62dd0b4371b4e05dacd042fee92afa3884110e0ffd1a7729b2defb4",
+      "outputBytes": 39280,
+      "outputSha256": "06bd76dc7b562d4b8f619eb10d1b2d48b7d35a9c2203ad2f3ecb9981ab05c1f2",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6414,8 +6414,8 @@
         "fill-the-water"
       ],
       "source": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-refreshed.png",
-      "sourceBytes": 416771,
-      "sourceSha256": "b6fe24001b5eac49553951a56b81fa796f1efffff54e1e43a54e879e9a6d6335",
+      "sourceBytes": 476277,
+      "sourceSha256": "92f42dd4c6b65ebdda3ddec5ba5ebb62fe609fb17f9cea3ef1fb057b0b8abcf9",
       "width": 1024
     },
     {
@@ -6427,8 +6427,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-thirsty.webp",
-      "outputBytes": 47700,
-      "outputSha256": "5a53436a9a25de9395e5c0506c82cc8408560e09913b360086689d136561fc56",
+      "outputBytes": 38420,
+      "outputSha256": "7976cc7101b0280e5fbec23d9ac35405b93dd8069b57b08088b1b211b29f27d1",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6437,8 +6437,8 @@
         "fill-the-water"
       ],
       "source": "lessons/care-for-the-rabbit/fill-the-water/images/rabbit-thirsty.png",
-      "sourceBytes": 491782,
-      "sourceSha256": "330a9d66852747f6553e37a4063dcad11971f3fe5a606218344cdbb95b12fa2e",
+      "sourceBytes": 536636,
+      "sourceSha256": "63668650612d4fb7e83fc1ed546df718a96178a74c0872931302cee5d9551ee5",
       "width": 1024
     },
     {
@@ -6450,8 +6450,8 @@
       ],
       "maxPercent": 27,
       "output": "lessons/care-for-the-rabbit/fill-the-water/images/water-pitcher.webp",
-      "outputBytes": 39260,
-      "outputSha256": "ad99cb6c04e5072df9b98826e422f948c6943e169c2d6e020715cb6bca5d1843",
+      "outputBytes": 39664,
+      "outputSha256": "fce44ef97c8877856baeb69a9da32745fe39b1ec4126842e541c8a1417f042be",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6460,8 +6460,8 @@
         "fill-the-water"
       ],
       "source": "lessons/care-for-the-rabbit/fill-the-water/images/water-pitcher.png",
-      "sourceBytes": 684492,
-      "sourceSha256": "a032a748c0b3fc7949df7958d0f04a60f6ea15566aa54cbc698099180e0ce0f6",
+      "sourceBytes": 692412,
+      "sourceSha256": "7dc9e63f6dee113c4f084adfe6de9296b7f135e9299c2218b1d4b6161fff7774",
       "width": 768
     },
     {
@@ -6496,8 +6496,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/fill-hay-rack-action.webp",
-      "outputBytes": 44826,
-      "outputSha256": "ddf82743f0295f0f6e388c206d0bc72cc082e4b284d5385a3f3b70080f1d88fd",
+      "outputBytes": 62884,
+      "outputSha256": "49bcc7616b2ff0e3c05bf0649ec721ef41a234b0580111153d67243ffc5b9c19",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6506,8 +6506,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/fill-hay-rack-action.png",
-      "sourceBytes": 1107807,
-      "sourceSha256": "b14f9d5950851257c23a59de75b9118c1fb54cbee7a7e6bfae0e96d656ba162a",
+      "sourceBytes": 1182244,
+      "sourceSha256": "75e0011a84fdb38666d24e49da4d42336daef1d36c38d0c14278ecf17d009080",
       "width": 768
     },
     {
@@ -6519,8 +6519,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/fresh-hay-pile.webp",
-      "outputBytes": 53980,
-      "outputSha256": "e9f4c3b73fb02ed2b421d6a92a58266a941333156ed5468dd54a413e2d3767f8",
+      "outputBytes": 69922,
+      "outputSha256": "8cb53ba9f58d2d0b17c6b3a23d17195fd643562eff0b35c3de9a4d444be3a16f",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6529,8 +6529,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/fresh-hay-pile.png",
-      "sourceBytes": 777401,
-      "sourceSha256": "bb80ce49e332335cecbaa89bf5320468c80ab2995ae9ae57830b13ea36ade364",
+      "sourceBytes": 752551,
+      "sourceSha256": "1960e1eb48442ce89038866dd74926e96746a0727828457eb8157c8c39ab998e",
       "width": 768
     },
     {
@@ -6542,8 +6542,8 @@
       ],
       "maxPercent": 30,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-bundle.webp",
-      "outputBytes": 59312,
-      "outputSha256": "6013f146a8b60ce41b5a43c664b1cad8929def34e4c60227f56c00fb26b6f98f",
+      "outputBytes": 66492,
+      "outputSha256": "01aaf512b72f45b9bddd39b063e63935ac917d9ef1866a29ad1e2b14f0a22415",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6552,8 +6552,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-bundle.png",
-      "sourceBytes": 1016261,
-      "sourceSha256": "e30dde76c61d8059c0eacf5a883f7267307b058443be7a1dcdea971d2fdfc265",
+      "sourceBytes": 848607,
+      "sourceSha256": "9209c512e03b49f586f5b43feb82b9308b8ec9991b2720ab4c142f031b60e3d8",
       "width": 768
     },
     {
@@ -6565,8 +6565,8 @@
       ],
       "maxPercent": 25,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-rack-empty.webp",
-      "outputBytes": 25956,
-      "outputSha256": "8bd671fda402970fa94ebffb0cecfe3a2c74c11f9f42257032b3f49d4b7b64de",
+      "outputBytes": 38588,
+      "outputSha256": "3c96d6d5e323b6bcb7cff078082060b1edf39a3c6e2215ba18ab70afa0e53516",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6575,8 +6575,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-rack-empty.png",
-      "sourceBytes": 726654,
-      "sourceSha256": "ff5b88b4e25bb7515de7eef01eed8df1feb9fe6610aa162d004306c48fbb7fe3",
+      "sourceBytes": 724470,
+      "sourceSha256": "096fe1f370feffea4fd4c2b0a74b0b09361a6b2735d3f64ca4a515eda52fe08b",
       "width": 768
     },
     {
@@ -6588,8 +6588,8 @@
       ],
       "maxPercent": 25,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-rack-full.webp",
-      "outputBytes": 38534,
-      "outputSha256": "dbe263fc796a3177a177afd8f9792b9c819d2ef4b57c3b743f5fd71542a45f45",
+      "outputBytes": 55916,
+      "outputSha256": "2694ad7a8cc3f074c5ceb8eabcd5354f16170b7592c8b9d5483cfdea43d95d07",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6598,8 +6598,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/hay-rack-full.png",
-      "sourceBytes": 1106453,
-      "sourceSha256": "0ff8b7b83a7a360285b559a4aafdbaf828d2f611a0fc044cb4cfb50b4106e69b",
+      "sourceBytes": 1021180,
+      "sourceSha256": "e700fc2789225aa2ab23b85c81221cfd56e909b6b5b25f97d2e3ee34537c9331",
       "width": 768
     },
     {
@@ -6611,8 +6611,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-chewing-closeup.webp",
-      "outputBytes": 27078,
-      "outputSha256": "8df4a39cc20726f9048612d8acde55ba3992f734dfab05f4d70c6efb20075e70",
+      "outputBytes": 23646,
+      "outputSha256": "56dfe04b3d1a606f08f1c45a982635fabd5e6f02c5479c9dac8b00a1e92fe476",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6621,8 +6621,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-chewing-closeup.png",
-      "sourceBytes": 709913,
-      "sourceSha256": "5b6909e0d65202a31a92ce60db84d9ae3be35abfb2d5adaf8e7bf4eff4bd2128",
+      "sourceBytes": 706308,
+      "sourceSha256": "a4b01b930b1267c68a4e4ae54ed12823ac0da86494af5a97114eaafa3945680a",
       "width": 768
     },
     {
@@ -6634,8 +6634,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-chewing-hay.webp",
-      "outputBytes": 56090,
-      "outputSha256": "44ad4542effd37e112519324ced7b9f8921e3810f678c3ca8693f94ad0968d28",
+      "outputBytes": 44508,
+      "outputSha256": "174fa3554609fc1392dbc4f649f2f96bf8b498e7ba540d3fdef76bc41955e4dc",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6644,8 +6644,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-chewing-hay.png",
-      "sourceBytes": 685111,
-      "sourceSha256": "a09dbed25c293373034d0226c15b1248c694af437cb6bb9a72fad462bf7459c2",
+      "sourceBytes": 537604,
+      "sourceSha256": "c4dc3d2e319d7425e90146bb2706f2b85fddeb1117432c1dcc8730f1e18a964d",
       "width": 1024
     },
     {
@@ -6657,8 +6657,8 @@
       ],
       "maxPercent": 38,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-hutch.webp",
-      "outputBytes": 44392,
-      "outputSha256": "7f6ab4a63baedf9a2156bf5fdabddf1953c9b71b9b69a8e98c4dfa9103d7033f",
+      "outputBytes": 39726,
+      "outputSha256": "d7bbb16935f455b94cdb7982842a8df337d2882b41eff60becebdf29d369e35b",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6667,8 +6667,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-hutch.png",
-      "sourceBytes": 617639,
-      "sourceSha256": "feda1f13f3302edbcdfccedf65fa55cde4d2dcb2169b22a1e65ed734c8dbab48",
+      "sourceBytes": 787803,
+      "sourceSha256": "822014b8803f748dffb1995853c9578c049c583de0e71952e66e679ee533ba83",
       "width": 1024
     },
     {
@@ -6680,8 +6680,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-looking-rack.webp",
-      "outputBytes": 46044,
-      "outputSha256": "17bc243096ac7393876440ae317bdd283b528b2c33ccc05145eb7eb4c90d21a5",
+      "outputBytes": 42318,
+      "outputSha256": "084910bc87f92f2a5405d80fbadfddb1ef1bf6efc16ee691335d8a83992af451",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6690,8 +6690,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-looking-rack.png",
-      "sourceBytes": 581415,
-      "sourceSha256": "d74273497f0dc80748b54e34339a264fa08a9b958298bcc89ced03534a978760",
+      "sourceBytes": 533142,
+      "sourceSha256": "fa0f880b779c59e3a3ea56d23d2092fe74d5211342e2bfeb5160cd162d72b908",
       "width": 1024
     },
     {
@@ -6703,8 +6703,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-sitting.webp",
-      "outputBytes": 46132,
-      "outputSha256": "84f03c9dbd73954feda09cd207115cf8111310201d14005ad4e07e5bcb149de7",
+      "outputBytes": 42324,
+      "outputSha256": "02345fb0cbe36a622ae0a71a4828a1cc7a31519c01899a1bae1f2dc942220ea6",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6713,8 +6713,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-sitting.png",
-      "sourceBytes": 583116,
-      "sourceSha256": "5a6e584396e3fc34c373e40ab1f1d58b82f192d183a5f39f8106a37a3eb24205",
+      "sourceBytes": 550229,
+      "sourceSha256": "8a4b0860b14c0369e7e5a3cc07675bb10a81be6ed9c1a2aea87c208a3f615e92",
       "width": 1024
     },
     {
@@ -6726,8 +6726,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-standing-calm.webp",
-      "outputBytes": 43950,
-      "outputSha256": "239aa9a96822bbd724dc05fbfb1b87a4713b2e10ca9c5b20cddaf5177ea51f66",
+      "outputBytes": 48934,
+      "outputSha256": "1f19b961e74ca65888e1d9cd7dc7db235abb06a143b6166f8bea0bf8251954ec",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6736,8 +6736,8 @@
         "prepare-the-hay"
       ],
       "source": "lessons/care-for-the-rabbit/prepare-the-hay/images/rabbit-standing-calm.png",
-      "sourceBytes": 491514,
-      "sourceSha256": "0fd4b0f1d5e1a180f97682f67ebb48cb85369afbd7aef205ff92e6179c4d2a3e",
+      "sourceBytes": 586582,
+      "sourceSha256": "e6cddf3651529dd0a6ebb84406801187304c12f213c1dbf4a649728e6b7f5340",
       "width": 1024
     },
     {
@@ -6772,8 +6772,8 @@
       ],
       "maxPercent": 12,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-crumb.webp",
-      "outputBytes": 14204,
-      "outputSha256": "66109a52c0c95aacc1da840bfd9bd2e51f9add96719087865593540625a508ac",
+      "outputBytes": 18980,
+      "outputSha256": "c3fa584c966ae78f094d21325295e83afb23842f6c650761acbd80cda5dc9110",
       "profile": "objectSmall",
       "roles": [
         "object"
@@ -6782,8 +6782,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-crumb.png",
-      "sourceBytes": 300486,
-      "sourceSha256": "452a87fe696adcfa3d4baf6b3305dc37160d15ad657393e0fdf77767357241c4",
+      "sourceBytes": 549152,
+      "sourceSha256": "bcc0c3a5a349e82d9818f64704643e4bffc71ead3978ff218bd9ba29c9f95067",
       "width": 512
     },
     {
@@ -6795,8 +6795,8 @@
       ],
       "maxPercent": 22,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-offered.webp",
-      "outputBytes": 23516,
-      "outputSha256": "c2f808e57ee35cdc5bb628845051272fd2648d056fa3e6980116ced4eb301f2b",
+      "outputBytes": 29864,
+      "outputSha256": "28bc951ba9c12b76279666af7b68155d4588859b2e31455fd6f30c081e5a4ad9",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6805,8 +6805,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-offered.png",
-      "sourceBytes": 427678,
-      "sourceSha256": "4ee3f8c0c7a0af0c409a9bc0a8403a0f6d50e37d9f984d565339799615f823af",
+      "sourceBytes": 646986,
+      "sourceSha256": "b572d035a4a6435b1338fd4aa60c3f167a84c055515388770ecd2d5360e09b28",
       "width": 768
     },
     {
@@ -6818,8 +6818,8 @@
       ],
       "maxPercent": 26,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-slice.webp",
-      "outputBytes": 34488,
-      "outputSha256": "e34e804493469782a02e4ea3956810b87e8c80220b5d6f06f0d4cf6419b5840c",
+      "outputBytes": 31592,
+      "outputSha256": "0469cc7e35341c869b941c9a89b2989a82177dd42b5a6a4be4ccaad6270fcf90",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6828,8 +6828,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/carrot-slice.png",
-      "sourceBytes": 594872,
-      "sourceSha256": "c4b2aa5d12eca2536b9b15b2984fc7c02ffb35d92d7f3e108f5066cadbbc0b5d",
+      "sourceBytes": 573987,
+      "sourceSha256": "29eb330a25d9929bdff9ce64222145e0c4446bd3ded61265ca0f76179e5835b1",
       "width": 768
     },
     {
@@ -6841,8 +6841,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/feed-rabbit-action.webp",
-      "outputBytes": 35498,
-      "outputSha256": "aaaedc3a8e20bfc83a9132f106f8a60053b7abbb780b5daa1b02f2ea8dd8e87c",
+      "outputBytes": 35322,
+      "outputSha256": "c914747cf83b4beda305adfcb1cdc9143df16a636784652b4d44551745a52ff2",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6851,8 +6851,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/feed-rabbit-action.png",
-      "sourceBytes": 590286,
-      "sourceSha256": "043f67975796a883a90662fad9aeb4c149ca81102d75e16339d5ff119da35093",
+      "sourceBytes": 594615,
+      "sourceSha256": "20ba8fea1cf384dafe2c174fcbd9cd88e404618190546104f5a5751399daf240",
       "width": 768
     },
     {
@@ -6864,8 +6864,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/pet-rabbit-gently.webp",
-      "outputBytes": 30094,
-      "outputSha256": "54b607a59db9caa2852d1a2037886d73fb3e683b4c644c6707067d992316a0ea",
+      "outputBytes": 36052,
+      "outputSha256": "d56424666363e8c75554023fbf1b379e7990c5fb71fd0265b279a235c5a6d7d3",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6874,8 +6874,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/pet-rabbit-gently.png",
-      "sourceBytes": 562885,
-      "sourceSha256": "8da0cb0bda7608766a0edb176c75944ba2bec77eeb145cf611fbca0aa39a5c12",
+      "sourceBytes": 658151,
+      "sourceSha256": "f86b0c17a0dc0b1742b6c5220cc281ba3818883dc63217e7902734993deaff22",
       "width": 768
     },
     {
@@ -6887,8 +6887,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-curious.webp",
-      "outputBytes": 42946,
-      "outputSha256": "3a5d2e6194bd71d4dc29c91ffcb06f7409c2dc8ae80306e50b256e3503b794f5",
+      "outputBytes": 37152,
+      "outputSha256": "c5db999bd424779ecfbfdf9c2dfcde1d9b44f521c30c197c8385be47b6219689",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6897,8 +6897,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-curious.png",
-      "sourceBytes": 498122,
-      "sourceSha256": "79f4e6bc555f4f67fd753b42549d051176d85511ba012954b51da7652c461ac9",
+      "sourceBytes": 533899,
+      "sourceSha256": "b8b5ea86e77085cefe79bb16ebbe8ba863b14610fe5b36b0c8b2c4ea301a0602",
       "width": 1024
     },
     {
@@ -6910,8 +6910,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-ears-closeup.webp",
-      "outputBytes": 36612,
-      "outputSha256": "7d7586757d57f02a76357c3ac04dac1fee9c78148689ff9dd78dc299d070ad24",
+      "outputBytes": 38040,
+      "outputSha256": "d07619b64d2afac54559a62c66a0e1bad6d40e063ebf838ff615c93afbf19297",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6920,8 +6920,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-ears-closeup.png",
-      "sourceBytes": 662034,
-      "sourceSha256": "d11139cf66ec640898359fb3dadf1f7ddae8a6fada10bd46038363713593af19",
+      "sourceBytes": 662752,
+      "sourceSha256": "21084a40aff09e60951f7494a974b175e689fade725bcb233a00643bf6d0b01d",
       "width": 768
     },
     {
@@ -6933,8 +6933,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-happy.webp",
-      "outputBytes": 44028,
-      "outputSha256": "d32f3efa6543d728902feb97d8effd54d468d4b3d91190e48562b708a10959fc",
+      "outputBytes": 42248,
+      "outputSha256": "1c33c19182882048cc2c46ab27214923528e9feead827c342669ac9476612f1f",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6943,8 +6943,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-happy.png",
-      "sourceBytes": 529927,
-      "sourceSha256": "aca42bea01a8652225c4c289d73aa1f84991a88c797384339b9d7306653a7cd4",
+      "sourceBytes": 523508,
+      "sourceSha256": "7178210bfec83158558a9c38cf383375524df0eb6c308c19b4cb7e6577d42bb2",
       "width": 1024
     },
     {
@@ -6956,8 +6956,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-hop-action.webp",
-      "outputBytes": 50968,
-      "outputSha256": "f6e31560e6326eea61776541db83fd0291118839ea42ecd5bb438bb9e5c1b9fc",
+      "outputBytes": 43476,
+      "outputSha256": "52a489bf6cb2131143af7936eeb1cfc1e7113156f24cb60a6b5b24257aa37155",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -6966,8 +6966,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-hop-action.png",
-      "sourceBytes": 609595,
-      "sourceSha256": "2c25870a91403cddd1c508bcd8a31fbcf8ec2c381aab290ba39023018de61d36",
+      "sourceBytes": 637501,
+      "sourceSha256": "de78542b49f77c3afae0d294e775bed9efd1b0d2ebfb2b01de89cb6be948f3b9",
       "width": 768
     },
     {
@@ -6979,8 +6979,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-hopping-binky.webp",
-      "outputBytes": 67300,
-      "outputSha256": "1083cc12f6396086e4452c1861402ab912ee6043bdc298f6e3f0a7258aea5e0a",
+      "outputBytes": 55866,
+      "outputSha256": "2123032a7491c4ab1b30bce8f8d42db66806712d8a8fc5305b70d73845932298",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -6989,8 +6989,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-hopping-binky.png",
-      "sourceBytes": 609595,
-      "sourceSha256": "2c25870a91403cddd1c508bcd8a31fbcf8ec2c381aab290ba39023018de61d36",
+      "sourceBytes": 637501,
+      "sourceSha256": "de78542b49f77c3afae0d294e775bed9efd1b0d2ebfb2b01de89cb6be948f3b9",
       "width": 1024
     },
     {
@@ -7002,8 +7002,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-nibbling-carrot.webp",
-      "outputBytes": 46652,
-      "outputSha256": "6747dfa184d62f4d73a115a115e81a98c19c63286c5aa64a6e8a98aa50fdd063",
+      "outputBytes": 45440,
+      "outputSha256": "aaf4a6b72b96900d79d152da2a29cd657ac0bbf88586b684c63939a0da01cbc9",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -7012,8 +7012,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-nibbling-carrot.png",
-      "sourceBytes": 590286,
-      "sourceSha256": "043f67975796a883a90662fad9aeb4c149ca81102d75e16339d5ff119da35093",
+      "sourceBytes": 594615,
+      "sourceSha256": "20ba8fea1cf384dafe2c174fcbd9cd88e404618190546104f5a5751399daf240",
       "width": 1024
     },
     {
@@ -7025,8 +7025,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-pet-soft.webp",
-      "outputBytes": 39140,
-      "outputSha256": "5a0c7bf7c262a3d812a8691b49c3448925ed327cf25e83dfb732c6b25ba1afc8",
+      "outputBytes": 45992,
+      "outputSha256": "1eaa6f0161d7f9c9c7d2d33389400b6e7eb995fef95e077c0925749a2065fc7a",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -7035,8 +7035,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/rabbit-pet-soft.png",
-      "sourceBytes": 562885,
-      "sourceSha256": "8da0cb0bda7608766a0edb176c75944ba2bec77eeb145cf611fbca0aa39a5c12",
+      "sourceBytes": 658151,
+      "sourceSha256": "f86b0c17a0dc0b1742b6c5220cc281ba3818883dc63217e7902734993deaff22",
       "width": 1024
     },
     {
@@ -7048,8 +7048,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/soft-rabbit-fur.webp",
-      "outputBytes": 29436,
-      "outputSha256": "72571e3af2b224d142f8dd666dd756a211aa5c34d64e91a24a1d675eec5421a5",
+      "outputBytes": 39150,
+      "outputSha256": "8dd7f327fb875e0b3d8d32a059d4086109ce88e9a9f0bef1036cbb77e80f9c17",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -7058,8 +7058,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/soft-rabbit-fur.png",
-      "sourceBytes": 1121559,
-      "sourceSha256": "537b6699c677b34bbcb6d999996fc4b77d5829dd410336aed7fcb08b90655378",
+      "sourceBytes": 706749,
+      "sourceSha256": "210999a082d0eee9bc73e20e55ca2f365f15a899b3ec9d38263244f6eaa63369",
       "width": 768
     },
     {
@@ -7071,8 +7071,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/treat-plate.webp",
-      "outputBytes": 22356,
-      "outputSha256": "a74eeb198b52b3671184158da89a89163d1dd69da29df88dce3eb9337c70d344",
+      "outputBytes": 26698,
+      "outputSha256": "395eb6e23590fb4c9eb4aae4d0ce01498a1dba72e414d45409c6de09dfc65507",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -7081,8 +7081,8 @@
         "rabbit-snack-and-hop"
       ],
       "source": "lessons/care-for-the-rabbit/rabbit-snack-and-hop/images/treat-plate.png",
-      "sourceBytes": 345072,
-      "sourceSha256": "9b7b36a4a1f31e52ca9230505446e0d23694fcb78119ba028c439aa7392b1776",
+      "sourceBytes": 554824,
+      "sourceSha256": "1f538acf75478008f889857c4fdb0098331cca1daf0040d07b94bae4490ca616",
       "width": 768
     },
     {
@@ -15076,8 +15076,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/brush-fur-action.webp",
-      "outputBytes": 33318,
-      "outputSha256": "408e3973cc2c1e7326ae922fbaa812bfe2a02ece63fbaeb8d006d94d5409c0e9",
+      "outputBytes": 38650,
+      "outputSha256": "d982abaeec6af453536016d1c3bd52e62adc6ceef38f9ee0502fec86f434d7a4",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15086,8 +15086,8 @@
         "brush-the-fur"
       ],
       "source": "lessons/groom-the-kitten/brush-the-fur/images/brush-fur-action.png",
-      "sourceBytes": 639812,
-      "sourceSha256": "d8d7bf1023adaa1e0d9730f3a735db2feac10ad0ab37392c7cb5d63c416d45a3",
+      "sourceBytes": 1675756,
+      "sourceSha256": "a47e29fa328a3d8c6caf078066c75e46f0b2647e7902a48f962ca7607b8f9758",
       "width": 768
     },
     {
@@ -15099,8 +15099,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/brush-softly-cue.webp",
-      "outputBytes": 27660,
-      "outputSha256": "f02a0fd0399e647cafaafcecc5eaa0251862cb969ecb6039805c486887640df7",
+      "outputBytes": 37128,
+      "outputSha256": "06d29fc0c2d446c9498b8aa30bc5fe6283b8aab34d0cbdc0e04366b177c96025",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15109,8 +15109,8 @@
         "brush-the-fur"
       ],
       "source": "lessons/groom-the-kitten/brush-the-fur/images/brush-softly-cue.png",
-      "sourceBytes": 747853,
-      "sourceSha256": "63620278d83b5f61dad52629aae5f7ba6e071ab10eb70309134698f6a5f9d378",
+      "sourceBytes": 1607358,
+      "sourceSha256": "94db15fbdd2554bb61362f270ff634ecb3222b31f20b9d5ea9909696e0faa577",
       "width": 768
     },
     {
@@ -15122,8 +15122,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/gentle-brushing-cue.webp",
-      "outputBytes": 34272,
-      "outputSha256": "fca44d74dd301a36365a45f5a13d6bdff2f4cd01608627b13f35c9ed095eb8b8",
+      "outputBytes": 37102,
+      "outputSha256": "92cc43b34b84ee4971014bae5b7a3084a2e71a2d6cc8f8cbbf4a84cb7f5e1f3d",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15132,8 +15132,8 @@
         "brush-the-fur"
       ],
       "source": "lessons/groom-the-kitten/brush-the-fur/images/gentle-brushing-cue.png",
-      "sourceBytes": 802015,
-      "sourceSha256": "5f01a79cedb14228dd1317a7625e6eb8c6f0faf0e02856d037a156956e4e2dab",
+      "sourceBytes": 1556009,
+      "sourceSha256": "87773a2d78294563684014eb19ef2219be0a673ae9bc95cb1f86cebb663a8fce",
       "width": 768
     },
     {
@@ -15145,8 +15145,8 @@
       ],
       "maxPercent": 28,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/grooming-brush-active.webp",
-      "outputBytes": 35912,
-      "outputSha256": "0b90ea7aa20f25557ffbc8b321df54eed79277ddfaafae6c22e971fc9097512b",
+      "outputBytes": 39912,
+      "outputSha256": "1e5ebefd7948c93db68ed8b7bd2a2b6da34b2d386e2ed1ea6185003af641dfc5",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15155,8 +15155,8 @@
         "brush-the-fur"
       ],
       "source": "lessons/groom-the-kitten/brush-the-fur/images/grooming-brush-active.png",
-      "sourceBytes": 737220,
-      "sourceSha256": "783292b55cc2168c51d92bc6cc65ef181790e3a70b9237e9d970e60b13a47d9e",
+      "sourceBytes": 705343,
+      "sourceSha256": "6dc692aedae3bdf978167bb66e26455a0167ff13096b9c52fa499f9303233727",
       "width": 768
     },
     {
@@ -15168,8 +15168,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-being-brushed.webp",
-      "outputBytes": 68850,
-      "outputSha256": "e24eeaa5889cfef00825a00a764eac1586699a8ab8fac7e447e9ac2a61060b68",
+      "outputBytes": 74890,
+      "outputSha256": "c4d2855f0bd683dc9a1ea27116bae39b607e24a33717d3f3b95b3e8daeba4d82",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15178,8 +15178,8 @@
         "brush-the-fur"
       ],
       "source": "lessons/groom-the-kitten/brush-the-fur/images/kitten-being-brushed.png",
-      "sourceBytes": 1099734,
-      "sourceSha256": "4371c0189b8299303695e8d84289dbb86251c74c4d11de42c687c23d5bf9f5b4",
+      "sourceBytes": 987890,
+      "sourceSha256": "1a5f649761b9ad632d6ec1aa18cafbf5cbffdc801309bd92976a3e38b0fdb96f",
       "width": 1024
     },
     {
@@ -15191,8 +15191,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-fluffy-neat.webp",
-      "outputBytes": 67578,
-      "outputSha256": "6d6d53715c8726355f803daf32c2b2d0c7887b5c38ea4c9f8b2dbcd928643bdd",
+      "outputBytes": 71336,
+      "outputSha256": "b6e03545f26be314247ef25b633ba29c8e18c4ed02e972a6e393548b81fe7075",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15201,8 +15201,8 @@
         "brush-the-fur"
       ],
       "source": "lessons/groom-the-kitten/brush-the-fur/images/kitten-fluffy-neat.png",
-      "sourceBytes": 1109065,
-      "sourceSha256": "d2123abb785821416666c3e71202da6cb8e0de1497d05d0a6aa2afeda3bfc5fd",
+      "sourceBytes": 1033837,
+      "sourceSha256": "7a6b81dad3fd5fa42636dd10cdb01c377700ade25199af3fa218e0c102253ae9",
       "width": 1024
     },
     {
@@ -15214,8 +15214,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-shiny-coat.webp",
-      "outputBytes": 110796,
-      "outputSha256": "817737b4d0f94408f6a378f0b433f71f58fb75bb91634ce3fd1d42be58653cec",
+      "outputBytes": 74366,
+      "outputSha256": "92029691d4057b7a860d2e01632191b27e893563a0e35d81cf2051258aa81086",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15224,8 +15224,8 @@
         "brush-the-fur"
       ],
       "source": "lessons/groom-the-kitten/brush-the-fur/images/kitten-shiny-coat.png",
-      "sourceBytes": 1032896,
-      "sourceSha256": "4b02e0a03b9eed93fab10801674489f5581ecf55edd6df490bfe54b9d38f777d",
+      "sourceBytes": 1112383,
+      "sourceSha256": "ac5b7d29aa9935005a305ccb1f168c55cd64181b1d87215c8ec1c038cbd9da88",
       "width": 1024
     },
     {
@@ -15237,8 +15237,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-sitting-calm.webp",
-      "outputBytes": 47324,
-      "outputSha256": "c24566379c8b15a4dd09613a044817709577bc236df5a8467f093ebe675368f5",
+      "outputBytes": 69868,
+      "outputSha256": "059bb657d3ec17e521f75d8070ad7ea73a63faf3f36908df8f636715c1f8b4b1",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15247,8 +15247,8 @@
         "brush-the-fur"
       ],
       "source": "lessons/groom-the-kitten/brush-the-fur/images/kitten-sitting-calm.png",
-      "sourceBytes": 897666,
-      "sourceSha256": "45c26fb89bd032078b11466f284b33834ba486b7b5bbf4ba0e9f04b0255c8041",
+      "sourceBytes": 1047442,
+      "sourceSha256": "face829b9003e0465cdae1d3dbc6fcaef118e224d7ee68e387a8d1c85b7de785",
       "width": 1024
     },
     {
@@ -15260,8 +15260,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/kitten-smooth-fur.webp",
-      "outputBytes": 61484,
-      "outputSha256": "be8dd5a7e64f0ce4fc470de19ed5e906bd6c4c6de934efd26385ef038d755195",
+      "outputBytes": 71190,
+      "outputSha256": "dfd60e6d4ded3a49de07508a3e0e278b1b3526c3e29485236b42b8d72666af33",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15270,8 +15270,8 @@
         "brush-the-fur"
       ],
       "source": "lessons/groom-the-kitten/brush-the-fur/images/kitten-smooth-fur.png",
-      "sourceBytes": 993685,
-      "sourceSha256": "7c347a5419fdf8863908c979b243b02d372a35798dd28a3115688e032fad4c68",
+      "sourceBytes": 1065070,
+      "sourceSha256": "cfb30afc65266834dd6d4cd209a910574df05a4610d0f8cf9a61bbba3baf8199",
       "width": 1024
     },
     {
@@ -15283,8 +15283,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/groom-the-kitten/brush-the-fur/images/stroke-fur-action.webp",
-      "outputBytes": 28846,
-      "outputSha256": "577752ad7dc83e211e466910ee2f5d64af89f4d61a95b79d4c9578ceb6a48d1d",
+      "outputBytes": 36990,
+      "outputSha256": "2457b754d9fe2248d570a384d6b99735c4c540258cb31d9449e02d6ecc4a961b",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15293,8 +15293,8 @@
         "brush-the-fur"
       ],
       "source": "lessons/groom-the-kitten/brush-the-fur/images/stroke-fur-action.png",
-      "sourceBytes": 847823,
-      "sourceSha256": "4e2163276c2c56eff5fc99c0e37f48530f336e19ac0775ee4484cc3480889d59",
+      "sourceBytes": 1564980,
+      "sourceSha256": "5e9e410a4d11cd2b8b919d77a26f1f0f9f734a9e43fe12e63d85436a18805234",
       "width": 768
     },
     {
@@ -15329,8 +15329,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/groom-the-kitten/get-the-brush/images/fur-tangle-closeup.webp",
-      "outputBytes": 98710,
-      "outputSha256": "c2dd9bb420f7ce3e65786abb228918bf51a6e7afe780d05b1b3cc111e60102bb",
+      "outputBytes": 39256,
+      "outputSha256": "1bc593c7f5f4ab3e1eb352dec67b3017feb401a969dd6fa006c36e60fd367388",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15339,8 +15339,8 @@
         "get-the-brush"
       ],
       "source": "lessons/groom-the-kitten/get-the-brush/images/fur-tangle-closeup.png",
-      "sourceBytes": 1647102,
-      "sourceSha256": "b2d34b8666665bf321bc039e816eea0abafd4da197efdf1b4b0ee885c2747d17",
+      "sourceBytes": 1581302,
+      "sourceSha256": "cb287837a30b2cd4cf6d994e1382476bd74c89fa812e4e01b1d5cdad16af5e63",
       "width": 768
     },
     {
@@ -15352,8 +15352,8 @@
       ],
       "maxPercent": 28,
       "output": "lessons/groom-the-kitten/get-the-brush/images/grooming-brush.webp",
-      "outputBytes": 32360,
-      "outputSha256": "83b6d5cf66a83b3013a16bf1603c6a093e1c0a57cb64059355da64378d4d5f85",
+      "outputBytes": 38804,
+      "outputSha256": "86a740d21e448ef73adcd96dcfbb8d674da206e15bbc819b13ba6a9adf5ef18b",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15362,8 +15362,8 @@
         "get-the-brush"
       ],
       "source": "lessons/groom-the-kitten/get-the-brush/images/grooming-brush.png",
-      "sourceBytes": 609286,
-      "sourceSha256": "9bad248a1fa9ef089f2ee10cfabb5a4002351e92d9b2a553960189958f675acc",
+      "sourceBytes": 691678,
+      "sourceSha256": "e76f0b2ac34e3d06541821ba8ba842e913a617928ae849feaab92c3cfb004704",
       "width": 768
     },
     {
@@ -15375,8 +15375,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/groom-the-kitten/get-the-brush/images/kitten-fur-closeup.webp",
-      "outputBytes": 65592,
-      "outputSha256": "c05f00202ed809d7cc82a17db2adeec4b78feb96a6f3a168baabd7333c3bad70",
+      "outputBytes": 34442,
+      "outputSha256": "96ff6126dd926702cce66085f09124b203c3b6eeb606ddffd612ab5a2b8a4c12",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15385,8 +15385,8 @@
         "get-the-brush"
       ],
       "source": "lessons/groom-the-kitten/get-the-brush/images/kitten-fur-closeup.png",
-      "sourceBytes": 1703586,
-      "sourceSha256": "832a899fb0156a14225243357e5a18870fd7edf969c91651855a54169d23c4cd",
+      "sourceBytes": 1571465,
+      "sourceSha256": "5f9f67bd561222083f937ae2d32c4727e939f2948b9a27d301f8b11514105bf1",
       "width": 768
     },
     {
@@ -15398,8 +15398,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/get-the-brush/images/kitten-sitting-calm.webp",
-      "outputBytes": 47324,
-      "outputSha256": "c24566379c8b15a4dd09613a044817709577bc236df5a8467f093ebe675368f5",
+      "outputBytes": 69868,
+      "outputSha256": "059bb657d3ec17e521f75d8070ad7ea73a63faf3f36908df8f636715c1f8b4b1",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15408,8 +15408,8 @@
         "get-the-brush"
       ],
       "source": "lessons/groom-the-kitten/get-the-brush/images/kitten-sitting-calm.png",
-      "sourceBytes": 897666,
-      "sourceSha256": "45c26fb89bd032078b11466f284b33834ba486b7b5bbf4ba0e9f04b0255c8041",
+      "sourceBytes": 1047442,
+      "sourceSha256": "face829b9003e0465cdae1d3dbc6fcaef118e224d7ee68e387a8d1c85b7de785",
       "width": 1024
     },
     {
@@ -15421,8 +15421,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/get-the-brush/images/kitten-sitting-messy.webp",
-      "outputBytes": 70138,
-      "outputSha256": "3366153b837e2052e00872595dcb14f7154e7bdc359e19a83a0e47e2fa109a6b",
+      "outputBytes": 79744,
+      "outputSha256": "327d84425f159b7dd259f5b5da9498709e31d638726a4e9deadaeffdcf978c5c",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15431,8 +15431,8 @@
         "get-the-brush"
       ],
       "source": "lessons/groom-the-kitten/get-the-brush/images/kitten-sitting-messy.png",
-      "sourceBytes": 1164963,
-      "sourceSha256": "1b60516c6f3e197dd89260efb29c6edfceb42c02428f6c5a682d084dd8a1a399",
+      "sourceBytes": 1060478,
+      "sourceSha256": "96ac96b1d45ce708374eb84cd7d18041ea007e2a6056d165ad53ba06dbd1b8d6",
       "width": 1024
     },
     {
@@ -15444,8 +15444,8 @@
       ],
       "maxPercent": 50,
       "output": "lessons/groom-the-kitten/get-the-brush/images/sitting-mat.webp",
-      "outputBytes": 40112,
-      "outputSha256": "e6a9428708710d704a9176c35b562fb7231a6a84f21900189ac751ab619b8774",
+      "outputBytes": 65940,
+      "outputSha256": "d09361a80d31e570b0bd4cf7d93d724bc3e97914f6d072c8c3cf30a6d6b1b9bb",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15454,8 +15454,8 @@
         "get-the-brush"
       ],
       "source": "lessons/groom-the-kitten/get-the-brush/images/sitting-mat.png",
-      "sourceBytes": 566192,
-      "sourceSha256": "3e6bb28dfb3354b441d441d629979f41a0718d0c1a898e454453ecf8d643e2e2",
+      "sourceBytes": 1033323,
+      "sourceSha256": "d060c4953f1e06c2a327670e440209171d90351284fd93e3e76a44fd3465b3f8",
       "width": 1024
     },
     {
@@ -15490,8 +15490,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-content.webp",
-      "outputBytes": 46074,
-      "outputSha256": "d4da13322bf3ae2c50dae8fa98033b4a7e62d9f09b9bc2c500298887f0b721aa",
+      "outputBytes": 71872,
+      "outputSha256": "e3d5c6821eafbc0c4797566a45c24992ef5c7539ea6ad8a1245b76bffbcbd568",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15500,8 +15500,8 @@
         "kitten-purrs"
       ],
       "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-content.png",
-      "sourceBytes": 875937,
-      "sourceSha256": "ff5ad6dc8f2734c26cf5aa5773c28f3e019cc3013c48603d6d9cb9f2435868ea",
+      "sourceBytes": 1009766,
+      "sourceSha256": "a09f279a8a99cd594fb27354434abf0c05efab7bef46a66ea15b5f98da274928",
       "width": 1024
     },
     {
@@ -15513,8 +15513,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-cozy-curled.webp",
-      "outputBytes": 48854,
-      "outputSha256": "e29108c93f8eecc0d9ea1d16f968d0379b6d0b7c83037343f53e7ecdaa455a7c",
+      "outputBytes": 58438,
+      "outputSha256": "81ec7aaf22b973633a3f5b7343508a00e64fa1275d9be59eea7f27755aab62ee",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15523,8 +15523,8 @@
         "kitten-purrs"
       ],
       "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-cozy-curled.png",
-      "sourceBytes": 947496,
-      "sourceSha256": "2ce7786e0810bd0820bcdb4491e3417d7be82c9c78ffad66b2e8022d34367704",
+      "sourceBytes": 992926,
+      "sourceSha256": "f3f903ded77aa4408f58d7c29a76785dacbb7205dda2538e8c2981c16350f141",
       "width": 1024
     },
     {
@@ -15536,8 +15536,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-happy-smile.webp",
-      "outputBytes": 65278,
-      "outputSha256": "8eeddb4863865cdd105131059e042419e5ae41f4d64f275ae08bf3f3b5c133a3",
+      "outputBytes": 67708,
+      "outputSha256": "7d9b8da11e32a5732747c412dbdbc00609e330ec2cef325dfdd83e1ee404b5d1",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15546,8 +15546,8 @@
         "kitten-purrs"
       ],
       "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-happy-smile.png",
-      "sourceBytes": 1098589,
-      "sourceSha256": "1fabac4d36a8e9a092e2c7dec3da43e8fe897e96e73126aea96dc0d12a6dbd00",
+      "sourceBytes": 978428,
+      "sourceSha256": "ef9cfd50e8b4e5d32fd4de7a3eb9b7115242545d5b68b6d5b791113344ec0dbb",
       "width": 1024
     },
     {
@@ -15559,8 +15559,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-loved-peaceful.webp",
-      "outputBytes": 42436,
-      "outputSha256": "4fa7854a397a6b89104271b953754c4bea9f2ea0f3749b8d0ebbbe4a7eb0dacb",
+      "outputBytes": 64286,
+      "outputSha256": "84dbac6e8c60266134cb4354fc1afac0ff4ea92d270d03d3b42a571a062808c5",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15569,8 +15569,8 @@
         "kitten-purrs"
       ],
       "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-loved-peaceful.png",
-      "sourceBytes": 788487,
-      "sourceSha256": "6b0dc7da3fc93a9ca9444203f53ff8dd8bb925c3d81621d1621d7bda8c067345",
+      "sourceBytes": 1123116,
+      "sourceSha256": "e7ec27336e1c86c8acaccc4d9c93a692147cd11b949dbe7e02b29694e1968ee2",
       "width": 1024
     },
     {
@@ -15582,8 +15582,8 @@
       ],
       "maxPercent": 40,
       "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-purring-hearts.webp",
-      "outputBytes": 43812,
-      "outputSha256": "2cafb0e6fe63912a2e30771616a0c94ec3140af5443fc92489c95743ac985776",
+      "outputBytes": 71252,
+      "outputSha256": "594121d0144756bf1e89b20a4f4ccd000dee6e7a4d78856a771f7ac5ded9ecf3",
       "profile": "objectLarge",
       "roles": [
         "object"
@@ -15592,8 +15592,8 @@
         "kitten-purrs"
       ],
       "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-purring-hearts.png",
-      "sourceBytes": 1044158,
-      "sourceSha256": "fb3193ed25df9de2ad2bd587fb2e8f845d55a18156ce8c8daedd3e08d8c4d70f",
+      "sourceBytes": 1104117,
+      "sourceSha256": "0a84999671200e578bbb4121f20c292fc14c69af84d34bc0a2367bf2953f9bc9",
       "width": 1024
     },
     {
@@ -15605,8 +15605,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/groom-the-kitten/kitten-purrs/images/kitten-tail-closeup.webp",
-      "outputBytes": 39248,
-      "outputSha256": "ff211c223e3a93e0a0735a8a607616ecf6e9655a14316c8364c6a462cad4ef67",
+      "outputBytes": 47952,
+      "outputSha256": "1489c8633c3fe03e4c03084e9d88f71c23e5901ae2407ba074b4f2599362fa68",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15615,8 +15615,8 @@
         "kitten-purrs"
       ],
       "source": "lessons/groom-the-kitten/kitten-purrs/images/kitten-tail-closeup.png",
-      "sourceBytes": 823664,
-      "sourceSha256": "b342bb79202f43284858156289f3b282e83aafa4002cf0b98348555616a9945d",
+      "sourceBytes": 875541,
+      "sourceSha256": "86e1a2cb8b189fcb2a6eec0b20c26d58fb03ead6adfe18cdfb27f0a77490d1de",
       "width": 768
     },
     {
@@ -15628,8 +15628,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/groom-the-kitten/kitten-purrs/images/listen-purr-cue.webp",
-      "outputBytes": 32926,
-      "outputSha256": "7c67c94c3c8a6c015655e85e4e7e54bc4f3c3dc2dae8592083ef58bcb8dee8b0",
+      "outputBytes": 58796,
+      "outputSha256": "acd95c11da8d451236124d72791adf856d2dc6c358ef76fb7705827c0e5c722c",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15638,8 +15638,8 @@
         "kitten-purrs"
       ],
       "source": "lessons/groom-the-kitten/kitten-purrs/images/listen-purr-cue.png",
-      "sourceBytes": 703620,
-      "sourceSha256": "9ebbc8cd71c9a92a7b50ade6317c31de96900bc3b98b594b6985c51b43651ae5",
+      "sourceBytes": 1205621,
+      "sourceSha256": "f6d16545be7e3d1443a8693ab3eb84578e681538b3d288aca4f79fa8c5b3175f",
       "width": 768
     },
     {
@@ -15651,8 +15651,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/groom-the-kitten/kitten-purrs/images/snuggle-action-cue.webp",
-      "outputBytes": 42318,
-      "outputSha256": "491a8b2f0da3b973a3c9bd61914dfdd2db9f89894a79447a0602e5807f856d7a",
+      "outputBytes": 50082,
+      "outputSha256": "b1bdf5e774197a4b6555f96cfbd3c11741ad73468dad915c03e3c628181226dd",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15661,8 +15661,8 @@
         "kitten-purrs"
       ],
       "source": "lessons/groom-the-kitten/kitten-purrs/images/snuggle-action-cue.png",
-      "sourceBytes": 965702,
-      "sourceSha256": "82506fea8cf0190b738ec014a4fe5db27cbee7603d91d9faa7ddd8e203978584",
+      "sourceBytes": 1153224,
+      "sourceSha256": "557c697cb18288d5b51a0f959d6b48646781aa96ebcaf20e0d884d5bcb63a8f2",
       "width": 768
     },
     {
@@ -15674,8 +15674,8 @@
       ],
       "maxPercent": 29,
       "output": "lessons/groom-the-kitten/kitten-purrs/images/sweet-purr-soundwave.webp",
-      "outputBytes": 32190,
-      "outputSha256": "ed680e3af647a6302a7710d1991d0e0c5180a6938eb91f0376fc3d68ecc7c9d1",
+      "outputBytes": 40590,
+      "outputSha256": "a1b51570399da5fdc28f272a8c13fb7c9e49e7e9878c079b178e00b79455c46b",
       "profile": "objectMedium",
       "roles": [
         "object"
@@ -15684,8 +15684,8 @@
         "kitten-purrs"
       ],
       "source": "lessons/groom-the-kitten/kitten-purrs/images/sweet-purr-soundwave.png",
-      "sourceBytes": 368398,
-      "sourceSha256": "c5c4e80b3e332138442d6c4e2145453bfa32135ea7da2c7306067092623723d6",
+      "sourceBytes": 370360,
+      "sourceSha256": "79ba2de0747ec253b0d8ca56ebdd297b561a1eb6adeaae8a94f6059e2083f683",
       "width": 768
     },
     {
@@ -28547,7 +28547,7 @@
       "width": 512
     }
   ],
-  "generatedAt": "2026-08-25T11:34:59.669Z",
+  "generatedAt": "2026-08-25T15:11:00.745Z",
   "releaseVersion": "v1",
-  "revision": "0022b69c41a30492"
+  "revision": "ca34c03471b10985"
 }

@@ -220,6 +220,24 @@ light background so detached fragments remain easy to spot. The approved Theme
 4 garden background is reused for all three scenes. These commands do not create
 audio, WebP release outputs, or contact R2.
 
+`care-for-the-rabbit` and `groom-the-kitten` use one 4x3 chroma sheet per scene. Generate related
+poses and props together so every scene shares a locked character identity, then crop by stable
+row-major cell index:
+
+```bash
+npm run assets:cut-care-for-the-rabbit-production -- --force
+npm run assets:verify-care-for-the-rabbit-cutouts
+npm run assets:cut-groom-the-kitten-production -- --force
+npm run assets:verify-groom-the-kitten-cutouts
+```
+
+The rabbit sheets contain 11/9/11 populated cells. The kitten sheets contain 7/9/9 populated
+cells; `kitten-shiny-coat` is cell 9 of the grooming sheet so it cannot drift to a different
+render style or character identity. `--force` rebuilds alpha sheets, PNG masters and bundled map
+icons from the current chroma sheets. It does not replace those sheets from legacy IDE artifacts;
+that import is available only through the explicit `--import-artifacts` flag. Continue with the
+normal lesson audit/build/verify commands. These cutters do not generate audio or contact R2.
+
 The generated `src/assets/asset-manifest.json` records source and output hashes,
 dimensions, selected profile, alpha information, and the global image revision.
 `src/config/generatedAssetRelease.ts` exposes that revision to React Native.

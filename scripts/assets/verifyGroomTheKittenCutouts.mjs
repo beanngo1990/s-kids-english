@@ -18,7 +18,6 @@ const expectedAssets = {
     'sitting-mat',
     'kitten-fur-closeup',
     'fur-tangle-closeup',
-    'soft-kitten-fur',
   ],
   'brush-the-fur': [
     'background',
@@ -31,6 +30,7 @@ const expectedAssets = {
     'gentle-brushing-cue',
     'brush-fur-action',
     'brush-softly-cue',
+    'kitten-shiny-coat',
   ],
   'kitten-purrs': [
     'background',

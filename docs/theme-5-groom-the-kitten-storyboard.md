@@ -8,8 +8,8 @@
 **Speech rhythm:** 9 auto-micro (Core) / 12 (Expanded) / 15 (Challenge)  
 **Review items:** `kitten`, `brush`, `smooth`, `purr`, `mat`, `brush the fur`
 
-**Status:** Production baseline and audit revision 2026-08-25 assets/audio were published and
-R2-verified. Device QA remains.
+**Status:** Production baseline/audio audit và visual-consistency revision 2026-08-25 đã publish,
+R2-verify. Device QA chưa chạy.
 
 ---
 
@@ -102,5 +102,10 @@ R2-verified. Device QA remains.
 - `curled tail` và `listen to the kitten purr`: dùng cue trực tiếp cho dáng đuôi và hành động nghe.
 
 Các mapping/copy trên thuộc current audit đã publish. Local image build/verify đạt 28/28; dedicated
-`kitten-shiny-coat` cùng audio delta đã upload và R2-verify trong full-corpus run. Device QA vẫn
-cần hoàn tất trước khi freeze revision.
+`kitten-shiny-coat` của production baseline cùng audio delta đã upload và R2-verify trong
+full-corpus run. Follow-up visual-consistency revision thay toàn bộ ba scene bằng một mèo cam vằn
+duy nhất—mõm/ngực/chân/chóp đuôi trắng, mắt nâu ấm, vòng cổ xanh và chuông vàng—trên ba sheet
+4×3. `kitten-shiny-coat` mới nằm ngay trong sheet scene 2 thay cho hình phẳng mắt xanh cũ. Cutout,
+lesson audit và local image verify đều đạt 28/28. R2 upload đúng 25 WebP đổi, verify đủ 768/768
+lesson object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Device QA vẫn cần hoàn tất trước
+khi freeze revision.
