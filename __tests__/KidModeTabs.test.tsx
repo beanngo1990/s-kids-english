@@ -4,6 +4,7 @@ import ReactTestRenderer from 'react-test-renderer';
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 
 import { KidModeTabs } from '../src/components/KidModeTabs';
+import { KidPressable } from '../src/components/KidPressable';
 import { spacing } from '../src/theme/spacing';
 
 test('stays above the system navigation area supplied by its parent screen', async () => {
@@ -27,6 +28,11 @@ test('stays above the system navigation area supplied by its parent screen', asy
   const footerStyle = StyleSheet.flatten(footer?.props.style);
 
   expect(footerStyle?.bottom).toBe(spacing.xs);
+  expect(
+    tree?.root
+      .findAllByType(KidPressable)
+      .every(tab => tab.props.useNativeDriver === false),
+  ).toBe(true);
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();

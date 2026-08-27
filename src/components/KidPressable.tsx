@@ -24,6 +24,7 @@ type KidPressableProps = Omit<
   reducedMotion: boolean;
   style?: StyleProp<ViewStyle>;
   throttleMs?: number;
+  useNativeDriver?: boolean;
 };
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
@@ -51,6 +52,7 @@ export function KidPressable({
   reducedMotion,
   style,
   throttleMs = DEFAULT_THROTTLE_MS,
+  useNativeDriver = true,
   ...pressableProps
 }: KidPressableProps) {
   const pressProgress = useRef(new Animated.Value(0)).current;
@@ -101,10 +103,10 @@ export function KidPressable({
             ? Easing.out(Easing.quad)
             : Easing.out(Easing.back(1.3)),
         toValue,
-        useNativeDriver: true,
+        useNativeDriver,
       }).start();
     },
-    [pressProgress, reducedMotion],
+    [pressProgress, reducedMotion, useNativeDriver],
   );
 
   useEffect(() => {

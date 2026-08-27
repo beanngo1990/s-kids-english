@@ -18,6 +18,10 @@ type KidModeTabsProps = {
   onSelectPlay: () => void;
 };
 
+// Android Fabric can assert when native-driven opacity/transform updates overlap
+// the React commit that moves the active styling between tabs.
+const TAB_ANIMATION_USES_NATIVE_DRIVER = false;
+
 // Moved into component to use t()
 const getTabs = (t: (key: any) => string): Array<{
   accessibilityLabel: string;
@@ -66,7 +70,10 @@ export function KidModeTabs({
       return;
     }
 
-    createBounceAnimation(activeIconScale).start();
+    createBounceAnimation(
+      activeIconScale,
+      TAB_ANIMATION_USES_NATIVE_DRIVER,
+    ).start();
   }, [activeIconScale, activeTab, reducedMotion]);
 
   useEffect(() => {
@@ -98,6 +105,7 @@ export function KidModeTabs({
                 styles.tab,
                 isActive && styles.tabActive,
               ]}
+              useNativeDriver={TAB_ANIMATION_USES_NATIVE_DRIVER}
             >
               <Animated.View
                 style={[

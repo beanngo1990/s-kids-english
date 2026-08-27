@@ -23,7 +23,10 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { type SKidsIconName } from '../assets/icons/skids';
 import { KidBadge } from '../components/KidBadge';
 import { KidModeHeader } from '../components/KidModeHeader';
-import { KidModeTabs, type KidModeTab } from '../components/KidModeTabs';
+import {
+  KidModeTabShell,
+  useKidModeActiveTab,
+} from '../components/KidModeTabShell';
 import { KidPlayPanel } from '../components/KidPlayPanel';
 import { KidPressable } from '../components/KidPressable';
 import { MascotSpeechBubble } from '../components/mascot';
@@ -120,15 +123,6 @@ export function HomeScreen({ navigation, route }: Props) {
   const t = useI18n();
   const reducedMotion = useReducedMotion();
   const monetizationSnapshot = useMonetizationSnapshot();
-  const [activeTab, setActiveTab] = useState<KidModeTab>(
-    route?.params?.activeTab ?? 'map',
-  );
-
-  useEffect(() => {
-    if (route?.params?.activeTab) {
-      setActiveTab(route.params.activeTab);
-    }
-  }, [route?.params?.activeTab]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
   const [learningMode, setLearningMode] = useState<LearningMode>();
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
@@ -138,14 +132,11 @@ export function HomeScreen({ navigation, route }: Props) {
   >(undefined);
   const [disabledThemeIds, setDisabledThemeIds] = useState<string[]>([]);
   const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
-  const [showFocusButton, setShowFocusButton] = useState(false);
   const [isHubOpen, setIsHubOpen] = useState(false);
-  const mapScrollRef = useRef<ScrollView | null>(null);
   const mapRootYByKeyRef = useRef<Record<string, number>>({});
   const mapSectionYByKeyRef = useRef<Record<string, number>>({});
   const mapSectionBodyYByKeyRef = useRef<Record<string, number>>({});
   const mapNodeYByKeyRef = useRef<Record<string, number>>({});
-  const lastAutoScrolledNodeKeyRef = useRef<string | null>(null);
   const lastKidLockPromptAtRef = useRef(0);
   const disabledThemeIdSet = useMemo(
     () => new Set(disabledThemeIds),
@@ -346,126 +337,6 @@ export function HomeScreen({ navigation, route }: Props) {
     return navigation.addListener('focus', refreshHomeData);
   }, [navigation, refreshHomeData]);
 
-  useEffect(() => {
-    if (activeTab !== 'map') {
-      lastAutoScrolledNodeKeyRef.current = null;
-    }
-  }, [activeTab]);
-
-  useEffect(() => {
-    const targetNodeKey = ctaNode?.key;
-
-    if (
-      activeTab !== 'map' ||
-      !targetNodeKey ||
-      lastAutoScrolledNodeKeyRef.current === targetNodeKey
-    ) {
-      return;
-    }
-
-    const rootY = mapRootYByKeyRef.current;
-    const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
-    const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
-    const nodeY = mapNodeYByKeyRef.current[targetNodeKey];
-
-    if (
-      rootY.container === undefined ||
-      rootY.world === undefined ||
-      rootY.learningMap === undefined ||
-      sectionY === undefined ||
-      sectionBodyY === undefined ||
-      nodeY === undefined
-    ) {
-      return;
-    }
-
-    const targetY =
-      rootY.container +
-      rootY.world +
-      rootY.learningMap +
-      sectionY +
-      sectionBodyY +
-      nodeY;
-    const scrollY = Math.max(targetY - 160, 0);
-    const scrollTimeout = setTimeout(() => {
-      mapScrollRef.current?.scrollTo({ animated: false, y: scrollY });
-      lastAutoScrolledNodeKeyRef.current = targetNodeKey;
-    }, 40);
-
-    return () => clearTimeout(scrollTimeout);
-  }, [activeTab, ctaNode, mapLayoutVersion]);
-
-  const scrollToCurrentNode = useCallback(() => {
-    const targetNodeKey = ctaNode?.key;
-    if (!targetNodeKey) return;
-
-    const rootY = mapRootYByKeyRef.current;
-    const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
-    const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
-    const nodeY = mapNodeYByKeyRef.current[targetNodeKey];
-
-    if (
-      rootY.container === undefined ||
-      rootY.world === undefined ||
-      rootY.learningMap === undefined ||
-      sectionY === undefined ||
-      sectionBodyY === undefined ||
-      nodeY === undefined
-    ) {
-      return;
-    }
-
-    const targetY =
-      rootY.container +
-      rootY.world +
-      rootY.learningMap +
-      sectionY +
-      sectionBodyY +
-      nodeY;
-    const scrollY = Math.max(targetY - 160, 0);
-    mapScrollRef.current?.scrollTo({ animated: true, y: scrollY });
-  }, [ctaNode]);
-
-  const handleMapScroll = useCallback(
-    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-      const offsetY = event.nativeEvent.contentOffset.y;
-
-      const targetNodeKey = ctaNode?.key;
-      if (!targetNodeKey) return;
-
-      const rootY = mapRootYByKeyRef.current;
-      const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
-      const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
-      const nodeY = mapNodeYByKeyRef.current[targetNodeKey];
-
-      if (
-        rootY.container === undefined ||
-        rootY.world === undefined ||
-        rootY.learningMap === undefined ||
-        sectionY === undefined ||
-        sectionBodyY === undefined ||
-        nodeY === undefined
-      ) {
-        return;
-      }
-
-      const targetY =
-        rootY.container +
-        rootY.world +
-        rootY.learningMap +
-        sectionY +
-        sectionBodyY +
-        nodeY;
-
-      const optimalY = Math.max(targetY - 160, 0);
-      const isFar = Math.abs(offsetY - optimalY) > 500;
-      if (showFocusButton !== isFar) {
-        setShowFocusButton(isFar);
-      }
-    },
-    [ctaNode, showFocusButton],
-  );
-
   const promptLanguage = useSavedPromptLanguage();
 
   const playKidLockPrompt = useCallback(
@@ -645,21 +516,19 @@ export function HomeScreen({ navigation, route }: Props) {
           onOpenParent={() => navigation.navigate('Parent')}
           onOpenThemeLibrary={() => navigation.navigate('ThemeLibrary')}
         />
-        <View style={styles.tabContent}>
-          <View
-            style={[
-              styles.tabPane,
-              activeTab !== 'map' && styles.tabPaneHidden,
-            ]}
-          >
-            <ScrollView
-              ref={mapScrollRef}
-              contentInsetAdjustmentBehavior="automatic"
-              contentContainerStyle={styles.scrollContent}
-              style={styles.scrollArea}
-              showsVerticalScrollIndicator={false}
-              onScroll={handleMapScroll}
-              scrollEventThrottle={32}
+        <KidModeTabShell
+          initialTab={route?.params?.activeTab ?? 'map'}
+          requestedTab={route?.params?.activeTab}
+          mapPane={
+            <HomeMapPane
+              ctaNode={ctaNode}
+              focusAccessibilityLabel={t('home.map.focusCurrent')}
+              mapLayoutVersion={mapLayoutVersion}
+              mapNodeYByKeyRef={mapNodeYByKeyRef}
+              mapRootYByKeyRef={mapRootYByKeyRef}
+              mapSectionBodyYByKeyRef={mapSectionBodyYByKeyRef}
+              mapSectionYByKeyRef={mapSectionYByKeyRef}
+              reducedMotion={reducedMotion}
             >
               <View
                 onLayout={(event: LayoutChangeEvent) =>
@@ -1171,29 +1040,9 @@ export function HomeScreen({ navigation, route }: Props) {
                   </View>
                 ) : null}
               </View>
-            </ScrollView>
-
-            {showFocusButton && activeTab === 'map' ? (
-              <KidPressable
-                accessibilityLabel={t('home.map.focusCurrent')}
-                accessibilityRole="button"
-                feedback="soft"
-                onPress={scrollToCurrentNode}
-                playSound
-                reducedMotion={reducedMotion}
-                style={styles.focusFab}
-              >
-                <SKidsIcon name="focusLesson" size={32} />
-              </KidPressable>
-            ) : null}
-          </View>
-
-          <View
-            style={[
-              styles.tabPane,
-              activeTab !== 'play' && styles.tabPaneHidden,
-            ]}
-          >
+            </HomeMapPane>
+          }
+          playPane={
             <ScrollView
               contentInsetAdjustmentBehavior="automatic"
               contentContainerStyle={styles.playScrollContent}
@@ -1212,12 +1061,7 @@ export function HomeScreen({ navigation, route }: Props) {
                 visibleLessonIds={enabledLessonIds}
               />
             </ScrollView>
-          </View>
-        </View>
-        <KidModeTabs
-          activeTab={activeTab}
-          onSelectMap={() => setActiveTab('map')}
-          onSelectPlay={() => setActiveTab('play')}
+          }
         />
         <SKidsHubSheet
           activeThemeTitle={
@@ -1243,6 +1087,185 @@ export function HomeScreen({ navigation, route }: Props) {
       </View>
     </Screen>
   );
+}
+
+type MapLayoutRef = React.MutableRefObject<Record<string, number>>;
+
+type HomeMapPaneProps = {
+  children: React.ReactNode;
+  ctaNode: ThemeMapNode | undefined;
+  focusAccessibilityLabel: string;
+  mapLayoutVersion: number;
+  mapNodeYByKeyRef: MapLayoutRef;
+  mapRootYByKeyRef: MapLayoutRef;
+  mapSectionBodyYByKeyRef: MapLayoutRef;
+  mapSectionYByKeyRef: MapLayoutRef;
+  reducedMotion: boolean;
+};
+
+function HomeMapPane({
+  children,
+  ctaNode,
+  focusAccessibilityLabel,
+  mapLayoutVersion,
+  mapNodeYByKeyRef,
+  mapRootYByKeyRef,
+  mapSectionBodyYByKeyRef,
+  mapSectionYByKeyRef,
+  reducedMotion,
+}: HomeMapPaneProps) {
+  const activeTab = useKidModeActiveTab();
+  const isMapActive = activeTab === 'map';
+  const [showFocusButton, setShowFocusButton] = useState(false);
+  const mapScrollRef = useRef<ScrollView | null>(null);
+  const lastAutoScrolledNodeKeyRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    const targetNodeKey = ctaNode?.key;
+    if (
+      !isMapActive ||
+      !targetNodeKey ||
+      lastAutoScrolledNodeKeyRef.current === targetNodeKey
+    ) {
+      return;
+    }
+
+    const scrollY = getMapTargetScrollY(
+      ctaNode,
+      mapRootYByKeyRef,
+      mapSectionYByKeyRef,
+      mapSectionBodyYByKeyRef,
+      mapNodeYByKeyRef,
+    );
+    if (scrollY === undefined) {
+      return;
+    }
+
+    const scrollTimeout = setTimeout(() => {
+      mapScrollRef.current?.scrollTo({ animated: false, y: scrollY });
+      lastAutoScrolledNodeKeyRef.current = targetNodeKey;
+    }, 40);
+
+    return () => clearTimeout(scrollTimeout);
+  }, [
+    ctaNode,
+    isMapActive,
+    mapLayoutVersion,
+    mapNodeYByKeyRef,
+    mapRootYByKeyRef,
+    mapSectionBodyYByKeyRef,
+    mapSectionYByKeyRef,
+  ]);
+
+  const scrollToCurrentNode = useCallback(() => {
+    const scrollY = getMapTargetScrollY(
+      ctaNode,
+      mapRootYByKeyRef,
+      mapSectionYByKeyRef,
+      mapSectionBodyYByKeyRef,
+      mapNodeYByKeyRef,
+    );
+    if (scrollY !== undefined) {
+      mapScrollRef.current?.scrollTo({ animated: true, y: scrollY });
+    }
+  }, [
+    ctaNode,
+    mapNodeYByKeyRef,
+    mapRootYByKeyRef,
+    mapSectionBodyYByKeyRef,
+    mapSectionYByKeyRef,
+  ]);
+
+  const handleMapScroll = useCallback(
+    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+      const scrollY = getMapTargetScrollY(
+        ctaNode,
+        mapRootYByKeyRef,
+        mapSectionYByKeyRef,
+        mapSectionBodyYByKeyRef,
+        mapNodeYByKeyRef,
+      );
+      if (scrollY === undefined) {
+        return;
+      }
+
+      const offsetY = event.nativeEvent.contentOffset.y;
+      const isFar = Math.abs(offsetY - scrollY) > 500;
+      setShowFocusButton(current => (current === isFar ? current : isFar));
+    },
+    [
+      ctaNode,
+      mapNodeYByKeyRef,
+      mapRootYByKeyRef,
+      mapSectionBodyYByKeyRef,
+      mapSectionYByKeyRef,
+    ],
+  );
+
+  return (
+    <>
+      <ScrollView
+        ref={mapScrollRef}
+        contentInsetAdjustmentBehavior="automatic"
+        contentContainerStyle={styles.scrollContent}
+        onScroll={handleMapScroll}
+        scrollEventThrottle={32}
+        showsVerticalScrollIndicator={false}
+        style={styles.scrollArea}
+      >
+        {children}
+      </ScrollView>
+      {showFocusButton && isMapActive ? (
+        <KidPressable
+          accessibilityLabel={focusAccessibilityLabel}
+          accessibilityRole="button"
+          feedback="soft"
+          onPress={scrollToCurrentNode}
+          playSound
+          reducedMotion={reducedMotion}
+          style={styles.focusFab}
+        >
+          <SKidsIcon name="focusLesson" size={32} />
+        </KidPressable>
+      ) : null}
+    </>
+  );
+}
+
+function getMapTargetScrollY(
+  ctaNode: ThemeMapNode | undefined,
+  mapRootYByKeyRef: MapLayoutRef,
+  mapSectionYByKeyRef: MapLayoutRef,
+  mapSectionBodyYByKeyRef: MapLayoutRef,
+  mapNodeYByKeyRef: MapLayoutRef,
+) {
+  if (!ctaNode) {
+    return undefined;
+  }
+
+  const rootY = mapRootYByKeyRef.current;
+  const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
+  const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
+  const nodeY = mapNodeYByKeyRef.current[ctaNode.key];
+  if (
+    rootY.container === undefined ||
+    rootY.world === undefined ||
+    rootY.learningMap === undefined ||
+    sectionY === undefined ||
+    sectionBodyY === undefined ||
+    nodeY === undefined
+  ) {
+    return undefined;
+  }
+
+  const targetY =
+    rootY.container +
+    rootY.world +
+    rootY.learningMap +
+    sectionY +
+    sectionBodyY +
+    nodeY;
+  return Math.max(targetY - 160, 0);
 }
 
 type FreeProgressPremiumCtaProps = {
@@ -1711,10 +1734,12 @@ function CurrentStopNode({
   children: React.ReactNode;
   reducedMotion: boolean;
 }) {
+  const activeTab = useKidModeActiveTab();
+  const isMapActive = activeTab === 'map';
   const pulse = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (reducedMotion) {
+    if (reducedMotion || !isMapActive) {
       pulse.stopAnimation();
       pulse.setValue(0);
       return;
@@ -1740,7 +1765,7 @@ function CurrentStopNode({
     animation.start();
 
     return () => animation.stop();
-  }, [pulse, reducedMotion]);
+  }, [isMapActive, pulse, reducedMotion]);
 
   const currentScale = pulse.interpolate({
     inputRange: [0, 1],
@@ -3560,15 +3585,6 @@ const styles = createThemedStyles(() => ({
     right: 74,
     top: 10,
     transform: [{ rotate: '12deg' }],
-  },
-  tabContent: {
-    flex: 1,
-  },
-  tabPane: {
-    flex: 1,
-  },
-  tabPaneHidden: {
-    display: 'none',
   },
   stopGlow: {
     backgroundColor: colors.secondarySoft,
