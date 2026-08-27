@@ -661,8 +661,6 @@ export const en: TranslationDictionary = {
   'scene.replayInstructionAccessibility': 'Replay instruction',
   'scene.replayInstructionFallback': 'Try again.',
   'scene.successFallback': 'Great job!',
-  'scene.stepProgress':
-    '{mode} · scene {sceneCurrent}/{sceneTotal} · step {current}/{total}',
   'header.openHub': 'Open Sungy Hub',
   'header.themeLibrary': 'Change map theme',
   'header.parentGate': 'Parent mode',

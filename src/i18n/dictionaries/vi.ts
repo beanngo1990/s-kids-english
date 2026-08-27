@@ -653,8 +653,6 @@ export const vi = {
   'scene.replayInstructionAccessibility': 'Nghe lại hướng dẫn',
   'scene.replayInstructionFallback': 'Thử lại nhé.',
   'scene.successFallback': 'Giỏi lắm!',
-  'scene.stepProgress':
-    '{mode} · cảnh {sceneCurrent}/{sceneTotal} · bước {current}/{total}',
   'header.openHub': 'Mở Sungy Hub',
   'header.themeLibrary': 'Đổi chủ đề bản đồ',
   'header.parentGate': 'Góc phụ huynh',

@@ -102,8 +102,7 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
   18/36/54 và 9/18/27 theo core/expanded/challenge; auto-micro giảm còn 9/12/15, phân bố 3/4/5
   mỗi scene. Mỗi lượt nói vẫn xen kẽ với action, còn cún thật non-interactive trong scene ăn.
   Review vẫn chọn 4/5/6 visual
-  distinct item. HUD lesson ghi cả `cảnh hiện tại/tổng cảnh` và `bước hiện tại/tổng step của cảnh`
-  để parent QA không hiểu tổng của một scene là tổng lesson. Asset pipeline v2 có 43 lesson
+  distinct item. HUD lesson hiển thị tên cảnh và thanh tiến độ trực quan, bỏ dòng text mode/cảnh/bước để giao diện học gọn gàng. Asset pipeline v2 có 43 lesson
   master, 37 image được runtime tham chiếu sau khi `wag-action` trở thành representative trực
   tiếp; sáu image còn lại được giữ như orphan local. Revision hậu bữa ăn thêm một sheet alpha 3×2 để mọi
   cue `carry/ask/put down/step` đều dùng bát trống, còn cue `feed` trước bữa vẫn dùng bát đầy;
@@ -470,8 +469,7 @@ state giữ các chuỗi `waiting -> looking/wagging`, `empty -> filled/ready` v
 `waiting -> eating -> happy`, trong đó `happy` chỉ là technical variant ID; prompt luôn có
 `Chạm`/`Kéo`/`Tìm`. Từ gắn với cún, bát hoặc
 thảm dùng story object; cue còn lại neo sát vùng hành động. Runtime v2 tham chiếu 37 lesson images,
-bốn map icons và `themeAnimalFriends`; HUD hiển thị mode, số scene và step của
-scene. Google TTS đã tạo 480 clip còn thiếu; audio audit có 626 target, thiếu 0 và lỗi 0. R2 đã
+bốn map icons và `themeAnimalFriends`; HUD hiển thị tên cảnh và thanh tiến độ bài học. Google TTS đã tạo 480 clip còn thiếu; audio audit có 626 target, thiếu 0 và lỗi 0. R2 đã
 upload delta 490 object, verify đủ 801/801 object với lỗi 0. Bản tối ưu cue-anchor sau đó upload
 thêm 6 WebP; tập authoring hiện hành verify đủ 798/798 object với lỗi 0 và post-upload dry-run
 còn `Changed/new: 0`; không xóa key cũ khỏi bucket. Revision meal/cleanup tiếp theo khóa scene dùng bữa

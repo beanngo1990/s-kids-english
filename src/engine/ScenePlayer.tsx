@@ -37,7 +37,6 @@ import { getRemoteAssetUrl, remoteAssetsConfig } from '../config/remoteAssets';
 import { lessons } from '../data/lessons';
 import { useSavedAppLanguage, useTranslations } from '../i18n';
 import { getLocalizedSceneTitle } from '../i18n/domainCopy';
-import { getLearningModeCopy } from '../i18n/learningModeCopy';
 import {
   getTeacherInstructionEn,
   resolveRecordingEncouragementPrompt,
@@ -1240,7 +1239,6 @@ export function ScenePlayer({
     .filter((object): object is SceneObject => Boolean(object));
   const currentStepIndex = getStepIndex(currentScene, currentStep.id) + 1;
   const totalStepCount = Math.max(1, currentScene.steps.length);
-  const learningModeCopy = getLearningModeCopy(learningMode, t);
   const progressPercent = `${Math.max(
     5,
     (currentStepIndex / totalStepCount) * 100,
@@ -2096,15 +2094,6 @@ export function ScenePlayer({
         <View style={styles.lessonHud}>
           <Text numberOfLines={1} style={styles.lessonTag}>
             {getLocalizedSceneTitle(currentScene, appLanguage)}
-          </Text>
-          <Text numberOfLines={1} style={styles.lessonProgressMeta}>
-            {t('scene.stepProgress', {
-              current: currentStepIndex,
-              mode: learningModeCopy.title,
-              sceneCurrent: sceneIndex + 1,
-              sceneTotal: scenes.length,
-              total: totalStepCount,
-            })}
           </Text>
           <View style={styles.hudProgressTrack}>
             <View
@@ -3581,7 +3570,7 @@ const styles = createThemedStyles(() => ({
     flex: 1,
     gap: spacing.xxs,
     justifyContent: 'center',
-    minHeight: 54,
+    minHeight: 50,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
     ...shadows.soft,
@@ -3590,13 +3579,6 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     textAlign: 'center',
     ...typography.caption,
-  },
-  lessonProgressMeta: {
-    color: colors.muted,
-    fontSize: 12,
-    fontWeight: '800',
-    lineHeight: 15,
-    textAlign: 'center',
   },
   primaryActionButton: {
     backgroundColor: colors.secondary,

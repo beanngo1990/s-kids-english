@@ -229,10 +229,10 @@ const vocabularyPlaygroundScene: Scene = {
   ],
 };
 
-test('HUD shows the selected mode and progress within the current scene', async () => {
+test('HUD shows the current scene title', async () => {
   const tree = await renderScenePlayer(listenScene, 'challenge');
 
-  expect(getTextValues(tree)).toContain('Khó · cảnh 1/1 · bước 1/1');
+  expect(getTextValues(tree)).toContain('Lắng nghe');
 });
 
 test('offers the vocabulary playground after completing a scene', async () => {
