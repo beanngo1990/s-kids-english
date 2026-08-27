@@ -1,10 +1,13 @@
 import React from 'react';
+import { Alert } from 'react-native';
 import ReactTestRenderer, { act } from 'react-test-renderer';
 
 const mockGetParentSettings = jest.fn();
 const mockSaveParentSettings = jest.fn();
 const mockGetProgress = jest.fn();
 const mockSaveActiveThemeId = jest.fn();
+const mockAddListener = jest.fn();
+const mockDispatch = jest.fn();
 const mockGoBack = jest.fn();
 const mockReplace = jest.fn();
 
@@ -50,6 +53,8 @@ function createScreen() {
       navigation={
         {
           goBack: mockGoBack,
+          addListener: mockAddListener,
+          dispatch: mockDispatch,
           replace: mockReplace,
         } as never
       }
@@ -64,9 +69,14 @@ beforeEach(() => {
   mockGetProgress.mockResolvedValue({ activeThemeId: DEFAULT_THEME_ID });
   mockSaveParentSettings.mockResolvedValue({});
   mockSaveActiveThemeId.mockResolvedValue({});
+  mockAddListener.mockReturnValue(jest.fn());
 });
 
-test('keeps preset changes local until the parent taps Done', async () => {
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
+test('enables Save changes only after the draft changes', async () => {
   let renderer: ReactTestRenderer.ReactTestRenderer | undefined;
 
   await act(async () => {
@@ -74,6 +84,11 @@ test('keeps preset changes local until the parent taps Done', async () => {
     await Promise.resolve();
     await Promise.resolve();
   });
+
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Lưu thay đổi' }).props
+      .accessibilityState,
+  ).toEqual({ disabled: true });
 
   const suggestedPreset = renderer!.root.findByProps({
     accessibilityLabel: 'Gợi ý',
@@ -84,9 +99,13 @@ test('keeps preset changes local until the parent taps Done', async () => {
   expect(
     renderer!.root.findByProps({ children: '5 bài đang bật' }),
   ).toBeTruthy();
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Lưu thay đổi' }).props
+      .accessibilityState,
+  ).toEqual({ disabled: false });
 
   const doneButton = renderer!.root.findByProps({
-    accessibilityLabel: 'Xong',
+    accessibilityLabel: 'Lưu thay đổi',
   });
   await act(async () => {
     doneButton.props.onPress();
@@ -136,7 +155,7 @@ test('turns off a theme without losing its lesson choices and moves the active m
 
   await act(async () => {
     renderer!.root
-      .findByProps({ accessibilityLabel: 'Xong' })
+      .findByProps({ accessibilityLabel: 'Lưu thay đổi' })
       .props.onPress();
     await Promise.resolve();
     await Promise.resolve();
@@ -177,6 +196,9 @@ test('keeps the switch for the final enabled theme disabled', async () => {
 });
 
 test('uses a dedicated balanced control to collapse the lesson list', async () => {
+  const alertSpy = jest
+    .spyOn(Alert, 'alert')
+    .mockImplementation(() => undefined);
   let renderer: ReactTestRenderer.ReactTestRenderer | undefined;
 
   await act(async () => {
@@ -202,6 +224,63 @@ test('uses a dedicated balanced control to collapse the lesson list', async () =
   expect(
     renderer!.root.findByProps({ accessibilityLabel: 'Xem 11 bài' }),
   ).toBeTruthy();
+  expect(
+    renderer!.root.findByProps({ accessibilityLabel: 'Lưu thay đổi' }).props
+      .accessibilityState,
+  ).toEqual({ disabled: true });
+
+  const preventDefault = jest.fn();
+  act(() => {
+    getLatestBeforeRemoveListener()({
+      data: { action: { type: 'GO_BACK' } },
+      preventDefault,
+    });
+  });
+  expect(preventDefault).not.toHaveBeenCalled();
+  expect(alertSpy).not.toHaveBeenCalled();
+});
+
+test('asks before leaving with unsaved changes and can discard the draft', async () => {
+  const alertSpy = jest
+    .spyOn(Alert, 'alert')
+    .mockImplementation(() => undefined);
+  let renderer: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await act(async () => {
+    renderer = createScreen();
+    await Promise.resolve();
+    await Promise.resolve();
+  });
+
+  act(() => {
+    renderer!.root
+      .findByProps({ accessibilityLabel: 'Gợi ý' })
+      .props.onPress();
+  });
+
+  const beforeRemoveListener = getLatestBeforeRemoveListener();
+  const navigationAction = { type: 'GO_BACK' };
+  const preventDefault = jest.fn();
+  act(() => {
+    beforeRemoveListener({
+      data: { action: navigationAction },
+      preventDefault,
+    });
+  });
+
+  expect(preventDefault).toHaveBeenCalledTimes(1);
+  expect(alertSpy).toHaveBeenCalledWith(
+    'Bỏ thay đổi?',
+    'Những điều chỉnh trong lộ trình chưa được lưu.',
+    expect.any(Array),
+  );
+
+  const buttons = alertSpy.mock.calls[0][2] ?? [];
+  const discardButton = buttons.find(button => button.text === 'Bỏ thay đổi');
+  act(() => discardButton?.onPress?.());
+
+  expect(mockDispatch).toHaveBeenCalledWith(navigationAction);
+  expect(mockSaveParentSettings).not.toHaveBeenCalled();
 });
 
 test('protects the final selected lesson in each theme', async () => {
@@ -241,3 +320,18 @@ test('protects the final selected lesson in each theme', async () => {
     }).props.accessibilityState,
   ).toEqual({ checked: true, disabled: false });
 });
+
+function getLatestBeforeRemoveListener() {
+  const registration = [...mockAddListener.mock.calls]
+    .reverse()
+    .find(([eventName]) => eventName === 'beforeRemove');
+
+  if (!registration) {
+    throw new Error('beforeRemove listener was not registered');
+  }
+
+  return registration[1] as (event: {
+    data: { action: { type: string } };
+    preventDefault: () => void;
+  }) => void;
+}

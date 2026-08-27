@@ -737,9 +737,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   khóa và mỗi theme có thao tác `Chọn tất cả`. Header theme có switch bật/tắt; tắt theme thu gọn
   card, ẩn theme cùng các lesson của nó khỏi Home Map, Play/Review, lesson list và Theme Library,
   nhưng giữ nguyên lesson selection để khôi phục khi bật lại. Switch theme cuối đang bật bị khóa.
-  Thay đổi chỉ được persist khi bấm `Xong`; nút quay lại bỏ selection nháp. Chỉnh từng lesson
-  không đổi `progress.activeThemeId`; nếu tắt đúng theme đang mở, màn hình báo trước và khi lưu sẽ
-  chuyển active map sang theme đang bật kế tiếp. Tab Cài đặt chỉnh child profile,
+  Thay đổi chỉ được persist khi bấm `Lưu thay đổi`; CTA này chỉ bật khi cấu hình khác trạng thái
+  ban đầu. Mở/thu danh sách bài không làm draft bị dirty. Nếu quay lại khi có thay đổi chưa lưu,
+  màn hình yêu cầu xác nhận trước khi bỏ draft. Chỉnh từng lesson không đổi
+  `progress.activeThemeId`; nếu tắt đúng theme đang mở, màn hình báo trước và khi lưu sẽ chuyển
+  active map sang theme đang bật kế tiếp. Tab Cài đặt chỉnh child profile,
   Light/Dark/System theme,
   app-language preference, teacher prompt mode, English accent, daily reminder time, optional
   background music, thư viện giọng đọc local, contact support email và app version đọc trực tiếp

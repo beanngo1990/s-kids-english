@@ -1150,7 +1150,12 @@ export const en: TranslationDictionary = {
   'parent.lessonPlanEditor.requiredLesson': 'Required theme lesson',
   'parent.lessonPlanEditor.stations': '{count} learning stops',
   'parent.lessonPlanEditor.selectedCount': '{count} lessons on',
-  'parent.lessonPlanEditor.done': 'Done',
+  'parent.lessonPlanEditor.saveChanges': 'Save changes',
+  'parent.lessonPlanEditor.discardTitle': 'Discard changes?',
+  'parent.lessonPlanEditor.discardText':
+    'Your learning path changes have not been saved.',
+  'parent.lessonPlanEditor.keepEditing': 'Keep editing',
+  'parent.lessonPlanEditor.discardAction': 'Discard changes',
   'parent.lessonPlanEditor.loading': 'Loading learning path…',
   'parent.lessonPlanEditor.saveErrorTitle': 'Could not save the learning path',
   'parent.lessonPlanEditor.saveErrorText': 'Please try again in a moment.',

@@ -1143,7 +1143,12 @@ export const vi = {
   'parent.lessonPlanEditor.requiredLesson': 'Bài tối thiểu của chủ đề',
   'parent.lessonPlanEditor.stations': '{count} trạm học',
   'parent.lessonPlanEditor.selectedCount': '{count} bài đang bật',
-  'parent.lessonPlanEditor.done': 'Xong',
+  'parent.lessonPlanEditor.saveChanges': 'Lưu thay đổi',
+  'parent.lessonPlanEditor.discardTitle': 'Bỏ thay đổi?',
+  'parent.lessonPlanEditor.discardText':
+    'Những điều chỉnh trong lộ trình chưa được lưu.',
+  'parent.lessonPlanEditor.keepEditing': 'Tiếp tục chỉnh',
+  'parent.lessonPlanEditor.discardAction': 'Bỏ thay đổi',
   'parent.lessonPlanEditor.loading': 'Đang tải lộ trình…',
   'parent.lessonPlanEditor.saveErrorTitle': 'Chưa lưu được lộ trình',
   'parent.lessonPlanEditor.saveErrorText':

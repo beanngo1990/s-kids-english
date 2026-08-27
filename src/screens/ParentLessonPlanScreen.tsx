@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Alert,
   Pressable,
@@ -39,11 +39,16 @@ import {
   getEnabledLessonIds,
   getLessonPlanSelection,
   getRecommendedLessonIds,
+  haveSameLessonIds,
   isOnlyVisibleLessonInTheme,
 } from '../utils/lessonPlan';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ParentLessonPlan'>;
 type LessonPlanSelection = 'all' | 'recommended' | 'custom';
+type LessonPlanDraft = {
+  disabledThemeIds: string[];
+  selectedLessonIds: string[];
+};
 
 const lessonById = new Map(lessons.map(lesson => [lesson.id, lesson]));
 const catalogLessonIds = themes.flatMap(theme => theme.lessonIds);
@@ -68,6 +73,10 @@ export function ParentLessonPlanScreen({ navigation }: Props) {
   const [selectedLessonIds, setSelectedLessonIds] =
     useState<string[]>(allLessonIds);
   const [disabledThemeIds, setDisabledThemeIds] = useState<string[]>([]);
+  const [initialDraft, setInitialDraft] = useState<LessonPlanDraft>({
+    disabledThemeIds: [],
+    selectedLessonIds: allLessonIds,
+  });
   const [activeThemeId, setActiveThemeId] =
     useState<string>(DEFAULT_THEME_ID);
   const [planSelection, setPlanSelection] =
@@ -75,9 +84,11 @@ export function ParentLessonPlanScreen({ navigation }: Props) {
   const [expandedThemeIds, setExpandedThemeIds] = useState<Set<string>>(
     () => new Set(themes[0] ? [themes[0].id] : []),
   );
+  const allowNavigationRef = useRef(false);
 
   useEffect(() => {
     if (!isGranted) {
+      allowNavigationRef.current = true;
       navigation.replace('Parent');
     }
   }, [isGranted, navigation]);
@@ -101,6 +112,10 @@ export function ParentLessonPlanScreen({ navigation }: Props) {
         const nextDisabledThemeIds = settings.disabledThemeIds ?? [];
         setSelectedLessonIds(enabledLessonIds);
         setDisabledThemeIds(nextDisabledThemeIds);
+        setInitialDraft({
+          disabledThemeIds: [...nextDisabledThemeIds],
+          selectedLessonIds: [...enabledLessonIds],
+        });
         setActiveThemeId(progress.activeThemeId);
         setPlanSelection(
           getLessonPlanSelection(
@@ -131,6 +146,16 @@ export function ParentLessonPlanScreen({ navigation }: Props) {
     [disabledThemeIds],
   );
   const enabledThemeCount = themes.length - disabledThemeIds.length;
+  const isDirty =
+    isReady &&
+    (!haveSameLessonIds(
+      selectedLessonIds,
+      initialDraft.selectedLessonIds,
+    ) ||
+      !haveSameLessonIds(
+        disabledThemeIds,
+        initialDraft.disabledThemeIds,
+      ));
   const enabledLessonIds = useMemo(
     () =>
       getEnabledLessonIds(
@@ -148,6 +173,36 @@ export function ParentLessonPlanScreen({ navigation }: Props) {
     maxWidth: responsiveLayout.contentMaxWidth,
     paddingHorizontal: responsiveLayout.screenPadding,
   };
+
+  useEffect(
+    () =>
+      navigation.addListener('beforeRemove', event => {
+        if (!isDirty || allowNavigationRef.current) {
+          return;
+        }
+
+        event.preventDefault();
+        Alert.alert(
+          t('parent.lessonPlanEditor.discardTitle'),
+          t('parent.lessonPlanEditor.discardText'),
+          [
+            {
+              style: 'cancel',
+              text: t('parent.lessonPlanEditor.keepEditing'),
+            },
+            {
+              onPress: () => {
+                allowNavigationRef.current = true;
+                navigation.dispatch(event.data.action);
+              },
+              style: 'destructive',
+              text: t('parent.lessonPlanEditor.discardAction'),
+            },
+          ],
+        );
+      }),
+    [isDirty, navigation, t],
+  );
 
   if (!isGranted) {
     return null;
@@ -250,7 +305,7 @@ export function ParentLessonPlanScreen({ navigation }: Props) {
   };
 
   const handleSave = async () => {
-    if (!isReady || isSaving) {
+    if (!isReady || isSaving || !isDirty) {
       return;
     }
 
@@ -265,6 +320,7 @@ export function ParentLessonPlanScreen({ navigation }: Props) {
       if (nextActiveTheme) {
         await saveActiveThemeId(nextActiveTheme.id).catch(() => undefined);
       }
+      allowNavigationRef.current = true;
       navigation.goBack();
     } catch {
       Alert.alert(
@@ -599,21 +655,23 @@ export function ParentLessonPlanScreen({ navigation }: Props) {
             })}
           </Text>
           <Pressable
-            accessibilityLabel={t('parent.lessonPlanEditor.done')}
+            accessibilityLabel={t('parent.lessonPlanEditor.saveChanges')}
             accessibilityRole="button"
-            accessibilityState={{ disabled: !isReady || isSaving }}
-            disabled={!isReady || isSaving}
+            accessibilityState={{
+              disabled: !isReady || isSaving || !isDirty,
+            }}
+            disabled={!isReady || isSaving || !isDirty}
             onPress={handleSave}
             style={({ pressed }) => [
               styles.doneButton,
-              (!isReady || isSaving) && styles.disabled,
-              pressed && isReady && !isSaving && styles.pressed,
+              (!isReady || isSaving || !isDirty) && styles.disabled,
+              pressed && isReady && !isSaving && isDirty && styles.pressed,
             ]}
           >
             <Text style={styles.doneButtonText}>
               {isSaving
                 ? t('common.saveInProgress')
-                : t('parent.lessonPlanEditor.done')}
+                : t('parent.lessonPlanEditor.saveChanges')}
             </Text>
           </Pressable>
         </View>
