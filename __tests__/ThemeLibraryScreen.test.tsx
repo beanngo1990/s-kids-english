@@ -13,6 +13,7 @@ import {
   resetProgress,
   saveProgress,
 } from '../src/engine/ProgressManager';
+import { playTapSound } from '../src/engine/AudioManager';
 import { ThemeLibraryScreen } from '../src/screens/ThemeLibraryScreen';
 import { getSceneProgressId } from '../src/utils/lessonProgress';
 
@@ -126,6 +127,7 @@ test('separates the current journey from a compact theme grid', async () => {
   });
 
   expect(navigate).toHaveBeenCalledWith('Home');
+  expect(playTapSound).toHaveBeenCalledTimes(1);
   expect((await getProgress()).activeThemeId).toBe(nextTheme?.id);
 
   await ReactTestRenderer.act(() => {

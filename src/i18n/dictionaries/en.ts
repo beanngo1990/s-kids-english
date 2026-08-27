@@ -762,6 +762,7 @@ export const en: TranslationDictionary = {
   'home.emptyMap.badge': 'No stops yet',
   'home.emptyMap.title': 'This theme has no lesson packs yet.',
   'home.mapFallbackTitle': 'Sungy Map',
+  'home.map.focusCurrent': 'Move the map to the current stop',
   'home.recentLesson': 'the recent lesson',
   'home.freePremiumCta.badge': 'Free path complete',
   'home.freePremiumCta.title': 'Ready for the next step',

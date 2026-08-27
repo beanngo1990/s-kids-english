@@ -124,6 +124,7 @@ export function ThemeLibraryScreen({ navigation }: Props) {
       return;
     }
 
+    playTapSound().catch(() => undefined);
     const themeId = theme.id;
     if (themeId === activeThemeId) {
       navigation.navigate('Home');

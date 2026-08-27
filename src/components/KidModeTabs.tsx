@@ -1,10 +1,13 @@
-import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { Animated, Text, View } from 'react-native';
 
 import { type SKidsIconName } from '../assets/icons/skids';
+import { KidPressable } from './KidPressable';
 import { SKidsIcon } from './SKidsIcon';
+import { createBounceAnimation } from '../engine/animations';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
+import { useReducedMotion } from '../theme/motion';
 import { useI18n } from '../i18n';
 
 export type KidModeTab = 'map' | 'play';
@@ -44,6 +47,31 @@ export function KidModeTabs({
   useThemeSync();
   const t = useI18n();
   const tabs = getTabs(t);
+  const reducedMotion = useReducedMotion();
+  const activeIconScale = useRef(new Animated.Value(1)).current;
+  const previousActiveTabRef = useRef(activeTab);
+  const activeIconAnimatedStyle = {
+    transform: [{ scale: activeIconScale }],
+  };
+
+  useEffect(() => {
+    if (previousActiveTabRef.current === activeTab) {
+      return;
+    }
+    previousActiveTabRef.current = activeTab;
+
+    if (reducedMotion) {
+      activeIconScale.stopAnimation();
+      activeIconScale.setValue(1);
+      return;
+    }
+
+    createBounceAnimation(activeIconScale).start();
+  }, [activeIconScale, activeTab, reducedMotion]);
+
+  useEffect(() => {
+    return () => activeIconScale.stopAnimation();
+  }, [activeIconScale]);
 
   return (
     <View
@@ -57,29 +85,36 @@ export function KidModeTabs({
           const onPress = tab.id === 'map' ? onSelectMap : onSelectPlay;
 
           return (
-            <Pressable
+            <KidPressable
               accessibilityLabel={tab.accessibilityLabel}
               accessibilityRole="tab"
               accessibilityState={{ selected: isActive }}
+              feedback="soft"
               key={tab.id}
               onPress={onPress}
-              style={({ pressed }) => [
+              playSound={!isActive}
+              reducedMotion={reducedMotion}
+              style={[
                 styles.tab,
                 isActive && styles.tabActive,
-                pressed && styles.tabPressed,
               ]}
             >
-              <View style={styles.iconContainer}>
+              <Animated.View
+                style={[
+                  styles.iconContainer,
+                  isActive && activeIconAnimatedStyle,
+                ]}
+              >
                 {isActive && <View style={styles.iconActiveBg} />}
                 <SKidsIcon name={tab.icon} size={28} />
-              </View>
+              </Animated.View>
               <Text
                 numberOfLines={1}
                 style={[styles.label, isActive && styles.labelActive]}
               >
                 {tab.label}
               </Text>
-            </Pressable>
+            </KidPressable>
           );
         })}
       </View>
@@ -156,9 +191,5 @@ const styles = createThemedStyles(() => ({
     shadowOpacity: 0.16,
     shadowRadius: 16,
     elevation: 8,
-  },
-  tabPressed: {
-    opacity: 0.92,
-    transform: [{ translateY: 1 }, { scale: 0.99 }],
   },
 }));

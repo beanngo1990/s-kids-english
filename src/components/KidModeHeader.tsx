@@ -51,6 +51,10 @@ export function KidModeHeader({
   });
   const useTightHeader =
     Boolean(onOpenThemeLibrary) && (width < 390 || fontScale > 1.2);
+  const handleOpenThemeLibrary = useCallback(() => {
+    playTapSound().catch(() => undefined);
+    onOpenThemeLibrary?.();
+  }, [onOpenThemeLibrary]);
 
   const brandContent = (
     <>
@@ -112,7 +116,7 @@ export function KidModeHeader({
             <KidIconButton
               accessibilityLabel={t('header.themeLibrary')}
               icon="map"
-              onPress={onOpenThemeLibrary}
+              onPress={handleOpenThemeLibrary}
               size="md"
               style={styles.themeLibrary}
               tone="secondary"

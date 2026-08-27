@@ -754,6 +754,7 @@ export const vi = {
   'home.emptyMap.badge': 'Chưa có trạm',
   'home.emptyMap.title': 'Chủ đề này chưa có gói bài học.',
   'home.mapFallbackTitle': 'Bản đồ Sungy',
+  'home.map.focusCurrent': 'Đưa bản đồ về trạm hiện tại',
   'home.recentLesson': 'bài vừa học',
   'home.freePremiumCta.badge': 'Hoàn thành phần miễn phí',
   'home.freePremiumCta.title': 'Bé đã sẵn sàng cho chặng tiếp theo',

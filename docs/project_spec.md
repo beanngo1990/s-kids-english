@@ -642,6 +642,12 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   chính theo trạng thái, có pressed feedback và tap sound để bé chạm vào vùng nổi bật không bị im
   lặng. Nút `×` và backdrop đóng sheet; khóa Premium giữ CTA **Nhờ ba mẹ mở khóa** và tiếp tục qua
   adult gate mà không phát chồng tap sound với lời nhắc khóa.
+- Các action chính của Kid Mode dùng feedback chung: tab Map/Play, scene node, review milestone,
+  card Play và CTA Hub co nhẹ/hạ 1–2 px ngay khi nhấn, phát tap SFX cho action khả dụng và chặn lần
+  nhấn lặp trên cùng control trong 350 ms. Nút mở thư viện theme và các card theme khả dụng cũng
+  phát tap SFX trước khi điều hướng hoặc đổi bản đồ. Action khóa không phát tap chung vì lời nhắc
+  khóa đã có audio riêng. Khi system Reduce Motion bật, control chỉ đổi opacity; pulse của trạm
+  hiện tại và nhịp bounce icon khi đổi tab đều tắt.
 - Node cảnh đã hoàn thành giữ thao tác chính để học lại cảnh. Nếu scene có ít nhất một vocabulary
   visual hợp lệ trong `learningMode` hiện tại và lesson vẫn truy cập được, node có thêm nút ôn từ
   48×48 với icon hai thẻ từ và mũi tên vòng, neo chồng nhẹ vào cạnh ngoài node để thể hiện quan hệ

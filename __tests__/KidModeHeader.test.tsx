@@ -109,6 +109,36 @@ test('uses a balanced icon badge for the level on narrow kid headers', async () 
   });
 });
 
+test('plays tap feedback before opening the theme library', async () => {
+  const onOpenThemeLibrary = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <KidModeHeader
+        onOpenParent={() => undefined}
+        onOpenThemeLibrary={onOpenThemeLibrary}
+        totalXP={0}
+      />,
+    );
+  });
+
+  const themeLibraryButton = tree?.root.findByProps({
+    accessibilityLabel: 'Đổi chủ đề bản đồ',
+  });
+
+  await ReactTestRenderer.act(async () => {
+    themeLibraryButton?.props.onPress();
+  });
+
+  expect(playTapSound).toHaveBeenCalledTimes(1);
+  expect(onOpenThemeLibrary).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
 test('shows a short level hint when the acorn badge is pressed', async () => {
   jest.useFakeTimers();
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;

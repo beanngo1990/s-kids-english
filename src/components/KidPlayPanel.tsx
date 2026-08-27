@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
-import { Alert, Pressable, Text, View } from 'react-native';
+import { Alert, Text, View } from 'react-native';
 
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
+import { KidPressable } from './KidPressable';
 import { SKidsIcon } from './SKidsIcon';
 import { playTapSound, speakVi, speakWord } from '../engine/AudioManager';
 import {
@@ -24,6 +25,7 @@ import {
 import { useI18n, useSavedPromptLanguage } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
+import { useReducedMotion } from '../theme/motion';
 import { shadows } from '../theme/shadows';
 import { radius, spacing } from '../theme/spacing';
 import type { Lesson } from '../types/lesson';
@@ -59,6 +61,7 @@ export function KidPlayPanel({
   useThemeSync();
   const t = useI18n();
   const monetizationSnapshot = useMonetizationSnapshot();
+  const reducedMotion = useReducedMotion();
 
   const activeTheme = useMemo(
     () => themes.find(theme => theme.id === activeThemeId) ?? themes[0],
@@ -188,14 +191,14 @@ export function KidPlayPanel({
       </View>
 
       <View style={styles.list}>
-        <Pressable
+        <KidPressable
           accessibilityLabel={t('playPanel.stickerPlaygroundAccessibility')}
           accessibilityRole="button"
+          feedback="card"
           onPress={onOpenStickerPlayground}
-          style={({ pressed }) => [
-            styles.cardPressable,
-            pressed && styles.pressed,
-          ]}
+          playSound
+          reducedMotion={reducedMotion}
+          style={styles.cardPressable}
         >
           <AppCard style={styles.playgroundCard}>
             <View style={styles.cardMain}>
@@ -225,7 +228,7 @@ export function KidPlayPanel({
               </View>
             </View>
           </AppCard>
-        </Pressable>
+        </KidPressable>
 
         {orderedReviewLessons.map((lesson, index) => {
           const lessonTitle = getLocalizedLessonTitle(lesson, appLanguage);
@@ -268,20 +271,20 @@ export function KidPlayPanel({
           const iconToneStyle = getGameIconTone(index);
 
           return (
-            <Pressable
+            <KidPressable
               accessibilityLabel={`${lessonTitle}. ${reviewGameTitle}. ${statusLabel}. ${completedSceneCount}/${
                 lesson.scenes.length
               } ${t('playPanel.scene')}.`}
               accessibilityRole="button"
               accessibilityState={{ disabled: false }}
+              feedback="card"
               key={lesson.id}
               onPress={() =>
                 handleOpenReviewGame(lesson.id, isProgressUnlocked)
               }
-              style={({ pressed }) => [
-                styles.cardPressable,
-                pressed && styles.pressed,
-              ]}
+              playSound={isProgressUnlocked && hasContentAccess}
+              reducedMotion={reducedMotion}
+              style={styles.cardPressable}
             >
               <AppCard
                 style={[
@@ -369,7 +372,7 @@ export function KidPlayPanel({
                   </View>
                 </View>
               </AppCard>
-            </Pressable>
+            </KidPressable>
           );
         })}
       </View>
@@ -506,10 +509,6 @@ const styles = createThemedStyles(() => ({
   },
   playButtonTextLocked: {
     color: colors.textSoft,
-  },
-  pressed: {
-    opacity: 0.92,
-    transform: [{ scale: 0.99 }],
   },
   playgroundCard: {
     backgroundColor: colors.primarySoft,
