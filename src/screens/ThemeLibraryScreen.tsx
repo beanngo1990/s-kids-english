@@ -25,14 +25,11 @@ import {
   type LocalProgress,
 } from '../engine/ProgressManager';
 import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
-import {
-  getLocalizedThemeDescription,
-  getLocalizedThemeTitle,
-} from '../i18n/domainCopy';
+import { getLocalizedThemeTitle } from '../i18n/domainCopy';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
+import { useResponsiveLayout } from '../theme/responsive';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
-import { typography } from '../theme/typography';
 import type { Lesson, LessonTheme } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
 import { isSceneProgressComplete } from '../utils/lessonProgress';
@@ -41,6 +38,7 @@ type Props = NativeStackScreenProps<RootStackParamList, 'ThemeLibrary'>;
 
 export function ThemeLibraryScreen({ navigation }: Props) {
   useThemeSync();
+  const responsiveLayout = useResponsiveLayout();
   const t = useI18n();
   const appLanguage = useSavedAppLanguage();
   const monetizationSnapshot = useMonetizationSnapshot();
@@ -49,7 +47,21 @@ export function ThemeLibraryScreen({ navigation }: Props) {
   const [visibleLessonIds, setVisibleLessonIds] = useState<
     string[] | undefined
   >(undefined);
-  const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
+  const [disabledThemeIds, setDisabledThemeIds] = useState<string[]>([]);
+  const disabledThemeIdSet = useMemo(
+    () => new Set(disabledThemeIds),
+    [disabledThemeIds],
+  );
+  const enabledThemes = useMemo(
+    () => themes.filter(theme => !disabledThemeIdSet.has(theme.id)),
+    [disabledThemeIdSet],
+  );
+  const storedActiveThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
+  const activeTheme =
+    enabledThemes.find(theme => theme.id === storedActiveThemeId) ??
+    enabledThemes[0] ??
+    themes[0];
+  const activeThemeId = activeTheme.id;
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -61,12 +73,20 @@ export function ThemeLibraryScreen({ navigation }: Props) {
       .catch(() => setProgress(null));
     getParentSettings()
       .then(settings => {
+        setDisabledThemeIds(settings.disabledThemeIds ?? []);
         setVisibleLessonIds(settings.visibleLessonIds);
       })
       .catch(() => undefined);
   }, []);
 
   const promptLanguage = useSavedPromptLanguage();
+  const columnCount = responsiveLayout.isTablet ? 3 : 2;
+  const contentWidth =
+    Math.min(responsiveLayout.width, responsiveLayout.contentMaxWidth) -
+    responsiveLayout.screenPadding * 2;
+  const themeCardWidth = Math.floor(
+    (contentWidth - spacing.sm * (columnCount - 1)) / columnCount,
+  );
 
   const playKidLockPrompt = (reason: KidLockReason) => {
     playTapSound().catch(() => undefined);
@@ -120,101 +140,239 @@ export function ThemeLibraryScreen({ navigation }: Props) {
     }
   };
 
+  const activeThemeIndex = themes.findIndex(
+    theme => theme.id === activeTheme.id,
+  );
+  const activeThemeTitle = getLocalizedThemeTitle(activeTheme, appLanguage);
+  const activeThemeProgress = getThemeProgress(
+    activeTheme,
+    completedSceneIds,
+    visibleLessonIds,
+  );
+  const activeThemeComplete = isThemeProgressComplete(activeThemeProgress);
+  const activeThemeStarted = activeThemeProgress.completed > 0;
+  const activeThemeLocked = !canAccessAnyThemeLesson(
+    activeTheme,
+    monetizationSnapshot,
+  );
+  const activeThemeResolving =
+    activeThemeLocked && monetizationSnapshot.status === 'initializing';
+  const activeActionLabel = activeThemeLocked
+    ? activeThemeResolving
+      ? t('premium.resolving')
+      : t('premium.askParent')
+    : activeThemeComplete
+    ? t('themeLibrary.revisitMap')
+    : activeThemeStarted
+    ? t('themeLibrary.continueOnMap')
+    : t('themeLibrary.startJourney');
+
   return (
     <Screen scroll>
       <View style={styles.header}>
         <Text style={styles.title}>{t('themeLibrary.title')}</Text>
-        <Text style={styles.subtitle}>{t('themeLibrary.subtitle')}</Text>
-        <View style={styles.parentNote}>
-          <View style={styles.parentNoteHeader}>
-            <Text style={styles.parentNoteIcon}>💡</Text>
+      </View>
 
-            <Text style={styles.parentNoteTitle}>
-              {t('themeLibrary.parentNote')}
-            </Text>
-          </View>
-          <Text style={styles.parentNoteText}>
-            {t('themeLibrary.parentNoteDescription')}
-          </Text>
-        </View>
+      <View style={styles.currentSection}>
+        <Text style={styles.sectionTitle}>
+          {t('themeLibrary.currentSection')}
+        </Text>
+        <Pressable
+          accessibilityHint={
+            activeThemeLocked
+              ? t(
+                  activeThemeResolving
+                    ? 'premium.resolving'
+                    : 'premium.kidLockedText',
+                )
+              : t('themeLibrary.activeDescription')
+          }
+          accessibilityLabel={`${activeActionLabel}: ${activeThemeTitle}`}
+          accessibilityRole="button"
+          accessibilityState={{
+            disabled: Boolean(savingThemeId),
+            selected: true,
+          }}
+          disabled={Boolean(savingThemeId)}
+          onPress={() => handleSelectTheme(activeTheme)}
+          style={({ pressed }) => [
+            styles.currentPressable,
+            pressed && styles.pressed,
+          ]}
+          testID="theme-library-current"
+        >
+          <AppCard
+            style={[
+              styles.currentCard,
+              activeThemeLocked && styles.currentCardLocked,
+            ]}
+          >
+            <View style={styles.currentTopRow}>
+              <View
+                style={[
+                  styles.currentIcon,
+                  getThemeIconTone(activeTheme.id, activeThemeIndex),
+                ]}
+              >
+                {activeTheme.iconName ? (
+                  <SKidsIcon name={activeTheme.iconName} size={70} />
+                ) : (
+                  <Text style={styles.currentEmoji}>
+                    {activeTheme.thumbnailEmoji}
+                  </Text>
+                )}
+                {activeThemeLocked ? (
+                  <View style={styles.currentLockBadge}>
+                    <SKidsIcon name="parentLock" size={18} />
+                  </View>
+                ) : null}
+              </View>
+
+              <View style={styles.currentText}>
+                <KidBadge
+                  style={styles.currentBadge}
+                  tone={
+                    activeThemeLocked
+                      ? 'alert'
+                      : activeThemeComplete
+                      ? 'sun'
+                      : 'teal'
+                  }
+                >
+                  {activeThemeLocked
+                    ? activeThemeResolving
+                      ? t('premium.resolving')
+                      : t('premium.askParent')
+                    : activeThemeComplete
+                    ? `⭐ ${t('themeLibrary.completedStatus')}`
+                    : `🚀 ${t('themeLibrary.activeStatus')}`}
+                </KidBadge>
+                <Text numberOfLines={2} style={styles.currentTitle}>
+                  {activeThemeTitle}
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.currentProgressRow}>
+              <Text style={styles.currentProgressText}>
+                ⭐{' '}
+                {t('themeLibrary.stationProgress', {
+                  completed: String(activeThemeProgress.completed),
+                  total: String(activeThemeProgress.total),
+                })}
+              </Text>
+              <View style={styles.currentProgressTrack}>
+                <View
+                  style={[
+                    styles.currentProgressFill,
+                    {
+                      width: `${getThemeProgressPercent(activeThemeProgress)}%`,
+                    },
+                  ]}
+                />
+              </View>
+            </View>
+
+            <View
+              style={[
+                styles.actionButton,
+                activeThemeLocked && styles.actionButtonLocked,
+              ]}
+            >
+              <Text
+                numberOfLines={1}
+                style={[
+                  styles.actionButtonText,
+                  activeThemeLocked && styles.actionButtonTextLocked,
+                ]}
+              >
+                {activeThemeLocked ? '🔒 ' : activeThemeComplete ? '↻ ' : '🚀 '}
+                {activeActionLabel}
+              </Text>
+            </View>
+          </AppCard>
+        </Pressable>
+      </View>
+
+      <View style={styles.exploreHeader}>
+        <Text style={styles.sectionTitle}>
+          {t('themeLibrary.exploreSection')}
+        </Text>
+        <Text style={styles.exploreHint}>{t('themeLibrary.exploreHint')}</Text>
       </View>
 
       <View style={styles.grid}>
-        {themes.map((theme, index) => {
-          const themeTitle = getLocalizedThemeTitle(theme, appLanguage);
-          const themeDescription = getLocalizedThemeDescription(
-            theme,
-            appLanguage,
-          );
-          const themeProgress = getThemeProgress(
-            theme,
-            completedSceneIds,
-            visibleLessonIds,
-          );
-          const isActive = activeThemeId === theme.id;
-          const isSavingThisTheme = savingThemeId === theme.id;
-          const isPremiumLocked = !canAccessAnyThemeLesson(
-            theme,
-            monetizationSnapshot,
-          );
-          const isResolvingPremium =
-            isPremiumLocked && monetizationSnapshot.status === 'initializing';
-          const actionLabel = isActive
-            ? t('themeLibrary.continueOnMap')
-            : t('themeLibrary.chooseThisTheme');
-          const activeDescription = isActive
-            ? t('themeLibrary.activeDescription')
-            : t('themeLibrary.inactiveDescription');
+        {enabledThemes
+          .filter(theme => theme.id !== activeTheme.id)
+          .map(theme => {
+            const themeIndex = themes.findIndex(item => item.id === theme.id);
+            const themeTitle = getLocalizedThemeTitle(theme, appLanguage);
+            const themeProgress = getThemeProgress(
+              theme,
+              completedSceneIds,
+              visibleLessonIds,
+            );
+            const isComplete = isThemeProgressComplete(themeProgress);
+            const isSavingThisTheme = savingThemeId === theme.id;
+            const isPremiumLocked = !canAccessAnyThemeLesson(
+              theme,
+              monetizationSnapshot,
+            );
+            const isResolvingPremium =
+              isPremiumLocked && monetizationSnapshot.status === 'initializing';
+            const stateLabel = isPremiumLocked
+              ? isResolvingPremium
+                ? t('premium.resolving')
+                : t('premium.askParent')
+              : isComplete
+              ? t('themeLibrary.completedShortStatus')
+              : t('themeLibrary.stationProgress', {
+                  completed: String(themeProgress.completed),
+                  total: String(themeProgress.total),
+                });
 
-          const progressPercent =
-            themeProgress.total > 0
-              ? Math.min(
-                  100,
-                  Math.max(
-                    0,
-                    Math.round(
-                      (themeProgress.completed / themeProgress.total) * 100,
-                    ),
-                  ),
-                )
-              : 0;
-
-          const themeIconToneStyle = getThemeIconTone(theme.id, index);
-
-          return (
-            <Pressable
-              accessibilityHint={
-                isPremiumLocked
-                  ? t(
-                      isResolvingPremium
-                        ? 'premium.resolving'
-                        : 'premium.kidLockedText',
-                    )
-                  : activeDescription
-              }
-              accessibilityLabel={`${actionLabel}: ${themeTitle}`}
-              accessibilityRole="button"
-              accessibilityState={{ selected: isActive }}
-              disabled={Boolean(savingThemeId)}
-              key={theme.id}
-              onPress={() => handleSelectTheme(theme)}
-              style={({ pressed }) => [
-                styles.themePressable,
-                pressed && !savingThemeId && styles.pressed,
-                savingThemeId && !isSavingThisTheme && styles.disabled,
-              ]}
-            >
-              <AppCard
-                style={[
-                  styles.themeCard,
-                  isActive && styles.themeCardActive,
-                  isPremiumLocked && styles.themeCardPremiumLocked,
+            return (
+              <Pressable
+                accessibilityHint={
+                  isPremiumLocked
+                    ? t(
+                        isResolvingPremium
+                          ? 'premium.resolving'
+                          : 'premium.kidLockedText',
+                      )
+                    : t('themeLibrary.inactiveDescription')
+                }
+                accessibilityLabel={`${themeTitle}. ${stateLabel}`}
+                accessibilityRole="button"
+                accessibilityState={{
+                  busy: isSavingThisTheme,
+                  disabled: Boolean(savingThemeId),
+                }}
+                disabled={Boolean(savingThemeId)}
+                key={theme.id}
+                onPress={() => handleSelectTheme(theme)}
+                style={({ pressed }) => [
+                  styles.themePressable,
+                  { width: themeCardWidth },
+                  pressed && !savingThemeId && styles.pressed,
+                  savingThemeId && !isSavingThisTheme && styles.disabled,
                 ]}
+                testID={`theme-library-card-${theme.id}`}
               >
-                <View style={styles.themeTopRow}>
-                  <View style={[styles.themeIcon, themeIconToneStyle]}>
+                <AppCard
+                  style={[
+                    styles.themeCard,
+                    isPremiumLocked && styles.themeCardPremiumLocked,
+                  ]}
+                >
+                  <View
+                    style={[
+                      styles.themeIcon,
+                      getThemeIconTone(theme.id, themeIndex),
+                    ]}
+                  >
                     {theme.iconName ? (
-                      <SKidsIcon name={theme.iconName} size={62} />
+                      <SKidsIcon name={theme.iconName} size={72} />
                     ) : (
                       <Text style={styles.themeEmoji}>
                         {theme.thumbnailEmoji}
@@ -226,82 +384,56 @@ export function ThemeLibraryScreen({ navigation }: Props) {
                       </View>
                     ) : null}
                   </View>
-                  <View style={styles.themeText}>
-                    <View style={styles.badgeRow}>
-                      <KidBadge tone={isActive ? 'teal' : 'sky'}>
-                        {isActive
-                          ? `🚀 ${t('themeLibrary.activeStatus')}`
-                          : t('themeLibrary.themeStatus')}
-                      </KidBadge>
-                      {isSavingThisTheme ? (
-                        <KidBadge tone="sun">
-                          {t('themeLibrary.savingStatus')}
-                        </KidBadge>
-                      ) : null}
-                      {isPremiumLocked ? (
-                        <KidBadge tone="alert">
-                          {isResolvingPremium
-                            ? t('premium.resolving')
-                            : t('premium.askParent')}
-                        </KidBadge>
-                      ) : null}
-                    </View>
-                    <Text style={styles.themeTitle}>{themeTitle}</Text>
-                    {themeDescription ? (
-                      <Text style={styles.themeDescription}>
-                        {themeDescription}
-                      </Text>
-                    ) : null}
-                  </View>
-                </View>
 
-                <View style={styles.progressRow}>
-                  <View style={styles.progressBadge}>
-                    <Text style={styles.progressStarIcon}>⭐</Text>
-                    <Text style={styles.progressBadgeText}>
-                      {themeProgress.completed}/{themeProgress.total}{' '}
-                      {t('themeLibrary.stations')}
-                    </Text>
-                  </View>
-                  <View style={styles.progressTrack}>
-                    <View
-                      style={[
-                        styles.progressFill,
-                        { width: `${progressPercent}%` },
-                        isActive && styles.progressFillActive,
-                      ]}
-                    />
-                  </View>
-                </View>
-
-                <View
-                  style={[
-                    styles.actionButton,
-                    isActive && styles.actionButtonActive,
-                    isPremiumLocked && styles.actionButtonLocked,
-                  ]}
-                >
-                  <Text
-                    numberOfLines={1}
-                    style={[
-                      styles.actionButtonText,
-                      isActive && styles.actionButtonTextActive,
-                      isPremiumLocked && styles.actionButtonTextLocked,
-                    ]}
-                  >
-                    {isSavingThisTheme
-                      ? t('themeLibrary.savingAction')
-                      : isPremiumLocked
-                      ? `🔒 ${t('premium.askParent')}`
-                      : isActive
-                      ? `🚀 ${actionLabel}`
-                      : `✨ ${actionLabel}`}
+                  <Text numberOfLines={3} style={styles.themeTitle}>
+                    {themeTitle}
                   </Text>
-                </View>
-              </AppCard>
-            </Pressable>
-          );
-        })}
+
+                  <View style={styles.themeFooter}>
+                    <View style={styles.themeState}>
+                      {isSavingThisTheme ? (
+                        <Text style={styles.savingText}>
+                          {t('themeLibrary.savingAction')}
+                        </Text>
+                      ) : isPremiumLocked ? (
+                        <Text style={styles.lockedText} numberOfLines={1}>
+                          🔒 {stateLabel}
+                        </Text>
+                      ) : isComplete ? (
+                        <Text style={styles.completeText} numberOfLines={1}>
+                          ⭐ {stateLabel}
+                        </Text>
+                      ) : (
+                        <>
+                          <Text style={styles.themeProgressText}>
+                            {stateLabel}
+                          </Text>
+                          <View style={styles.themeProgressTrack}>
+                            <View
+                              style={[
+                                styles.themeProgressFill,
+                                {
+                                  width: `${getThemeProgressPercent(
+                                    themeProgress,
+                                  )}%`,
+                                },
+                              ]}
+                            />
+                          </View>
+                        </>
+                      )}
+                    </View>
+                    <View
+                      accessibilityElementsHidden
+                      style={styles.arrowButton}
+                    >
+                      <Text style={styles.arrowText}>›</Text>
+                    </View>
+                  </View>
+                </AppCard>
+              </Pressable>
+            );
+          })}
       </View>
     </Screen>
   );
@@ -322,7 +454,7 @@ function getThemeIconTone(themeId: string, index: number) {
     styles.themeIconMint,
     styles.themeIconLavender,
   ];
-  return tones[index % tones.length];
+  return tones[Math.max(0, index) % tones.length];
 }
 
 function canAccessAnyThemeLesson(
@@ -366,157 +498,239 @@ function getThemeProgress(
   return { completed, total };
 }
 
+function isThemeProgressComplete(progress: {
+  completed: number;
+  total: number;
+}) {
+  return progress.total > 0 && progress.completed >= progress.total;
+}
+
+function getThemeProgressPercent(progress: {
+  completed: number;
+  total: number;
+}) {
+  if (progress.total <= 0) {
+    return 0;
+  }
+
+  return Math.min(
+    100,
+    Math.max(0, Math.round((progress.completed / progress.total) * 100)),
+  );
+}
+
 const styles = createThemedStyles(() => ({
   actionButton: {
     alignItems: 'center',
-    backgroundColor: colors.secondary,
-    borderColor: colors.secondaryDark,
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
     borderRadius: radius.pill,
     borderWidth: 2,
-    flexDirection: 'row',
     justifyContent: 'center',
-    minHeight: 48,
+    minHeight: 46,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
     ...shadows.soft,
-  },
-  actionButtonActive: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primaryDark,
   },
   actionButtonLocked: {
     backgroundColor: colors.surface,
     borderColor: colors.border,
   },
   actionButtonText: {
-    color: colors.text,
-    fontSize: 15,
+    color: colors.white,
+    fontSize: 16,
     fontWeight: '900',
     textAlign: 'center',
-  },
-  actionButtonTextActive: {
-    color: colors.white,
   },
   actionButtonTextLocked: {
     color: colors.textSoft,
   },
-  badgeRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.xs,
-  },
-  disabled: {
-    opacity: 0.55,
-  },
-  grid: {
-    gap: spacing.md,
-  },
-  header: {
-    gap: spacing.xs,
-    marginBottom: spacing.md,
-    paddingTop: spacing.xxs,
-  },
-  parentNote: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-    borderRadius: radius.lg,
+  arrowButton: {
+    alignItems: 'center',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+    borderRadius: radius.pill,
     borderWidth: 1.5,
-    gap: 4,
-    marginTop: spacing.xs,
-    padding: spacing.sm,
+    height: 36,
+    justifyContent: 'center',
+    width: 36,
   },
-  parentNoteHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.xxs,
-  },
-  parentNoteIcon: {
-    fontSize: 14,
-  },
-  parentNoteText: {
-    color: colors.text,
-    fontSize: 12,
-    lineHeight: 16,
-  },
-  parentNoteTitle: {
-    color: colors.text,
-    fontSize: 13,
+  arrowText: {
+    color: colors.primaryDark,
+    fontSize: 30,
     fontWeight: '900',
+    lineHeight: 31,
+    marginTop: -2,
   },
-  pressed: {
-    opacity: 0.92,
-    transform: [{ scale: 0.99 }],
-  },
-  progressBadge: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 4,
-  },
-  progressBadgeText: {
-    color: colors.text,
+  completeText: {
+    color: colors.secondaryDark,
     fontSize: 12,
     fontWeight: '900',
   },
-  progressFill: {
-    backgroundColor: colors.secondary,
+  currentCard: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.primary,
+    borderRadius: radius.xl,
+    borderWidth: 2.5,
+    gap: spacing.xs,
+    padding: 14,
+    ...shadows.floating,
+  },
+  currentCardLocked: {
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+  },
+  currentBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+  },
+  currentEmoji: {
+    fontSize: 42,
+    lineHeight: 48,
+    textAlign: 'center',
+  },
+  currentIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.outlineStrong,
+    borderRadius: radius.xl,
+    borderWidth: 3,
+    height: 86,
+    justifyContent: 'center',
+    position: 'relative',
+    width: 86,
+    ...shadows.soft,
+  },
+  currentLockBadge: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    bottom: -4,
+    height: 30,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: -4,
+    width: 30,
+  },
+  currentPressable: {
+    borderRadius: radius.xl,
+  },
+  currentProgressFill: {
+    backgroundColor: colors.primary,
     borderRadius: radius.pill,
     height: '100%',
   },
-  progressFillActive: {
-    backgroundColor: colors.primary,
-  },
-  progressRow: {
+  currentProgressRow: {
     alignItems: 'center',
-    backgroundColor: colors.surfaceBlue,
+    backgroundColor: colors.surface,
     borderColor: colors.border,
     borderRadius: radius.lg,
     borderWidth: 1,
     flexDirection: 'row',
     gap: spacing.sm,
-    justifyContent: 'space-between',
-    paddingHorizontal: spacing.md,
+    minHeight: 36,
+    paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xs,
   },
-  progressStarIcon: {
-    fontSize: 14,
+  currentProgressText: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
   },
-  progressTrack: {
+  currentProgressTrack: {
     backgroundColor: colors.backgroundCool,
     borderRadius: radius.pill,
     flex: 1,
     height: 8,
     overflow: 'hidden',
   },
-  subtitle: {
+  currentSection: {
+    gap: spacing.xs,
+    marginBottom: 20,
+  },
+  currentText: {
+    flex: 1,
+    gap: spacing.xxs,
+  },
+  currentTitle: {
+    color: colors.text,
+    fontSize: 20,
+    fontWeight: '900',
+    lineHeight: 24,
+  },
+  currentTopRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  disabled: {
+    opacity: 0.55,
+  },
+  exploreHeader: {
+    gap: spacing.xxs,
+    marginBottom: spacing.sm,
+  },
+  exploreHint: {
     color: colors.textSoft,
-    ...typography.body,
+    fontSize: 13,
+    fontWeight: '600',
+    lineHeight: 19,
+  },
+  grid: {
+    alignItems: 'stretch',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+  },
+  header: {
+    marginBottom: spacing.md,
+    paddingTop: spacing.xxs,
+  },
+  lockedText: {
+    color: colors.alert,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  pressed: {
+    opacity: 0.9,
+    transform: [{ scale: 0.985 }],
+  },
+  savingText: {
+    color: colors.primaryDark,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  sectionTitle: {
+    color: colors.text,
+    fontSize: 19,
+    fontWeight: '900',
+    lineHeight: 24,
   },
   themeCard: {
+    alignItems: 'center',
     backgroundColor: colors.surface,
     borderColor: colors.border,
     borderRadius: radius.xl,
-    gap: spacing.sm,
-    padding: spacing.md,
+    gap: spacing.xs,
+    minHeight: 208,
+    padding: 10,
     ...shadows.soft,
   },
-  themeCardActive: {
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.primary,
-    borderWidth: 2.5,
-    ...shadows.floating,
-  },
   themeCardPremiumLocked: {
-    borderColor: colors.border,
-  },
-  themeDescription: {
-    color: colors.textSoft,
-    fontSize: 13,
-    lineHeight: 17,
+    backgroundColor: colors.surfaceBlue,
   },
   themeEmoji: {
     fontSize: 42,
     lineHeight: 48,
     textAlign: 'center',
+  },
+  themeFooter: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
+    width: '100%',
   },
   themeIcon: {
     alignItems: 'center',
@@ -524,10 +738,10 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.outlineStrong,
     borderRadius: radius.xl,
     borderWidth: 3,
-    height: 76,
+    height: 84,
     justifyContent: 'center',
     position: 'relative',
-    width: 76,
+    width: 84,
     ...shadows.soft,
   },
   themeIconLavender: {
@@ -557,27 +771,41 @@ const styles = createThemedStyles(() => ({
   },
   themePressable: {
     borderRadius: radius.xl,
-    overflow: 'hidden',
   },
-  themeText: {
+  themeProgressFill: {
+    backgroundColor: colors.primary,
+    borderRadius: radius.pill,
+    height: '100%',
+  },
+  themeProgressText: {
+    color: colors.textSoft,
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  themeProgressTrack: {
+    backgroundColor: colors.backgroundCool,
+    borderRadius: radius.pill,
+    height: 6,
+    overflow: 'hidden',
+    width: '100%',
+  },
+  themeState: {
     flex: 1,
-    gap: 4,
+    gap: spacing.xxs,
   },
   themeTitle: {
     color: colors.text,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '900',
-    lineHeight: 22,
-  },
-  themeTopRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.md,
+    lineHeight: 20,
+    minHeight: 48,
+    textAlign: 'center',
+    width: '100%',
   },
   title: {
     color: colors.text,
-    fontSize: 24,
+    fontSize: 25,
     fontWeight: '900',
-    lineHeight: 28,
+    lineHeight: 30,
   },
 }));

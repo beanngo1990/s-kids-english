@@ -13,6 +13,7 @@ export type CloudParentSettingsData = {
   appLanguage: AppLanguage;
   appTheme: AppTheme;
   childProfile: ChildProfile;
+  disabledThemeIds?: string[];
   englishAccent: EnglishAccent;
   hasCompletedOnboarding: boolean;
   journeyMode: ParentSettings['journeyMode'];
@@ -32,12 +33,18 @@ export function toCloudParentSettingsData(
         left.localeCompare(right),
       )
     : undefined;
+  const disabledThemeIds = settings.disabledThemeIds
+    ? Array.from(new Set(settings.disabledThemeIds)).sort((left, right) =>
+        left.localeCompare(right),
+      )
+    : undefined;
   const childProfile = normalizeCloudChildProfile(settings.childProfile);
 
   return {
     appLanguage: settings.appLanguage,
     appTheme: settings.appTheme,
     childProfile,
+    ...(disabledThemeIds ? { disabledThemeIds } : {}),
     englishAccent: settings.englishAccent,
     hasCompletedOnboarding: settings.hasCompletedOnboarding,
     journeyMode: settings.journeyMode,
@@ -62,6 +69,7 @@ export function parseCloudParentSettingsData(
   const appLanguage = parseAppLanguage(value.appLanguage);
   const appTheme = parseAppTheme(value.appTheme);
   const childProfile = parseChildProfile(value.childProfile);
+  const disabledThemeIds = parseVisibleLessonIds(value.disabledThemeIds);
   const englishAccent = parseEnglishAccent(value.englishAccent);
   const journeyMode = parseJourneyMode(value.journeyMode);
   const learningMode = parseLearningMode(value.learningMode);
@@ -76,6 +84,7 @@ export function parseCloudParentSettingsData(
     !appLanguage ||
     !appTheme ||
     !childProfile ||
+    disabledThemeIds === null ||
     !englishAccent ||
     !journeyMode ||
     !learningMode ||
@@ -93,6 +102,7 @@ export function parseCloudParentSettingsData(
     appLanguage,
     appTheme,
     childProfile,
+    ...(disabledThemeIds ? { disabledThemeIds } : {}),
     englishAccent,
     hasCompletedOnboarding: value.hasCompletedOnboarding,
     journeyMode,

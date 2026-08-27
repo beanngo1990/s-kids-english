@@ -45,6 +45,7 @@ export const en: TranslationDictionary = {
   'nav.stickerCollection': 'Sticker Collection',
   'nav.stickerPlayground': 'Sticker Playground',
   'nav.parent': 'Parent Mode',
+  'nav.parentLessonPlan': 'Edit Learning Path',
   'nav.parentVoiceLibrary': "Child's Reading Voice",
   'nav.premium': 'Sungy Premium',
 
@@ -435,7 +436,7 @@ export const en: TranslationDictionary = {
   'parent.info.journey.what':
     'Decides whether your child follows the suggested order or can open lessons more freely.',
   'parent.info.lessonPace.childImpact':
-    'All lessons enables the full path; Gentle keeps a few lessons near the current one; Custom lets parents show or hide each lesson.',
+    'All enables the full path; Suggested keeps one starting lesson in each theme; Custom lets parents adjust individual lessons.',
   'parent.info.lessonPace.privacy':
     'The enabled lesson list is stored in parent settings and only syncs to cloud if learning data sync is enabled.',
   'parent.info.lessonPace.title': 'Lesson scope',
@@ -896,22 +897,29 @@ export const en: TranslationDictionary = {
   'stickerPlayground.empty':
     'No stickers yet. Tap to open the album and see how to earn one!',
   'themeLibrary.badge': 'Theme library',
-  'themeLibrary.title': 'Choose a learning path',
+  'themeLibrary.title': 'What will you explore?',
   'themeLibrary.parentNote': 'Note for parents',
+  'themeLibrary.startJourney': 'Start the journey',
   'themeLibrary.continueOnMap': 'Continue on map',
+  'themeLibrary.revisitMap': 'Revisit the map',
   'themeLibrary.chooseThisTheme': 'Choose this theme',
   'themeLibrary.activeDescription': 'Currently shown on Home. Tap to continue.',
   'themeLibrary.inactiveDescription':
     'Tap to change the Super Map on Home to this theme.',
-  'themeLibrary.activeStatus': 'Learning',
+  'themeLibrary.activeStatus': 'Exploring now',
+  'themeLibrary.completedStatus': 'Completed',
+  'themeLibrary.completedShortStatus': 'Done',
   'themeLibrary.themeStatus': 'Theme',
   'themeLibrary.savingStatus': 'Saving',
-  'themeLibrary.savingAction': 'Saving...',
-  'themeLibrary.subtitle':
-    'Each theme is a unique learning journey for your child.',
+  'themeLibrary.savingAction': 'Opening...',
+  'themeLibrary.subtitle': 'Choose a world and start your journey!',
+  'themeLibrary.currentSection': 'Your journey',
+  'themeLibrary.exploreSection': 'Explore more',
+  'themeLibrary.exploreHint': 'Tap a theme to change the map.',
   'themeLibrary.parentNoteDescription':
     'Choose a theme that suits your child. They will learn lesson by lesson within that theme.',
   'themeLibrary.stations': 'stations',
+  'themeLibrary.stationProgress': '{completed}/{total} stops',
   'reviewGame.notFound': 'Lesson not found.',
   'reviewGame.backToList': 'Back to lessons',
   'reviewGame.noGame': 'This lesson has no review game yet.',
@@ -1069,27 +1077,30 @@ export const en: TranslationDictionary = {
   'parent.stats.allLessons': 'All lessons',
   'parent.stats.guidedPlanTitle': 'All lessons',
   'parent.stats.guidedPlanSubtitle': 'Enable the full learning path',
-  'parent.stats.gentlePlanTitle': 'Gentle pace',
-  'parent.stats.gentleLessons': '{count} lessons near the current lesson',
+  'parent.stats.gentlePlanTitle': 'Suggested',
+  'parent.stats.gentleLessons': '{count} starting lessons by theme',
   'parent.stats.gentlePlanSubtitle':
-    'Only enables the {count} lessons nearest to the current lesson.',
+    'Enables {count} starting lessons, one in each theme.',
   'parent.stats.customPlanTitle': 'Custom',
   'parent.stats.customLessons': 'Custom lessons',
   'parent.stats.customLessonsHint':
-    'Manually selecting lessons. Use the toggles below to show or hide lessons.',
+    'Open each theme below to show or hide lessons.',
   'parent.stats.currentPlanLabel': 'Current plan',
   'parent.stats.openLessonAccessibility': 'Open {lessonTitle}',
-  'parent.stats.themeListTitle': 'Themes your child is learning',
+  'parent.stats.themeListTitle': 'Lessons in each theme',
   'parent.stats.themeListSubtitle':
     'Each theme contains lessons and vocabulary for your child.',
   'parent.stats.customPlanBadge': 'Custom',
   'parent.stats.completedLessonsOfTotal':
     '{completed}/{total} lessons completed',
   'parent.stats.visibleLessonsCount': '{count} lessons enabled',
-  'parent.stats.themeStatusAll': 'All on ({count})',
-  'parent.stats.themeStatusSome': 'On {count}/{total}',
-  'parent.stats.themeStatusOff': 'Off',
-  'parent.stats.quickToggleTheme': 'Toggle entire theme',
+  'parent.stats.themeLessonSummary':
+    '{visible}/{total} enabled · {completed} completed',
+  'parent.stats.enableAllThemeLessons': 'Enable all lessons',
+  'parent.stats.keepOneLessonHint':
+    'Each theme always keeps at least 1 lesson for your child.',
+  'parent.stats.chooseCustomToEdit':
+    'Choose “Custom” above to show or hide individual lessons.',
   'parent.stats.lessonStateHidden': 'Hidden',
   'parent.stats.lessonStateReadyToReview': 'Ready to review',
   'parent.stats.lessonStateLearning': 'Learning',
@@ -1103,6 +1114,45 @@ export const en: TranslationDictionary = {
   'parent.stats.viewLessonPrefix': 'View lesson ',
   'parent.stats.viewLesson': 'View lesson',
   'parent.stats.lessonPreviewLabel': 'Child will explore',
+
+  'parent.lessonPlanEditor.title': 'Choose a learning path',
+  'parent.lessonPlanEditor.subtitle':
+    'Turn on the themes your child will learn, then choose the lessons inside. Progress is always kept.',
+  'parent.lessonPlanEditor.presetRecommended': 'Suggested',
+  'parent.lessonPlanEditor.presetRecommendedDescription':
+    'One starting lesson per theme',
+  'parent.lessonPlanEditor.presetAll': 'All',
+  'parent.lessonPlanEditor.presetAllDescription': 'The complete learning path',
+  'parent.lessonPlanEditor.presetCustom': 'Custom',
+  'parent.lessonPlanEditor.presetCustomDescription':
+    'Adjust themes and individual lessons',
+  'parent.lessonPlanEditor.themesTitle': 'Themes and lessons',
+  'parent.lessonPlanEditor.themesSubtitle':
+    'Keep at least 1 lesson in every enabled theme.',
+  'parent.lessonPlanEditor.themeCount': '{selected}/{total} lessons',
+  'parent.lessonPlanEditor.themeDisabledCount':
+    'Off · saving {selected} lesson choices',
+  'parent.lessonPlanEditor.disableThemeAccessibility':
+    'Turn off {themeTitle}',
+  'parent.lessonPlanEditor.enableThemeAccessibility': 'Turn on {themeTitle}',
+  'parent.lessonPlanEditor.keepOneTheme':
+    'Keep at least 1 theme available for your child.',
+  'parent.lessonPlanEditor.mapWillSwitch':
+    'When saved, your child’s map will switch to “{themeTitle}”.',
+  'parent.lessonPlanEditor.showLessons': 'Show {count} lessons',
+  'parent.lessonPlanEditor.hideLessons': 'Hide lesson list',
+  'parent.lessonPlanEditor.lessonSectionTitle': 'Lessons in this theme',
+  'parent.lessonPlanEditor.selectAll': 'Select all',
+  'parent.lessonPlanEditor.allSelected': 'All selected',
+  'parent.lessonPlanEditor.selectAllAccessibility':
+    'Select every lesson in {themeTitle}',
+  'parent.lessonPlanEditor.requiredLesson': 'Required theme lesson',
+  'parent.lessonPlanEditor.stations': '{count} learning stops',
+  'parent.lessonPlanEditor.selectedCount': '{count} lessons on',
+  'parent.lessonPlanEditor.done': 'Done',
+  'parent.lessonPlanEditor.loading': 'Loading learning path…',
+  'parent.lessonPlanEditor.saveErrorTitle': 'Could not save the learning path',
+  'parent.lessonPlanEditor.saveErrorText': 'Please try again in a moment.',
 
   'parent.voice.autoSaveDisabled': 'Does not save new recordings.',
   'parent.voice.autoSaveEnabled':

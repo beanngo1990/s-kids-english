@@ -43,6 +43,7 @@ export const vi = {
   'nav.stickerCollection': 'Bộ sưu tập',
   'nav.stickerPlayground': 'Sân chơi Sticker',
   'nav.parent': 'Góc phụ huynh',
+  'nav.parentLessonPlan': 'Chỉnh lộ trình',
   'nav.parentVoiceLibrary': 'Giọng đọc của bé',
   'nav.premium': 'Sungy Premium',
 
@@ -435,7 +436,7 @@ export const vi = {
   'parent.info.journey.what':
     'Quyết định bé học theo thứ tự gợi ý hay được mở bài linh hoạt hơn.',
   'parent.info.lessonPace.childImpact':
-    'Tất cả bài bật toàn bộ lộ trình; Nhẹ nhàng chỉ bật vài bài gần bài bé đang học; Tự chọn để ba mẹ ẩn/hiện từng bài.',
+    'Tất cả bật toàn bộ lộ trình; Gợi ý giữ một bài khởi đầu trong mỗi chủ đề; Tự chọn để ba mẹ chỉnh từng bài.',
   'parent.info.lessonPace.privacy':
     'Danh sách bài đang bật lưu trong cài đặt phụ huynh và chỉ sync cloud nếu ba mẹ bật đồng bộ.',
   'parent.info.lessonPace.title': 'Phạm vi bài học',
@@ -889,22 +890,30 @@ export const vi = {
   'stickerPlayground.empty':
     'Bé chưa có sticker. Chạm để mở album và xem cách nhận sticker nhé!',
   'themeLibrary.badge': 'Thư viện chủ đề',
-  'themeLibrary.title': 'Chọn lộ trình học',
+  'themeLibrary.title': 'Bé muốn khám phá gì?',
   'themeLibrary.parentNote': 'Ghi chú cho phụ huynh',
+  'themeLibrary.startJourney': 'Bắt đầu hành trình',
   'themeLibrary.continueOnMap': 'Tiếp tục trên bản đồ',
+  'themeLibrary.revisitMap': 'Xem lại bản đồ',
   'themeLibrary.chooseThisTheme': 'Chọn chủ đề này',
   'themeLibrary.activeDescription':
     'Đang hiển thị trên Home. Bấm để tiếp tục lộ trình hiện tại.',
   'themeLibrary.inactiveDescription':
     'Chọn để đổi Siêu bản đồ trên Home sang chủ đề này.',
-  'themeLibrary.activeStatus': 'Đang học',
+  'themeLibrary.activeStatus': 'Đang khám phá',
+  'themeLibrary.completedStatus': 'Đã hoàn thành',
+  'themeLibrary.completedShortStatus': 'Hoàn tất',
   'themeLibrary.themeStatus': 'Chủ đề',
   'themeLibrary.savingStatus': 'Đang lưu',
-  'themeLibrary.savingAction': 'Đang lưu...',
-  'themeLibrary.subtitle': 'Mỗi chủ đề là một hành trình học riêng cho bé.',
+  'themeLibrary.savingAction': 'Đang mở...',
+  'themeLibrary.subtitle': 'Chọn một thế giới và bắt đầu hành trình!',
+  'themeLibrary.currentSection': 'Hành trình của bé',
+  'themeLibrary.exploreSection': 'Khám phá thêm',
+  'themeLibrary.exploreHint': 'Chạm vào một chủ đề để đổi bản đồ.',
   'themeLibrary.parentNoteDescription':
     'Chọn chủ đề phù hợp với bé. Bé sẽ học từng bài theo lộ trình trong chủ đề đó.',
   'themeLibrary.stations': 'trạm học',
+  'themeLibrary.stationProgress': '{completed}/{total} trạm',
   'reviewGame.notFound': 'Không tìm thấy bài học này.',
   'reviewGame.backToList': 'Về danh sách bài học',
   'reviewGame.noGame': 'Bài học này chưa có game ôn tập.',
@@ -1062,26 +1071,28 @@ export const vi = {
   'parent.stats.allLessons': 'Tất cả bài',
   'parent.stats.guidedPlanTitle': 'Tất cả bài',
   'parent.stats.guidedPlanSubtitle': 'Bật toàn bộ lộ trình',
-  'parent.stats.gentlePlanTitle': 'Nhẹ nhàng',
-  'parent.stats.gentleLessons': '{count} bài gần bài bé đang học',
+  'parent.stats.gentlePlanTitle': 'Gợi ý',
+  'parent.stats.gentleLessons': '{count} bài khởi đầu theo chủ đề',
   'parent.stats.gentlePlanSubtitle':
-    'Chỉ bật {count} bài gần bài bé đang học nhất.',
+    'Bật {count} bài khởi đầu, mỗi chủ đề một bài.',
   'parent.stats.customPlanTitle': 'Tự chọn',
   'parent.stats.customLessons': 'Từng bài',
   'parent.stats.customLessonsHint':
-    'Đang tự chọn từng bài. Dùng công tắc trong các chủ đề bên dưới để ẩn hoặc hiện bài cho bé.',
+    'Mở từng chủ đề bên dưới để ẩn hoặc hiện bài cho bé.',
   'parent.stats.currentPlanLabel': 'Đang dùng',
   'parent.stats.openLessonAccessibility': 'Mở {lessonTitle}',
-  'parent.stats.themeListTitle': 'Các chủ đề bé đang học',
+  'parent.stats.themeListTitle': 'Bài học trong từng chủ đề',
   'parent.stats.themeListSubtitle':
     'Mỗi chủ đề chứa các bài học và từ vựng riêng của bé.',
   'parent.stats.customPlanBadge': 'Tự chọn',
   'parent.stats.completedLessonsOfTotal': '{completed}/{total} bài hoàn thành',
   'parent.stats.visibleLessonsCount': '{count} bài bật',
-  'parent.stats.themeStatusAll': 'Bật tất cả ({count})',
-  'parent.stats.themeStatusSome': 'Mở {count}/{total} bài',
-  'parent.stats.themeStatusOff': 'Đã tắt',
-  'parent.stats.quickToggleTheme': 'Bật hoặc tắt toàn bộ chủ đề',
+  'parent.stats.themeLessonSummary':
+    '{visible}/{total} bài bật · {completed} hoàn thành',
+  'parent.stats.enableAllThemeLessons': 'Bật tất cả bài',
+  'parent.stats.keepOneLessonHint': 'Mỗi chủ đề luôn có ít nhất 1 bài cho bé.',
+  'parent.stats.chooseCustomToEdit':
+    'Chọn “Tự chọn” ở trên để bật hoặc ẩn từng bài.',
   'parent.stats.lessonStateHidden': 'Đang ẩn',
   'parent.stats.lessonStateReadyToReview': 'Sẵn sàng ôn',
   'parent.stats.lessonStateLearning': 'Đang học',
@@ -1095,6 +1106,47 @@ export const vi = {
   'parent.stats.viewLessonPrefix': 'Xem bài ',
   'parent.stats.viewLesson': 'Xem bài học',
   'parent.stats.lessonPreviewLabel': 'Bé sẽ khám phá',
+
+  'parent.lessonPlanEditor.title': 'Chọn lộ trình cho bé',
+  'parent.lessonPlanEditor.subtitle':
+    'Bật chủ đề bé sẽ học, rồi chọn các bài bên trong. Tiến độ luôn được giữ nguyên.',
+  'parent.lessonPlanEditor.presetRecommended': 'Gợi ý',
+  'parent.lessonPlanEditor.presetRecommendedDescription':
+    'Mỗi chủ đề một bài khởi đầu',
+  'parent.lessonPlanEditor.presetAll': 'Tất cả',
+  'parent.lessonPlanEditor.presetAllDescription': 'Toàn bộ lộ trình của bé',
+  'parent.lessonPlanEditor.presetCustom': 'Tự chọn',
+  'parent.lessonPlanEditor.presetCustomDescription':
+    'Điều chỉnh theo từng chủ đề và bài học',
+  'parent.lessonPlanEditor.themesTitle': 'Chủ đề và bài học',
+  'parent.lessonPlanEditor.themesSubtitle':
+    'Mỗi chủ đề đang bật cần giữ lại ít nhất 1 bài.',
+  'parent.lessonPlanEditor.themeCount': '{selected}/{total} bài',
+  'parent.lessonPlanEditor.themeDisabledCount':
+    'Đang tắt · giữ {selected} bài đã chọn',
+  'parent.lessonPlanEditor.disableThemeAccessibility':
+    'Tắt chủ đề {themeTitle}',
+  'parent.lessonPlanEditor.enableThemeAccessibility':
+    'Bật chủ đề {themeTitle}',
+  'parent.lessonPlanEditor.keepOneTheme':
+    'Luôn giữ ít nhất 1 chủ đề cho bé.',
+  'parent.lessonPlanEditor.mapWillSwitch':
+    'Khi lưu, bản đồ của bé sẽ chuyển sang “{themeTitle}”.',
+  'parent.lessonPlanEditor.showLessons': 'Xem {count} bài',
+  'parent.lessonPlanEditor.hideLessons': 'Ẩn danh sách bài',
+  'parent.lessonPlanEditor.lessonSectionTitle': 'Bài trong chủ đề',
+  'parent.lessonPlanEditor.selectAll': 'Chọn tất cả',
+  'parent.lessonPlanEditor.allSelected': 'Đã chọn hết',
+  'parent.lessonPlanEditor.selectAllAccessibility':
+    'Chọn tất cả bài trong chủ đề {themeTitle}',
+  'parent.lessonPlanEditor.requiredLesson': 'Bài tối thiểu của chủ đề',
+  'parent.lessonPlanEditor.stations': '{count} trạm học',
+  'parent.lessonPlanEditor.selectedCount': '{count} bài đang bật',
+  'parent.lessonPlanEditor.done': 'Xong',
+  'parent.lessonPlanEditor.loading': 'Đang tải lộ trình…',
+  'parent.lessonPlanEditor.saveErrorTitle': 'Chưa lưu được lộ trình',
+  'parent.lessonPlanEditor.saveErrorText':
+    'Ba mẹ thử lại sau một chút nhé.',
 
   'parent.voice.autoSaveDisabled': 'Không lưu bản đọc mới.',
   'parent.voice.autoSaveEnabled': 'Tự động lưu khi bé luyện đọc.',

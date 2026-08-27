@@ -13,6 +13,7 @@ import {
   type KidLockReason,
 } from '../data/kidLockAudioPrompts';
 import { lessons } from '../data/lessons';
+import { themes } from '../data/themes';
 import { canAccessLesson } from '../engine/ContentAccessPolicy';
 import {
   getMonetizationSnapshot,
@@ -32,8 +33,10 @@ import { typography } from '../theme/typography';
 import type { RootStackParamList } from '../types/navigation';
 import { getLessonIconName, getSceneIconName } from '../utils/lessonIcons';
 import { isSceneProgressComplete } from '../utils/lessonProgress';
+import { getEnabledLessonIds } from '../utils/lessonPlan';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'LessonList'>;
+const allLessonIds = lessons.map(lesson => lesson.id);
 
 export function LessonListScreen({ navigation }: Props) {
   useThemeSync();
@@ -44,6 +47,21 @@ export function LessonListScreen({ navigation }: Props) {
   const [visibleLessonIds, setVisibleLessonIds] = useState<
     string[] | undefined
   >(undefined);
+  const [disabledThemeIds, setDisabledThemeIds] = useState<string[]>([]);
+  const enabledLessonIds = useMemo(
+    () =>
+      getEnabledLessonIds(
+        allLessonIds,
+        visibleLessonIds,
+        themes,
+        disabledThemeIds,
+      ),
+    [disabledThemeIds, visibleLessonIds],
+  );
+  const enabledLessonIdSet = useMemo(
+    () => new Set(enabledLessonIds),
+    [enabledLessonIds],
+  );
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -55,6 +73,7 @@ export function LessonListScreen({ navigation }: Props) {
       .catch(() => setProgress(null));
     getParentSettings()
       .then(settings => {
+        setDisabledThemeIds(settings.disabledThemeIds ?? []);
         setVisibleLessonIds(settings.visibleLessonIds);
       })
       .catch(() => undefined);
@@ -107,9 +126,7 @@ export function LessonListScreen({ navigation }: Props) {
 
       <View style={styles.list}>
         {lessons
-          .filter(
-            lesson => !visibleLessonIds || visibleLessonIds.includes(lesson.id),
-          )
+          .filter(lesson => enabledLessonIdSet.has(lesson.id))
           .map(lesson => {
             const lessonTitle = getLocalizedLessonTitle(lesson, appLanguage);
             const lessonDescription = getLocalizedLessonDescription(

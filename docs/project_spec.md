@@ -250,6 +250,8 @@ Contract params nằm trong `src/types/navigation.ts`:
 - `StickerCollection { highlightedStickerId? }`
 - `StickerPlayground`
 - `Parent { intent?: 'dashboard' | 'premium' | 'founderPromo', lessonId? }`
+- `ParentLessonPlan`
+- `ParentVoiceLibrary`
 - `Premium`
 
 Route registration nằm trong `src/navigation/AppNavigator.tsx`. Mọi thay đổi route phải cập nhật
@@ -687,12 +689,18 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   giải thích; khóa tiến độ, Premium và trạng thái đang kiểm tra Premium phát lời nhắc ngắn theo
   `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry cùng một số lời Sungy
   Home/Onboarding, và được throttle để tránh phát lặp khi bé chạm liên tục.
-- `visibleLessonIds` có thể ẩn lesson khỏi plan; `undefined` nghĩa là hiển thị tất cả. Kế hoạch
-  tùy chỉnh luôn giữ ít nhất một lesson cho mỗi theme; khi catalog thêm theme mới, settings cũ
-  được normalize để tự thêm lesson đầu tiên của theme đó mà không bật lại các lesson đã ẩn.
-- `ThemeLibrary` hiển thị và cho chọn giữa các themes trong catalog. Home header có entry mở
-  thư viện này để bé/ba mẹ đổi bản đồ active; theme mới có thể bị khóa Premium nếu không có lesson
-  nào thuộc free tier.
+- `visibleLessonIds` lưu lựa chọn lesson bên trong từng theme; `undefined` nghĩa là chọn tất cả.
+  `disabledThemeIds` ẩn toàn bộ theme khỏi Kid Mode nhưng không xóa lựa chọn lesson của theme đó,
+  nên bật lại sẽ khôi phục đúng selection trước đây. Normalization luôn giữ ít nhất một theme đang
+  bật và ít nhất một lesson đã chọn trong mỗi theme; khi catalog thêm theme mới, settings cũ tự
+  thêm lesson đầu tiên của theme mới mà không bật lại các lesson đã ẩn.
+- `ThemeLibrary` tách theme active thành card `Hành trình của bé` gọn, chỉ giữ hình, tên, tiến độ và
+  CTA chính. Theme chưa học trạm nào dùng `Bắt đầu hành trình`, theme đang học dùng `Tiếp tục trên
+  bản đồ`, còn theme đạt đủ số trạm hiển thị `Đã hoàn thành` cùng CTA `Xem lại bản đồ`. Các theme
+  còn lại nằm trong lưới trực quan hai cột trên điện thoại và ba cột trên tablet, ưu tiên hình minh
+  họa/tên/trạng thái ngắn; chạm toàn bộ card để đổi bản đồ. Kid Mode không hiển thị mô tả dài hoặc
+  ghi chú dành cho phụ huynh trên màn này. Home header có entry mở thư viện để bé/ba mẹ đổi bản đồ
+  active; theme mới có thể bị khóa Premium nếu không có lesson nào thuộc free tier.
 
 ### Parent Mode
 
@@ -720,17 +728,20 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** các chip từ vựng và tip text trong Parent stats review card, cùng lesson
   preview, dùng vocabulary khả dụng theo `learningMode` hiện tại; từ ở mode cao hơn không hiển thị
   khi phụ huynh đang chọn mode dễ hơn.
-- **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons. Nội dung
-  được sắp theo luồng: tổng quan "Lộ trình học của bé" -> "Chọn phạm vi bài học" -> các chủ đề và
-  bài đang học -> "Cách bé học" (guided/free journey và difficulty). Card tổng quan hiển thị số bài
-  đang bật và thanh tiến độ theo
-  `completedVisibleLessonCount / visibleLessons.length`; "Tất cả bài" chỉ nghĩa là bật toàn bộ
-  lesson trong plan, còn guided/free journey vẫn là setting riêng. Ba lựa chọn phạm vi loại trừ
-  nhau; khi mở "Tự chọn", app giữ nguyên các bài đang bật để ba mẹ bắt đầu tinh chỉnh nhưng chỉ
-  hiển thị "Tự chọn" là lựa chọn hiện hành. Nhịp "Nhẹ nhàng" bật 3 bài gần bài focus hiện tại,
-  không phải 3 bài vừa học gần nhất. Khi ba mẹ bật lại một lesson đang ẩn
-  thuộc theme khác, progress `activeThemeId` được đổi sang theme của lesson đó để Home map phản
-  hồi đúng theme vừa bật. Tab Cài đặt chỉnh child profile, Light/Dark/System theme,
+- **Implemented:** tab Bài học giữ phần tổng quan ngắn gồm preset hiện hành, số bài đang bật và
+  entry `Chỉnh lộ trình`; guided/free journey và difficulty vẫn nằm trong phần `Cách bé học` bên
+  dưới. Việc chọn phạm vi bài chuyển sang route parent-only `ParentLessonPlan`, gồm ba preset
+  `Gợi ý` / `Tất cả` / `Tự chọn`, sau đó là danh sách lesson chia theo theme có thể thu gọn. `Gợi
+  ý` chọn lesson đầu tiên của mỗi theme để luôn khớp invariant ít nhất một lesson/theme; `Tất cả`
+  bật toàn bộ catalog; `Tự chọn` giữ nguyên selection để phụ huynh chỉnh từng dòng. Toàn bộ dòng
+  lesson là checkbox, không hiển thị progress hoặc preview; lesson cuối còn bật trong theme bị
+  khóa và mỗi theme có thao tác `Chọn tất cả`. Header theme có switch bật/tắt; tắt theme thu gọn
+  card, ẩn theme cùng các lesson của nó khỏi Home Map, Play/Review, lesson list và Theme Library,
+  nhưng giữ nguyên lesson selection để khôi phục khi bật lại. Switch theme cuối đang bật bị khóa.
+  Thay đổi chỉ được persist khi bấm `Xong`; nút quay lại bỏ selection nháp. Chỉnh từng lesson
+  không đổi `progress.activeThemeId`; nếu tắt đúng theme đang mở, màn hình báo trước và khi lưu sẽ
+  chuyển active map sang theme đang bật kế tiếp. Tab Cài đặt chỉnh child profile,
+  Light/Dark/System theme,
   app-language preference, teacher prompt mode, English accent, daily reminder time, optional
   background music, thư viện giọng đọc local, contact support email và app version đọc trực tiếp
   từ native release metadata. Card giọng đọc có toggle và thao tác xóa toàn bộ độc lập, nên phụ
@@ -817,12 +828,12 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   `PremiumScreen`; hạn dùng/gia hạn nằm trong màn Premium chi tiết. Phần tài khoản phụ huynh cũng
   gắn badge Premium với account đang đăng nhập. Khi status là `signedOut`, `free` hoặc
   `unavailable`, Parent dashboard hiển thị teaser card mềm để ba mẹ xem gói Premium; teaser ẩn
-  trong lúc `initializing` để tránh nhấp nháy. Trong tab Bài học của Parent Mode, các bài ngoài
-  free tier hiển thị trạng thái Premium và affordance mở khóa ngay trên dòng bài; bấm dòng bài bị
-  khóa mở `PremiumScreen` thay vì chỉ mở preview. Kid Home Map cũng hiển thị CTA Premium theo
-  tiến độ sau khi toàn bộ free lesson IDs đã nằm trong `completedLessonIds`; CTA ẩn với tài khoản
-  Premium hoặc khi monetization còn `initializing`, và mở Parent intent `premium` cho bài Premium
-  kế tiếp.
+  trong lúc `initializing` để tránh nhấp nháy. Trình chỉnh lộ trình không dùng entitlement để thay
+  đổi selection: phụ huynh có thể cấu hình toàn bộ phạm vi nội dung, còn trạng thái khóa và CTA mở
+  Premium tiếp tục được hiển thị ở các màn học nơi lesson được mở. Kid Home Map cũng hiển thị CTA
+  Premium theo tiến độ sau khi toàn bộ free lesson IDs đã nằm trong `completedLessonIds`; CTA ẩn
+  với tài khoản Premium hoặc khi monetization còn `initializing`, và mở Parent intent `premium`
+  cho bài Premium kế tiếp.
 - `src/engine/MonetizationManager.ts` dùng Firebase parent UID làm RevenueCat App User ID khi
   parent đã sign in, và dùng anonymous RevenueCat customer khi parent chưa sign in. Verified
   `CustomerInfo.entitlements.active.premium` là source of truth cho quyền đã mua, luôn ưu tiên và
@@ -1166,9 +1177,9 @@ của learning progress và selected parent settings sau parent opt-in:
 - Key: `@skidsenglish/parent-settings/v1`.
 - Manager: `src/engine/ParentSettingsManager.ts`.
 - Fields chính: onboarding flag, journey/learning mode, optional editor flag, visible lessons,
-  app language, teacher prompt mode, English accent, app theme, reminder state/time, child profile,
-  background music opt-in, crash reporting opt-in, `voiceRecordingLibrary` local consent preference
-  và `cloudProgressSync` consent preference.
+  disabled themes, app language, teacher prompt mode, English accent, app theme, reminder
+  state/time, child profile, background music opt-in, crash reporting opt-in,
+  `voiceRecordingLibrary` local consent preference và `cloudProgressSync` consent preference.
 - Normalization cung cấp defaults và chịu được field thiếu từ dữ liệu cũ.
 - `englishAccent` nhận `en-US` hoặc `en-GB`; giá trị thiếu/không hợp lệ normalize về `en-US` để
   giữ hành vi legacy.
@@ -1177,8 +1188,8 @@ của learning progress và selected parent settings sau parent opt-in:
 - `voiceRecordingLibrary` mặc định `enabled: false`; trạng thái true chỉ được giữ khi có consent
   version hiện tại và consent timestamp hợp lệ, nên dữ liệu legacy/malformed không tự bật ghi âm.
 - Khi cloud sync bật, các field synced từ Parent settings là onboarding flag, journey/learning
-  mode, visible lessons, app language, teacher prompt mode, English accent, app theme, reminder
-  enabled/time và child profile. `cloudProgressSync` consent, `backgroundMusicEnabled`,
+  mode, visible lessons, disabled themes, app language, teacher prompt mode, English accent, app
+  theme, reminder enabled/time và child profile. `cloudProgressSync` consent, `backgroundMusicEnabled`,
   `crashReportingEnabled`, `enableSceneEditor` và `voiceRecordingLibrary` là local-only.
 - Reminder sync chỉ đồng bộ lựa chọn mong muốn; permission và native notification schedule vẫn là
   trạng thái riêng trên từng thiết bị.

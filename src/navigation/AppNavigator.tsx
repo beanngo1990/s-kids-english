@@ -14,6 +14,7 @@ import {
   LessonListScreen,
   LessonPackScreen,
   OnboardingScreen,
+  ParentLessonPlanScreen,
   ParentScreen,
   ParentVoiceLibraryScreen,
   RewardScreen,
@@ -208,6 +209,11 @@ function AnimatedSplashMascot() {
           name="ParentVoiceLibrary"
           component={ParentVoiceLibraryScreen}
           options={{ title: t('nav.parentVoiceLibrary') }}
+        />
+        <Stack.Screen
+          name="ParentLessonPlan"
+          component={ParentLessonPlanScreen}
+          options={{ title: t('nav.parentLessonPlan') }}
         />
         <Stack.Screen
           name="Premium"

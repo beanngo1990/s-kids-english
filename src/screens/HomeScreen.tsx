@@ -77,6 +77,7 @@ import {
   getSceneProgressId,
   isSceneProgressComplete,
 } from '../utils/lessonProgress';
+import { getEnabledLessonIds } from '../utils/lessonPlan';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 type MapAlignment = 'left' | 'center' | 'right';
@@ -110,6 +111,7 @@ const connectorDots = Array.from({ length: 9 }, (_, index) => index);
 const connectorHeight = 56;
 const connectorLongHeight = 72;
 const connectorShortHeight = 44;
+const allLessonIds = lessons.map(lesson => lesson.id);
 
 export function HomeScreen({ navigation, route }: Props) {
   useThemeSync();
@@ -131,6 +133,7 @@ export function HomeScreen({ navigation, route }: Props) {
   const [visibleLessonIds, setVisibleLessonIds] = useState<
     string[] | undefined
   >(undefined);
+  const [disabledThemeIds, setDisabledThemeIds] = useState<string[]>([]);
   const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
   const [showFocusButton, setShowFocusButton] = useState(false);
   const [isHubOpen, setIsHubOpen] = useState(false);
@@ -141,12 +144,34 @@ export function HomeScreen({ navigation, route }: Props) {
   const mapNodeYByKeyRef = useRef<Record<string, number>>({});
   const lastAutoScrolledNodeKeyRef = useRef<string | null>(null);
   const lastKidLockPromptAtRef = useRef(0);
-  const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
+  const disabledThemeIdSet = useMemo(
+    () => new Set(disabledThemeIds),
+    [disabledThemeIds],
+  );
+  const storedActiveThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
   const activeTheme =
-    getThemeById(activeThemeId) ?? getThemeById(DEFAULT_THEME_ID) ?? themes[0];
+    themes.find(
+      theme =>
+        theme.id === storedActiveThemeId &&
+        !disabledThemeIdSet.has(theme.id),
+    ) ??
+    themes.find(theme => !disabledThemeIdSet.has(theme.id)) ??
+    getThemeById(DEFAULT_THEME_ID) ??
+    themes[0];
+  const activeThemeId = activeTheme.id;
+  const enabledLessonIds = useMemo(
+    () =>
+      getEnabledLessonIds(
+        allLessonIds,
+        visibleLessonIds,
+        themes,
+        disabledThemeIds,
+      ),
+    [disabledThemeIds, visibleLessonIds],
+  );
   const themeLessons = useMemo(
-    () => getThemeLessons(activeTheme, visibleLessonIds),
-    [activeTheme, visibleLessonIds],
+    () => getThemeLessons(activeTheme, enabledLessonIds),
+    [activeTheme, enabledLessonIds],
   );
   const mapNodes = useMemo(
     () => buildThemeMapNodes(themeLessons, appLanguage),
@@ -302,11 +327,13 @@ export function HomeScreen({ navigation, route }: Props) {
       .then(settings => {
         setLearningMode(settings.learningMode);
         setJourneyMode(settings.journeyMode);
+        setDisabledThemeIds(settings.disabledThemeIds ?? []);
         setVisibleLessonIds(settings.visibleLessonIds);
       })
       .catch(() => {
         setLearningMode('core');
         setJourneyMode('guided');
+        setDisabledThemeIds([]);
         setVisibleLessonIds(undefined);
       });
   }, []);
@@ -1159,7 +1186,7 @@ export function HomeScreen({ navigation, route }: Props) {
                 onOpenPremium={openParentPremium}
                 onOpenReviewGame={openReviewGame}
                 onOpenStickerPlayground={handleOpenStickerPlayground}
-                visibleLessonIds={visibleLessonIds}
+                visibleLessonIds={enabledLessonIds}
               />
             </ScrollView>
           </View>
