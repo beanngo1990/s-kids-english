@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Pressable, Text, View } from 'react-native';
-import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 
 import { type SKidsIconName } from '../assets/icons/skids';
 import { SKidsIcon } from './SKidsIcon';
@@ -45,17 +44,12 @@ export function KidModeTabs({
   useThemeSync();
   const t = useI18n();
   const tabs = getTabs(t);
-  const insets = useContext(SafeAreaInsetsContext) ?? {
-    bottom: 0,
-    left: 0,
-    right: 0,
-    top: 0,
-  };
 
   return (
     <View
       pointerEvents="box-none"
-      style={[styles.footer, { bottom: spacing.xs - insets.bottom }]}
+      style={styles.footer}
+      testID="kid-mode-tabs"
     >
       <View style={styles.tabBar}>
         {tabs.map(tab => {
@@ -95,6 +89,7 @@ export function KidModeTabs({
 
 const styles = createThemedStyles(() => ({
   footer: {
+    bottom: spacing.xs,
     left: layout.screenPadding,
     position: 'absolute',
     right: layout.screenPadding,

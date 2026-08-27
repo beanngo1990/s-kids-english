@@ -3585,7 +3585,7 @@ const styles = createThemedStyles(() => ({
   },
   scrollContent: {
     padding: layout.screenPadding,
-    paddingBottom: 20,
+    paddingBottom: 112,
   },
   playScrollContent: {
     padding: layout.screenPadding,
