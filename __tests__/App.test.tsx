@@ -234,6 +234,151 @@ test('completed map scene keeps replay and adds a direct vocabulary shortcut', a
   });
 });
 
+test('makes the compact next-stop card and CTA share the primary action', async () => {
+  const navigate = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <HomeScreen
+        navigation={
+          {
+            addListener: jest.fn(() => jest.fn()),
+            navigate,
+          } as never
+        }
+        route={{ key: 'Home', name: 'Home' } as never}
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const openHubButton = tree?.root.findByProps({
+    accessibilityLabel: 'Mở chặng tiếp theo',
+  });
+
+  await ReactTestRenderer.act(() => {
+    openHubButton?.props.onPress();
+  });
+
+  const textValues = getRenderedText(tree);
+  const defaultThemeStopCount = lessons
+    .filter(lesson => lesson.themeId === DEFAULT_THEME_ID)
+    .reduce((count, lesson) => count + lesson.scenes.length, 0);
+  const primaryActionLabels =
+    tree?.root
+      .findAllByType(Text)
+      .filter(
+        node =>
+          flattenText(node.props.children) === 'Đi đến trạm tiếp theo',
+      ) ?? [];
+  const heroCardAction = tree?.root
+    .findAll(
+      node =>
+        typeof node.props.accessibilityLabel === 'string' &&
+        node.props.accessibilityLabel.startsWith(
+          'Đi đến trạm tiếp theo:',
+        ) &&
+        typeof node.props.onPress === 'function',
+    )
+    .at(0);
+
+  expect(textValues).toContain('Chặng tiếp theo');
+  expect(textValues).toContain(`0/${defaultThemeStopCount} trạm`);
+  expect(textValues).toContain('Hoàn thành bài để nhận sticker mới.');
+  expect(textValues).toContain('Xem bộ sưu tập sticker');
+  expect(textValues).not.toContain('Hôm nay mình đi đâu?');
+  expect(textValues).not.toContain('Sao đã nhận');
+  expect(textValues).not.toContain('Trạm còn lại');
+  expect(textValues).not.toContain('Về trạm hiện tại');
+  expect(primaryActionLabels).toHaveLength(1);
+  expect(
+    tree?.root
+      .findAll(
+        node =>
+          node.props.accessibilityLabel === 'Đóng chặng tiếp theo' &&
+          node.props.accessibilityRole === 'button',
+      )
+      .some(Boolean),
+  ).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    heroCardAction?.props.onPress();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(heroCardAction).toBeDefined();
+  expect(navigate).toHaveBeenCalledWith(
+    'ScenePlayer',
+    expect.objectContaining({ learningMode: 'core' }),
+  );
+
+  await ReactTestRenderer.act(() => {
+    tree?.unmount();
+  });
+});
+
+test('opens a pending review when its hub card is pressed', async () => {
+  const navigate = jest.fn();
+  const completedFreeProgress = createCompletedFreeProgress();
+  await saveProgress({
+    ...completedFreeProgress,
+    completedLessonIds: [],
+    completedReviewGameIds: [],
+  });
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <HomeScreen
+        navigation={
+          {
+            addListener: jest.fn(() => jest.fn()),
+            navigate,
+          } as never
+        }
+        route={{ key: 'Home', name: 'Home' } as never}
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+  });
+
+  const openHubButton = tree?.root.findByProps({
+    accessibilityLabel: 'Mở chặng tiếp theo',
+  });
+  await ReactTestRenderer.act(() => {
+    openHubButton?.props.onPress();
+  });
+
+  const reviewCardAction = tree?.root
+    .findAll(
+      node =>
+        typeof node.props.accessibilityLabel === 'string' &&
+        node.props.accessibilityLabel.startsWith('Chơi ôn tập:') &&
+        typeof node.props.onPress === 'function',
+    )
+    .at(0);
+
+  await ReactTestRenderer.act(async () => {
+    reviewCardAction?.props.onPress();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(reviewCardAction).toBeDefined();
+  expect(navigate).toHaveBeenCalledWith(
+    'ReviewGame',
+    expect.objectContaining({ learningMode: 'core' }),
+  );
+
+  await ReactTestRenderer.act(() => {
+    tree?.unmount();
+  });
+});
+
 test('renders parent onboarding before first use', async () => {
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
 

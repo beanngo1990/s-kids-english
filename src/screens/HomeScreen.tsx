@@ -594,6 +594,16 @@ export function HomeScreen({ navigation, route }: Props) {
   }, []);
 
   const handleHubPrimaryPress = useCallback(() => {
+    const isPrimaryLockedNow = Boolean(
+      hubPrimaryLessonId &&
+        !canAccessLesson(
+          hubPrimaryLessonId,
+          getMonetizationSnapshot(),
+        ),
+    );
+    if (!isPrimaryLockedNow) {
+      playTapSound().catch(() => undefined);
+    }
     setIsHubOpen(false);
 
     if (pendingReviewLesson?.reviewGame) {
@@ -604,13 +614,13 @@ export function HomeScreen({ navigation, route }: Props) {
     if (ctaNode) {
       openNode(ctaNode);
     }
-  }, [ctaNode, openNode, openReviewGame, pendingReviewLesson]);
-
-  const handleHubFocusPress = useCallback(() => {
-    setIsHubOpen(false);
-    setActiveTab('map');
-    setTimeout(scrollToCurrentNode, 80);
-  }, [scrollToCurrentNode]);
+  }, [
+    ctaNode,
+    hubPrimaryLessonId,
+    openNode,
+    openReviewGame,
+    pendingReviewLesson,
+  ]);
 
   const handleOpenStickerCollection = useCallback(() => {
     playTapSound().catch(() => undefined);
@@ -1197,8 +1207,6 @@ export function HomeScreen({ navigation, route }: Props) {
           onSelectPlay={() => setActiveTab('play')}
         />
         <SKidsHubSheet
-          activeThemeEmoji={activeTheme?.thumbnailEmoji ?? '★'}
-          activeThemeIconName={activeTheme?.iconName}
           activeThemeTitle={
             activeTheme
               ? getLocalizedThemeTitle(activeTheme, appLanguage)
@@ -1212,7 +1220,6 @@ export function HomeScreen({ navigation, route }: Props) {
           isPrimaryPremiumResolving={isHubPrimaryPremiumResolving}
           nextNode={ctaNode}
           onClose={closeHub}
-          onFocusCurrent={handleHubFocusPress}
           onOpenPrimary={handleHubPrimaryPress}
           onOpenStickerCollection={handleOpenStickerCollection}
           pendingReviewLesson={pendingReviewLesson}
@@ -1280,8 +1287,6 @@ function FreeProgressPremiumCta({
 }
 
 type SKidsHubSheetProps = {
-  activeThemeEmoji: string;
-  activeThemeIconName?: SKidsIconName;
   activeThemeTitle: string;
   appLanguage: AppLanguage;
   completed: number;
@@ -1291,7 +1296,6 @@ type SKidsHubSheetProps = {
   isPrimaryPremiumResolving: boolean;
   nextNode: ThemeMapNode | undefined;
   onClose: () => void;
-  onFocusCurrent: () => void;
   onOpenPrimary: () => void;
   onOpenStickerCollection: () => void;
   pendingReviewLesson: Lesson | undefined;
@@ -1300,8 +1304,6 @@ type SKidsHubSheetProps = {
 };
 
 function SKidsHubSheet({
-  activeThemeEmoji,
-  activeThemeIconName,
   activeThemeTitle,
   appLanguage,
   completed,
@@ -1311,7 +1313,6 @@ function SKidsHubSheet({
   isPrimaryPremiumResolving,
   nextNode,
   onClose,
-  onFocusCurrent,
   onOpenPrimary,
   onOpenStickerCollection,
   pendingReviewLesson,
@@ -1390,81 +1391,78 @@ function SKidsHubSheet({
             showsVerticalScrollIndicator={false}
           >
             <View style={styles.hubHeader}>
-              <View style={styles.hubLogoBadge}>
-                {activeThemeIconName ? (
-                  <SKidsIcon name={activeThemeIconName} size={44} />
-                ) : (
-                  <Text style={styles.hubLogoEmoji}>{activeThemeEmoji}</Text>
-                )}
-              </View>
-              <View style={styles.hubHeaderText}>
-                <Text style={styles.hubEyebrow}>Sungy Hub</Text>
-                <Text style={styles.hubTitle}>{t('home.hub.title')}</Text>
-              </View>
+              <Text style={styles.hubTitle}>{t('home.hub.title')}</Text>
               <Pressable
                 accessibilityLabel={t('home.hub.closeAccessibility')}
                 accessibilityRole="button"
+                hitSlop={8}
                 onPress={onClose}
                 style={({ pressed }) => [
                   styles.hubCloseButton,
                   pressed && styles.hubButtonPressed,
                 ]}
               >
-                <Text style={styles.hubCloseText}>{t('common.close')}</Text>
+                <Text style={styles.hubCloseText}>×</Text>
               </Pressable>
             </View>
 
-            <View style={styles.hubHeroCard}>
-              <View style={styles.hubHeroIcon}>
-                <SKidsIcon name={heroIconName} size={54} />
+            <Pressable
+              accessibilityLabel={t('home.hub.primaryCardAccessibility', {
+                action: primaryLabel,
+                completed: String(safeCompleted),
+                title: heroTitle,
+                total: String(safeTotal),
+              })}
+              accessibilityRole="button"
+              accessibilityState={{ disabled: primaryActionDisabled }}
+              disabled={primaryActionDisabled}
+              onPress={onOpenPrimary}
+              style={({ pressed }) => [
+                styles.hubHeroCard,
+                pressed && !primaryActionDisabled && styles.hubButtonPressed,
+                primaryActionDisabled && styles.hubActionDisabled,
+              ]}
+            >
+              <View style={styles.hubHeroRow}>
+                <View style={styles.hubHeroIcon}>
+                  <SKidsIcon name={heroIconName} size={48} />
+                </View>
+                <View style={styles.hubHeroText}>
+                  <Text numberOfLines={2} style={styles.hubHeroTitle}>
+                    {heroTitle}
+                  </Text>
+                  <Text style={styles.hubHeroSubtitle}>{heroSubtitle}</Text>
+                </View>
               </View>
-              <View style={styles.hubHeroText}>
-                <Text numberOfLines={2} style={styles.hubHeroTitle}>
-                  {heroTitle}
-                </Text>
-                <Text style={styles.hubHeroSubtitle}>{heroSubtitle}</Text>
-              </View>
-            </View>
-
-            <View style={styles.hubProgressBlock}>
-              <View style={styles.hubProgressTopRow}>
-                <Text style={styles.hubSectionTitle}>{activeThemeTitle}</Text>
-                <Text style={styles.hubProgressLabel}>
-                  {safeCompleted}/{safeTotal}
-                </Text>
-              </View>
-              <View
-                accessibilityLabel={t('home.hub.progressAccessibility', {
-                  percent: String(completionPercent),
-                })}
-                accessibilityRole="progressbar"
-                style={styles.hubProgressTrack}
-              >
+              <View style={styles.hubHeroDivider} />
+              <View style={styles.hubProgressBlock}>
+                <View style={styles.hubProgressTopRow}>
+                  <Text numberOfLines={2} style={styles.hubSectionTitle}>
+                    {activeThemeTitle}
+                  </Text>
+                  <Text style={styles.hubProgressLabel}>
+                    {t('home.hub.progressCount', {
+                      completed: String(safeCompleted),
+                      total: String(safeTotal),
+                    })}
+                  </Text>
+                </View>
                 <View
-                  style={[
-                    styles.hubProgressFill,
-                    { width: `${completionPercent}%` },
-                  ]}
-                />
+                  accessibilityLabel={t('home.hub.progressAccessibility', {
+                    percent: String(completionPercent),
+                  })}
+                  accessibilityRole="progressbar"
+                  style={styles.hubProgressTrack}
+                >
+                  <View
+                    style={[
+                      styles.hubProgressFill,
+                      { width: `${completionPercent}%` },
+                    ]}
+                  />
+                </View>
               </View>
-            </View>
-
-            <View style={styles.hubStatsRow}>
-              <View style={styles.hubStatCard}>
-                <Text style={styles.hubStatValue}>{safeCompleted}</Text>
-                <Text style={styles.hubStatLabel}>
-                  {t('home.hub.starsEarned')}
-                </Text>
-              </View>
-              <View style={styles.hubStatCard}>
-                <Text style={styles.hubStatValue}>
-                  {Math.max(safeTotal - safeCompleted, 0)}
-                </Text>
-                <Text style={styles.hubStatLabel}>
-                  {t('home.hub.stopsRemaining')}
-                </Text>
-              </View>
-            </View>
+            </Pressable>
 
             <Pressable
               accessibilityLabel={t('home.hub.openStickerCollection')}
@@ -1476,51 +1474,34 @@ function SKidsHubSheet({
               ]}
             >
               <View style={styles.hubGiftIcon}>
-                <SKidsIcon name="sticker" size={40} />
+                <SKidsIcon name="sticker" size={34} />
               </View>
               <View style={styles.hubGiftText}>
-                <Text style={styles.hubGiftTitle}>
-                  {t('home.hub.giftTitle')}
-                </Text>
                 <Text style={styles.hubGiftCopy}>{giftText}</Text>
-                <Text style={styles.hubGiftAction}>
+                <Text style={styles.hubGiftLink}>
                   {t('home.hub.openStickerCollection')}
                 </Text>
               </View>
+              <Text style={styles.hubGiftAction}>›</Text>
             </Pressable>
 
-            <View style={styles.hubActions}>
-              <Pressable
-                accessibilityLabel={primaryLabel}
-                accessibilityRole="button"
-                accessibilityState={{ disabled: primaryActionDisabled }}
-                disabled={primaryActionDisabled}
-                onPress={onOpenPrimary}
-                style={({ pressed }) => [
-                  styles.hubPrimaryAction,
-                  pressed && !primaryActionDisabled && styles.hubButtonPressed,
-                  primaryActionDisabled && styles.hubActionDisabled,
-                ]}
-              >
+            <Pressable
+              accessibilityLabel={primaryLabel}
+              accessibilityRole="button"
+              accessibilityState={{ disabled: primaryActionDisabled }}
+              disabled={primaryActionDisabled}
+              onPress={onOpenPrimary}
+              style={({ pressed }) => [
+                styles.hubPrimaryAction,
+                pressed && !primaryActionDisabled && styles.hubButtonPressed,
+                primaryActionDisabled && styles.hubActionDisabled,
+              ]}
+            >
+              <View style={styles.hubPrimaryActionContent}>
+                <SKidsIcon name={heroIconName} size={30} />
                 <Text style={styles.hubPrimaryActionText}>{primaryLabel}</Text>
-              </Pressable>
-              <Pressable
-                accessibilityLabel={t('home.hub.focusAccessibility')}
-                accessibilityRole="button"
-                accessibilityState={{ disabled: !nextNode }}
-                disabled={!nextNode}
-                onPress={onFocusCurrent}
-                style={({ pressed }) => [
-                  styles.hubSecondaryAction,
-                  pressed && nextNode && styles.hubButtonPressed,
-                  !nextNode && styles.hubActionDisabled,
-                ]}
-              >
-                <Text style={styles.hubSecondaryActionText}>
-                  {t('home.hub.focusCurrent')}
-                </Text>
-              </Pressable>
-            </View>
+              </View>
+            </Pressable>
           </ScrollView>
         </View>
       </View>
@@ -2469,10 +2450,6 @@ const styles = createThemedStyles(() => ({
   hubActionDisabled: {
     opacity: 0.48,
   },
-  hubActions: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
   hubBackdrop: {
     backgroundColor: 'rgba(37, 54, 66, 0.32)',
     bottom: 0,
@@ -2491,61 +2468,57 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.border,
     borderRadius: radius.pill,
     borderWidth: 2,
+    height: 46,
     justifyContent: 'center',
-    minHeight: 42,
-    paddingHorizontal: spacing.md,
+    width: 46,
   },
   hubCloseText: {
     color: colors.primaryDark,
-    fontSize: 13,
+    fontSize: 30,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 17,
-  },
-  hubEyebrow: {
-    color: colors.primaryDark,
-    fontSize: 12,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 15,
-    textTransform: 'uppercase',
+    lineHeight: 32,
   },
   hubGiftCard: {
     alignItems: 'center',
     backgroundColor: colors.surfaceSoft,
     borderColor: colors.borderWarm,
-    borderRadius: radius.lg,
-    borderWidth: 2,
+    borderRadius: radius.md,
+    borderWidth: 1,
     flexDirection: 'row',
     gap: spacing.sm,
-    padding: spacing.md,
+    minHeight: 70,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
   },
   hubGiftCopy: {
-    color: colors.textSoft,
+    color: colors.text,
     flexShrink: 1,
     ...typography.caption,
   },
   hubGiftAction: {
     color: colors.primaryDark,
-    ...typography.caption,
+    fontSize: 30,
+    fontWeight: '900',
+    lineHeight: 32,
   },
   hubGiftIcon: {
     alignItems: 'center',
     backgroundColor: colors.surface,
     borderColor: colors.secondary,
     borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 56,
+    borderWidth: 1,
+    height: 46,
     justifyContent: 'center',
-    width: 56,
+    width: 46,
+  },
+  hubGiftLink: {
+    color: colors.primaryDark,
+    ...typography.caption,
   },
   hubGiftText: {
     flex: 1,
     gap: 2,
-  },
-  hubGiftTitle: {
-    color: colors.text,
-    ...typography.caption,
   },
   hubHandle: {
     alignSelf: 'center',
@@ -2559,22 +2532,21 @@ const styles = createThemedStyles(() => ({
     alignItems: 'center',
     flexDirection: 'row',
     gap: spacing.sm,
-  },
-  hubHeaderText: {
-    flex: 1,
-    gap: 2,
-    minWidth: 0,
+    justifyContent: 'space-between',
   },
   hubHeroCard: {
-    alignItems: 'center',
     backgroundColor: colors.primarySoft,
     borderColor: colors.outlineStrong,
     borderRadius: radius.lg,
-    borderWidth: 3,
-    flexDirection: 'row',
-    gap: spacing.md,
+    borderWidth: 2,
+    gap: spacing.sm,
     padding: spacing.md,
     ...shadows.soft,
+  },
+  hubHeroDivider: {
+    backgroundColor: colors.outlineStrong,
+    height: 1,
+    opacity: 0.45,
   },
   hubHeroIcon: {
     alignItems: 'center',
@@ -2582,9 +2554,14 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.primary,
     borderRadius: radius.pill,
     borderWidth: 2,
-    height: 72,
+    height: 64,
     justifyContent: 'center',
-    width: 72,
+    width: 64,
+  },
+  hubHeroRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
   },
   hubHeroSubtitle: {
     color: colors.textSoft,
@@ -2603,21 +2580,6 @@ const styles = createThemedStyles(() => ({
     letterSpacing: 0,
     lineHeight: 26,
   },
-  hubLogoBadge: {
-    alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 54,
-    justifyContent: 'center',
-    width: 54,
-    ...shadows.soft,
-  },
-  hubLogoEmoji: {
-    fontSize: 28,
-    lineHeight: 34,
-  },
   hubModalRoot: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -2628,14 +2590,20 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 3,
-    flex: 1,
     justifyContent: 'center',
     minHeight: 58,
     paddingHorizontal: spacing.md,
     ...shadows.warm,
   },
+  hubPrimaryActionContent: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    justifyContent: 'center',
+  },
   hubPrimaryActionText: {
     color: colors.text,
+    flexShrink: 1,
     textAlign: 'center',
     ...typography.button,
   },
@@ -2664,25 +2632,9 @@ const styles = createThemedStyles(() => ({
     backgroundColor: colors.border,
     borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 18,
+    borderWidth: 1,
+    height: 14,
     overflow: 'hidden',
-  },
-  hubSecondaryAction: {
-    alignItems: 'center',
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.sky,
-    borderRadius: radius.pill,
-    borderWidth: 3,
-    flex: 1,
-    justifyContent: 'center',
-    minHeight: 58,
-    paddingHorizontal: spacing.md,
-  },
-  hubSecondaryActionText: {
-    color: colors.primaryDark,
-    textAlign: 'center',
-    ...typography.caption,
   },
   hubSectionTitle: {
     color: colors.text,
@@ -2695,48 +2647,23 @@ const styles = createThemedStyles(() => ({
     borderTopLeftRadius: radius.lg,
     borderTopRightRadius: radius.lg,
     borderWidth: 1,
-    maxHeight: '86%',
+    maxHeight: '78%',
     overflow: 'hidden',
     ...shadows.floating,
   },
   hubSheetContent: {
     gap: spacing.md,
-    padding: spacing.lg,
-    paddingBottom: spacing.xl,
-  },
-  hubStatCard: {
-    alignItems: 'center',
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.border,
-    borderRadius: radius.lg,
-    borderWidth: 2,
-    flex: 1,
-    gap: spacing.xxs,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.md,
-  },
-  hubStatLabel: {
-    color: colors.textSoft,
-    textAlign: 'center',
-    ...typography.caption,
-  },
-  hubStatsRow: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
-  hubStatValue: {
-    color: colors.text,
-    fontSize: 30,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 34,
+    paddingBottom: spacing.lg,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.md,
   },
   hubTitle: {
     color: colors.text,
-    fontSize: 22,
+    flex: 1,
+    fontSize: 24,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 27,
+    lineHeight: 30,
   },
   learningMap: {
     minHeight: 520,

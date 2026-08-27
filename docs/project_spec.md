@@ -635,6 +635,13 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 - `HomeScreen` là trải nghiệm Kid Mode chính với Map và Play tabs.
 - Theme map hiển thị lesson/scene progression, CTA hiện tại và review đang chờ.
+- Chạm cụm thương hiệu Sungy trên Home header mở bottom sheet **Chặng tiếp theo** gọn theo trạng
+  thái hiện tại: học tiếp, ôn tập, hoàn thành hoặc khóa Premium. Sheet gom tên trạm, lời hướng dẫn
+  và tiến độ theme vào một card; không lặp tiến độ thành các ô sao/trạm riêng. Phần sticker chỉ là
+  banner phụ có nhãn rõ để mở bộ sưu tập. Toàn bộ card chặng và CTA cuối sheet cùng gọi một action
+  chính theo trạng thái, có pressed feedback và tap sound để bé chạm vào vùng nổi bật không bị im
+  lặng. Nút `×` và backdrop đóng sheet; khóa Premium giữ CTA **Nhờ ba mẹ mở khóa** và tiếp tục qua
+  adult gate mà không phát chồng tap sound với lời nhắc khóa.
 - Node cảnh đã hoàn thành giữ thao tác chính để học lại cảnh. Nếu scene có ít nhất một vocabulary
   visual hợp lệ trong `learningMode` hiện tại và lesson vẫn truy cập được, node có thêm nút ôn từ
   48×48 với icon hai thẻ từ và mũi tên vòng, neo chồng nhẹ vào cạnh ngoài node để thể hiện quan hệ
