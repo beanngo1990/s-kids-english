@@ -5,7 +5,7 @@ import Speech
 import UIKit
 
 @objc(SkidsAudio)
-class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
+class SkidsAudio: NSObject, AVAudioPlayerDelegate, AVSpeechSynthesizerDelegate {
 
   private final class SpeechPlayback {
     let player: AVPlayer
@@ -821,7 +821,7 @@ class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
     }
   }
   
-  private var audioPlayers: [String: AVAudioPlayer] = [:]
+  private var audioPlayers: [ObjectIdentifier: AVAudioPlayer] = [:]
   private let speechPlaybackLock = NSLock()
   private let backgroundMusicLock = NSLock()
   private let voiceRecordingQueue = DispatchQueue(
@@ -868,6 +868,7 @@ class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
         return
       }
 
+      self?.stopSoundEffectPlayers()
       self?.finishVoiceCaptureAfterSystemEvent(reason: "interrupted")
     }
     audioSessionResetObserver = NotificationCenter.default.addObserver(
@@ -875,6 +876,7 @@ class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
       object: recordingSession,
       queue: nil
     ) { [weak self] _ in
+      self?.discardSoundEffectPlayersAfterMediaServicesReset()
       self?.finishVoiceCaptureAfterSystemEvent(reason: "error")
     }
     appDidEnterBackgroundObserver = NotificationCenter.default.addObserver(
@@ -882,6 +884,7 @@ class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
       object: nil,
       queue: nil
     ) { [weak self] _ in
+      self?.stopSoundEffectPlayers()
       self?.finishVoiceCaptureAfterSystemEvent(reason: "interrupted")
     }
   }
@@ -902,6 +905,7 @@ class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
     stopSpeechPlayer(resolvePendingPromise: true)
     speechSynthesizer?.delegate = nil
     stopBackgroundMusicPlayer()
+    disposeSoundEffectPlayersForDeinit()
   }
   
   @objc func play(_ effect: String,
@@ -914,16 +918,44 @@ class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
       return
     }
     
-    do {
-      let player = try AVAudioPlayer(contentsOf: url)
-      player.prepareToPlay()
-      audioPlayers[effect] = player
-      player.play()
-      resolve(true)
-    } catch {
-      print("Failed to play effect: \(error)")
-      resolve(false)
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else {
+        resolve(false)
+        return
+      }
+
+      do {
+        let player = try AVAudioPlayer(contentsOf: url)
+        player.delegate = self
+        let playerId = ObjectIdentifier(player)
+        self.audioPlayers[playerId] = player
+
+        guard player.prepareToPlay(), player.play() else {
+          self.removeSoundEffectPlayer(player)
+          resolve(false)
+          return
+        }
+
+        resolve(true)
+      } catch {
+        print("Failed to play effect: \(error)")
+        resolve(false)
+      }
     }
+  }
+
+  func audioPlayerDidFinishPlaying(
+    _ player: AVAudioPlayer,
+    successfully flag: Bool
+  ) {
+    scheduleSoundEffectPlayerRemoval(player)
+  }
+
+  func audioPlayerDecodeErrorDidOccur(
+    _ player: AVAudioPlayer,
+    error: Error?
+  ) {
+    scheduleSoundEffectPlayerRemoval(player)
   }
   
   @objc func playUri(_ uri: String,
@@ -2058,6 +2090,74 @@ class SkidsAudio: NSObject, AVSpeechSynthesizerDelegate {
     if let observer = playback.failObserver {
       NotificationCenter.default.removeObserver(observer)
       playback.failObserver = nil
+    }
+  }
+
+  private func scheduleSoundEffectPlayerRemoval(_ player: AVAudioPlayer) {
+    // Keep the player alive until AVFAudio has fully unwound its completion callback.
+    DispatchQueue.main.async { [weak self, player] in
+      self?.removeSoundEffectPlayer(player)
+    }
+  }
+
+  private func removeSoundEffectPlayer(_ player: AVAudioPlayer) {
+    assert(Thread.isMainThread)
+    let playerId = ObjectIdentifier(player)
+    guard audioPlayers[playerId] === player else {
+      return
+    }
+
+    player.delegate = nil
+    audioPlayers.removeValue(forKey: playerId)
+  }
+
+  private func stopSoundEffectPlayers() {
+    let stopPlayers: () -> Void = { [weak self] in
+      self?.removeAllSoundEffectPlayers(stopPlayback: true)
+    }
+    if Thread.isMainThread {
+      stopPlayers()
+    } else {
+      DispatchQueue.main.async(execute: stopPlayers)
+    }
+  }
+
+  private func discardSoundEffectPlayersAfterMediaServicesReset() {
+    let discardPlayers: () -> Void = { [weak self] in
+      self?.removeAllSoundEffectPlayers(stopPlayback: false)
+    }
+    if Thread.isMainThread {
+      discardPlayers()
+    } else {
+      DispatchQueue.main.async(execute: discardPlayers)
+    }
+  }
+
+  private func removeAllSoundEffectPlayers(stopPlayback: Bool) {
+    assert(Thread.isMainThread)
+    let players = Array(audioPlayers.values)
+    for player in players {
+      player.delegate = nil
+      if stopPlayback {
+        player.stop()
+      }
+    }
+    audioPlayers.removeAll()
+  }
+
+  private func disposeSoundEffectPlayersForDeinit() {
+    let players = Array(audioPlayers.values)
+    audioPlayers.removeAll()
+    let disposePlayers = {
+      for player in players {
+        player.delegate = nil
+        player.stop()
+      }
+    }
+    if Thread.isMainThread {
+      disposePlayers()
+    } else {
+      DispatchQueue.main.async(execute: disposePlayers)
     }
   }
 
