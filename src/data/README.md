@@ -59,13 +59,14 @@ src/assets/ui/audio/en-GB/neural2-c-r1/
 src/assets/ui/audio/vi/
 ```
 
-Their copy currently comes from `src/data/kidLockAudioPrompts.ts` plus selected
-Sungy Home/Onboarding English lines in `src/i18n/dictionaries/en.ts`; the
-generator owns `src/engine/GeneratedUiAudioRegistry.ts`. Do not edit the
-generated registry by hand. Keep the WAV files as the manifest/provenance
-source, then run `npm run assets:optimize-ui-audio` to create bundled MP3
-sidecars and rewrite the registry so stable WAV manifest keys resolve to those
-smaller local files.
+Their copy currently comes from `src/data/kidLockAudioPrompts.ts` plus matching
+Sungy Home/Onboarding keys in `src/i18n/dictionaries/vi.ts` and
+`src/i18n/dictionaries/en.ts`; the generator owns
+`src/engine/GeneratedUiAudioRegistry.ts`. Do not duplicate these localized UI
+lines in a separate audio-only catalog. Do not edit the generated registry by
+hand. Keep the WAV files as the manifest/provenance source, then run
+`npm run assets:optimize-ui-audio` to create bundled MP3 sidecars and rewrite
+the registry so stable WAV manifest keys resolve to those smaller local files.
 
 `audio/en/` is the legacy en-US corpus. Keep it intact as a compatibility and
 rollback source, but do not write new production English releases there. New

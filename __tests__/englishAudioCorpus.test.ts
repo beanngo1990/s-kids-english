@@ -8,6 +8,8 @@ import {
   sceneVocabularyMeaningEnabledPromptVi,
 } from '../src/data/speechPrompts';
 import { generatedUiAudioRegistry } from '../src/engine/GeneratedUiAudioRegistry';
+import { en } from '../src/i18n/dictionaries/en';
+import { vi, type TranslationKey } from '../src/i18n/dictionaries/vi';
 import { ENGLISH_ACCENTS, type EnglishAccent } from '../src/types/audio';
 
 declare const __dirname: string;
@@ -53,20 +55,20 @@ const manifest = JSON.parse(
     'utf8',
   ),
 ) as GenerationManifest;
-const bundledEnglishUiPrompts = [
-  'Hi! I am Sungy, your child’s learning buddy.',
-  'Let’s learn with Sungy today!',
-  'Wonderful! The whole map is complete. Let’s collect more stars!',
-  'Great job! Let’s look at the sticker collection.',
-  'Sungy can see the whole map lighting up!',
-  'You can replay a stop to review new words.',
-  'Let’s flip cards to remember words longer.',
-  'Finish the review and Sungy will give a sticker!',
-  'Tap Play to open the unlocked game.',
-  'Tap the glowing stop to keep learning.',
-  'Sungy is going with you!',
-  'Let’s earn more stars!',
-];
+const bundledSungyUiPromptKeys = [
+  'onboarding.coach.greeting',
+  'home.coach.default',
+  'home.coach.complete',
+  'home.coach.completeTapOne',
+  'home.coach.completeTapTwo',
+  'home.coach.completeTapThree',
+  'home.coach.reviewTapOne',
+  'home.coach.reviewTapTwo',
+  'home.coach.reviewTapThree',
+  'home.coach.guideTapOne',
+  'home.coach.guideTapTwo',
+  'home.coach.guideTapThree',
+] as const satisfies readonly TranslationKey[];
 
 // `generate:audio:dry-run` owns current-corpus completeness. This test protects
 // the integrity and cross-accent parity of the published provenance snapshot.
@@ -217,10 +219,18 @@ test('review game intro prompts have generated shared audio', () => {
   }
 });
 
-test('Sungy UI prompts keep bundled English audio', () => {
-  for (const prompt of bundledEnglishUiPrompts) {
+test('Sungy UI prompts keep bundled English and Vietnamese audio', () => {
+  for (const promptKey of bundledSungyUiPromptKeys) {
+    const viAsset = getViAudioAsset(vi[promptKey]);
+    expect(viAsset).toBeDefined();
+    expect(viAsset?.key).toContain('ui/audio/vi/');
+    expect(generatedUiAudioRegistry[viAsset?.key ?? '']).toBeDefined();
+    expect(
+      readFileSync(join(repoRoot, 'src/assets', viAsset?.key ?? '')).length,
+    ).toBeGreaterThan(44);
+
     for (const accent of ENGLISH_ACCENTS) {
-      const enAsset = getWordAudioAsset(prompt, accent);
+      const enAsset = getWordAudioAsset(en[promptKey], accent);
       expect(enAsset?.key).toContain(`ui/audio/${accent}/`);
       expect(generatedUiAudioRegistry[enAsset?.key ?? '']).toBeDefined();
       expect(

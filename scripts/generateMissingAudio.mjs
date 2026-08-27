@@ -329,6 +329,9 @@ const kidLockAudioPromptsModule = loadTsModule(
 const enDictionaryModule = loadTsModule(
   join(repoRoot, 'src/i18n/dictionaries/en.ts'),
 );
+const viDictionaryModule = loadTsModule(
+  join(repoRoot, 'src/i18n/dictionaries/vi.ts'),
+);
 const lessons = lessonsModule.lessons ?? [];
 const existingWordAudio = audioManifestModule.getWordAudioAsset;
 const existingViAudio = audioManifestModule.getViAudioAsset;
@@ -347,6 +350,7 @@ const audioTargets = collectAudioTargets(lessons, {
   reviewGamePrompts: reviewGamePromptsModule,
   speechPrompts: speechPromptsModule,
   teacherPrompts: teacherPromptsModule,
+  viDictionary: viDictionaryModule.vi,
 });
 const publishedEnglishGenerationManifest =
   loadPublishedEnglishGenerationManifest();
@@ -367,6 +371,7 @@ const selectedAudioTargets = collectAudioTargets(lessons, {
   sceneId: args.scene,
   speechPrompts: speechPromptsModule,
   teacherPrompts: teacherPromptsModule,
+  viDictionary: viDictionaryModule.vi,
 });
 const filteredAudioTargets = filterAudioTargets(selectedAudioTargets, args);
 assertUniqueTargetKeys(filteredAudioTargets);
@@ -635,6 +640,7 @@ function collectAudioTargets(
     sceneId,
     speechPrompts,
     teacherPrompts,
+    viDictionary,
   },
 ) {
   const targets = new Map();
@@ -980,10 +986,11 @@ function collectAudioTargets(
     });
   }
 
-  addBundledEnglishUiTargets(targets, {
+  addBundledLocalizedUiTargets(targets, {
     audioRelease,
     enDictionary,
     existingWordAudio,
+    viDictionary,
   });
 
   return Array.from(targets.values()).sort((left, right) =>
@@ -991,9 +998,14 @@ function collectAudioTargets(
   );
 }
 
-function addBundledEnglishUiTargets(
+function addBundledLocalizedUiTargets(
   targets,
-  { audioRelease, enDictionary, existingWordAudio },
+  {
+    audioRelease,
+    enDictionary,
+    existingWordAudio,
+    viDictionary,
+  },
 ) {
   const uiPromptKeys = [
     ['onboarding.coach.greeting', 'sungy_onboarding_greeting'],
@@ -1011,8 +1023,8 @@ function addBundledEnglishUiTargets(
   ];
 
   for (const [translationKey, fileStem] of uiPromptKeys) {
-    const text = enDictionary?.[translationKey];
-    if (typeof text !== 'string') {
+    const enText = enDictionary?.[translationKey];
+    if (typeof enText !== 'string') {
       throw new Error(`Missing English UI prompt ${translationKey}.`);
     }
 
@@ -1022,7 +1034,20 @@ function addBundledEnglishUiTargets(
       existingWordAudio,
       includeLegacyFallback: false,
       kind: 'ui',
-      text,
+      text: enText,
+    });
+
+    const viText = viDictionary?.[translationKey];
+    if (typeof viText !== 'string') {
+      throw new Error(`Missing Vietnamese UI prompt ${translationKey}.`);
+    }
+
+    addTarget(targets, {
+      key: getNamedUiViAudioKey(fileStem, viText),
+      kind: 'ui',
+      language: 'vi',
+      lookupText: viText,
+      text: viText,
     });
   }
 }
@@ -1209,6 +1234,10 @@ function getUiEnglishAudioKey(reason, text) {
 
 function getNamedUiEnglishAudioKey(fileStem) {
   return `ui/audio/en/${fileStem}.mp3`;
+}
+
+function getNamedUiViAudioKey(fileStem, text) {
+  return `ui/audio/vi/${fileStem}_${textDigest(text)}.wav`;
 }
 
 function getUiViAudioKey(reason, text) {

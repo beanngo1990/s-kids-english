@@ -685,8 +685,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   tác đóng không quay lại reward hoặc lesson vừa hoàn thành.
 - **Implemented:** trong theme map, trạm/review bị khóa do tiến độ vẫn nhận thao tác chạm để hiện
   giải thích; khóa tiến độ, Premium và trạng thái đang kiểm tra Premium phát lời nhắc ngắn theo
-  `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry cùng một số lời Sungy
-  Home/Onboarding, và được throttle để tránh phát lặp khi bé chạm liên tục.
+  `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry cùng các lời Sungy
+  Home/Onboarding tĩnh tương ứng ở cả Việt/Anh, và được throttle để tránh phát lặp khi bé chạm
+  liên tục.
 - `visibleLessonIds` lưu lựa chọn lesson bên trong từng theme; `undefined` nghĩa là chọn tất cả.
   `disabledThemeIds` ẩn toàn bộ theme khỏi Kid Mode nhưng không xóa lựa chọn lesson của theme đó,
   nên bật lại sẽ khôi phục đúng selection trước đây. Normalization luôn giữ ít nhất một theme đang
@@ -1533,7 +1534,8 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 5. Bundled Kid Mode/Sungy UI voice prompts nằm trong `src/assets/ui/audio/`, giữ WAV production làm
    source/provenance theo `audioManifest`, nhưng `npm run assets:optimize-ui-audio` tạo MP3 sidecar
    64 kbps và rewrite `GeneratedUiAudioRegistry.ts` để các key manifest WAV resolve tới MP3 nhỏ hơn
-   khi build app.
+   khi build app. Các key Home/Onboarding tĩnh được generator đọc trực tiếp theo cùng key từ hai
+   dictionary `vi.ts`/`en.ts`; không duy trì một bản copy audio-only riêng có thể lệch với UI.
 
 `AudioManager` giữ playback primitive và effects theo hướng best-effort, còn `ScenePlayer` áp dụng
 readiness gate cho audio bài học bắt buộc. Nếu audio bắt buộc chưa sẵn sàng, scene hiển thị lựa chọn

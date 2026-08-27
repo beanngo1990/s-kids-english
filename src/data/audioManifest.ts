@@ -81904,18 +81904,6 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "shared/audio/vi/speak_prompt.mp3",
     text: "Bé nói theo cô nhé.",
   },
-  [normalizeText("Ba mẹ chọn độ khó trước, rồi Sungy sẽ dẫn bé đi từng trạm nhé.")]: {
-    key: "shared/audio/vi/sungy/ba_me_chon_o_kho_truoc_roi_sungy_se_dan_be_i_tung_tram_nhe_823e71e6.mp3",
-    text: "Ba mẹ chọn độ khó trước, rồi Sungy sẽ dẫn bé đi từng trạm nhé.",
-  },
-  [normalizeText("Bấm tab Chơi để gặp game đang mở nhé.")]: {
-    key: "shared/audio/vi/sungy/bam_tab_choi_e_gap_game_ang_mo_nhe_cbd5f365.mp3",
-    text: "Bấm tab Chơi để gặp game đang mở nhé.",
-  },
-  [normalizeText("Bấm vào trạm sáng lên để học tiếp nhé.")]: {
-    key: "shared/audio/vi/sungy/bam_vao_tram_sang_len_e_hoc_tiep_nhe_168f2d20.mp3",
-    text: "Bấm vào trạm sáng lên để học tiếp nhé.",
-  },
   [normalizeText("Bấm vào từ mới bên dưới để nghe lại tiếng Anh nhé.")]: {
     key: "shared/audio/vi/sungy/bam_vao_tu_moi_ben_duoi_e_nghe_lai_tieng_anh_nhe_cb489611.mp3",
     text: "Bấm vào từ mới bên dưới để nghe lại tiếng Anh nhé.",
@@ -81923,10 +81911,6 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Bé đã đi rất xa rồi, Sungy tự hào lắm!")]: {
     key: "shared/audio/vi/sungy/be_a_i_rat_xa_roi_sungy_tu_hao_lam_66b32e83.mp3",
     text: "Bé đã đi rất xa rồi, Sungy tự hào lắm!",
-  },
-  [normalizeText("Bé giỏi quá! Mình cùng nhận thêm sticker nhé.")]: {
-    key: "shared/audio/vi/sungy/be_gioi_qua_minh_cung_nhan_them_sticker_nhe_1b33832a.mp3",
-    text: "Bé giỏi quá! Mình cùng nhận thêm sticker nhé.",
   },
   [normalizeText("Bé vừa hoàn thành cảnh này rồi!")]: {
     key: "shared/audio/vi/sungy/be_vua_hoan_thanh_canh_nay_roi_7f4ccfc9.mp3",
@@ -81940,49 +81924,61 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "shared/audio/vi/sungy/cham_nut_mau_vang_e_tiep_tuc_nao_7a70ebdb.mp3",
     text: "Chạm nút màu vàng để tiếp tục nào!",
   },
-  [normalizeText("Chơi ôn tập xong là Sungy trao sticker liền!")]: {
-    key: "shared/audio/vi/sungy/choi_on_tap_xong_la_sungy_trao_sticker_lien_2f262b0f.mp3",
-    text: "Chơi ôn tập xong là Sungy trao sticker liền!",
-  },
-  [normalizeText("Mình có thể chơi lại để ôn từ mới nữa đó.")]: {
-    key: "shared/audio/vi/sungy/minh_co_the_choi_lai_e_on_tu_moi_nua_o_3f2eeef4.mp3",
-    text: "Mình có thể chơi lại để ôn từ mới nữa đó.",
-  },
-  [normalizeText("Mình cùng lật thẻ để nhớ từ lâu hơn nhé.")]: {
-    key: "shared/audio/vi/sungy/minh_cung_lat_the_e_nho_tu_lau_hon_nhe_756c712b.mp3",
-    text: "Mình cùng lật thẻ để nhớ từ lâu hơn nhé.",
-  },
-  [normalizeText("Mình kiếm thêm sao nào!")]: {
-    key: "shared/audio/vi/sungy/minh_kiem_them_sao_nao_018ee72c.mp3",
-    text: "Mình kiếm thêm sao nào!",
-  },
   [normalizeText("Mình sẵn sàng sang bài tiếp theo.")]: {
     key: "shared/audio/vi/sungy/minh_san_sang_sang_bai_tiep_theo_98f72c3d.mp3",
     text: "Mình sẵn sàng sang bài tiếp theo.",
-  },
-  [normalizeText("Mình sẽ cổ vũ bé mỗi khi bé học xong một cảnh.")]: {
-    key: "shared/audio/vi/sungy/minh_se_co_vu_be_moi_khi_be_hoc_xong_mot_canh_da5c3792.mp3",
-    text: "Mình sẽ cổ vũ bé mỗi khi bé học xong một cảnh.",
   },
   [normalizeText("Sticker mới sáng lên rồi!")]: {
     key: "shared/audio/vi/sungy/sticker_moi_sang_len_roi_08c5f47f.mp3",
     text: "Sticker mới sáng lên rồi!",
   },
-  [normalizeText("Sungy đã thấy cả bản đồ sáng lên rồi!")]: {
-    key: "shared/audio/vi/sungy/sungy_a_thay_ca_ban_o_sang_len_roi_9429c5c4.mp3",
-    text: "Sungy đã thấy cả bản đồ sáng lên rồi!",
-  },
   [normalizeText("Sungy đang giữ sticker mới cho bé đây.")]: {
     key: "shared/audio/vi/sungy/sungy_ang_giu_sticker_moi_cho_be_ay_535e2848.mp3",
     text: "Sungy đang giữ sticker mới cho bé đây.",
   },
+  [normalizeText("Tuyệt vời! Bé đã đi hết bản đồ. Mình cùng nhận thêm sao nhé!")]: {
+    key: "ui/audio/vi/home_coach_complete_c68644b6.wav",
+    text: "Tuyệt vời! Bé đã đi hết bản đồ. Mình cùng nhận thêm sao nhé!",
+  },
+  [normalizeText("Hôm nay mình học cùng Sungy nhé!")]: {
+    key: "ui/audio/vi/home_coach_default_8c891680.wav",
+    text: "Hôm nay mình học cùng Sungy nhé!",
+  },
+  [normalizeText("Bé giỏi quá! Mình cùng ngắm bộ sưu tập sticker nhé.")]: {
+    key: "ui/audio/vi/home_complete_tap_one_8c2bb2a4.wav",
+    text: "Bé giỏi quá! Mình cùng ngắm bộ sưu tập sticker nhé.",
+  },
+  [normalizeText("Mình có thể chơi lại để ôn từ mới nữa đó.")]: {
+    key: "ui/audio/vi/home_complete_tap_three_3f2eeef4.wav",
+    text: "Mình có thể chơi lại để ôn từ mới nữa đó.",
+  },
+  [normalizeText("Sungy đã thấy cả bản đồ sáng lên rồi!")]: {
+    key: "ui/audio/vi/home_complete_tap_two_066df3e3.wav",
+    text: "Sungy đã thấy cả bản đồ sáng lên rồi!",
+  },
+  [normalizeText("Bấm vào trạm sáng lên để học tiếp nhé.")]: {
+    key: "ui/audio/vi/home_guide_tap_one_168f2d20.wav",
+    text: "Bấm vào trạm sáng lên để học tiếp nhé.",
+  },
+  [normalizeText("Mình kiếm thêm sao nào!")]: {
+    key: "ui/audio/vi/home_guide_tap_three_018ee72c.wav",
+    text: "Mình kiếm thêm sao nào!",
+  },
   [normalizeText("Sungy đi cùng bé nè!")]: {
-    key: "shared/audio/vi/sungy/sungy_i_cung_be_ne_26b29757.mp3",
+    key: "ui/audio/vi/home_guide_tap_two_dc68f14b.wav",
     text: "Sungy đi cùng bé nè!",
   },
-  [normalizeText("Xin chào! Mình là Sungy, bạn học của bé.")]: {
-    key: "shared/audio/vi/sungy/xin_chao_minh_la_sungy_ban_hoc_cua_be_967fe8c4.mp3",
-    text: "Xin chào! Mình là Sungy, bạn học của bé.",
+  [normalizeText("Mình cùng lật thẻ để nhớ từ lâu hơn nhé.")]: {
+    key: "ui/audio/vi/home_review_tap_one_756c712b.wav",
+    text: "Mình cùng lật thẻ để nhớ từ lâu hơn nhé.",
+  },
+  [normalizeText("Bấm tab Chơi để gặp game đang mở nhé.")]: {
+    key: "ui/audio/vi/home_review_tap_three_cbd5f365.wav",
+    text: "Bấm tab Chơi để gặp game đang mở nhé.",
+  },
+  [normalizeText("Chơi ôn tập xong là Sungy trao sticker liền!")]: {
+    key: "ui/audio/vi/home_review_tap_two_b91f3a34.wav",
+    text: "Chơi ôn tập xong là Sungy trao sticker liền!",
   },
   [normalizeText("Bé ơi, gọi ba mẹ giúp Sungy nhé!")]: {
     key: "ui/audio/vi/kid_lock_appupdate_fa3f1b48.mp3",
@@ -81999,6 +81995,10 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Sungy đang kiểm tra. Con chờ một chút nhé!")]: {
     key: "ui/audio/vi/kid_lock_resolving_7b714a40.wav",
     text: "Sungy đang kiểm tra. Con chờ một chút nhé!",
+  },
+  [normalizeText("Xin chào! Mình là Sungy, bạn học của bé.")]: {
+    key: "ui/audio/vi/sungy_onboarding_greeting_159c6651.wav",
+    text: "Xin chào! Mình là Sungy, bạn học của bé.",
   },
 };
 
