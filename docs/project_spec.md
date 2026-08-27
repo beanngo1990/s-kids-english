@@ -1117,6 +1117,9 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
   trao sticker trước review. Với lesson không có review game, scene cuối cùng có thể đánh dấu lesson
   complete, nhưng sticker vẫn được trao ở `completeLessonProgress` để reward UI nhận được
   `unlockedSticker`.
+- Huy hiệu hạt dẻ trên `KidModeHeader` biểu diễn cấp độ từ total XP. Khi bé chạm, huy hiệu phát
+  tap SFX, nảy nhẹ nếu Reduce Motion đang tắt và hiện tạm thời số hạt dẻ còn thiếu để lên cấp kế
+  tiếp; thao tác này không cộng XP hoặc trao phần thưởng.
 - `completeLessonProgress`: review mới +2 XP, replay +1 XP; đánh dấu lesson/review complete,
   thêm learned words và trao sticker của lesson nếu sticker đó chưa có. Replay không duplicate
   sticker nhưng có thể repair progress cũ đã complete lesson mà thiếu sticker.

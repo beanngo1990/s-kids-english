@@ -657,6 +657,9 @@ export const vi = {
   'header.themeLibrary': 'Đổi chủ đề bản đồ',
   'header.parentGate': 'Góc phụ huynh',
   'header.level': 'Cấp {level}',
+  'header.levelActionHint': 'Chạm để xem tiến độ cấp',
+  'header.levelProgressHint':
+    'Còn {remaining} hạt dẻ nữa để lên Cấp {nextLevel}!',
   'streak.notLearnedToday': 'Bé chưa học hôm nay',
   'streak.learnedToday': 'Bé đã học hôm nay!',
   'profile.age': '{age} tuổi',

@@ -665,6 +665,9 @@ export const en: TranslationDictionary = {
   'header.themeLibrary': 'Change map theme',
   'header.parentGate': 'Parent mode',
   'header.level': 'Level {level}',
+  'header.levelActionHint': 'Tap to view level progress',
+  'header.levelProgressHint':
+    '{remaining} more acorns to reach Level {nextLevel}!',
   'streak.notLearnedToday': 'Not learned today',
   'streak.learnedToday': 'Learned today!',
   'profile.age': '{age} years old',

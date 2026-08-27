@@ -1,10 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { AccessibilityInfo, StyleSheet, Text } from 'react-native';
 import ReactTestRenderer from 'react-test-renderer';
 
 import { KidModeHeader } from '../src/components/KidModeHeader';
+import { playTapSound } from '../src/engine/AudioManager';
 
 const mockUseWindowDimensions = jest.fn();
+
+jest.mock('../src/engine/AudioManager', () => ({
+  playTapSound: jest.fn(() => Promise.resolve()),
+}));
 
 jest.mock('react-native', () => {
   const actual = jest.requireActual('react-native');
@@ -21,12 +26,22 @@ jest.mock('react-native', () => {
 });
 
 beforeEach(() => {
+  jest.clearAllMocks();
+  const mockReduceMotion =
+    AccessibilityInfo.isReduceMotionEnabled as jest.MockedFunction<
+      typeof AccessibilityInfo.isReduceMotionEnabled
+    >;
+  mockReduceMotion.mockResolvedValue(true);
   mockUseWindowDimensions.mockReturnValue({
     fontScale: 1,
     height: 844,
     scale: 3,
     width: 440,
   });
+});
+
+afterEach(() => {
+  jest.useRealTimers();
 });
 
 test('keeps the full level label on wider kid headers', async () => {
@@ -70,18 +85,65 @@ test('uses a balanced icon badge for the level on narrow kid headers', async () 
   });
 
   const textValues = getTextValues(tree);
-  const progressbar = tree?.root.findByProps({
-    accessibilityRole: 'progressbar',
+  const progressButton = tree?.root.findByProps({
+    testID: 'kid-level-progress',
   });
 
   expect(textValues).toContain('1');
   expect(textValues).not.toContain('Cấp 1');
-  expect(progressbar?.props.accessibilityLabel).toContain('cấp 1');
-  expect(StyleSheet.flatten(progressbar?.props.style)).toMatchObject({
-    height: 46,
-    minWidth: 46,
-    width: 46,
+  expect(progressButton?.props.accessibilityLabel).toContain('cấp 1');
+  expect(progressButton?.props.accessibilityRole).toBe('button');
+  const progressCards = progressButton?.findAll(node => {
+    const flattenedStyle = StyleSheet.flatten(node.props.style);
+
+    return (
+      flattenedStyle?.height === 46 &&
+      flattenedStyle?.minWidth === 46 &&
+      flattenedStyle?.width === 46
+    );
   });
+  expect(progressCards?.length).toBeGreaterThan(0);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('shows a short level hint when the acorn badge is pressed', async () => {
+  jest.useFakeTimers();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <KidModeHeader onOpenParent={() => undefined} totalXP={182} />,
+    );
+  });
+
+  const progressButton = tree?.root.findByProps({
+    testID: 'kid-level-progress',
+  });
+
+  await ReactTestRenderer.act(async () => {
+    progressButton?.props.onPress();
+  });
+
+  expect(playTapSound).toHaveBeenCalledTimes(1);
+  expect(getTextValues(tree)).toEqual(
+    expect.arrayContaining([
+      'Cấp 8',
+      'Còn 43 hạt dẻ nữa để lên Cấp 9!',
+    ]),
+  );
+  expect(
+    tree?.root.findByProps({ testID: 'kid-level-progress-hint' }),
+  ).toBeDefined();
+
+  ReactTestRenderer.act(() => {
+    jest.advanceTimersByTime(3000);
+  });
+  expect(
+    tree?.root.findAllByProps({ testID: 'kid-level-progress-hint' }),
+  ).toHaveLength(0);
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
