@@ -47,9 +47,9 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 
 - **Implemented:** học theo theme -> lesson pack -> mini-scene -> review -> reward.
 - **Implemented:** mỗi scene đã hoàn thành mở được `Góc chơi từ vựng`, một sandbox theo
-  `learningMode`; một bản của từng từ được đặt sẵn trên background để bé chạm nghe English, kéo
-  tự do hoặc cất khỏi tranh. Bố cục chỉ sống trong phiên chơi, không thay đổi progress/reward và
-  không thay thế review game cuối lesson.
+  `learningMode`; một bản của từng từ có hình riêng được đặt sẵn trên background để bé chạm nghe
+  English, tùy chọn nghe tiếp nghĩa tiếng Việt production và kéo tự do. Bố cục cùng lựa chọn phát
+  nghĩa được lưu local, không thay đổi progress/reward và không thay thế review game cuối lesson.
 - **Implemented:** tương tác nghe, chạm, tìm object, kéo thả và luyện nói bằng cách ghi/phát lại.
 - **Implemented:** Scene State v1 cho object variants, trạng thái ẩn/hiện và thay đổi state chỉ sau
   tương tác đúng trong phạm vi lượt chạy scene hiện tại.
@@ -659,7 +659,12 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   vị trí chuẩn hóa và thứ tự chồng lớp của toàn bộ đồ vật được lưu local theo
   `lessonId + sceneId + learningMode`; lần mở sau khôi phục các item vẫn còn hợp lệ, bỏ item đã
   bị xóa khỏi content và dùng vị trí mặc định cho item mới. `Đặt lại` đồng thời xóa bố cục đã lưu
-  của đúng cảnh/chế độ hiện tại.
+  của đúng cảnh/chế độ hiện tại. Nút icon quả địa cầu kèm badge cờ Việt Nam nằm giữa nút đóng và
+  đặt lại, không hiển thị mã ngôn ngữ; mặc định tắt trên dữ liệu cũ/install mới và ghi nhớ chung
+  trên thiết bị. Badge cờ được làm mờ khi tắt; khi bật, nút đổi màu, cờ sáng và hiện dấu kiểm. Mỗi
+  lần đổi trạng thái phát một câu tiếng Việt production xác nhận. Khi bật, chạm đồ vật phát English
+  trước, nghỉ 400 ms rồi phát authored `meaningVi`; nhãn nổi hiển thị English lớn và nghĩa tiếng
+  Việt nhỏ. Một lần chạm mới hoặc đổi toggle hủy narration cũ để không phát chồng tiếng.
 - Mỗi scene node trên theme map dùng đúng bundled icon riêng của scene; icon milestone đại diện
   lesson không được dùng làm lý do thay scene icon bằng một fallback chung.
 - Mỗi milestone/review node cuối lesson dùng một bundled milestone icon riêng theo chủ đề bài học,
@@ -1205,8 +1210,9 @@ của learning progress và selected parent settings sau parent opt-in:
 - Key: `@skidsenglish/scene-vocabulary-layouts/v1`.
 - Manager: `src/engine/SceneVocabularyLayoutStore.ts`.
 - Mỗi layout được tách theo `lessonId + sceneId + learningMode` và giữ danh sách
-  `itemId + normalized x/y + zIndex`; tọa độ chuẩn hóa giúp bố cục thích ứng với kích thước màn
-  hình khác nhau. Runtime chỉ ghi best-effort sau khi bé thả đồ vật, không ghi theo từng frame kéo.
+  `itemId + normalized x/y + zIndex`; root store đồng thời giữ boolean `meaningEnabled` dùng chung
+  cho mọi cảnh. Tọa độ chuẩn hóa giúp bố cục thích ứng với kích thước màn hình khác nhau. Runtime
+  chỉ ghi best-effort sau khi bé thả đồ vật, không ghi theo từng frame kéo.
 - Parser bỏ key/item malformed, clamp tọa độ và z-index, bỏ duplicate item ID, giới hạn 64 item mỗi
   layout và 256 layout mới nhất. Các thao tác đọc/ghi/xóa dùng chung operation queue để hai lần thả
   hoặc hai cảnh lưu sát nhau không ghi đè state của nhau.
@@ -1637,7 +1643,11 @@ trong `docs/asset-pipeline.md`.
 - `audio/en/*.wav` là legacy en-US compatibility/rollback corpus; giữ nguyên nhưng không ghi
   production release mới vào đây. Manifest chỉ thêm `legacy` fallback cho target đã có file legacy
   tương ứng.
-- Vietnamese instruction/feedback: `audio/vi/*.wav`.
+- Vietnamese instruction/feedback và standalone vocabulary meanings: `audio/vi/*.mp3`.
+- Standalone Vietnamese vocabulary meanings used by `Góc chơi từ vựng` are also generated from
+  every registered `VocabularyItem.meaningVi`; equal normalized meanings are deduplicated across
+  the catalog. Runtime therefore resolves the authored meaning through `audioManifest` before
+  using system TTS as a best-effort fallback.
 - Không có `audio/bilingual`; song ngữ là runtime sequence phát `vi` rồi `en`.
 - `generateMissingAudio.mjs` scan registered catalog, audit/generate theo language/accent và chỉ
   publish sau khi toàn bộ target en-US, en-GB và Vietnamese hiện hành tồn tại và pass WAV
@@ -1722,9 +1732,11 @@ Tại lần kiểm chứng gần nhất:
   `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
   `NSPhotoLibraryUsageDescription`; audit Theme 4/5 không chạm iOS/localization. Mười ba suite mục
   tiêu cho lesson, vocabulary ownership, lesson validation và audio provenance pass 382/382.
-- Audio generation/full-corpus audit hiện có 16.156 target, 0 file thiếu và 0 file lỗi. R2 upload
-  285 object mới/đổi với tổng dung lượng 9,7 MiB; full remote verify đạt 21.296/21.296 object,
-  lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Production CDN `assets.sungy.net` trả
+- Audio generation/full-corpus audit hiện có 17.035 target, 0 file thiếu và 0 file lỗi. Pipeline
+  standalone `meaningVi` đã tạo/publish đúng 877 clip Google TTS mới với tổng dung lượng 8,1 MiB;
+  toggle icon-only tạo/publish thêm hai câu xác nhận bật/tắt. Full remote verify đạt
+  22.175/22.175 object, lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Production CDN
+  `assets.sungy.net` trả
   `kitten-shiny-coat.webp` và audio en-US `shiny_coat_teach_success_77a8ad20.mp3` với HTTP 200,
   đúng content type và immutable cache headers.
 - Image audit/build/verify của các delta trực tiếp đạt: `help-it-grow` 39/39,

@@ -58228,6 +58228,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/after-dinner-cleanup/clear-dinner/audio/vi/teach_tongs_success_7b2ce519.mp3",
     text: "Từ này nghĩa là kẹp gắp.",
   },
+  [normalizeText("bình rót")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/vi/vocabulary_vocab_after_dinner_carafe_meaning_cce01897.mp3",
+    text: "bình rót",
+  },
+  [normalizeText("miếng lót ly")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/vi/vocabulary_vocab_after_dinner_coaster_meaning_1362898e.mp3",
+    text: "miếng lót ly",
+  },
+  [normalizeText("nhãn dán")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/vi/vocabulary_vocab_after_dinner_label_meaning_24bf05e9.mp3",
+    text: "nhãn dán",
+  },
+  [normalizeText("miếng nhấc nồi")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/vi/vocabulary_vocab_after_dinner_pot_holder_meaning_f1164bcd.mp3",
+    text: "miếng nhấc nồi",
+  },
+  [normalizeText("xe đẩy đồ ăn")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/vi/vocabulary_vocab_after_dinner_serving_cart_meaning_1ef970a4.mp3",
+    text: "xe đẩy đồ ăn",
+  },
+  [normalizeText("kẹp gắp")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/vi/vocabulary_vocab_after_dinner_tongs_meaning_7ddfb962.mp3",
+    text: "kẹp gắp",
+  },
+  [normalizeText("dán nhãn hộp")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/vi/vocabulary_vocab_label_container_meaning_561b1687.mp3",
+    text: "dán nhãn hộp",
+  },
+  [normalizeText("đẩy xe đồ ăn")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/vi/vocabulary_vocab_move_cart_meaning_16cbed25.mp3",
+    text: "đẩy xe đồ ăn",
+  },
+  [normalizeText("xếp miếng lót ly")]: {
+    key: "lessons/after-dinner-cleanup/clear-dinner/audio/vi/vocabulary_vocab_stack_coasters_meaning_d0d8bfdf.mp3",
+    text: "xếp miếng lót ly",
+  },
   [normalizeText("Bé đã phân loại và làm khô đồ sau bữa tối!")]: {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/completion_f1384bba.mp3",
     text: "Bé đã phân loại và làm khô đồ sau bữa tối!",
@@ -58415,6 +58451,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là đồng hồ hẹn giờ.")]: {
     key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/teach_timer_success_9470cb85.mp3",
     text: "Từ này nghĩa là đồng hồ hẹn giờ.",
+  },
+  [normalizeText("tủ bếp")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/vocabulary_vocab_after_dinner_cabinet_meaning_519a78d3.mp3",
+    text: "tủ bếp",
+  },
+  [normalizeText("thùng ủ rác hữu cơ")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/vocabulary_vocab_after_dinner_compost_bin_meaning_8bd6deee.mp3",
+    text: "thùng ủ rác hữu cơ",
+  },
+  [normalizeText("giá úp chén")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/vocabulary_vocab_after_dinner_dish_rack_meaning_bc2c74ad.mp3",
+    text: "giá úp chén",
+  },
+  [normalizeText("tấm thấm khô")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/vocabulary_vocab_after_dinner_drying_mat_meaning_68728765.mp3",
+    text: "tấm thấm khô",
+  },
+  [normalizeText("thùng tái chế")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/vocabulary_vocab_after_dinner_recycling_bin_meaning_03a2fe99.mp3",
+    text: "thùng tái chế",
+  },
+  [normalizeText("đồng hồ hẹn giờ")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/vocabulary_vocab_after_dinner_timer_meaning_fd18bc38.mp3",
+    text: "đồng hồ hẹn giờ",
+  },
+  [normalizeText("để chén khô tự nhiên")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/vocabulary_vocab_air_dry_dishes_meaning_0ad67b9c.mp3",
+    text: "để chén khô tự nhiên",
+  },
+  [normalizeText("phân loại đồ tái chế")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/vocabulary_vocab_sort_recycling_meaning_04cc47ce.mp3",
+    text: "phân loại đồ tái chế",
+  },
+  [normalizeText("bật hẹn giờ")]: {
+    key: "lessons/after-dinner-cleanup/sort-and-dry/audio/vi/vocabulary_vocab_start_timer_meaning_cbd4c652.mp3",
+    text: "bật hẹn giờ",
   },
   [normalizeText("Bé đã xử lý vết bẩn sau bữa tối thật khéo!")]: {
     key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/completion_83042f8b.mp3",
@@ -58608,6 +58680,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/teach_stain_success_a4dfd650.mp3",
     text: "Từ này nghĩa là vết bẩn.",
   },
+  [normalizeText("bàn chải dọn dẹp")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/vocabulary_vocab_after_dinner_cleaning_brush_meaning_427e571e.mp3",
+    text: "bàn chải dọn dẹp",
+  },
+  [normalizeText("găng tay cao su")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/vocabulary_vocab_after_dinner_rubber_gloves_meaning_a05b0f9c.mp3",
+    text: "găng tay cao su",
+  },
+  [normalizeText("cây gạt nhỏ")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/vocabulary_vocab_after_dinner_scraper_meaning_7c138e0d.mp3",
+    text: "cây gạt nhỏ",
+  },
+  [normalizeText("vết đổ")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/vocabulary_vocab_after_dinner_spill_meaning_1fcdd398.mp3",
+    text: "vết đổ",
+  },
+  [normalizeText("bình xịt")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/vocabulary_vocab_after_dinner_spray_bottle_meaning_1b976125.mp3",
+    text: "bình xịt",
+  },
+  [normalizeText("vết bẩn")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/vocabulary_vocab_after_dinner_stain_meaning_0d78c24c.mp3",
+    text: "vết bẩn",
+  },
+  [normalizeText("làm khô bề mặt")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/vocabulary_vocab_dry_surface_meaning_99038464.mp3",
+    text: "làm khô bề mặt",
+  },
+  [normalizeText("chà chỗ bẩn")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/vocabulary_vocab_scrub_spot_meaning_a7758835.mp3",
+    text: "chà chỗ bẩn",
+  },
+  [normalizeText("xịt vết bẩn")]: {
+    key: "lessons/after-dinner-cleanup/spot-clean/audio/vi/vocabulary_vocab_spray_stain_meaning_2dfeaa04.mp3",
+    text: "xịt vết bẩn",
+  },
   [normalizeText("Bé đã mặc đồ sau tắm thật gọn gàng!")]: {
     key: "lessons/afternoon-bath/bath-finish/audio/vi/completion_e60ffa15.mp3",
     text: "Bé đã mặc đồ sau tắm thật gọn gàng!",
@@ -58799,6 +58907,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là dép đi trong nhà.")]: {
     key: "lessons/afternoon-bath/bath-finish/audio/vi/teach_slippers_success_112b1d45.mp3",
     text: "Từ này nghĩa là dép đi trong nhà.",
+  },
+  [normalizeText("cái lược")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/vi/vocabulary_vocab_afternoon_bath_comb_meaning_020470be.mp3",
+    text: "cái lược",
+  },
+  [normalizeText("móc treo")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/vi/vocabulary_vocab_afternoon_bath_hook_meaning_ec13f888.mp3",
+    text: "móc treo",
+  },
+  [normalizeText("giỏ đồ giặt")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/vi/vocabulary_vocab_afternoon_bath_laundry_basket_meaning_3aeeab76.mp3",
+    text: "giỏ đồ giặt",
+  },
+  [normalizeText("đồ ngủ")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/vi/vocabulary_vocab_afternoon_bath_pajamas_meaning_2f1ac163.mp3",
+    text: "đồ ngủ",
+  },
+  [normalizeText("áo choàng tắm")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/vi/vocabulary_vocab_afternoon_bath_robe_meaning_a504486d.mp3",
+    text: "áo choàng tắm",
+  },
+  [normalizeText("dép đi trong nhà")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/vi/vocabulary_vocab_afternoon_bath_slippers_meaning_56d1143a.mp3",
+    text: "dép đi trong nhà",
+  },
+  [normalizeText("chải tóc")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/vi/vocabulary_vocab_comb_hair_meaning_797f40bd.mp3",
+    text: "chải tóc",
+  },
+  [normalizeText("treo áo choàng")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/vi/vocabulary_vocab_hang_robe_meaning_dd3b29fb.mp3",
+    text: "treo áo choàng",
+  },
+  [normalizeText("mặc đồ ngủ")]: {
+    key: "lessons/afternoon-bath/bath-finish/audio/vi/vocabulary_vocab_put_on_pajamas_meaning_7b789173.mp3",
+    text: "mặc đồ ngủ",
   },
   [normalizeText("Bé đã chuẩn bị tắm thật cẩn thận!")]: {
     key: "lessons/afternoon-bath/bath-prep/audio/vi/completion_a57ab145.mp3",
@@ -58992,6 +59136,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-bath/bath-prep/audio/vi/teach_turn_on_shower_success_04ceb527.mp3",
     text: "Mở vòi sen trước khi tắm.",
   },
+  [normalizeText("bồn tắm")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/vi/vocabulary_vocab_afternoon_bath_bathtub_meaning_d56e0e60.mp3",
+    text: "bồn tắm",
+  },
+  [normalizeText("sữa tắm")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/vi/vocabulary_vocab_afternoon_bath_body_wash_meaning_27fcdb47.mp3",
+    text: "sữa tắm",
+  },
+  [normalizeText("thảm tắm")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/vi/vocabulary_vocab_afternoon_bath_mat_meaning_006a6f60.mp3",
+    text: "thảm tắm",
+  },
+  [normalizeText("dầu gội")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/vi/vocabulary_vocab_afternoon_bath_shampoo_meaning_b29624e4.mp3",
+    text: "dầu gội",
+  },
+  [normalizeText("vòi sen")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/vi/vocabulary_vocab_afternoon_bath_shower_meaning_14fa0b10.mp3",
+    text: "vòi sen",
+  },
+  [normalizeText("miếng bọt tắm")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/vi/vocabulary_vocab_afternoon_bath_sponge_meaning_08c12803.mp3",
+    text: "miếng bọt tắm",
+  },
+  [normalizeText("kiểm tra độ ấm")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/vi/vocabulary_vocab_check_temperature_meaning_13e123ac.mp3",
+    text: "kiểm tra độ ấm",
+  },
+  [normalizeText("bước lên thảm")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/vi/vocabulary_vocab_step_onto_mat_meaning_1c35048f.mp3",
+    text: "bước lên thảm",
+  },
+  [normalizeText("mở vòi sen")]: {
+    key: "lessons/afternoon-bath/bath-prep/audio/vi/vocabulary_vocab_turn_on_shower_meaning_9e019c4f.mp3",
+    text: "mở vòi sen",
+  },
   [normalizeText("Bé đã tắm và xả sạch thật khéo!")]: {
     key: "lessons/afternoon-bath/bath-rinse/audio/vi/completion_9065a43f.mp3",
     text: "Bé đã tắm và xả sạch thật khéo!",
@@ -59184,6 +59364,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-bath/bath-rinse/audio/vi/teach_shower_head_success_21a03191.mp3",
     text: "Từ này nghĩa là đầu vòi sen.",
   },
+  [normalizeText("bong bóng")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/vi/vocabulary_vocab_afternoon_bath_bubble_meaning_f479d5f2.mp3",
+    text: "bong bóng",
+  },
+  [normalizeText("khuỷu tay")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/vi/vocabulary_vocab_afternoon_bath_elbow_meaning_83327da3.mp3",
+    text: "khuỷu tay",
+  },
+  [normalizeText("bọt tắm")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/vi/vocabulary_vocab_afternoon_bath_foam_meaning_bcecb383.mp3",
+    text: "bọt tắm",
+  },
+  [normalizeText("đầu gối")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/vi/vocabulary_vocab_afternoon_bath_knee_meaning_c66cc702.mp3",
+    text: "đầu gối",
+  },
+  [normalizeText("vai")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/vi/vocabulary_vocab_afternoon_bath_shoulder_meaning_120032fb.mp3",
+    text: "vai",
+  },
+  [normalizeText("đầu vòi sen")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/vi/vocabulary_vocab_afternoon_bath_shower_head_meaning_a0639deb.mp3",
+    text: "đầu vòi sen",
+  },
+  [normalizeText("tạo bong bóng")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/vi/vocabulary_vocab_make_bubbles_meaning_a231afbd.mp3",
+    text: "tạo bong bóng",
+  },
+  [normalizeText("xả tóc")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/vi/vocabulary_vocab_rinse_hair_meaning_d8bc7f04.mp3",
+    text: "xả tóc",
+  },
+  [normalizeText("chà đầu gối")]: {
+    key: "lessons/afternoon-bath/bath-rinse/audio/vi/vocabulary_vocab_scrub_knees_meaning_e2e20c82.mp3",
+    text: "chà đầu gối",
+  },
   [normalizeText("Bé đã chuẩn bị ra về thật gọn gàng.")]: {
     key: "lessons/afternoon-home/going-home/audio/vi/completion_4ba5f854.mp3",
     text: "Bé đã chuẩn bị ra về thật gọn gàng.",
@@ -59340,6 +59556,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/afternoon-home/going-home/audio/vi/teach_say_goodbye_success_a9157f91.mp3",
     text: "Câu này nghĩa là chào tạm biệt.",
   },
+  [normalizeText("cánh cửa")]: {
+    key: "lessons/afternoon-home/going-home/audio/vi/vocabulary_vocab_door_meaning_6b8ccf50.mp3",
+    text: "cánh cửa",
+  },
+  [normalizeText("bìa hồ sơ")]: {
+    key: "lessons/afternoon-home/going-home/audio/vi/vocabulary_vocab_folder_meaning_a6d909da.mp3",
+    text: "bìa hồ sơ",
+  },
+  [normalizeText("áo khoác")]: {
+    key: "lessons/afternoon-home/going-home/audio/vi/vocabulary_vocab_jacket_meaning_b85266d2.mp3",
+    text: "áo khoác",
+  },
+  [normalizeText("xếp hàng")]: {
+    key: "lessons/afternoon-home/going-home/audio/vi/vocabulary_vocab_line_up_meaning_2623fa36.mp3",
+    text: "xếp hàng",
+  },
+  [normalizeText("chào tạm biệt")]: {
+    key: "lessons/afternoon-home/going-home/audio/vi/vocabulary_vocab_say_goodbye_meaning_eb43c2e1.mp3",
+    text: "chào tạm biệt",
+  },
   [normalizeText("Bé đã về nhà và làm các bước chiều về.")]: {
     key: "lessons/afternoon-home/home-arrival/audio/vi/completion_598ecb32.mp3",
     text: "Bé đã về nhà và làm các bước chiều về.",
@@ -59459,6 +59695,22 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là cởi giày.")]: {
     key: "lessons/afternoon-home/home-arrival/audio/vi/teach_take_off_shoes_success_a0212def.mp3",
     text: "Câu này nghĩa là cởi giày.",
+  },
+  [normalizeText("gia đình")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/vi/vocabulary_vocab_family_meaning_99b84867.mp3",
+    text: "gia đình",
+  },
+  [normalizeText("ôm gia đình")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/vi/vocabulary_vocab_hug_family_meaning_bebf4aea.mp3",
+    text: "ôm gia đình",
+  },
+  [normalizeText("kệ giày")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/vi/vocabulary_vocab_shelf_meaning_6998df4f.mp3",
+    text: "kệ giày",
+  },
+  [normalizeText("cởi giày")]: {
+    key: "lessons/afternoon-home/home-arrival/audio/vi/vocabulary_vocab_take_off_shoes_meaning_6029f624.mp3",
+    text: "cởi giày",
   },
   [normalizeText("Bé đã đi đường về nhà an toàn.")]: {
     key: "lessons/afternoon-home/ride-home/audio/vi/completion_098188e6.mp3",
@@ -59639,6 +59891,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là cửa sổ.")]: {
     key: "lessons/afternoon-home/ride-home/audio/vi/teach_window_success_b93795c9.mp3",
     text: "Từ này nghĩa là cửa sổ.",
+  },
+  [normalizeText("cửa sổ")]: {
+    key: "lessons/afternoon-home/ride-home/audio/vi/vocabulary_vocab_afternoon_window_meaning_f46a62b0.mp3",
+    text: "cửa sổ",
+  },
+  [normalizeText("về tới nhà")]: {
+    key: "lessons/afternoon-home/ride-home/audio/vi/vocabulary_vocab_arrive_home_meaning_66a8ac9c.mp3",
+    text: "về tới nhà",
+  },
+  [normalizeText("cài dây an toàn")]: {
+    key: "lessons/afternoon-home/ride-home/audio/vi/vocabulary_vocab_buckle_up_meaning_e7f63ea7.mp3",
+    text: "cài dây an toàn",
+  },
+  [normalizeText("lên xe buýt")]: {
+    key: "lessons/afternoon-home/ride-home/audio/vi/vocabulary_vocab_get_on_bus_meaning_6537461a.mp3",
+    text: "lên xe buýt",
+  },
+  [normalizeText("nhà")]: {
+    key: "lessons/afternoon-home/ride-home/audio/vi/vocabulary_vocab_home_meaning_93b1aa34.mp3",
+    text: "nhà",
+  },
+  [normalizeText("con đường")]: {
+    key: "lessons/afternoon-home/ride-home/audio/vi/vocabulary_vocab_road_meaning_755a32aa.mp3",
+    text: "con đường",
+  },
+  [normalizeText("dây an toàn")]: {
+    key: "lessons/afternoon-home/ride-home/audio/vi/vocabulary_vocab_seat_belt_meaning_81bad86c.mp3",
+    text: "dây an toàn",
+  },
+  [normalizeText("đèn giao thông")]: {
+    key: "lessons/afternoon-home/ride-home/audio/vi/vocabulary_vocab_traffic_light_meaning_687a1bb5.mp3",
+    text: "đèn giao thông",
   },
   [normalizeText("Bé đã sẵn sàng vào thăm các bạn động vật.")]: {
     key: "lessons/animal-trip/animal-gate/audio/vi/completion_0e9fd6b0.mp3",
@@ -59832,6 +60116,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/animal-trip/animal-gate/audio/vi/teach_wristband_success_14ede4c6.mp3",
     text: "Từ này nghĩa là vòng tay vào cửa.",
   },
+  [normalizeText("đi theo người chăm sóc")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/vocabulary_vocab_animal_trip_animal_gate_follow_keeper_meaning_d3b79356.mp3",
+    text: "đi theo người chăm sóc",
+  },
+  [normalizeText("cổng sở thú")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/vocabulary_vocab_animal_trip_animal_gate_gate_meaning_61b9c636.mp3",
+    text: "cổng sở thú",
+  },
+  [normalizeText("người chăm sóc động vật")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/vocabulary_vocab_animal_trip_animal_gate_keeper_meaning_537f3f51.mp3",
+    text: "người chăm sóc động vật",
+  },
+  [normalizeText("bản đồ sở thú")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/vocabulary_vocab_animal_trip_animal_gate_map_meaning_4b86ab01.mp3",
+    text: "bản đồ sở thú",
+  },
+  [normalizeText("xem biển chỉ dẫn")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/vocabulary_vocab_animal_trip_animal_gate_read_sign_meaning_5d896100.mp3",
+    text: "xem biển chỉ dẫn",
+  },
+  [normalizeText("đưa vé")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/vocabulary_vocab_animal_trip_animal_gate_show_ticket_meaning_91894bfb.mp3",
+    text: "đưa vé",
+  },
+  [normalizeText("biển chỉ dẫn trong vườn thú")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/vocabulary_vocab_animal_trip_animal_gate_sign_meaning_6855f320.mp3",
+    text: "biển chỉ dẫn trong vườn thú",
+  },
+  [normalizeText("vé vào cửa")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/vocabulary_vocab_animal_trip_animal_gate_ticket_meaning_e1f194a7.mp3",
+    text: "vé vào cửa",
+  },
+  [normalizeText("vòng tay vào cửa")]: {
+    key: "lessons/animal-trip/animal-gate/audio/vi/vocabulary_vocab_animal_trip_animal_gate_wristband_meaning_932f5f27.mp3",
+    text: "vòng tay vào cửa",
+  },
   [normalizeText("Bé đã gặp và chăm sóc các bạn động vật nông trại.")]: {
     key: "lessons/animal-trip/farm-yard/audio/vi/completion_94a543a2.mp3",
     text: "Bé đã gặp và chăm sóc các bạn động vật nông trại.",
@@ -60015,6 +60335,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là con cừu.")]: {
     key: "lessons/animal-trip/farm-yard/audio/vi/teach_sheep_success_3f2745d2.mp3",
     text: "Từ này nghĩa là con cừu.",
+  },
+  [normalizeText("con gà")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/vocabulary_vocab_animal_trip_farm_yard_chicken_meaning_2f9a66e0.mp3",
+    text: "con gà",
+  },
+  [normalizeText("con bò")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/vocabulary_vocab_animal_trip_farm_yard_cow_meaning_98b35b74.mp3",
+    text: "con bò",
+  },
+  [normalizeText("con vịt")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/vocabulary_vocab_animal_trip_farm_yard_duck_meaning_888610fb.mp3",
+    text: "con vịt",
+  },
+  [normalizeText("cho dê ăn")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/vocabulary_vocab_animal_trip_farm_yard_feed_goat_meaning_0a179391.mp3",
+    text: "cho dê ăn",
+  },
+  [normalizeText("con dê")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/vocabulary_vocab_animal_trip_farm_yard_goat_meaning_cdaec257.mp3",
+    text: "con dê",
+  },
+  [normalizeText("vuốt ve cừu nhẹ nhàng")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/vocabulary_vocab_animal_trip_farm_yard_pet_sheep_meaning_aef183a5.mp3",
+    text: "vuốt ve cừu nhẹ nhàng",
+  },
+  [normalizeText("heo con")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/vocabulary_vocab_animal_trip_farm_yard_piglet_meaning_010dffd0.mp3",
+    text: "heo con",
+  },
+  [normalizeText("con cừu")]: {
+    key: "lessons/animal-trip/farm-yard/audio/vi/vocabulary_vocab_animal_trip_farm_yard_sheep_meaning_f8b436e3.mp3",
+    text: "con cừu",
   },
   [normalizeText("Bé đã quan sát động vật và đi đúng lối.")]: {
     key: "lessons/animal-trip/zoo-path/audio/vi/completion_2f283752.mp3",
@@ -60208,6 +60560,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/animal-trip/zoo-path/audio/vi/teach_zebra_success_c95591f9.mp3",
     text: "Từ này nghĩa là ngựa vằn.",
   },
+  [normalizeText("ống nhòm")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/vocabulary_vocab_animal_trip_zoo_path_binoculars_meaning_afc32dba.mp3",
+    text: "ống nhòm",
+  },
+  [normalizeText("hươu cao cổ")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/vocabulary_vocab_animal_trip_zoo_path_giraffe_meaning_a747d3af.mp3",
+    text: "hươu cao cổ",
+  },
+  [normalizeText("nơi sống của động vật")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/vocabulary_vocab_animal_trip_zoo_path_habitat_meaning_ae0f40bb.mp3",
+    text: "nơi sống của động vật",
+  },
+  [normalizeText("con khỉ")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/vocabulary_vocab_animal_trip_zoo_path_monkey_meaning_1371d21c.mp3",
+    text: "con khỉ",
+  },
+  [normalizeText("lối đi trong vườn thú")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/vocabulary_vocab_animal_trip_zoo_path_path_meaning_4d676951.mp3",
+    text: "lối đi trong vườn thú",
+  },
+  [normalizeText("tìm ngựa vằn")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/vocabulary_vocab_animal_trip_zoo_path_spot_zebra_meaning_8629b83d.mp3",
+    text: "tìm ngựa vằn",
+  },
+  [normalizeText("đi đúng lối")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/vocabulary_vocab_animal_trip_zoo_path_stay_on_path_meaning_671dfc8b.mp3",
+    text: "đi đúng lối",
+  },
+  [normalizeText("dùng ống nhòm")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/vocabulary_vocab_animal_trip_zoo_path_use_binoculars_meaning_61f7f3ef.mp3",
+    text: "dùng ống nhòm",
+  },
+  [normalizeText("ngựa vằn")]: {
+    key: "lessons/animal-trip/zoo-path/audio/vi/vocabulary_vocab_animal_trip_zoo_path_zebra_meaning_dbe8bdc4.mp3",
+    text: "ngựa vằn",
+  },
   [normalizeText("Bé đã làm quen với lớp học.")]: {
     key: "lessons/at-school/classroom/audio/vi/completion_044e4daa.mp3",
     text: "Bé đã làm quen với lớp học.",
@@ -60359,6 +60747,34 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là cô giáo.")]: {
     key: "lessons/at-school/classroom/audio/vi/teach_teacher_success_46bf2225.mp3",
     text: "Từ này nghĩa là cô giáo.",
+  },
+  [normalizeText("cái bảng")]: {
+    key: "lessons/at-school/classroom/audio/vi/vocabulary_vocab_board_meaning_86f025c3.mp3",
+    text: "cái bảng",
+  },
+  [normalizeText("cái ghế")]: {
+    key: "lessons/at-school/classroom/audio/vi/vocabulary_vocab_chair_meaning_952084f6.mp3",
+    text: "cái ghế",
+  },
+  [normalizeText("lớp học")]: {
+    key: "lessons/at-school/classroom/audio/vi/vocabulary_vocab_classroom_meaning_c7e457a8.mp3",
+    text: "lớp học",
+  },
+  [normalizeText("bàn học")]: {
+    key: "lessons/at-school/classroom/audio/vi/vocabulary_vocab_desk_meaning_0b1c9571.mp3",
+    text: "bàn học",
+  },
+  [normalizeText("giơ tay")]: {
+    key: "lessons/at-school/classroom/audio/vi/vocabulary_vocab_raise_hand_meaning_12aa979a.mp3",
+    text: "giơ tay",
+  },
+  [normalizeText("ngồi xuống")]: {
+    key: "lessons/at-school/classroom/audio/vi/vocabulary_vocab_sit_down_meaning_649109cc.mp3",
+    text: "ngồi xuống",
+  },
+  [normalizeText("cô giáo")]: {
+    key: "lessons/at-school/classroom/audio/vi/vocabulary_vocab_teacher_meaning_04bc6606.mp3",
+    text: "cô giáo",
   },
   [normalizeText("Bé đã chuẩn bị đồ dùng học tập.")]: {
     key: "lessons/at-school/school-supplies/audio/vi/completion_6dd3ce3b.mp3",
@@ -60540,6 +60956,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/at-school/school-supplies/audio/vi/supplies_teach_write_name_success_7128066a.mp3",
     text: "Câu này nghĩa là viết tên của con.",
   },
+  [normalizeText("bút màu")]: {
+    key: "lessons/at-school/school-supplies/audio/vi/vocabulary_vocab_crayon_meaning_bb74838c.mp3",
+    text: "bút màu",
+  },
+  [normalizeText("vẽ hình tròn")]: {
+    key: "lessons/at-school/school-supplies/audio/vi/vocabulary_vocab_draw_circle_meaning_c5adf75b.mp3",
+    text: "vẽ hình tròn",
+  },
+  [normalizeText("cục tẩy")]: {
+    key: "lessons/at-school/school-supplies/audio/vi/vocabulary_vocab_eraser_meaning_29435b17.mp3",
+    text: "cục tẩy",
+  },
+  [normalizeText("quyển vở")]: {
+    key: "lessons/at-school/school-supplies/audio/vi/vocabulary_vocab_notebook_meaning_0dfc460e.mp3",
+    text: "quyển vở",
+  },
+  [normalizeText("mở sách")]: {
+    key: "lessons/at-school/school-supplies/audio/vi/vocabulary_vocab_open_book_meaning_3de1c615.mp3",
+    text: "mở sách",
+  },
+  [normalizeText("bút chì")]: {
+    key: "lessons/at-school/school-supplies/audio/vi/vocabulary_vocab_pencil_meaning_69725c3b.mp3",
+    text: "bút chì",
+  },
+  [normalizeText("cái thước")]: {
+    key: "lessons/at-school/school-supplies/audio/vi/vocabulary_vocab_ruler_meaning_ea85a999.mp3",
+    text: "cái thước",
+  },
+  [normalizeText("viết tên của con")]: {
+    key: "lessons/at-school/school-supplies/audio/vi/vocabulary_vocab_write_name_meaning_67ddc50f.mp3",
+    text: "viết tên của con",
+  },
   [normalizeText("Bé đã làm theo cô giáo thật tốt.")]: {
     key: "lessons/at-school/teacher-instructions/audio/vi/completion_2f953c29.mp3",
     text: "Bé đã làm theo cô giáo thật tốt.",
@@ -60687,6 +61135,14 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Cô giáo bảo mình viết tên.")]: {
     key: "lessons/at-school/teacher-instructions/audio/vi/instructions_teach_write_name_4c7a1d0f.mp3",
     text: "Cô giáo bảo mình viết tên.",
+  },
+  [normalizeText("dọn đồ")]: {
+    key: "lessons/at-school/teacher-instructions/audio/vi/vocabulary_vocab_clean_up_meaning_3404c4fd.mp3",
+    text: "dọn đồ",
+  },
+  [normalizeText("lắng nghe")]: {
+    key: "lessons/at-school/teacher-instructions/audio/vi/vocabulary_vocab_listen_meaning_e002bc2d.mp3",
+    text: "lắng nghe",
   },
   [normalizeText("Túi đi biển của bé đã sẵn sàng.")]: {
     key: "lessons/beach-day/beach-bag/audio/vi/completion_d30eda9f.mp3",
@@ -60859,6 +61315,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là đội mũ.")]: {
     key: "lessons/beach-day/beach-bag/audio/vi/teach_wear_hat_success_1f7408c7.mp3",
     text: "Câu này nghĩa là đội mũ.",
+  },
+  [normalizeText("túi đi biển")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/vocabulary_vocab_beach_day_beach_bag_beach_bag_meaning_0e00ddd2.mp3",
+    text: "túi đi biển",
+  },
+  [normalizeText("mang túi")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/vocabulary_vocab_beach_day_beach_bag_carry_bag_meaning_368e4525.mp3",
+    text: "mang túi",
+  },
+  [normalizeText("thoa kem chống nắng")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/vocabulary_vocab_beach_day_beach_bag_put_on_sunscreen_meaning_df542d4c.mp3",
+    text: "thoa kem chống nắng",
+  },
+  [normalizeText("mũ chống nắng")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/vocabulary_vocab_beach_day_beach_bag_sun_hat_meaning_cd3d4ecf.mp3",
+    text: "mũ chống nắng",
+  },
+  [normalizeText("kính râm")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/vocabulary_vocab_beach_day_beach_bag_sunglasses_meaning_b5f5fb46.mp3",
+    text: "kính râm",
+  },
+  [normalizeText("kem chống nắng")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/vocabulary_vocab_beach_day_beach_bag_sunscreen_meaning_2d3a6a86.mp3",
+    text: "kem chống nắng",
+  },
+  [normalizeText("khăn tắm biển")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/vocabulary_vocab_beach_day_beach_bag_towel_meaning_dee87fc0.mp3",
+    text: "khăn tắm biển",
+  },
+  [normalizeText("đội mũ")]: {
+    key: "lessons/beach-day/beach-bag/audio/vi/vocabulary_vocab_beach_day_beach_bag_wear_hat_meaning_38d3d2a8.mp3",
+    text: "đội mũ",
   },
   [normalizeText("Bé đã chơi cát và khám phá bãi biển.")]: {
     key: "lessons/beach-day/sand-play/audio/vi/completion_3135d0cb.mp3",
@@ -61039,6 +61527,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là xẻng nhỏ.")]: {
     key: "lessons/beach-day/sand-play/audio/vi/teach_shovel_success_381f0b53.mp3",
     text: "Từ này nghĩa là xẻng nhỏ.",
+  },
+  [normalizeText("xây lâu đài cát")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/vocabulary_vocab_beach_day_sand_play_build_sandcastle_meaning_6a4f12bc.mp3",
+    text: "xây lâu đài cát",
+  },
+  [normalizeText("con cua")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/vocabulary_vocab_beach_day_sand_play_crab_meaning_c5a2889c.mp3",
+    text: "con cua",
+  },
+  [normalizeText("đào cát")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/vocabulary_vocab_beach_day_sand_play_dig_sand_meaning_66580c24.mp3",
+    text: "đào cát",
+  },
+  [normalizeText("tìm vỏ sò")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/vocabulary_vocab_beach_day_sand_play_find_shells_meaning_2861010e.mp3",
+    text: "tìm vỏ sò",
+  },
+  [normalizeText("dấu chân")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/vocabulary_vocab_beach_day_sand_play_footprints_meaning_42600d04.mp3",
+    text: "dấu chân",
+  },
+  [normalizeText("lâu đài cát")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/vocabulary_vocab_beach_day_sand_play_sandcastle_meaning_f5264dbc.mp3",
+    text: "lâu đài cát",
+  },
+  [normalizeText("vỏ sò")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/vocabulary_vocab_beach_day_sand_play_shell_meaning_c46e20cd.mp3",
+    text: "vỏ sò",
+  },
+  [normalizeText("xẻng nhỏ")]: {
+    key: "lessons/beach-day/sand-play/audio/vi/vocabulary_vocab_beach_day_sand_play_shovel_meaning_e3f5d060.mp3",
+    text: "xẻng nhỏ",
   },
   [normalizeText("Bé đã biết chơi gần biển an toàn hơn.")]: {
     key: "lessons/beach-day/sea-safety/audio/vi/completion_2847d4c3.mp3",
@@ -61232,6 +61752,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/beach-day/sea-safety/audio/vi/teach_wave_success_2b9825e3.mp3",
     text: "Từ này nghĩa là con sóng.",
   },
+  [normalizeText("lá cờ")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/vocabulary_vocab_beach_day_sea_safety_flag_meaning_338546ba.mp3",
+    text: "lá cờ",
+  },
+  [normalizeText("áo phao")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/vocabulary_vocab_beach_day_sea_safety_life_jacket_meaning_bd867dc7.mp3",
+    text: "áo phao",
+  },
+  [normalizeText("người cứu hộ")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/vocabulary_vocab_beach_day_sea_safety_lifeguard_meaning_29532304.mp3",
+    text: "người cứu hộ",
+  },
+  [normalizeText("xem cờ báo hiệu")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/vocabulary_vocab_beach_day_sea_safety_look_at_flag_meaning_f117c598.mp3",
+    text: "xem cờ báo hiệu",
+  },
+  [normalizeText("tráng chân")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/vocabulary_vocab_beach_day_sea_safety_rinse_feet_meaning_ebf214c3.mp3",
+    text: "tráng chân",
+  },
+  [normalizeText("biển")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/vocabulary_vocab_beach_day_sea_safety_sea_meaning_9825e2ed.mp3",
+    text: "biển",
+  },
+  [normalizeText("vòi tắm tráng")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/vocabulary_vocab_beach_day_sea_safety_shower_meaning_081756e1.mp3",
+    text: "vòi tắm tráng",
+  },
+  [normalizeText("ở gần người lớn")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/vocabulary_vocab_beach_day_sea_safety_stay_near_grown_up_meaning_26374f49.mp3",
+    text: "ở gần người lớn",
+  },
+  [normalizeText("con sóng")]: {
+    key: "lessons/beach-day/sea-safety/audio/vi/vocabulary_vocab_beach_day_sea_safety_wave_meaning_8377c69e.mp3",
+    text: "con sóng",
+  },
   [normalizeText("Bé đã chọn truyện trước khi ngủ thật nhẹ nhàng!")]: {
     key: "lessons/bedtime/bedtime-story/audio/vi/completion_abb65d71.mp3",
     text: "Bé đã chọn truyện trước khi ngủ thật nhẹ nhàng!",
@@ -61424,6 +61980,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/bedtime/bedtime-story/audio/vi/teach_storybook_success_94e9af4c.mp3",
     text: "Từ này nghĩa là sách truyện trước giờ ngủ.",
   },
+  [normalizeText("thẻ đánh dấu trang")]: {
+    key: "lessons/bedtime/bedtime-story/audio/vi/vocabulary_vocab_bedtime_bookmark_meaning_d0d16e26.mp3",
+    text: "thẻ đánh dấu trang",
+  },
+  [normalizeText("miếng đánh dấu trang nhỏ")]: {
+    key: "lessons/bedtime/bedtime-story/audio/vi/vocabulary_vocab_bedtime_page_tab_meaning_3b095788.mp3",
+    text: "miếng đánh dấu trang nhỏ",
+  },
+  [normalizeText("góc đọc yên tĩnh")]: {
+    key: "lessons/bedtime/bedtime-story/audio/vi/vocabulary_vocab_bedtime_reading_nook_meaning_025da63d.mp3",
+    text: "góc đọc yên tĩnh",
+  },
+  [normalizeText("giọng nói nhẹ nhàng")]: {
+    key: "lessons/bedtime/bedtime-story/audio/vi/vocabulary_vocab_bedtime_soft_voice_meaning_6bc5bd05.mp3",
+    text: "giọng nói nhẹ nhàng",
+  },
+  [normalizeText("kệ truyện nhỏ")]: {
+    key: "lessons/bedtime/bedtime-story/audio/vi/vocabulary_vocab_bedtime_story_shelf_meaning_68fa231c.mp3",
+    text: "kệ truyện nhỏ",
+  },
+  [normalizeText("sách truyện trước giờ ngủ")]: {
+    key: "lessons/bedtime/bedtime-story/audio/vi/vocabulary_vocab_bedtime_storybook_meaning_2a29bf17.mp3",
+    text: "sách truyện trước giờ ngủ",
+  },
+  [normalizeText("chọn truyện")]: {
+    key: "lessons/bedtime/bedtime-story/audio/vi/vocabulary_vocab_choose_story_meaning_3742c9f0.mp3",
+    text: "chọn truyện",
+  },
+  [normalizeText("đặt thẻ đánh dấu")]: {
+    key: "lessons/bedtime/bedtime-story/audio/vi/vocabulary_vocab_place_bookmark_meaning_28b32f50.mp3",
+    text: "đặt thẻ đánh dấu",
+  },
+  [normalizeText("đọc khẽ")]: {
+    key: "lessons/bedtime/bedtime-story/audio/vi/vocabulary_vocab_read_softly_meaning_4b1b11b8.mp3",
+    text: "đọc khẽ",
+  },
   [normalizeText("Bé đã làm căn phòng dịu xuống để chuẩn bị ngủ!")]: {
     key: "lessons/bedtime/calm-room/audio/vi/completion_4b8234fd.mp3",
     text: "Bé đã làm căn phòng dịu xuống để chuẩn bị ngủ!",
@@ -61611,6 +62203,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Cụm này nghĩa là máy chiếu sao.")]: {
     key: "lessons/bedtime/calm-room/audio/vi/teach_star_projector_success_2a516161.mp3",
     text: "Cụm này nghĩa là máy chiếu sao.",
+  },
+  [normalizeText("rèm cửa")]: {
+    key: "lessons/bedtime/calm-room/audio/vi/vocabulary_vocab_bedtime_curtain_meaning_23857baf.mp3",
+    text: "rèm cửa",
+  },
+  [normalizeText("máy tạo ẩm")]: {
+    key: "lessons/bedtime/calm-room/audio/vi/vocabulary_vocab_bedtime_humidifier_meaning_41d83f77.mp3",
+    text: "máy tạo ẩm",
+  },
+  [normalizeText("bài hát ru")]: {
+    key: "lessons/bedtime/calm-room/audio/vi/vocabulary_vocab_bedtime_lullaby_meaning_02ccceb3.mp3",
+    text: "bài hát ru",
+  },
+  [normalizeText("đèn ngủ dịu")]: {
+    key: "lessons/bedtime/calm-room/audio/vi/vocabulary_vocab_bedtime_night_light_meaning_ac950d85.mp3",
+    text: "đèn ngủ dịu",
+  },
+  [normalizeText("máy phát âm thanh ru ngủ")]: {
+    key: "lessons/bedtime/calm-room/audio/vi/vocabulary_vocab_bedtime_sound_machine_meaning_2498850f.mp3",
+    text: "máy phát âm thanh ru ngủ",
+  },
+  [normalizeText("máy chiếu sao")]: {
+    key: "lessons/bedtime/calm-room/audio/vi/vocabulary_vocab_bedtime_star_projector_meaning_db63368d.mp3",
+    text: "máy chiếu sao",
+  },
+  [normalizeText("kéo rèm lại")]: {
+    key: "lessons/bedtime/calm-room/audio/vi/vocabulary_vocab_close_curtains_meaning_395220bd.mp3",
+    text: "kéo rèm lại",
+  },
+  [normalizeText("làm đèn dịu xuống")]: {
+    key: "lessons/bedtime/calm-room/audio/vi/vocabulary_vocab_dim_lights_meaning_ed74b9b3.mp3",
+    text: "làm đèn dịu xuống",
+  },
+  [normalizeText("bật bài hát ru")]: {
+    key: "lessons/bedtime/calm-room/audio/vi/vocabulary_vocab_play_lullaby_meaning_6e3728ce.mp3",
+    text: "bật bài hát ru",
   },
   [normalizeText("Bé đã sẵn sàng vào giấc ngủ thật êm!")]: {
     key: "lessons/bedtime/sleep-ready/audio/vi/completion_2c8777a7.mp3",
@@ -61800,6 +62428,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/bedtime/sleep-ready/audio/vi/teach_wear_sleep_mask_success_ae9ee71c.mp3",
     text: "Đeo mặt nạ ngủ giúp mắt được nghỉ ngơi.",
   },
+  [normalizeText("thú bông ôm ngủ")]: {
+    key: "lessons/bedtime/sleep-ready/audio/vi/vocabulary_vocab_bedtime_comfort_plush_meaning_3eb06ab6.mp3",
+    text: "thú bông ôm ngủ",
+  },
+  [normalizeText("sổ ghi giấc mơ")]: {
+    key: "lessons/bedtime/sleep-ready/audio/vi/vocabulary_vocab_bedtime_dream_journal_meaning_e0fbd9a4.mp3",
+    text: "sổ ghi giấc mơ",
+  },
+  [normalizeText("miếng dán phát sáng")]: {
+    key: "lessons/bedtime/sleep-ready/audio/vi/vocabulary_vocab_bedtime_glow_sticker_meaning_86397af0.mp3",
+    text: "miếng dán phát sáng",
+  },
+  [normalizeText("đồ treo hình mặt trăng")]: {
+    key: "lessons/bedtime/sleep-ready/audio/vi/vocabulary_vocab_bedtime_moon_mobile_meaning_e9f25ec9.mp3",
+    text: "đồ treo hình mặt trăng",
+  },
+  [normalizeText("bàn nhỏ cạnh giường")]: {
+    key: "lessons/bedtime/sleep-ready/audio/vi/vocabulary_vocab_bedtime_nightstand_meaning_07a7f19d.mp3",
+    text: "bàn nhỏ cạnh giường",
+  },
+  [normalizeText("mặt nạ ngủ")]: {
+    key: "lessons/bedtime/sleep-ready/audio/vi/vocabulary_vocab_bedtime_sleep_mask_meaning_54f26a71.mp3",
+    text: "mặt nạ ngủ",
+  },
+  [normalizeText("xem sổ ghi giấc mơ")]: {
+    key: "lessons/bedtime/sleep-ready/audio/vi/vocabulary_vocab_check_dream_journal_meaning_ea03b9c2.mp3",
+    text: "xem sổ ghi giấc mơ",
+  },
+  [normalizeText("ôm thú bông ngủ")]: {
+    key: "lessons/bedtime/sleep-ready/audio/vi/vocabulary_vocab_hug_comfort_plush_meaning_9eb189a3.mp3",
+    text: "ôm thú bông ngủ",
+  },
+  [normalizeText("đeo mặt nạ ngủ")]: {
+    key: "lessons/bedtime/sleep-ready/audio/vi/vocabulary_vocab_wear_sleep_mask_meaning_9deeed58.mp3",
+    text: "đeo mặt nạ ngủ",
+  },
   [normalizeText("Bé đã chơi vui và biết chờ đến lượt.")]: {
     key: "lessons/birthday-party/party-games/audio/vi/completion_e7a23b0e.mp3",
     text: "Bé đã chơi vui và biết chờ đến lượt.",
@@ -61971,6 +62635,34 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là chơi lần lượt.")]: {
     key: "lessons/birthday-party/party-games/audio/vi/teach_take_turns_success_8d2e8b42.mp3",
     text: "Câu này nghĩa là chơi lần lượt.",
+  },
+  [normalizeText("túi ném hạt")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/vocabulary_vocab_birthday_party_party_games_beanbag_meaning_1e8015c5.mp3",
+    text: "túi ném hạt",
+  },
+  [normalizeText("vỗ tay")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/vocabulary_vocab_birthday_party_party_games_clap_hands_meaning_08c2dcdb.mp3",
+    text: "vỗ tay",
+  },
+  [normalizeText("nhảy múa")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/vocabulary_vocab_birthday_party_party_games_dance_meaning_2c0b2bc3.mp3",
+    text: "nhảy múa",
+  },
+  [normalizeText("trò chơi")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/vocabulary_vocab_birthday_party_party_games_game_meaning_1d95d8ea.mp3",
+    text: "trò chơi",
+  },
+  [normalizeText("tham gia trò chơi")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/vocabulary_vocab_birthday_party_party_games_join_game_meaning_815ead42.mp3",
+    text: "tham gia trò chơi",
+  },
+  [normalizeText("phần thưởng")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/vocabulary_vocab_birthday_party_party_games_prize_meaning_9083b2fe.mp3",
+    text: "phần thưởng",
+  },
+  [normalizeText("chơi lần lượt")]: {
+    key: "lessons/birthday-party/party-games/audio/vi/vocabulary_vocab_birthday_party_party_games_take_turns_meaning_fccba557.mp3",
+    text: "chơi lần lượt",
   },
   [normalizeText("Quà và đồ trang trí đã sẵn sàng.")]: {
     key: "lessons/birthday-party/party-prep/audio/vi/completion_1fe61a2e.mp3",
@@ -62164,6 +62856,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/birthday-party/party-prep/audio/vi/teach_wrap_gift_success_54f57553.mp3",
     text: "Câu này nghĩa là gói quà.",
   },
+  [normalizeText("bóng bay")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/vocabulary_vocab_birthday_party_party_prep_balloon_meaning_00cb807c.mp3",
+    text: "bóng bay",
+  },
+  [normalizeText("dây trang trí")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/vocabulary_vocab_birthday_party_party_prep_banner_meaning_79f99644.mp3",
+    text: "dây trang trí",
+  },
+  [normalizeText("trang trí căn phòng")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/vocabulary_vocab_birthday_party_party_prep_decorate_room_meaning_e1c88749.mp3",
+    text: "trang trí căn phòng",
+  },
+  [normalizeText("món quà")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/vocabulary_vocab_birthday_party_party_prep_gift_meaning_fd25bccd.mp3",
+    text: "món quà",
+  },
+  [normalizeText("treo bóng bay")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/vocabulary_vocab_birthday_party_party_prep_hang_balloons_meaning_4b14ce3b.mp3",
+    text: "treo bóng bay",
+  },
+  [normalizeText("thiệp mời")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/vocabulary_vocab_birthday_party_party_prep_invitation_meaning_9a18fc3a.mp3",
+    text: "thiệp mời",
+  },
+  [normalizeText("mũ sinh nhật")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/vocabulary_vocab_birthday_party_party_prep_party_hat_meaning_148e86d8.mp3",
+    text: "mũ sinh nhật",
+  },
+  [normalizeText("dải ruy băng")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/vocabulary_vocab_birthday_party_party_prep_ribbon_meaning_a36e9b6d.mp3",
+    text: "dải ruy băng",
+  },
+  [normalizeText("gói quà")]: {
+    key: "lessons/birthday-party/party-prep/audio/vi/vocabulary_vocab_birthday_party_party_prep_wrap_gift_meaning_2d5c01b4.mp3",
+    text: "gói quà",
+  },
   [normalizeText("Bé đã cùng các bạn thổi nến và chia bánh.")]: {
     key: "lessons/birthday-party/party-table/audio/vi/completion_ee05c2b8.mp3",
     text: "Bé đã cùng các bạn thổi nến và chia bánh.",
@@ -62356,6 +63084,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/birthday-party/party-table/audio/vi/teach_share_cake_success_0555eb74.mp3",
     text: "Câu này nghĩa là chia bánh.",
   },
+  [normalizeText("thổi nến")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/vocabulary_vocab_birthday_party_party_table_blow_candles_meaning_69ea256d.mp3",
+    text: "thổi nến",
+  },
+  [normalizeText("bánh sinh nhật")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/vocabulary_vocab_birthday_party_party_table_cake_meaning_fe61f83d.mp3",
+    text: "bánh sinh nhật",
+  },
+  [normalizeText("xẻng lấy bánh")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/vocabulary_vocab_birthday_party_party_table_cake_server_meaning_e2f9719e.mp3",
+    text: "xẻng lấy bánh",
+  },
+  [normalizeText("nến")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/vocabulary_vocab_birthday_party_party_table_candle_meaning_fce1ee7c.mp3",
+    text: "nến",
+  },
+  [normalizeText("cốc giấy")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/vocabulary_vocab_birthday_party_party_table_cup_meaning_79d9f6a5.mp3",
+    text: "cốc giấy",
+  },
+  [normalizeText("đĩa trái cây")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/vocabulary_vocab_birthday_party_party_table_fruit_meaning_ccf59dcf.mp3",
+    text: "đĩa trái cây",
+  },
+  [normalizeText("đĩa giấy")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/vocabulary_vocab_birthday_party_party_table_plate_meaning_91c9dc50.mp3",
+    text: "đĩa giấy",
+  },
+  [normalizeText("chia bánh ra đĩa")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/vocabulary_vocab_birthday_party_party_table_serve_cake_meaning_38f9eb33.mp3",
+    text: "chia bánh ra đĩa",
+  },
+  [normalizeText("chia bánh")]: {
+    key: "lessons/birthday-party/party-table/audio/vi/vocabulary_vocab_birthday_party_party_table_share_cake_meaning_5cd469b4.mp3",
+    text: "chia bánh",
+  },
   [normalizeText("Bé đã nhận ra những tín hiệu của cơ thể.")]: {
     key: "lessons/calm-myself/body-signals/audio/vi/completion_c9399cd4.mp3",
     text: "Bé đã nhận ra những tín hiệu của cơ thể.",
@@ -62511,6 +63275,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là khuôn mặt nóng lên.")]: {
     key: "lessons/calm-myself/body-signals/audio/vi/teach_warm_face_success_12675d31.mp3",
     text: "Từ này nghĩa là khuôn mặt nóng lên.",
+  },
+  [normalizeText("dấu hiệu từ cơ thể")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/vocabulary_vocab_calm_myself_body_signals_body_clue_meaning_adf6330f.mp3",
+    text: "dấu hiệu từ cơ thể",
+  },
+  [normalizeText("hai tay con đang nắm chặt")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/vocabulary_vocab_calm_myself_body_signals_hands_tight_meaning_b965879b.mp3",
+    text: "hai tay con đang nắm chặt",
+  },
+  [normalizeText("tim con đang đập nhanh")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/vocabulary_vocab_calm_myself_body_signals_heart_fast_meaning_6eb499d8.mp3",
+    text: "tim con đang đập nhanh",
+  },
+  [normalizeText("tim đập nhanh")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/vocabulary_vocab_calm_myself_body_signals_heartbeat_meaning_530f540d.mp3",
+    text: "tim đập nhanh",
+  },
+  [normalizeText("con cần nghỉ một chút")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/vocabulary_vocab_calm_myself_body_signals_need_break_meaning_95c4b7af.mp3",
+    text: "con cần nghỉ một chút",
+  },
+  [normalizeText("thở nhanh")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/vocabulary_vocab_calm_myself_body_signals_quick_breath_meaning_a3105408.mp3",
+    text: "thở nhanh",
+  },
+  [normalizeText("đôi chân run")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/vocabulary_vocab_calm_myself_body_signals_shaky_legs_meaning_1c3cf36f.mp3",
+    text: "đôi chân run",
+  },
+  [normalizeText("hai bàn tay nắm chặt")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/vocabulary_vocab_calm_myself_body_signals_tight_fists_meaning_d4c8276d.mp3",
+    text: "hai bàn tay nắm chặt",
+  },
+  [normalizeText("khuôn mặt nóng lên")]: {
+    key: "lessons/calm-myself/body-signals/audio/vi/vocabulary_vocab_calm_myself_body_signals_warm_face_meaning_c64d9d98.mp3",
+    text: "khuôn mặt nóng lên",
   },
   [normalizeText("Bé đã chọn được cách chăm sóc cảm xúc của mình.")]: {
     key: "lessons/calm-myself/comfort-corner/audio/vi/completion_938fc643.mp3",
@@ -62676,6 +63476,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/calm-myself/comfort-corner/audio/vi/teach_squeeze_cushion_success_fdbb6bf3.mp3",
     text: "Câu này nghĩa là ôm chiếc đệm.",
   },
+  [normalizeText("đồ chơi yêu thích")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/vocabulary_vocab_calm_myself_comfort_corner_comfort_toy_meaning_4cda4cb3.mp3",
+    text: "đồ chơi yêu thích",
+  },
+  [normalizeText("chiếc đệm")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/vocabulary_vocab_calm_myself_comfort_corner_cushion_meaning_e0f9782d.mp3",
+    text: "chiếc đệm",
+  },
+  [normalizeText("thẻ cảm xúc")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/vocabulary_vocab_calm_myself_comfort_corner_feelings_card_meaning_a679e8c0.mp3",
+    text: "thẻ cảm xúc",
+  },
+  [normalizeText("tai nghe")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/vocabulary_vocab_calm_myself_comfort_corner_headphones_meaning_2ef7305c.mp3",
+    text: "tai nghe",
+  },
+  [normalizeText("con cần yên tĩnh")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/vocabulary_vocab_calm_myself_comfort_corner_need_quiet_meaning_3f668e13.mp3",
+    text: "con cần yên tĩnh",
+  },
+  [normalizeText("góc yên tĩnh")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/vocabulary_vocab_calm_myself_comfort_corner_quiet_corner_meaning_50252b5d.mp3",
+    text: "góc yên tĩnh",
+  },
+  [normalizeText("ngồi trong góc yên tĩnh")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/vocabulary_vocab_calm_myself_comfort_corner_sit_quiet_corner_meaning_00fa1f52.mp3",
+    text: "ngồi trong góc yên tĩnh",
+  },
+  [normalizeText("ôm chiếc đệm")]: {
+    key: "lessons/calm-myself/comfort-corner/audio/vi/vocabulary_vocab_calm_myself_comfort_corner_squeeze_cushion_meaning_459bd9fb.mp3",
+    text: "ôm chiếc đệm",
+  },
   [normalizeText("Bé đã tập hít vào và thở ra thật chậm.")]: {
     key: "lessons/calm-myself/slow-breathing/audio/vi/completion_59b872d3.mp3",
     text: "Bé đã tập hít vào và thở ra thật chậm.",
@@ -62836,6 +63668,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/calm-myself/slow-breathing/audio/vi/teach_pinwheel_success_8537625d.mp3",
     text: "Từ này nghĩa là chong chóng.",
   },
+  [normalizeText("cái bụng")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/vocabulary_vocab_calm_myself_slow_breathing_belly_meaning_1a15c813.mp3",
+    text: "cái bụng",
+  },
+  [normalizeText("hơi thở")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/vocabulary_vocab_calm_myself_slow_breathing_breath_meaning_6d7b691a.mp3",
+    text: "hơi thở",
+  },
+  [normalizeText("hít vào thật chậm")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/vocabulary_vocab_calm_myself_slow_breathing_breathe_in_meaning_7bcd4b53.mp3",
+    text: "hít vào thật chậm",
+  },
+  [normalizeText("thở ra thật chậm")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/vocabulary_vocab_calm_myself_slow_breathing_breathe_out_meaning_ee5c6ebb.mp3",
+    text: "thở ra thật chậm",
+  },
+  [normalizeText("bong bóng xà phòng")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/vocabulary_vocab_calm_myself_slow_breathing_bubble_meaning_5c90df31.mp3",
+    text: "bong bóng xà phòng",
+  },
+  [normalizeText("ngọn nến")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/vocabulary_vocab_calm_myself_slow_breathing_candle_meaning_8c585598.mp3",
+    text: "ngọn nến",
+  },
+  [normalizeText("đếm đến năm")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/vocabulary_vocab_calm_myself_slow_breathing_count_five_meaning_63312caa.mp3",
+    text: "đếm đến năm",
+  },
+  [normalizeText("chiếc lông vũ")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/vocabulary_vocab_calm_myself_slow_breathing_feather_meaning_103f5376.mp3",
+    text: "chiếc lông vũ",
+  },
+  [normalizeText("chong chóng")]: {
+    key: "lessons/calm-myself/slow-breathing/audio/vi/vocabulary_vocab_calm_myself_slow_breathing_pinwheel_meaning_d0d2552e.mp3",
+    text: "chong chóng",
+  },
   [normalizeText("Chạm bát để đặt ngay ngắn nhé.")]: {
     key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/bowl_practice_caaf83be.mp3",
     text: "Chạm bát để đặt ngay ngắn nhé.",
@@ -62991,6 +63859,30 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là khát nước.")]: {
     key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/thirsty_teach_success_854e18bf.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là khát nước.",
+  },
+  [normalizeText("nước sạch")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/vocabulary_vocab_care_for_the_rabbit_fill_the_water_clean_water_meaning_8dc9f3e7.mp3",
+    text: "nước sạch",
+  },
+  [normalizeText("cạn nước")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/vocabulary_vocab_care_for_the_rabbit_fill_the_water_empty_meaning_345009fa.mp3",
+    text: "cạn nước",
+  },
+  [normalizeText("đặt bát xuống")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/vocabulary_vocab_care_for_the_rabbit_fill_the_water_put_it_down_meaning_ffff80ce.mp3",
+    text: "đặt bát xuống",
+  },
+  [normalizeText("thỏ uống nước")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/vocabulary_vocab_care_for_the_rabbit_fill_the_water_rabbit_drinks_meaning_7b75ad2e.mp3",
+    text: "thỏ uống nước",
+  },
+  [normalizeText("khát nước")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/vocabulary_vocab_care_for_the_rabbit_fill_the_water_thirsty_meaning_9959ef8f.mp3",
+    text: "khát nước",
+  },
+  [normalizeText("bát nước sạch")]: {
+    key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/vocabulary_vocab_care_for_the_rabbit_fill_the_water_water_bowl_meaning_936ad7c4.mp3",
+    text: "bát nước sạch",
   },
   [normalizeText("Chạm bát nước để kiểm tra thật sạch nhé.")]: {
     key: "lessons/care-for-the-rabbit/fill-the-water/audio/vi/water_bowl_practice_794a4325.mp3",
@@ -63244,6 +64136,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/rabbit_teach_success_8f698971.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là chú thỏ con.",
   },
+  [normalizeText("nhai gặm")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/vocabulary_vocab_care_for_the_rabbit_prepare_the_hay_chew_meaning_961c1922.mp3",
+    text: "nhai gặm",
+  },
+  [normalizeText("bỏ đầy máng cỏ")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/vocabulary_vocab_care_for_the_rabbit_prepare_the_hay_fill_the_rack_meaning_5c1b09b9.mp3",
+    text: "bỏ đầy máng cỏ",
+  },
+  [normalizeText("cỏ khô tươi ngon")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/vocabulary_vocab_care_for_the_rabbit_prepare_the_hay_fresh_hay_meaning_330edf1e.mp3",
+    text: "cỏ khô tươi ngon",
+  },
+  [normalizeText("chú thỏ hiền ngoan")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/vocabulary_vocab_care_for_the_rabbit_prepare_the_hay_gentle_rabbit_meaning_6c5d222b.mp3",
+    text: "chú thỏ hiền ngoan",
+  },
+  [normalizeText("cỏ khô")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/vocabulary_vocab_care_for_the_rabbit_prepare_the_hay_hay_meaning_308db3e1.mp3",
+    text: "cỏ khô",
+  },
+  [normalizeText("máng cỏ")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/vocabulary_vocab_care_for_the_rabbit_prepare_the_hay_hay_rack_meaning_f9a835a6.mp3",
+    text: "máng cỏ",
+  },
+  [normalizeText("chuồng thỏ")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/vocabulary_vocab_care_for_the_rabbit_prepare_the_hay_hutch_meaning_621fdb72.mp3",
+    text: "chuồng thỏ",
+  },
+  [normalizeText("chú thỏ con")]: {
+    key: "lessons/care-for-the-rabbit/prepare-the-hay/audio/vi/vocabulary_vocab_care_for_the_rabbit_prepare_the_hay_rabbit_meaning_6c82443d.mp3",
+    text: "chú thỏ con",
+  },
   [normalizeText("Chạm thỏ để bạn ngồi bình tĩnh nhé.")]: {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/calm_practice_0a7b6d6e.mp3",
     text: "Chạm thỏ để bạn ngồi bình tĩnh nhé.",
@@ -63440,6 +64364,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/treat_teach_success_4ab209bf.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là món thưởng nhỏ.",
   },
+  [normalizeText("bình tĩnh")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/vocabulary_vocab_care_for_the_rabbit_rabbit_snack_and_hop_calm_meaning_7fb57a15.mp3",
+    text: "bình tĩnh",
+  },
+  [normalizeText("cho thỏ ăn")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/vocabulary_vocab_care_for_the_rabbit_rabbit_snack_and_hop_feed_the_rabbit_meaning_5aa74dc8.mp3",
+    text: "cho thỏ ăn",
+  },
+  [normalizeText("bộ lông bông xốp")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/vocabulary_vocab_care_for_the_rabbit_rabbit_snack_and_hop_fluffy_fur_meaning_ec5e4d57.mp3",
+    text: "bộ lông bông xốp",
+  },
+  [normalizeText("nhảy nhót")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/vocabulary_vocab_care_for_the_rabbit_rabbit_snack_and_hop_hop_meaning_2343475d.mp3",
+    text: "nhảy nhót",
+  },
+  [normalizeText("đôi tai dài")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/vocabulary_vocab_care_for_the_rabbit_rabbit_snack_and_hop_long_ears_meaning_3d47dc62.mp3",
+    text: "đôi tai dài",
+  },
+  [normalizeText("vuốt ve nhẹ nhàng")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/vocabulary_vocab_care_for_the_rabbit_rabbit_snack_and_hop_pet_gently_meaning_fd4f73e8.mp3",
+    text: "vuốt ve nhẹ nhàng",
+  },
+  [normalizeText("thỏ nhảy")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/vocabulary_vocab_care_for_the_rabbit_rabbit_snack_and_hop_the_rabbit_hops_meaning_ef9034ac.mp3",
+    text: "thỏ nhảy",
+  },
+  [normalizeText("món thưởng nhỏ")]: {
+    key: "lessons/care-for-the-rabbit/rabbit-snack-and-hop/audio/vi/vocabulary_vocab_care_for_the_rabbit_rabbit_snack_and_hop_treat_meaning_cf9a3cc3.mp3",
+    text: "món thưởng nhỏ",
+  },
   [normalizeText("Chạm cún để bạn bước khỏi thảm nhé.")]: {
     key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/all_done_practice_5db23403.mp3",
     text: "Chạm cún để bạn bước khỏi thảm nhé.",
@@ -63603,6 +64559,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là chiếc khăn.")]: {
     key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/towel_teach_success_13d149d1.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là chiếc khăn.",
+  },
+  [normalizeText("xong rồi")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_dry_the_paws_all_done_meaning_504d7b5e.mp3",
+    text: "xong rồi",
+  },
+  [normalizeText("khô")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_dry_the_paws_dry_meaning_63e198f0.mp3",
+    text: "khô",
+  },
+  [normalizeText("lau khô bàn chân")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_dry_the_paws_dry_the_paws_meaning_0d1cb040.mp3",
+    text: "lau khô bàn chân",
+  },
+  [normalizeText("chiếc khăn bông xốp")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_dry_the_paws_fluffy_towel_meaning_61331be0.mp3",
+    text: "chiếc khăn bông xốp",
+  },
+  [normalizeText("thấm nhẹ")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_dry_the_paws_pat_meaning_2fa0606a.mp3",
+    text: "thấm nhẹ",
+  },
+  [normalizeText("đứng")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_dry_the_paws_stand_meaning_8c581765.mp3",
+    text: "đứng",
+  },
+  [normalizeText("chiếc khăn")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_dry_the_paws_towel_meaning_4b356b6b.mp3",
+    text: "chiếc khăn",
+  },
+  [normalizeText("lau")]: {
+    key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_dry_the_paws_wipe_meaning_94dd0a29.mp3",
+    text: "lau",
   },
   [normalizeText("Chạm hình rửa tay để kết thúc nhé.")]: {
     key: "lessons/clean-muddy-paws/dry-the-paws/audio/vi/wash_hands_practice_a2246d7d.mp3",
@@ -63828,6 +64816,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/stop_here_teach_success_14052fd2.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là dừng ở đây.",
   },
+  [normalizeText("nhờ người lớn")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_notice_the_muddy_paws_ask_an_adult_meaning_ca3d207e.mp3",
+    text: "nhờ người lớn",
+  },
+  [normalizeText("bẩn")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_notice_the_muddy_paws_dirty_meaning_137f627a.mp3",
+    text: "bẩn",
+  },
+  [normalizeText("tấm thảm chùi chân")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_notice_the_muddy_paws_doormat_meaning_310a3e19.mp3",
+    text: "tấm thảm chùi chân",
+  },
+  [normalizeText("bùn")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_notice_the_muddy_paws_mud_meaning_04ac19f8.mp3",
+    text: "bùn",
+  },
+  [normalizeText("bàn chân dính bùn")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_notice_the_muddy_paws_muddy_paws_meaning_b2f7dc35.mp3",
+    text: "bàn chân dính bùn",
+  },
+  [normalizeText("những dấu chân")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_notice_the_muddy_paws_pawprints_meaning_e79b0719.mp3",
+    text: "những dấu chân",
+  },
+  [normalizeText("những bàn chân của cún")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_notice_the_muddy_paws_paws_meaning_2a31c806.mp3",
+    text: "những bàn chân của cún",
+  },
+  [normalizeText("dừng ở đây")]: {
+    key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_notice_the_muddy_paws_stop_here_meaning_8432cd70.mp3",
+    text: "dừng ở đây",
+  },
   [normalizeText("Chạm cún để bạn chờ người lớn nhé.")]: {
     key: "lessons/clean-muddy-paws/notice-the-muddy-paws/audio/vi/wait_practice_5fb774ed.mp3",
     text: "Chạm cún để bạn chờ người lớn nhé.",
@@ -64007,6 +65027,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là nước có bùn.")]: {
     key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/muddy_water_teach_success_84697050.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là nước có bùn.",
+  },
+  [normalizeText("chiếc chậu nhỏ")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_wash_the_paws_basin_meaning_20b84ba1.mp3",
+    text: "chiếc chậu nhỏ",
+  },
+  [normalizeText("kiểm tra bàn chân")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_wash_the_paws_check_the_paws_meaning_146f5453.mp3",
+    text: "kiểm tra bàn chân",
+  },
+  [normalizeText("sạch")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_wash_the_paws_clean_meaning_25e4e87f.mp3",
+    text: "sạch",
+  },
+  [normalizeText("những bàn chân sạch")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_wash_the_paws_clean_paws_meaning_746747ff.mp3",
+    text: "những bàn chân sạch",
+  },
+  [normalizeText("đổ nước trong chậu đi")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_wash_the_paws_empty_the_tub_meaning_479778f6.mp3",
+    text: "đổ nước trong chậu đi",
+  },
+  [normalizeText("rửa xong rồi")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_wash_the_paws_finished_washing_meaning_d55858cb.mp3",
+    text: "rửa xong rồi",
+  },
+  [normalizeText("nước có bùn")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_wash_the_paws_muddy_water_meaning_38c63e33.mp3",
+    text: "nước có bùn",
+  },
+  [normalizeText("rửa")]: {
+    key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/vocabulary_vocab_clean_muddy_paws_wash_the_paws_wash_meaning_ac068417.mp3",
+    text: "rửa",
   },
   [normalizeText("Chạm cún để người lớn rửa chân nhé.")]: {
     key: "lessons/clean-muddy-paws/wash-the-paws/audio/vi/wash_practice_ea58ca18.mp3",
@@ -64248,6 +65300,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/doctor-visit/clinic-room/audio/vi/teach_waiting_room_success_8632ee4b.mp3",
     text: "Từ này nghĩa là phòng chờ.",
   },
+  [normalizeText("phòng khám")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/vocabulary_vocab_doctor_visit_clinic_room_clinic_meaning_f9cbb9ac.mp3",
+    text: "phòng khám",
+  },
+  [normalizeText("bảng kẹp giấy")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/vocabulary_vocab_doctor_visit_clinic_room_clipboard_meaning_5750f991.mp3",
+    text: "bảng kẹp giấy",
+  },
+  [normalizeText("bác sĩ")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/vocabulary_vocab_doctor_visit_clinic_room_doctor_meaning_4d00793c.mp3",
+    text: "bác sĩ",
+  },
+  [normalizeText("khẩu trang")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/vocabulary_vocab_doctor_visit_clinic_room_mask_meaning_096807e8.mp3",
+    text: "khẩu trang",
+  },
+  [normalizeText("cô y tá")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/vocabulary_vocab_doctor_visit_clinic_room_nurse_meaning_bed85c3c.mp3",
+    text: "cô y tá",
+  },
+  [normalizeText("nói cảm giác của bé")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/vocabulary_vocab_doctor_visit_clinic_room_say_how_you_feel_meaning_ad10fb4e.mp3",
+    text: "nói cảm giác của bé",
+  },
+  [normalizeText("ngồi yên")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/vocabulary_vocab_doctor_visit_clinic_room_sit_still_meaning_04256a01.mp3",
+    text: "ngồi yên",
+  },
+  [normalizeText("chỉ chỗ bị đau")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/vocabulary_vocab_doctor_visit_clinic_room_tell_where_it_hurts_meaning_53c37452.mp3",
+    text: "chỉ chỗ bị đau",
+  },
+  [normalizeText("phòng chờ")]: {
+    key: "lessons/doctor-visit/clinic-room/audio/vi/vocabulary_vocab_doctor_visit_clinic_room_waiting_room_meaning_5e7ffa52.mp3",
+    text: "phòng chờ",
+  },
   [normalizeText("Bé đã hoàn thành buổi kiểm tra sức khỏe.")]: {
     key: "lessons/doctor-visit/health-check/audio/vi/completion_5c636df2.mp3",
     text: "Bé đã hoàn thành buổi kiểm tra sức khỏe.",
@@ -64440,6 +65528,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/doctor-visit/health-check/audio/vi/teach_weighing_scale_success_4dcf1979.mp3",
     text: "Từ này nghĩa là cân sức khỏe.",
   },
+  [normalizeText("băng cá nhân")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/vocabulary_vocab_doctor_visit_health_check_bandage_meaning_2c88af73.mp3",
+    text: "băng cá nhân",
+  },
+  [normalizeText("nghe nhịp tim")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/vocabulary_vocab_doctor_visit_health_check_check_heartbeat_meaning_ba6e32df.mp3",
+    text: "nghe nhịp tim",
+  },
+  [normalizeText("dùng gel rửa tay")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/vocabulary_vocab_doctor_visit_health_check_clean_hands_meaning_407b3a21.mp3",
+    text: "dùng gel rửa tay",
+  },
+  [normalizeText("gel rửa tay")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/vocabulary_vocab_doctor_visit_health_check_hand_gel_meaning_7dc291b2.mp3",
+    text: "gel rửa tay",
+  },
+  [normalizeText("đèn soi tai")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/vocabulary_vocab_doctor_visit_health_check_otoscope_meaning_2de60a63.mp3",
+    text: "đèn soi tai",
+  },
+  [normalizeText("ống nghe")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/vocabulary_vocab_doctor_visit_health_check_stethoscope_meaning_c3745937.mp3",
+    text: "ống nghe",
+  },
+  [normalizeText("đo nhiệt độ")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/vocabulary_vocab_doctor_visit_health_check_take_temperature_meaning_2ddab83d.mp3",
+    text: "đo nhiệt độ",
+  },
+  [normalizeText("nhiệt kế")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/vocabulary_vocab_doctor_visit_health_check_thermometer_meaning_3b7133a6.mp3",
+    text: "nhiệt kế",
+  },
+  [normalizeText("cân sức khỏe")]: {
+    key: "lessons/doctor-visit/health-check/audio/vi/vocabulary_vocab_doctor_visit_health_check_weighing_scale_meaning_3338da40.mp3",
+    text: "cân sức khỏe",
+  },
   [normalizeText("Bé đã biết nghỉ ngơi và chăm sóc khi bị ốm.")]: {
     key: "lessons/doctor-visit/medicine-care/audio/vi/completion_e7469e6a.mp3",
     text: "Bé đã biết nghỉ ngơi và chăm sóc khi bị ốm.",
@@ -64595,6 +65719,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là uống thuốc cùng người lớn.")]: {
     key: "lessons/doctor-visit/medicine-care/audio/vi/teach_take_medicine_success_e8e41119.mp3",
     text: "Câu này nghĩa là uống thuốc cùng người lớn.",
+  },
+  [normalizeText("xì mũi")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/vocabulary_vocab_doctor_visit_medicine_care_blow_nose_meaning_a54dabcf.mp3",
+    text: "xì mũi",
+  },
+  [normalizeText("thuốc")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/vocabulary_vocab_doctor_visit_medicine_care_medicine_meaning_315dfdb5.mp3",
+    text: "thuốc",
+  },
+  [normalizeText("thìa uống thuốc")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/vocabulary_vocab_doctor_visit_medicine_care_spoon_meaning_d4a3ec73.mp3",
+    text: "thìa uống thuốc",
+  },
+  [normalizeText("hình dán thưởng")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/vocabulary_vocab_doctor_visit_medicine_care_sticker_meaning_4520b185.mp3",
+    text: "hình dán thưởng",
+  },
+  [normalizeText("uống thuốc cùng người lớn")]: {
+    key: "lessons/doctor-visit/medicine-care/audio/vi/vocabulary_vocab_doctor_visit_medicine_care_take_medicine_meaning_e2a529ac.mp3",
+    text: "uống thuốc cùng người lớn",
   },
   [normalizeText("Bé đã chuẩn bị quần áo cho mình.")]: {
     key: "lessons/dress-myself/choose-clothes/audio/vi/completion_44acf1fd.mp3",
@@ -64776,6 +65920,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/dress-myself/choose-clothes/audio/vi/teach_t_shirt_success_cccf8b68.mp3",
     text: "Từ này nghĩa là áo thun.",
   },
+  [normalizeText("mũ lưỡi trai")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/vocabulary_vocab_dress_myself_choose_clothes_cap_meaning_ba1a70a8.mp3",
+    text: "mũ lưỡi trai",
+  },
+  [normalizeText("xem thời tiết")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/vocabulary_vocab_dress_myself_choose_clothes_check_weather_meaning_188e4120.mp3",
+    text: "xem thời tiết",
+  },
+  [normalizeText("chọn quần áo của bé")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/vocabulary_vocab_dress_myself_choose_clothes_choose_clothes_action_meaning_091923c0.mp3",
+    text: "chọn quần áo của bé",
+  },
+  [normalizeText("váy liền")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/vocabulary_vocab_dress_myself_choose_clothes_dress_meaning_bcfdb19c.mp3",
+    text: "váy liền",
+  },
+  [normalizeText("xếp sẵn quần áo")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/vocabulary_vocab_dress_myself_choose_clothes_lay_out_clothes_meaning_ca2d74ac.mp3",
+    text: "xếp sẵn quần áo",
+  },
+  [normalizeText("áo mưa")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/vocabulary_vocab_dress_myself_choose_clothes_raincoat_meaning_f01b23fe.mp3",
+    text: "áo mưa",
+  },
+  [normalizeText("quần short")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/vocabulary_vocab_dress_myself_choose_clothes_shorts_meaning_89ab3593.mp3",
+    text: "quần short",
+  },
+  [normalizeText("áo len")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/vocabulary_vocab_dress_myself_choose_clothes_sweater_meaning_ea7e6922.mp3",
+    text: "áo len",
+  },
+  [normalizeText("áo thun")]: {
+    key: "lessons/dress-myself/choose-clothes/audio/vi/vocabulary_vocab_dress_myself_choose_clothes_t_shirt_meaning_953de0f7.mp3",
+    text: "áo thun",
+  },
   [normalizeText("Bé đã tập cài cúc, kéo khóa và buộc dây giày.")]: {
     key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/completion_abbd6378.mp3",
     text: "Bé đã tập cài cúc, kéo khóa và buộc dây giày.",
@@ -64956,6 +66136,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/teach_zipper_success_abb53fe7.mp3",
     text: "Từ này nghĩa là khóa kéo.",
   },
+  [normalizeText("khóa cài")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/vocabulary_vocab_dress_myself_fasteners_and_shoes_buckle_meaning_9a07460e.mp3",
+    text: "khóa cài",
+  },
+  [normalizeText("cúc áo")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/vocabulary_vocab_dress_myself_fasteners_and_shoes_button_meaning_0cd3f488.mp3",
+    text: "cúc áo",
+  },
+  [normalizeText("cài cúc áo")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/vocabulary_vocab_dress_myself_fasteners_and_shoes_button_shirt_meaning_81350621.mp3",
+    text: "cài cúc áo",
+  },
+  [normalizeText("quai giày")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/vocabulary_vocab_dress_myself_fasteners_and_shoes_shoe_strap_meaning_f70f7728.mp3",
+    text: "quai giày",
+  },
+  [normalizeText("dây giày")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/vocabulary_vocab_dress_myself_fasteners_and_shoes_shoelace_meaning_95724401.mp3",
+    text: "dây giày",
+  },
+  [normalizeText("cúc bấm")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/vocabulary_vocab_dress_myself_fasteners_and_shoes_snap_fastener_meaning_94315ccd.mp3",
+    text: "cúc bấm",
+  },
+  [normalizeText("buộc dây giày")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/vocabulary_vocab_dress_myself_fasteners_and_shoes_tie_shoelaces_meaning_566e5ee7.mp3",
+    text: "buộc dây giày",
+  },
+  [normalizeText("kéo khóa áo khoác")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/vocabulary_vocab_dress_myself_fasteners_and_shoes_zip_jacket_meaning_dd638fd1.mp3",
+    text: "kéo khóa áo khoác",
+  },
+  [normalizeText("khóa kéo")]: {
+    key: "lessons/dress-myself/fasteners-and-shoes/audio/vi/vocabulary_vocab_dress_myself_fasteners_and_shoes_zipper_meaning_59d5a01a.mp3",
+    text: "khóa kéo",
+  },
   [normalizeText("Bé đã tập mặc quần áo đúng chiều.")]: {
     key: "lessons/dress-myself/put-on-clothes/audio/vi/completion_117e735f.mp3",
     text: "Bé đã tập mặc quần áo đúng chiều.",
@@ -65119,6 +66335,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là cạp quần.")]: {
     key: "lessons/dress-myself/put-on-clothes/audio/vi/teach_waistband_success_2041bcb1.mp3",
     text: "Từ này nghĩa là cạp quần.",
+  },
+  [normalizeText("luồn tay qua ống áo")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/vocabulary_vocab_dress_myself_put_on_clothes_arms_through_sleeves_meaning_41877fe7.mp3",
+    text: "luồn tay qua ống áo",
+  },
+  [normalizeText("mặt sau")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/vocabulary_vocab_dress_myself_put_on_clothes_back_meaning_1261a9f5.mp3",
+    text: "mặt sau",
+  },
+  [normalizeText("nhãn quần áo")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/vocabulary_vocab_dress_myself_put_on_clothes_clothing_tag_meaning_3f0b9c4a.mp3",
+    text: "nhãn quần áo",
+  },
+  [normalizeText("cổ áo")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/vocabulary_vocab_dress_myself_put_on_clothes_collar_meaning_e7e4ba1d.mp3",
+    text: "cổ áo",
+  },
+  [normalizeText("mặt trước")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/vocabulary_vocab_dress_myself_put_on_clothes_front_meaning_b5176341.mp3",
+    text: "mặt trước",
+  },
+  [normalizeText("kéo quần lên")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/vocabulary_vocab_dress_myself_put_on_clothes_pull_up_shorts_meaning_9f76eed6.mp3",
+    text: "kéo quần lên",
+  },
+  [normalizeText("xoay áo lại đúng chiều")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/vocabulary_vocab_dress_myself_put_on_clothes_turn_shirt_around_meaning_ad152222.mp3",
+    text: "xoay áo lại đúng chiều",
+  },
+  [normalizeText("cạp quần")]: {
+    key: "lessons/dress-myself/put-on-clothes/audio/vi/vocabulary_vocab_dress_myself_put_on_clothes_waistband_meaning_80892b5b.mp3",
+    text: "cạp quần",
   },
   [normalizeText("Bé đã dọn sau bữa tối thật gọn gàng!")]: {
     key: "lessons/family-dinner/dinner-cleanup/audio/vi/completion_71b7e470.mp3",
@@ -65307,6 +66555,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Chúc ngủ ngon sau bữa tối thật ấm áp.")]: {
     key: "lessons/family-dinner/dinner-cleanup/audio/vi/teach_say_good_night_success_3d09020a.mp3",
     text: "Chúc ngủ ngon sau bữa tối thật ấm áp.",
+  },
+  [normalizeText("món tráng miệng")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/vi/vocabulary_vocab_family_dinner_dessert_meaning_6adc3709.mp3",
+    text: "món tráng miệng",
+  },
+  [normalizeText("đèn bàn ăn")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/vi/vocabulary_vocab_family_dinner_dining_light_meaning_18af9351.mp3",
+    text: "đèn bàn ăn",
+  },
+  [normalizeText("máy rửa chén")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/vi/vocabulary_vocab_family_dinner_dishwasher_meaning_db02f951.mp3",
+    text: "máy rửa chén",
+  },
+  [normalizeText("nắp đậy thức ăn")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/vi/vocabulary_vocab_family_dinner_food_cover_meaning_aabf2e61.mp3",
+    text: "nắp đậy thức ăn",
+  },
+  [normalizeText("quầy bếp")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/vi/vocabulary_vocab_family_dinner_kitchen_counter_meaning_e293c49e.mp3",
+    text: "quầy bếp",
+  },
+  [normalizeText("đồ ăn còn lại")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/vi/vocabulary_vocab_family_dinner_leftovers_meaning_d6701639.mp3",
+    text: "đồ ăn còn lại",
+  },
+  [normalizeText("cho chén vào máy rửa chén")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/vi/vocabulary_vocab_load_dishwasher_meaning_7049ab4e.mp3",
+    text: "cho chén vào máy rửa chén",
+  },
+  [normalizeText("cất đồ ăn còn lại")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/vi/vocabulary_vocab_save_leftovers_meaning_c9fde085.mp3",
+    text: "cất đồ ăn còn lại",
+  },
+  [normalizeText("chúc ngủ ngon")]: {
+    key: "lessons/family-dinner/dinner-cleanup/audio/vi/vocabulary_vocab_say_good_night_meaning_21a5fec0.mp3",
+    text: "chúc ngủ ngon",
   },
   [normalizeText("Bé đã chuẩn bị bữa tối thật chu đáo!")]: {
     key: "lessons/family-dinner/dinner-prep/audio/vi/completion_f5aeb356.mp3",
@@ -65500,6 +66784,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/family-dinner/dinner-prep/audio/vi/teach_set_placemat_success_62fef024.mp3",
     text: "Đặt tấm lót ăn giúp chỗ ngồi gọn hơn.",
   },
+  [normalizeText("gọi mọi người")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/vi/vocabulary_vocab_call_everyone_meaning_8131c91e.mp3",
+    text: "gọi mọi người",
+  },
+  [normalizeText("bê khay")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/vi/vocabulary_vocab_carry_tray_meaning_f7fe4ef7.mp3",
+    text: "bê khay",
+  },
+  [normalizeText("tạp dề")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/vi/vocabulary_vocab_family_dinner_apron_meaning_60f54b3a.mp3",
+    text: "tạp dề",
+  },
+  [normalizeText("chuông gọi ăn tối")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/vi/vocabulary_vocab_family_dinner_bell_meaning_850d3c81.mp3",
+    text: "chuông gọi ăn tối",
+  },
+  [normalizeText("bữa tối")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/vi/vocabulary_vocab_family_dinner_dinner_meaning_b75745ea.mp3",
+    text: "bữa tối",
+  },
+  [normalizeText("vá múc")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/vi/vocabulary_vocab_family_dinner_ladle_meaning_6022fc05.mp3",
+    text: "vá múc",
+  },
+  [normalizeText("tấm lót ăn")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/vi/vocabulary_vocab_family_dinner_placemat_meaning_6c52f07f.mp3",
+    text: "tấm lót ăn",
+  },
+  [normalizeText("khay phục vụ")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/vi/vocabulary_vocab_family_dinner_serving_tray_meaning_7c155c67.mp3",
+    text: "khay phục vụ",
+  },
+  [normalizeText("đặt tấm lót ăn")]: {
+    key: "lessons/family-dinner/dinner-prep/audio/vi/vocabulary_vocab_set_placemat_meaning_9dfe5c21.mp3",
+    text: "đặt tấm lót ăn",
+  },
   [normalizeText("Bé đã chia món trong bữa tối thật lịch sự!")]: {
     key: "lessons/family-dinner/dinner-table/audio/vi/completion_41b5538e.mp3",
     text: "Bé đã chia món trong bữa tối thật lịch sự!",
@@ -65691,6 +67011,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là rau củ.")]: {
     key: "lessons/family-dinner/dinner-table/audio/vi/teach_vegetables_success_02a1b015.mp3",
     text: "Từ này nghĩa là rau củ.",
+  },
+  [normalizeText("thịt gà")]: {
+    key: "lessons/family-dinner/dinner-table/audio/vi/vocabulary_vocab_family_dinner_chicken_meaning_1c6b17ba.mp3",
+    text: "thịt gà",
+  },
+  [normalizeText("cá")]: {
+    key: "lessons/family-dinner/dinner-table/audio/vi/vocabulary_vocab_family_dinner_fish_meaning_d2aa5dda.mp3",
+    text: "cá",
+  },
+  [normalizeText("mì")]: {
+    key: "lessons/family-dinner/dinner-table/audio/vi/vocabulary_vocab_family_dinner_noodles_meaning_f466c324.mp3",
+    text: "mì",
+  },
+  [normalizeText("rau trộn")]: {
+    key: "lessons/family-dinner/dinner-table/audio/vi/vocabulary_vocab_family_dinner_salad_meaning_7544f55f.mp3",
+    text: "rau trộn",
+  },
+  [normalizeText("nước sốt")]: {
+    key: "lessons/family-dinner/dinner-table/audio/vi/vocabulary_vocab_family_dinner_sauce_meaning_b7328e52.mp3",
+    text: "nước sốt",
+  },
+  [normalizeText("rau củ")]: {
+    key: "lessons/family-dinner/dinner-table/audio/vi/vocabulary_vocab_family_dinner_vegetables_meaning_23accd5f.mp3",
+    text: "rau củ",
+  },
+  [normalizeText("chuyền món")]: {
+    key: "lessons/family-dinner/dinner-table/audio/vi/vocabulary_vocab_pass_dish_meaning_8d9c1cdf.mp3",
+    text: "chuyền món",
+  },
+  [normalizeText("lấy mì")]: {
+    key: "lessons/family-dinner/dinner-table/audio/vi/vocabulary_vocab_serve_noodles_meaning_2332756a.mp3",
+    text: "lấy mì",
+  },
+  [normalizeText("thử rau củ")]: {
+    key: "lessons/family-dinner/dinner-table/audio/vi/vocabulary_vocab_try_vegetables_meaning_cf82efad.mp3",
+    text: "thử rau củ",
   },
   [normalizeText("Chạm chiếc bát xanh bên trái nhé.")]: {
     key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/bowl_teach_fail_01be4e53.mp3",
@@ -65908,6 +67264,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/scoop_teach_success_f58074cb.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là xẻng xúc thức ăn.",
   },
+  [normalizeText("chiếc bát")]: {
+    key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/vocabulary_vocab_feed_the_puppy_fill_the_bowl_bowl_meaning_084e0b06.mp3",
+    text: "chiếc bát",
+  },
+  [normalizeText("trống; không có gì bên trong")]: {
+    key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/vocabulary_vocab_feed_the_puppy_fill_the_bowl_empty_meaning_a7bfa471.mp3",
+    text: "trống; không có gì bên trong",
+  },
+  [normalizeText("thức ăn")]: {
+    key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/vocabulary_vocab_feed_the_puppy_fill_the_bowl_food_meaning_bff68195.mp3",
+    text: "thức ăn",
+  },
+  [normalizeText("đầy")]: {
+    key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/vocabulary_vocab_feed_the_puppy_fill_the_bowl_full_meaning_05cd4cd2.mp3",
+    text: "đầy",
+  },
+  [normalizeText("tấm thảm")]: {
+    key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/vocabulary_vocab_feed_the_puppy_fill_the_bowl_mat_meaning_f7aca0c9.mp3",
+    text: "tấm thảm",
+  },
+  [normalizeText("bữa ăn")]: {
+    key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/vocabulary_vocab_feed_the_puppy_fill_the_bowl_meal_meaning_462be2ee.mp3",
+    text: "bữa ăn",
+  },
+  [normalizeText("một xẻng thức ăn")]: {
+    key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/vocabulary_vocab_feed_the_puppy_fill_the_bowl_one_scoop_meaning_77d628b9.mp3",
+    text: "một xẻng thức ăn",
+  },
+  [normalizeText("sẵn sàng")]: {
+    key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/vocabulary_vocab_feed_the_puppy_fill_the_bowl_ready_meaning_c2d8dfd3.mp3",
+    text: "sẵn sàng",
+  },
+  [normalizeText("xẻng xúc thức ăn")]: {
+    key: "lessons/feed-the-puppy/fill-the-bowl/audio/vi/vocabulary_vocab_feed_the_puppy_fill_the_bowl_scoop_meaning_e2556ae3.mp3",
+    text: "xẻng xúc thức ăn",
+  },
   [normalizeText("Tìm vòng cổ xanh của chú cún nhé.")]: {
     key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/collar_practice_e6193840.mp3",
     text: "Tìm vòng cổ xanh của chú cún nhé.",
@@ -66103,6 +67495,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là bụng.")]: {
     key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/tummy_teach_success_31d0069b.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là bụng.",
+  },
+  [normalizeText("vòng cổ")]: {
+    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/vocabulary_vocab_feed_the_puppy_meet_the_puppy_collar_meaning_9cfa6793.mp3",
+    text: "vòng cổ",
+  },
+  [normalizeText("xin chào")]: {
+    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/vocabulary_vocab_feed_the_puppy_meet_the_puppy_hello_meaning_a77dcdd8.mp3",
+    text: "xin chào",
+  },
+  [normalizeText("đói bụng")]: {
+    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/vocabulary_vocab_feed_the_puppy_meet_the_puppy_hungry_meaning_95344d9d.mp3",
+    text: "đói bụng",
+  },
+  [normalizeText("nhìn")]: {
+    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/vocabulary_vocab_feed_the_puppy_meet_the_puppy_look_meaning_25a4436b.mp3",
+    text: "nhìn",
+  },
+  [normalizeText("chú cún; chó con")]: {
+    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/vocabulary_vocab_feed_the_puppy_meet_the_puppy_puppy_meaning_e909b653.mp3",
+    text: "chú cún; chó con",
+  },
+  [normalizeText("ngồi")]: {
+    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/vocabulary_vocab_feed_the_puppy_meet_the_puppy_sit_meaning_c2d2c5fc.mp3",
+    text: "ngồi",
+  },
+  [normalizeText("đuôi")]: {
+    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/vocabulary_vocab_feed_the_puppy_meet_the_puppy_tail_meaning_389663f1.mp3",
+    text: "đuôi",
+  },
+  [normalizeText("bụng")]: {
+    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/vocabulary_vocab_feed_the_puppy_meet_the_puppy_tummy_meaning_bdc82384.mp3",
+    text: "bụng",
+  },
+  [normalizeText("vẫy đuôi")]: {
+    key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/vocabulary_vocab_feed_the_puppy_meet_the_puppy_wag_meaning_ca1fc59b.mp3",
+    text: "vẫy đuôi",
   },
   [normalizeText("Chạm chú cún để bạn vẫy đuôi chào bé nhé.")]: {
     key: "lessons/feed-the-puppy/meet-the-puppy/audio/vi/wag_practice_a3d4eff6.mp3",
@@ -66327,6 +67755,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là lùi lại.")]: {
     key: "lessons/feed-the-puppy/puppy-eats/audio/vi/step_back_teach_success_76efd397.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là lùi lại.",
+  },
+  [normalizeText("hỏi người lớn")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/vocabulary_vocab_feed_the_puppy_puppy_eats_ask_an_adult_meaning_62d86a7b.mp3",
+    text: "hỏi người lớn",
+  },
+  [normalizeText("mang; bưng")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/vocabulary_vocab_feed_the_puppy_puppy_eats_carry_meaning_f9fd95ac.mp3",
+    text: "mang; bưng",
+  },
+  [normalizeText("chúc mừng")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/vocabulary_vocab_feed_the_puppy_puppy_eats_celebrate_meaning_2b996b54.mp3",
+    text: "chúc mừng",
+  },
+  [normalizeText("ăn")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/vocabulary_vocab_feed_the_puppy_puppy_eats_eat_meaning_b89bf200.mp3",
+    text: "ăn",
+  },
+  [normalizeText("cho ăn")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/vocabulary_vocab_feed_the_puppy_puppy_eats_feed_meaning_6a868fa7.mp3",
+    text: "cho ăn",
+  },
+  [normalizeText("đã xong")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/vocabulary_vocab_feed_the_puppy_puppy_eats_finished_meaning_a69ea34f.mp3",
+    text: "đã xong",
+  },
+  [normalizeText("đặt nó xuống")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/vocabulary_vocab_feed_the_puppy_puppy_eats_put_it_down_meaning_b48cb05b.mp3",
+    text: "đặt nó xuống",
+  },
+  [normalizeText("lùi lại")]: {
+    key: "lessons/feed-the-puppy/puppy-eats/audio/vi/vocabulary_vocab_feed_the_puppy_puppy_eats_step_back_meaning_fad20974.mp3",
+    text: "lùi lại",
   },
   [normalizeText("Chạm tấm thảm và để cún tiếp tục chờ nhé.")]: {
     key: "lessons/feed-the-puppy/puppy-eats/audio/vi/wait_practice_40f0145a.mp3",
@@ -66576,6 +68036,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/find-the-kitten/check-the-hiding-spots/audio/vi/under_teach_success_ba9e6ca6.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là ở dưới.",
   },
+  [normalizeText("ở phía sau")]: {
+    key: "lessons/find-the-kitten/check-the-hiding-spots/audio/vi/vocabulary_vocab_find_the_kitten_check_the_hiding_spots_behind_meaning_c81dbfdb.mp3",
+    text: "ở phía sau",
+  },
+  [normalizeText("chiếc hộp")]: {
+    key: "lessons/find-the-kitten/check-the-hiding-spots/audio/vi/vocabulary_vocab_find_the_kitten_check_the_hiding_spots_box_meaning_b7b35ac2.mp3",
+    text: "chiếc hộp",
+  },
+  [normalizeText("tìm mèo con")]: {
+    key: "lessons/find-the-kitten/check-the-hiding-spots/audio/vi/vocabulary_vocab_find_the_kitten_check_the_hiding_spots_find_the_kitten_meaning_045c055f.mp3",
+    text: "tìm mèo con",
+  },
+  [normalizeText("trốn")]: {
+    key: "lessons/find-the-kitten/check-the-hiding-spots/audio/vi/vocabulary_vocab_find_the_kitten_check_the_hiding_spots_hide_meaning_1a01f538.mp3",
+    text: "trốn",
+  },
+  [normalizeText("ở bên trong")]: {
+    key: "lessons/find-the-kitten/check-the-hiding-spots/audio/vi/vocabulary_vocab_find_the_kitten_check_the_hiding_spots_inside_meaning_2c203473.mp3",
+    text: "ở bên trong",
+  },
+  [normalizeText("nhìn sau chiếc giỏ")]: {
+    key: "lessons/find-the-kitten/check-the-hiding-spots/audio/vi/vocabulary_vocab_find_the_kitten_check_the_hiding_spots_look_behind_the_basket_meaning_35e5b0b7.mp3",
+    text: "nhìn sau chiếc giỏ",
+  },
+  [normalizeText("nhìn dưới chiếc hộp")]: {
+    key: "lessons/find-the-kitten/check-the-hiding-spots/audio/vi/vocabulary_vocab_find_the_kitten_check_the_hiding_spots_look_under_the_box_meaning_05715474.mp3",
+    text: "nhìn dưới chiếc hộp",
+  },
+  [normalizeText("ở dưới")]: {
+    key: "lessons/find-the-kitten/check-the-hiding-spots/audio/vi/vocabulary_vocab_find_the_kitten_check_the_hiding_spots_under_meaning_7c4c57a6.mp3",
+    text: "ở dưới",
+  },
   [normalizeText("Bé đã nghe thấy tiếng mèo và tìm được dấu chân.")]: {
     key: "lessons/find-the-kitten/hear-the-kitten/audio/vi/completion_c28122e8.mp3",
     text: "Bé đã nghe thấy tiếng mèo và tìm được dấu chân.",
@@ -66767,6 +68259,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là âm thanh.")]: {
     key: "lessons/find-the-kitten/hear-the-kitten/audio/vi/sound_teach_success_d736ff4f.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là âm thanh.",
+  },
+  [normalizeText("mình nghe thấy bạn rồi")]: {
+    key: "lessons/find-the-kitten/hear-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_hear_the_kitten_i_hear_you_meaning_411214f9.mp3",
+    text: "mình nghe thấy bạn rồi",
+  },
+  [normalizeText("mèo con")]: {
+    key: "lessons/find-the-kitten/hear-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_hear_the_kitten_kitten_meaning_ff55121e.mp3",
+    text: "mèo con",
+  },
+  [normalizeText("tiếng mèo kêu meo")]: {
+    key: "lessons/find-the-kitten/hear-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_hear_the_kitten_meow_meaning_2f785817.mp3",
+    text: "tiếng mèo kêu meo",
+  },
+  [normalizeText("yên lặng")]: {
+    key: "lessons/find-the-kitten/hear-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_hear_the_kitten_quiet_meaning_125cfbd4.mp3",
+    text: "yên lặng",
+  },
+  [normalizeText("bạn ở đâu")]: {
+    key: "lessons/find-the-kitten/hear-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_hear_the_kitten_where_are_you_meaning_02472bda.mp3",
+    text: "bạn ở đâu",
   },
   [normalizeText("Chạm đôi tay để gọi mèo trả lời nhé.")]: {
     key: "lessons/find-the-kitten/hear-the-kitten/audio/vi/where_are_you_practice_5092ae03.mp3",
@@ -67000,6 +68512,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/tail_up_teach_success_20215881.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là đuôi dựng lên.",
   },
+  [normalizeText("gọi")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_welcome_the_kitten_call_meaning_e58aa1d5.mp3",
+    text: "gọi",
+  },
+  [normalizeText("bước ra")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_welcome_the_kitten_come_out_meaning_1434d25b.mp3",
+    text: "bước ra",
+  },
+  [normalizeText("thân thiện")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_welcome_the_kitten_friendly_meaning_38bcf349.mp3",
+    text: "thân thiện",
+  },
+  [normalizeText("đưa bàn tay ra")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_welcome_the_kitten_hold_out_your_hand_meaning_9400e7e7.mp3",
+    text: "đưa bàn tay ra",
+  },
+  [normalizeText("để mèo tự đến gần")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_welcome_the_kitten_let_the_kitten_come_meaning_6f5d1191.mp3",
+    text: "để mèo tự đến gần",
+  },
+  [normalizeText("bàn chân của mèo")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_welcome_the_kitten_paw_meaning_6a65154f.mp3",
+    text: "bàn chân của mèo",
+  },
+  [normalizeText("vuốt nhẹ nhàng")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_welcome_the_kitten_pet_gently_meaning_c46cd1bf.mp3",
+    text: "vuốt nhẹ nhàng",
+  },
+  [normalizeText("bộ lông mềm mại")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_welcome_the_kitten_soft_fur_meaning_116d8dc5.mp3",
+    text: "bộ lông mềm mại",
+  },
+  [normalizeText("đuôi dựng lên")]: {
+    key: "lessons/find-the-kitten/welcome-the-kitten/audio/vi/vocabulary_vocab_find_the_kitten_welcome_the_kitten_tail_up_meaning_ea4a41a1.mp3",
+    text: "đuôi dựng lên",
+  },
   [normalizeText("Bé đã lắng nghe rất chăm chú.")]: {
     key: "lessons/five-senses/hearing-world/audio/vi/completion_23c885b6.mp3",
     text: "Bé đã lắng nghe rất chăm chú.",
@@ -67155,6 +68703,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là âm thanh.")]: {
     key: "lessons/five-senses/hearing-world/audio/vi/teach_sound_success_1e99fe94.mp3",
     text: "Từ này nghĩa là âm thanh.",
+  },
+  [normalizeText("chiếc chuông")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/vocabulary_vocab_five_senses_hearing_world_bell_meaning_7819331a.mp3",
+    text: "chiếc chuông",
+  },
+  [normalizeText("che tai lại")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/vocabulary_vocab_five_senses_hearing_world_cover_ears_meaning_1dfc5741.mp3",
+    text: "che tai lại",
+  },
+  [normalizeText("đi theo âm thanh")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/vocabulary_vocab_five_senses_hearing_world_follow_sound_meaning_42e0a779.mp3",
+    text: "đi theo âm thanh",
+  },
+  [normalizeText("nghe thấy")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/vocabulary_vocab_five_senses_hearing_world_hear_meaning_c4eb8130.mp3",
+    text: "nghe thấy",
+  },
+  [normalizeText("lắng nghe thật kỹ")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/vocabulary_vocab_five_senses_hearing_world_listen_carefully_meaning_f5fa5bcd.mp3",
+    text: "lắng nghe thật kỹ",
+  },
+  [normalizeText("to")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/vocabulary_vocab_five_senses_hearing_world_loud_meaning_4374aaee.mp3",
+    text: "to",
+  },
+  [normalizeText("yên tĩnh")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/vocabulary_vocab_five_senses_hearing_world_quiet_meaning_310f0472.mp3",
+    text: "yên tĩnh",
+  },
+  [normalizeText("âm thanh")]: {
+    key: "lessons/five-senses/hearing-world/audio/vi/vocabulary_vocab_five_senses_hearing_world_sound_meaning_10df5762.mp3",
+    text: "âm thanh",
   },
   [normalizeText("Bé đã quan sát thế giới thật kỹ.")]: {
     key: "lessons/five-senses/seeing-world/audio/vi/completion_b77fa4f7.mp3",
@@ -67336,6 +68916,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/five-senses/seeing-world/audio/vi/teach_shape_success_75fecb6b.mp3",
     text: "Từ này nghĩa là hình dạng.",
   },
+  [normalizeText("nhắm mắt lại")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/vocabulary_vocab_five_senses_seeing_world_close_eyes_meaning_b77a0e0e.mp3",
+    text: "nhắm mắt lại",
+  },
+  [normalizeText("màu sắc")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/vocabulary_vocab_five_senses_seeing_world_color_meaning_63baa2c5.mp3",
+    text: "màu sắc",
+  },
+  [normalizeText("tìm hình tròn màu đỏ")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/vocabulary_vocab_five_senses_seeing_world_find_red_circle_meaning_46d4b021.mp3",
+    text: "tìm hình tròn màu đỏ",
+  },
+  [normalizeText("ánh sáng")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/vocabulary_vocab_five_senses_seeing_world_light_meaning_41c436de.mp3",
+    text: "ánh sáng",
+  },
+  [normalizeText("nhìn thật kỹ")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/vocabulary_vocab_five_senses_seeing_world_look_closely_meaning_31611fef.mp3",
+    text: "nhìn thật kỹ",
+  },
+  [normalizeText("kính lúp")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/vocabulary_vocab_five_senses_seeing_world_magnifying_glass_meaning_bf2de256.mp3",
+    text: "kính lúp",
+  },
+  [normalizeText("nhìn thấy")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/vocabulary_vocab_five_senses_seeing_world_see_meaning_a98b1bb8.mp3",
+    text: "nhìn thấy",
+  },
+  [normalizeText("bóng")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/vocabulary_vocab_five_senses_seeing_world_shadow_meaning_e4a06ac9.mp3",
+    text: "bóng",
+  },
+  [normalizeText("hình dạng")]: {
+    key: "lessons/five-senses/seeing-world/audio/vi/vocabulary_vocab_five_senses_seeing_world_shape_meaning_d8b82d66.mp3",
+    text: "hình dạng",
+  },
   [normalizeText("Bé đã khám phá bằng nhiều giác quan.")]: {
     key: "lessons/five-senses/smell-taste-touch/audio/vi/completion_8b8cd4f1.mp3",
     text: "Bé đã khám phá bằng nhiều giác quan.",
@@ -67492,6 +69108,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/five-senses/smell-taste-touch/audio/vi/teach_touch_success_8730896a.mp3",
     text: "Từ này nghĩa là chạm.",
   },
+  [normalizeText("ngửi bông hoa")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/vocabulary_vocab_five_senses_smell_taste_touch_smell_flower_meaning_1fd432e5.mp3",
+    text: "ngửi bông hoa",
+  },
+  [normalizeText("ngửi")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/vocabulary_vocab_five_senses_smell_taste_touch_smell_meaning_07617110.mp3",
+    text: "ngửi",
+  },
+  [normalizeText("mềm")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/vocabulary_vocab_five_senses_smell_taste_touch_soft_meaning_282ad2db.mp3",
+    text: "mềm",
+  },
+  [normalizeText("chua")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/vocabulary_vocab_five_senses_smell_taste_touch_sour_meaning_9cac18fe.mp3",
+    text: "chua",
+  },
+  [normalizeText("ngọt")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/vocabulary_vocab_five_senses_smell_taste_touch_sweet_meaning_848c429d.mp3",
+    text: "ngọt",
+  },
+  [normalizeText("nếm quả chanh")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/vocabulary_vocab_five_senses_smell_taste_touch_taste_lemon_meaning_4b446258.mp3",
+    text: "nếm quả chanh",
+  },
+  [normalizeText("nếm")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/vocabulary_vocab_five_senses_smell_taste_touch_taste_meaning_03c5d35c.mp3",
+    text: "nếm",
+  },
+  [normalizeText("chạm vào chiếc lông vũ")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/vocabulary_vocab_five_senses_smell_taste_touch_touch_feather_meaning_bb7e6b2c.mp3",
+    text: "chạm vào chiếc lông vũ",
+  },
+  [normalizeText("chạm")]: {
+    key: "lessons/five-senses/smell-taste-touch/audio/vi/vocabulary_vocab_five_senses_smell_taste_touch_touch_meaning_1e86c7e0.mp3",
+    text: "chạm",
+  },
   [normalizeText("Bé đã quan sát ong và bướm ghé thăm hoa.")]: {
     key: "lessons/garden-friends/flower-visitors/audio/vi/completion_78e05d14.mp3",
     text: "Bé đã quan sát ong và bướm ghé thăm hoa.",
@@ -67591,6 +69243,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Ong và bướm đang ghé thăm bông hoa.")]: {
     key: "lessons/garden-friends/flower-visitors/audio/vi/observe_visitors_success_383cb6fe.mp3",
     text: "Ong và bướm đang ghé thăm bông hoa.",
+  },
+  [normalizeText("con ong")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/vocabulary_vocab_garden_friends_flower_visitors_bee_meaning_236769e4.mp3",
+    text: "con ong",
+  },
+  [normalizeText("con bướm")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/vocabulary_vocab_garden_friends_flower_visitors_butterfly_meaning_ab44dca9.mp3",
+    text: "con bướm",
+  },
+  [normalizeText("quả")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/vocabulary_vocab_garden_friends_flower_visitors_fruit_meaning_1e34c34f.mp3",
+    text: "quả",
+  },
+  [normalizeText("ghé thăm bông hoa")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/vocabulary_vocab_garden_friends_flower_visitors_visit_flower_meaning_26bd23e4.mp3",
+    text: "ghé thăm bông hoa",
+  },
+  [normalizeText("đôi cánh")]: {
+    key: "lessons/garden-friends/flower-visitors/audio/vi/vocabulary_vocab_garden_friends_flower_visitors_wings_meaning_cd15e240.mp3",
+    text: "đôi cánh",
   },
   [normalizeText("Chạm kính lúp dưới bên phải để chờ ong nhé.")]: {
     key: "lessons/garden-friends/flower-visitors/audio/vi/wait_for_bee_7631ea9b.mp3",
@@ -67747,6 +69419,22 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Chiếc lá lại che chỗ nghỉ thật nhẹ nhàng.")]: {
     key: "lessons/garden-friends/quiet-garden-watch/audio/vi/replace_leaf_tip_success_a26b5519.mp3",
     text: "Chiếc lá lại che chỗ nghỉ thật nhẹ nhàng.",
+  },
+  [normalizeText("khay nước cho chim")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/vocabulary_vocab_garden_friends_quiet_garden_watch_birdbath_meaning_a95aa3c5.mp3",
+    text: "khay nước cho chim",
+  },
+  [normalizeText("sâu bướm")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/vocabulary_vocab_garden_friends_quiet_garden_watch_caterpillar_meaning_f0886990.mp3",
+    text: "sâu bướm",
+  },
+  [normalizeText("quan sát nhẹ nhàng")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/vocabulary_vocab_garden_friends_quiet_garden_watch_watch_gently_meaning_e88d3bd6.mp3",
+    text: "quan sát nhẹ nhàng",
+  },
+  [normalizeText("giọt nước")]: {
+    key: "lessons/garden-friends/quiet-garden-watch/audio/vi/vocabulary_vocab_garden_friends_quiet_garden_watch_water_drop_meaning_aa19a83a.mp3",
+    text: "giọt nước",
   },
   [normalizeText("Tìm hình bàn tay nâng lá để nhìn phía dưới nhé.")]: {
     key: "lessons/garden-friends/under-the-leaf/audio/vi/choose_look_under_leaf_b87ad492.mp3",
@@ -67907,6 +69595,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đường hầm chạy dưới lớp đất.")]: {
     key: "lessons/garden-friends/under-the-leaf/audio/vi/trace_tunnel_success_239df692.mp3",
     text: "Đường hầm chạy dưới lớp đất.",
+  },
+  [normalizeText("giun đất")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/vocabulary_vocab_garden_friends_under_the_leaf_earthworm_meaning_23f8d704.mp3",
+    text: "giun đất",
+  },
+  [normalizeText("nhìn dưới chiếc lá")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/vocabulary_vocab_garden_friends_under_the_leaf_look_under_leaf_meaning_afc049bd.mp3",
+    text: "nhìn dưới chiếc lá",
+  },
+  [normalizeText("vỏ ốc")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/vocabulary_vocab_garden_friends_under_the_leaf_shell_meaning_f6f2fb85.mp3",
+    text: "vỏ ốc",
+  },
+  [normalizeText("ốc sên")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/vocabulary_vocab_garden_friends_under_the_leaf_snail_meaning_688e7a93.mp3",
+    text: "ốc sên",
+  },
+  [normalizeText("đường hầm")]: {
+    key: "lessons/garden-friends/under-the-leaf/audio/vi/vocabulary_vocab_garden_friends_under_the_leaf_tunnel_meaning_4d5fb6cd.mp3",
+    text: "đường hầm",
   },
   [normalizeText("Kéo các lát dưa leo vào tô nhé.")]: {
     key: "lessons/garden-to-table/make-and-share/audio/vi/add_cucumber_bbcb44e7.mp3",
@@ -68084,6 +69792,34 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/garden-to-table/make-and-share/audio/vi/share_salad_success_00f72822.mp3",
     text: "Món rau đã được chia sẻ rồi.",
   },
+  [normalizeText("cái tô")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/vocabulary_vocab_garden_to_table_make_and_share_bowl_meaning_e764b778.mp3",
+    text: "cái tô",
+  },
+  [normalizeText("các lát dưa leo")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/vocabulary_vocab_garden_to_table_make_and_share_cucumber_slices_meaning_2d67f049.mp3",
+    text: "các lát dưa leo",
+  },
+  [normalizeText("khăn bếp")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/vocabulary_vocab_garden_to_table_make_and_share_kitchen_towel_meaning_005ad214.mp3",
+    text: "khăn bếp",
+  },
+  [normalizeText("trộn món rau")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/vocabulary_vocab_garden_to_table_make_and_share_mix_the_salad_meaning_b42b465c.mp3",
+    text: "trộn món rau",
+  },
+  [normalizeText("món rau trộn nguội")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/vocabulary_vocab_garden_to_table_make_and_share_salad_meaning_657d22c1.mp3",
+    text: "món rau trộn nguội",
+  },
+  [normalizeText("chia sẻ")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/vocabulary_vocab_garden_to_table_make_and_share_share_meaning_27fb2262.mp3",
+    text: "chia sẻ",
+  },
+  [normalizeText("chiếc thìa")]: {
+    key: "lessons/garden-to-table/make-and-share/audio/vi/vocabulary_vocab_garden_to_table_make_and_share_spoon_meaning_8daf0869.mp3",
+    text: "chiếc thìa",
+  },
   [normalizeText("Tìm hình rửa sạch toàn bộ rau quả nhé.")]: {
     key: "lessons/garden-to-table/rinse-and-drain/audio/vi/choose_rinse_it_well_a2a48432.mp3",
     text: "Tìm hình rửa sạch toàn bộ rau quả nhé.",
@@ -68228,6 +69964,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/garden-to-table/rinse-and-drain/audio/vi/turn_on_water_success_58c528b3.mp3",
     text: "Dòng nước sạch đã chảy rồi.",
   },
+  [normalizeText("rổ để ráo nước")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/vocabulary_vocab_garden_to_table_rinse_and_drain_colander_meaning_0c9785c7.mp3",
+    text: "rổ để ráo nước",
+  },
+  [normalizeText("quả dưa leo")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/vocabulary_vocab_garden_to_table_rinse_and_drain_cucumber_meaning_39d52ccc.mp3",
+    text: "quả dưa leo",
+  },
+  [normalizeText("rau xà lách")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/vocabulary_vocab_garden_to_table_rinse_and_drain_lettuce_meaning_fc6c1d9b.mp3",
+    text: "rau xà lách",
+  },
+  [normalizeText("rửa thật sạch")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/vocabulary_vocab_garden_to_table_rinse_and_drain_rinse_it_well_meaning_08209728.mp3",
+    text: "rửa thật sạch",
+  },
+  [normalizeText("rửa nhanh dưới nước sạch")]: {
+    key: "lessons/garden-to-table/rinse-and-drain/audio/vi/vocabulary_vocab_garden_to_table_rinse_and_drain_rinse_meaning_486f3865.mp3",
+    text: "rửa nhanh dưới nước sạch",
+  },
   [normalizeText("Chạm phong bì để nhờ người lớn cất lên kệ nhé.")]: {
     key: "lessons/garden-to-table/save-for-next-season/audio/vi/ask_adult_to_store_77e989f5.mp3",
     text: "Chạm phong bì để nhờ người lớn cất lên kệ nhé.",
@@ -68347,6 +70103,18 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Hạt khô đã ở trong phong bì.")]: {
     key: "lessons/garden-to-table/save-for-next-season/audio/vi/place_seed_in_envelope_success_9296be59.mp3",
     text: "Hạt khô đã ở trong phong bì.",
+  },
+  [normalizeText("phong bì")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/vocabulary_vocab_garden_to_table_save_for_next_season_envelope_meaning_145c0791.mp3",
+    text: "phong bì",
+  },
+  [normalizeText("giữ hạt cho mùa sau")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/vocabulary_vocab_garden_to_table_save_for_next_season_save_the_seeds_meaning_22b5f50e.mp3",
+    text: "giữ hạt cho mùa sau",
+  },
+  [normalizeText("cất lại cho mùa sau")]: {
+    key: "lessons/garden-to-table/save-for-next-season/audio/vi/vocabulary_vocab_garden_to_table_save_for_next_season_store_it_for_next_season_meaning_5c9a22d9.mp3",
+    text: "cất lại cho mùa sau",
   },
   [normalizeText("Chạm vòng thời gian để sang mùa mới nhé.")]: {
     key: "lessons/garden-to-table/save-for-next-season/audio/vi/wait_for_next_season_c6eafa05.mp3",
@@ -68544,6 +70312,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/grandparents-visit/family-visit/audio/vi/teach_show_photo_success_5107cf5e.mp3",
     text: "Câu này nghĩa là cho xem ảnh.",
   },
+  [normalizeText("xin phép ôm")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/vocabulary_vocab_grandparents_visit_family_visit_ask_for_hug_meaning_cfa36135.mp3",
+    text: "xin phép ôm",
+  },
+  [normalizeText("chuông cửa")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/vocabulary_vocab_grandparents_visit_family_visit_doorbell_meaning_70e27588.mp3",
+    text: "chuông cửa",
+  },
+  [normalizeText("ảnh gia đình")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/vocabulary_vocab_grandparents_visit_family_visit_family_photo_meaning_1bbbdcdf.mp3",
+    text: "ảnh gia đình",
+  },
+  [normalizeText("bà")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/vocabulary_vocab_grandparents_visit_family_visit_grandma_meaning_f1d8177e.mp3",
+    text: "bà",
+  },
+  [normalizeText("ông")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/vocabulary_vocab_grandparents_visit_family_visit_grandpa_meaning_d933443d.mp3",
+    text: "ông",
+  },
+  [normalizeText("cái ôm")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/vocabulary_vocab_grandparents_visit_family_visit_hug_meaning_231dd0bb.mp3",
+    text: "cái ôm",
+  },
+  [normalizeText("chào hỏi")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/vocabulary_vocab_grandparents_visit_family_visit_say_hello_meaning_7cbe9722.mp3",
+    text: "chào hỏi",
+  },
+  [normalizeText("cho xem ảnh")]: {
+    key: "lessons/grandparents-visit/family-visit/audio/vi/vocabulary_vocab_grandparents_visit_family_visit_show_photo_meaning_3ecf3e0b.mp3",
+    text: "cho xem ảnh",
+  },
   [normalizeText("Bé đã giúp ông bà chăm sóc khu vườn.")]: {
     key: "lessons/grandparents-visit/garden-help/audio/vi/completion_6b663fb6.mp3",
     text: "Bé đã giúp ông bà chăm sóc khu vườn.",
@@ -68736,6 +70536,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/grandparents-visit/garden-help/audio/vi/teach_watering_can_success_f8924f7f.mp3",
     text: "Từ này nghĩa là bình tưới cây.",
   },
+  [normalizeText("bông hoa")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/vocabulary_vocab_grandparents_visit_garden_help_flower_meaning_2ba57604.mp3",
+    text: "bông hoa",
+  },
+  [normalizeText("khu vườn")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/vocabulary_vocab_grandparents_visit_garden_help_garden_meaning_5c468b8a.mp3",
+    text: "khu vườn",
+  },
+  [normalizeText("chiếc lá")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/vocabulary_vocab_grandparents_visit_garden_help_leaf_meaning_2833b81f.mp3",
+    text: "chiếc lá",
+  },
+  [normalizeText("nhặt lá")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/vocabulary_vocab_grandparents_visit_garden_help_pick_up_leaves_meaning_976a87c1.mp3",
+    text: "nhặt lá",
+  },
+  [normalizeText("chậu cây")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/vocabulary_vocab_grandparents_visit_garden_help_plant_pot_meaning_03dbc14b.mp3",
+    text: "chậu cây",
+  },
+  [normalizeText("gieo hạt")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/vocabulary_vocab_grandparents_visit_garden_help_plant_seed_meaning_8ddb54aa.mp3",
+    text: "gieo hạt",
+  },
+  [normalizeText("hạt giống")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/vocabulary_vocab_grandparents_visit_garden_help_seed_meaning_9e858b3f.mp3",
+    text: "hạt giống",
+  },
+  [normalizeText("tưới cây")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/vocabulary_vocab_grandparents_visit_garden_help_water_plant_meaning_e7f2fc8e.mp3",
+    text: "tưới cây",
+  },
+  [normalizeText("bình tưới cây")]: {
+    key: "lessons/grandparents-visit/garden-help/audio/vi/vocabulary_vocab_grandparents_visit_garden_help_watering_can_meaning_08493d81.mp3",
+    text: "bình tưới cây",
+  },
   [normalizeText("Bé đã cảm ơn và chào tạm biệt ông bà.")]: {
     key: "lessons/grandparents-visit/goodbye-home/audio/vi/completion_728292c1.mp3",
     text: "Bé đã cảm ơn và chào tạm biệt ông bà.",
@@ -68919,6 +70755,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là vẫy tay tạm biệt.")]: {
     key: "lessons/grandparents-visit/goodbye-home/audio/vi/teach_wave_success_d3a84260.mp3",
     text: "Câu này nghĩa là vẫy tay tạm biệt.",
+  },
+  [normalizeText("túi nhỏ")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/vocabulary_vocab_grandparents_visit_goodbye_home_bag_meaning_9b1346cd.mp3",
+    text: "túi nhỏ",
+  },
+  [normalizeText("xe ô tô")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/vocabulary_vocab_grandparents_visit_goodbye_home_car_meaning_aee32735.mp3",
+    text: "xe ô tô",
+  },
+  [normalizeText("cửa ra vào")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/vocabulary_vocab_grandparents_visit_goodbye_home_front_door_meaning_9a040435.mp3",
+    text: "cửa ra vào",
+  },
+  [normalizeText("về nhà")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/vocabulary_vocab_grandparents_visit_goodbye_home_go_home_meaning_d11b4bb7.mp3",
+    text: "về nhà",
+  },
+  [normalizeText("đi giày")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/vocabulary_vocab_grandparents_visit_goodbye_home_put_on_shoes_meaning_a608dd86.mp3",
+    text: "đi giày",
+  },
+  [normalizeText("nói tạm biệt")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/vocabulary_vocab_grandparents_visit_goodbye_home_say_goodbye_meaning_de7f9781.mp3",
+    text: "nói tạm biệt",
+  },
+  [normalizeText("đôi giày")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/vocabulary_vocab_grandparents_visit_goodbye_home_shoes_meaning_44e5faa2.mp3",
+    text: "đôi giày",
+  },
+  [normalizeText("thiệp cảm ơn")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/vocabulary_vocab_grandparents_visit_goodbye_home_thank_you_card_meaning_f9933cba.mp3",
+    text: "thiệp cảm ơn",
+  },
+  [normalizeText("vẫy tay tạm biệt")]: {
+    key: "lessons/grandparents-visit/goodbye-home/audio/vi/vocabulary_vocab_grandparents_visit_goodbye_home_wave_meaning_40e5a36d.mp3",
+    text: "vẫy tay tạm biệt",
   },
   [normalizeText("Chạm bàn tay đang chải bằng lượt nhẹ nhé.")]: {
     key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/brush_softly_practice_45e856f3.mp3",
@@ -69136,6 +71008,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/stroke_teach_success_98a473e3.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là vuốt nhẹ.",
   },
+  [normalizeText("chải thật êm")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/vocabulary_vocab_groom_the_kitten_brush_the_fur_brush_softly_meaning_f9b6b5e8.mp3",
+    text: "chải thật êm",
+  },
+  [normalizeText("chải lông cho mèo")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/vocabulary_vocab_groom_the_kitten_brush_the_fur_brush_the_fur_meaning_f9b9fd68.mp3",
+    text: "chải lông cho mèo",
+  },
+  [normalizeText("chú mèo bông mượt")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/vocabulary_vocab_groom_the_kitten_brush_the_fur_fluffy_kitten_meaning_ab5e4603.mp3",
+    text: "chú mèo bông mượt",
+  },
+  [normalizeText("chăm sóc lông")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/vocabulary_vocab_groom_the_kitten_brush_the_fur_groom_meaning_acb70ed2.mp3",
+    text: "chăm sóc lông",
+  },
+  [normalizeText("gọn gàng")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/vocabulary_vocab_groom_the_kitten_brush_the_fur_neat_meaning_db1e0fd4.mp3",
+    text: "gọn gàng",
+  },
+  [normalizeText("bộ lông óng mượt")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/vocabulary_vocab_groom_the_kitten_brush_the_fur_shiny_coat_meaning_914cd742.mp3",
+    text: "bộ lông óng mượt",
+  },
+  [normalizeText("mượt mà")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/vocabulary_vocab_groom_the_kitten_brush_the_fur_smooth_meaning_8ce0f78e.mp3",
+    text: "mượt mà",
+  },
+  [normalizeText("vuốt nhẹ")]: {
+    key: "lessons/groom-the-kitten/brush-the-fur/audio/vi/vocabulary_vocab_groom_the_kitten_brush_the_fur_stroke_meaning_0af3bf64.mp3",
+    text: "vuốt nhẹ",
+  },
   [normalizeText("Chạm lông bàn chải để kiểm tra đầu lông mềm nhé.")]: {
     key: "lessons/groom-the-kitten/get-the-brush/audio/vi/bristles_practice_b5acb3d4.mp3",
     text: "Chạm lông bàn chải để kiểm tra đầu lông mềm nhé.",
@@ -69348,6 +71252,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/get-the-brush/audio/vi/tangle_teach_success_71023882.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là lông xù rối.",
   },
+  [normalizeText("lông bàn chải")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/vocabulary_vocab_groom_the_kitten_get_the_brush_bristles_meaning_8876c803.mp3",
+    text: "lông bàn chải",
+  },
+  [normalizeText("bàn chải lông")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/vocabulary_vocab_groom_the_kitten_get_the_brush_brush_meaning_db4b1328.mp3",
+    text: "bàn chải lông",
+  },
+  [normalizeText("bàn chải sạch")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/vocabulary_vocab_groom_the_kitten_get_the_brush_clean_brush_meaning_b80ee5cd.mp3",
+    text: "bàn chải sạch",
+  },
+  [normalizeText("bộ lông mềm")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/vocabulary_vocab_groom_the_kitten_get_the_brush_fur_meaning_e25caf3e.mp3",
+    text: "bộ lông mềm",
+  },
+  [normalizeText("chú mèo con")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/vocabulary_vocab_groom_the_kitten_get_the_brush_kitten_meaning_790531bf.mp3",
+    text: "chú mèo con",
+  },
+  [normalizeText("tấm thảm êm")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/vocabulary_vocab_groom_the_kitten_get_the_brush_mat_meaning_7a04320d.mp3",
+    text: "tấm thảm êm",
+  },
+  [normalizeText("bàn chải thú cưng")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/vocabulary_vocab_groom_the_kitten_get_the_brush_pet_brush_meaning_adec4a12.mp3",
+    text: "bàn chải thú cưng",
+  },
+  [normalizeText("ngồi ngoan")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/vocabulary_vocab_groom_the_kitten_get_the_brush_sit_nicely_meaning_bcf33b27.mp3",
+    text: "ngồi ngoan",
+  },
+  [normalizeText("lông xù rối")]: {
+    key: "lessons/groom-the-kitten/get-the-brush/audio/vi/vocabulary_vocab_groom_the_kitten_get_the_brush_tangle_meaning_d18f28b7.mp3",
+    text: "lông xù rối",
+  },
   [normalizeText("Chạm mèo đang cười tươi cùng bé nhé.")]: {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/cheerful_practice_7c2b3830.mp3",
     text: "Chạm mèo đang cười tươi cùng bé nhé.",
@@ -69548,6 +71488,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/tail_teach_fail_91cdef21.mp3",
     text: "Chạm chiếc đuôi mềm màu cam nhé.",
   },
+  [normalizeText("vui tươi")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/vocabulary_vocab_groom_the_kitten_kitten_purrs_cheerful_meaning_d053d640.mp3",
+    text: "vui tươi",
+  },
+  [normalizeText("ấm cúng dễ chịu")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/vocabulary_vocab_groom_the_kitten_kitten_purrs_cozy_meaning_74d110ae.mp3",
+    text: "ấm cúng dễ chịu",
+  },
+  [normalizeText("chiếc đuôi cuộn cong")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/vocabulary_vocab_groom_the_kitten_kitten_purrs_curled_tail_meaning_01759daf.mp3",
+    text: "chiếc đuôi cuộn cong",
+  },
+  [normalizeText("nghe tiếng gừ gừ")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/vocabulary_vocab_groom_the_kitten_kitten_purrs_listen_to_the_kitten_purr_meaning_f616f2ba.mp3",
+    text: "nghe tiếng gừ gừ",
+  },
+  [normalizeText("yêu thương mèo con")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/vocabulary_vocab_groom_the_kitten_kitten_purrs_love_the_kitten_meaning_571d9633.mp3",
+    text: "yêu thương mèo con",
+  },
+  [normalizeText("tiếng gừ gừ")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/vocabulary_vocab_groom_the_kitten_kitten_purrs_purr_meaning_107aa877.mp3",
+    text: "tiếng gừ gừ",
+  },
+  [normalizeText("thư giãn")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/vocabulary_vocab_groom_the_kitten_kitten_purrs_relaxed_meaning_cd236aaa.mp3",
+    text: "thư giãn",
+  },
+  [normalizeText("dụi đầu âu yếm")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/vocabulary_vocab_groom_the_kitten_kitten_purrs_snuggle_meaning_5aff3b02.mp3",
+    text: "dụi đầu âu yếm",
+  },
+  [normalizeText("tiếng gừ ngọt ngào")]: {
+    key: "lessons/groom-the-kitten/kitten-purrs/audio/vi/vocabulary_vocab_groom_the_kitten_kitten_purrs_sweet_purr_meaning_d836f37b.mp3",
+    text: "tiếng gừ ngọt ngào",
+  },
   [normalizeText("Tìm hình để quả xanh tiếp tục ở trên cành nhé.")]: {
     key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/choose_leave_unripe_one_a4b82391.mp3",
     text: "Tìm hình để quả xanh tiếp tục ở trên cành nhé.",
@@ -69687,6 +71663,22 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Quả xanh cần thêm thời gian trên cây.")]: {
     key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/notice_unripe_tomato_success_b6b4c70b.mp3",
     text: "Quả xanh cần thêm thời gian trên cây.",
+  },
+  [normalizeText("để quả ở lại trên cây")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/vocabulary_vocab_harvest_day_find_the_ripe_ones_leave_unripe_one_meaning_951c37d2.mp3",
+    text: "để quả ở lại trên cây",
+  },
+  [normalizeText("màu đỏ")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/vocabulary_vocab_harvest_day_find_the_ripe_ones_red_meaning_b20d6170.mp3",
+    text: "màu đỏ",
+  },
+  [normalizeText("đã chín")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/vocabulary_vocab_harvest_day_find_the_ripe_ones_ripe_meaning_43ea9a4c.mp3",
+    text: "đã chín",
+  },
+  [normalizeText("chưa chín")]: {
+    key: "lessons/harvest-day/find-the-ripe-ones/audio/vi/vocabulary_vocab_harvest_day_find_the_ripe_ones_unripe_meaning_884a048a.mp3",
+    text: "chưa chín",
   },
   [normalizeText("Chạm cành cây vẫn đứng yên sau khi hái nhé.")]: {
     key: "lessons/harvest-day/pick-gently/audio/vi/check_branch_after_first_pick_3a90db8e.mp3",
@@ -69835,6 +71827,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Bàn tay sẽ đỡ và xoay quả thật nhẹ.")]: {
     key: "lessons/harvest-day/pick-gently/audio/vi/prepare_hand_success_5608cca9.mp3",
     text: "Bàn tay sẽ đỡ và xoay quả thật nhẹ.",
+  },
+  [normalizeText("chiếc giỏ")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/vocabulary_vocab_harvest_day_pick_gently_basket_meaning_71585de3.mp3",
+    text: "chiếc giỏ",
+  },
+  [normalizeText("cành cây")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/vocabulary_vocab_harvest_day_pick_gently_branch_meaning_c95f03e0.mp3",
+    text: "cành cây",
+  },
+  [normalizeText("cuống quả")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/vocabulary_vocab_harvest_day_pick_gently_fruit_stem_meaning_7b90f0b3.mp3",
+    text: "cuống quả",
+  },
+  [normalizeText("nhẹ nhàng")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/vocabulary_vocab_harvest_day_pick_gently_gentle_meaning_ccf577e7.mp3",
+    text: "nhẹ nhàng",
+  },
+  [normalizeText("hái")]: {
+    key: "lessons/harvest-day/pick-gently/audio/vi/vocabulary_vocab_harvest_day_pick_gently_pick_meaning_17ff326e.mp3",
+    text: "hái",
   },
   [normalizeText("Kéo quả bị dập vào khay người lớn kiểm tra nhé.")]: {
     key: "lessons/harvest-day/sort-the-harvest/audio/vi/adult_check_bruised_3a476199.mp3",
@@ -69992,6 +72004,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/harvest-day/sort-the-harvest/audio/vi/sort_vegetables_success_04adce75.mp3",
     text: "Cà rốt và đậu đã vào đúng giỏ.",
   },
+  [normalizeText("bị dập")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/vocabulary_vocab_harvest_day_sort_the_harvest_bruised_meaning_49888ebb.mp3",
+    text: "bị dập",
+  },
+  [normalizeText("cà rốt")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/vocabulary_vocab_harvest_day_sort_the_harvest_carrot_meaning_ef064047.mp3",
+    text: "cà rốt",
+  },
+  [normalizeText("rau thơm")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/vocabulary_vocab_harvest_day_sort_the_harvest_herb_meaning_83d6aee7.mp3",
+    text: "rau thơm",
+  },
+  [normalizeText("tách riêng")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/vocabulary_vocab_harvest_day_sort_the_harvest_separate_meaning_d54037b6.mp3",
+    text: "tách riêng",
+  },
+  [normalizeText("xếp theo từng loại")]: {
+    key: "lessons/harvest-day/sort-the-harvest/audio/vi/vocabulary_vocab_harvest_day_sort_the_harvest_sort_by_type_meaning_2d06f162.mp3",
+    text: "xếp theo từng loại",
+  },
   [normalizeText("Đâu là hình chuyển chậu vào vùng nắng?")]: {
     key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/choose_sunlight_action_a54feac6.mp3",
     text: "Đâu là hình chuyển chậu vào vùng nắng?",
@@ -70111,6 +72143,14 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Cây tươi hơn và có thêm một chiếc lá.")]: {
     key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/see_healthy_plant_success_ee7d9739.mp3",
     text: "Cây tươi hơn và có thêm một chiếc lá.",
+  },
+  [normalizeText("đưa vào vùng nắng")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/vocabulary_vocab_help_it_grow_new_leaf_and_sunlight_move_into_sunlight_meaning_4709e9ca.mp3",
+    text: "đưa vào vùng nắng",
+  },
+  [normalizeText("ánh nắng")]: {
+    key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/vocabulary_vocab_help_it_grow_new_leaf_and_sunlight_sunlight_meaning_1c0700b6.mp3",
+    text: "ánh nắng",
   },
   [normalizeText("Chạm vòng ngày đêm để thời gian trôi qua nhé.")]: {
     key: "lessons/help-it-grow/new-leaf-and-sunlight/audio/vi/wait_new_leaf_b53a5909.mp3",
@@ -70288,6 +72328,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/help-it-grow/rainy-day-care/audio/vi/see_safe_plant_success_dce561ca.mp3",
     text: "Cây an toàn, đất vẫn còn ướt.",
   },
+  [normalizeText("kiểm tra đất")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/vocabulary_vocab_help_it_grow_rainy_day_care_check_soil_meaning_76495b22.mp3",
+    text: "kiểm tra đất",
+  },
+  [normalizeText("mưa")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/vocabulary_vocab_help_it_grow_rainy_day_care_rain_meaning_6bf5fb77.mp3",
+    text: "mưa",
+  },
+  [normalizeText("rễ cây")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/vocabulary_vocab_help_it_grow_rainy_day_care_roots_meaning_019eb378.mp3",
+    text: "rễ cây",
+  },
+  [normalizeText("đất trồng cây")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/vocabulary_vocab_help_it_grow_rainy_day_care_soil_meaning_c85559e4.mp3",
+    text: "đất trồng cây",
+  },
+  [normalizeText("chờ mưa tạnh")]: {
+    key: "lessons/help-it-grow/rainy-day-care/audio/vi/vocabulary_vocab_help_it_grow_rainy_day_care_wait_for_rain_to_stop_meaning_7301c928.mp3",
+    text: "chờ mưa tạnh",
+  },
   [normalizeText("Đâu là hình đỡ thân cây đứng vững?")]: {
     key: "lessons/help-it-grow/wind-and-support/audio/vi/choose_support_stem_4f6d2ac0.mp3",
     text: "Đâu là hình đỡ thân cây đứng vững?",
@@ -70415,6 +72475,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Cọc và dây giữ cây đứng vững.")]: {
     key: "lessons/help-it-grow/wind-and-support/audio/vi/test_support_success_281dd531.mp3",
     text: "Cọc và dây giữ cây đứng vững.",
+  },
+  [normalizeText("dây buộc mềm")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/vocabulary_vocab_help_it_grow_wind_and_support_soft_tie_meaning_503c8f75.mp3",
+    text: "dây buộc mềm",
+  },
+  [normalizeText("cọc đỡ cây")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/vocabulary_vocab_help_it_grow_wind_and_support_stake_meaning_af67ccda.mp3",
+    text: "cọc đỡ cây",
+  },
+  [normalizeText("thân cây")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/vocabulary_vocab_help_it_grow_wind_and_support_stem_meaning_b90eab20.mp3",
+    text: "thân cây",
+  },
+  [normalizeText("đỡ thân cây")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/vocabulary_vocab_help_it_grow_wind_and_support_support_stem_meaning_9be14153.mp3",
+    text: "đỡ thân cây",
+  },
+  [normalizeText("gió")]: {
+    key: "lessons/help-it-grow/wind-and-support/audio/vi/vocabulary_vocab_help_it_grow_wind_and_support_wind_meaning_70b8d51e.mp3",
+    text: "gió",
   },
   [normalizeText("Chạm vòng ngày đêm để xem cây lớn thêm nhé.")]: {
     key: "lessons/help-it-grow/wind-and-support/audio/vi/wait_for_flower_bud_34292b0f.mp3",
@@ -70584,6 +72664,34 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/home-play/creative-play/audio/vi/teach_solve_puzzle_success_17f03e33.mp3",
     text: "Ghép đúng mảnh sẽ hoàn thành bức tranh.",
   },
+  [normalizeText("vẽ tranh")]: {
+    key: "lessons/home-play/creative-play/audio/vi/vocabulary_vocab_draw_picture_meaning_64244182.mp3",
+    text: "vẽ tranh",
+  },
+  [normalizeText("cái trống")]: {
+    key: "lessons/home-play/creative-play/audio/vi/vocabulary_vocab_home_play_drum_meaning_7c783894.mp3",
+    text: "cái trống",
+  },
+  [normalizeText("âm nhạc")]: {
+    key: "lessons/home-play/creative-play/audio/vi/vocabulary_vocab_home_play_music_meaning_96a6add2.mp3",
+    text: "âm nhạc",
+  },
+  [normalizeText("tờ giấy")]: {
+    key: "lessons/home-play/creative-play/audio/vi/vocabulary_vocab_home_play_paper_meaning_1dbbb6a4.mp3",
+    text: "tờ giấy",
+  },
+  [normalizeText("tranh ghép")]: {
+    key: "lessons/home-play/creative-play/audio/vi/vocabulary_vocab_home_play_puzzle_meaning_eb2c4174.mp3",
+    text: "tranh ghép",
+  },
+  [normalizeText("đọc sách")]: {
+    key: "lessons/home-play/creative-play/audio/vi/vocabulary_vocab_read_book_meaning_1506724a.mp3",
+    text: "đọc sách",
+  },
+  [normalizeText("ghép tranh")]: {
+    key: "lessons/home-play/creative-play/audio/vi/vocabulary_vocab_solve_puzzle_meaning_798bec38.mp3",
+    text: "ghép tranh",
+  },
   [normalizeText("Bé đã chơi ở góc đồ chơi thật vui!")]: {
     key: "lessons/home-play/home-toy-corner/audio/vi/completion_d1dfc248.mp3",
     text: "Bé đã chơi ở góc đồ chơi thật vui!",
@@ -70727,6 +72835,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là kệ đồ chơi.")]: {
     key: "lessons/home-play/home-toy-corner/audio/vi/teach_shelf_success_917fb5c3.mp3",
     text: "Từ này nghĩa là kệ đồ chơi.",
+  },
+  [normalizeText("xây tháp")]: {
+    key: "lessons/home-play/home-toy-corner/audio/vi/vocabulary_vocab_build_tower_meaning_d746299b.mp3",
+    text: "xây tháp",
+  },
+  [normalizeText("chọn đồ chơi")]: {
+    key: "lessons/home-play/home-toy-corner/audio/vi/vocabulary_vocab_choose_toy_meaning_655c8528.mp3",
+    text: "chọn đồ chơi",
+  },
+  [normalizeText("xe đồ chơi")]: {
+    key: "lessons/home-play/home-toy-corner/audio/vi/vocabulary_vocab_home_play_car_meaning_acdad194.mp3",
+    text: "xe đồ chơi",
+  },
+  [normalizeText("kệ đồ chơi")]: {
+    key: "lessons/home-play/home-toy-corner/audio/vi/vocabulary_vocab_home_play_shelf_meaning_4dc632be.mp3",
+    text: "kệ đồ chơi",
+  },
+  [normalizeText("chơi nhẹ nhàng")]: {
+    key: "lessons/home-play/home-toy-corner/audio/vi/vocabulary_vocab_play_gently_meaning_0a0e6ae0.mp3",
+    text: "chơi nhẹ nhàng",
   },
   [normalizeText("Bé đã dọn đồ chơi thật gọn gàng!")]: {
     key: "lessons/home-play/toy-cleanup/audio/vi/completion_e904d52c.mp3",
@@ -70887,6 +73015,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Dọn phòng giúp bé có chỗ chơi sạch đẹp.")]: {
     key: "lessons/home-play/toy-cleanup/audio/vi/teach_tidy_room_success_75e54ee7.mp3",
     text: "Dọn phòng giúp bé có chỗ chơi sạch đẹp.",
+  },
+  [normalizeText("dọn đồ chơi")]: {
+    key: "lessons/home-play/toy-cleanup/audio/vi/vocabulary_vocab_clean_up_toys_meaning_db8a7a80.mp3",
+    text: "dọn đồ chơi",
+  },
+  [normalizeText("cái kệ")]: {
+    key: "lessons/home-play/toy-cleanup/audio/vi/vocabulary_vocab_home_play_cleanup_shelf_meaning_f39543c7.mp3",
+    text: "cái kệ",
+  },
+  [normalizeText("sàn nhà")]: {
+    key: "lessons/home-play/toy-cleanup/audio/vi/vocabulary_vocab_home_play_floor_meaning_df3596c5.mp3",
+    text: "sàn nhà",
+  },
+  [normalizeText("cất sách")]: {
+    key: "lessons/home-play/toy-cleanup/audio/vi/vocabulary_vocab_put_away_book_meaning_17b3e444.mp3",
+    text: "cất sách",
+  },
+  [normalizeText("dọn phòng")]: {
+    key: "lessons/home-play/toy-cleanup/audio/vi/vocabulary_vocab_tidy_room_meaning_cd8f64fb.mp3",
+    text: "dọn phòng",
   },
   [normalizeText("Bé đã chọn được quyển sách mình thích.")]: {
     key: "lessons/library-visit/book-corner/audio/vi/completion_69e8a9d2.mp3",
@@ -71080,6 +73228,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/library-visit/book-corner/audio/vi/teach_turn_page_success_f4c33836.mp3",
     text: "Câu này nghĩa là lật trang.",
   },
+  [normalizeText("sách chữ cái")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/vocabulary_vocab_library_visit_book_corner_alphabet_book_meaning_1a1b4343.mp3",
+    text: "sách chữ cái",
+  },
+  [normalizeText("thẻ đánh dấu sách")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/vocabulary_vocab_library_visit_book_corner_bookmark_meaning_04c00bd8.mp3",
+    text: "thẻ đánh dấu sách",
+  },
+  [normalizeText("mượn sách")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/vocabulary_vocab_library_visit_book_corner_borrow_book_meaning_95ac43f9.mp3",
+    text: "mượn sách",
+  },
+  [normalizeText("chọn sách")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/vocabulary_vocab_library_visit_book_corner_choose_book_meaning_0ba018c0.mp3",
+    text: "chọn sách",
+  },
+  [normalizeText("bìa sách")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/vocabulary_vocab_library_visit_book_corner_cover_meaning_55b0959f.mp3",
+    text: "bìa sách",
+  },
+  [normalizeText("trang sách")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/vocabulary_vocab_library_visit_book_corner_page_meaning_f3565a64.mp3",
+    text: "trang sách",
+  },
+  [normalizeText("sách tranh")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/vocabulary_vocab_library_visit_book_corner_picture_book_meaning_48fe0b73.mp3",
+    text: "sách tranh",
+  },
+  [normalizeText("ghế đọc sách")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/vocabulary_vocab_library_visit_book_corner_reading_chair_meaning_17fa60f3.mp3",
+    text: "ghế đọc sách",
+  },
+  [normalizeText("lật trang")]: {
+    key: "lessons/library-visit/book-corner/audio/vi/vocabulary_vocab_library_visit_book_corner_turn_page_meaning_9c218b0d.mp3",
+    text: "lật trang",
+  },
   [normalizeText("Bé đã biết dùng thẻ và trả sách đúng chỗ.")]: {
     key: "lessons/library-visit/library-card/audio/vi/completion_6ba19d97.mp3",
     text: "Bé đã biết dùng thẻ và trả sách đúng chỗ.",
@@ -71272,6 +73456,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/library-visit/library-card/audio/vi/teach_use_quiet_voice_success_9616d5e1.mp3",
     text: "Câu này nghĩa là nói giọng nhỏ.",
   },
+  [normalizeText("giỏ đựng sách")]: {
+    key: "lessons/library-visit/library-card/audio/vi/vocabulary_vocab_library_visit_library_card_book_basket_meaning_f319ef16.mp3",
+    text: "giỏ đựng sách",
+  },
+  [normalizeText("nơi trả sách")]: {
+    key: "lessons/library-visit/library-card/audio/vi/vocabulary_vocab_library_visit_library_card_book_return_meaning_35fc427b.mp3",
+    text: "nơi trả sách",
+  },
+  [normalizeText("cô thủ thư")]: {
+    key: "lessons/library-visit/library-card/audio/vi/vocabulary_vocab_library_visit_library_card_librarian_meaning_28a1f916.mp3",
+    text: "cô thủ thư",
+  },
+  [normalizeText("thẻ thư viện")]: {
+    key: "lessons/library-visit/library-card/audio/vi/vocabulary_vocab_library_visit_library_card_library_card_meaning_01381338.mp3",
+    text: "thẻ thư viện",
+  },
+  [normalizeText("biển nhắc nói nhỏ")]: {
+    key: "lessons/library-visit/library-card/audio/vi/vocabulary_vocab_library_visit_library_card_quiet_sign_meaning_b2430a08.mp3",
+    text: "biển nhắc nói nhỏ",
+  },
+  [normalizeText("trả sách")]: {
+    key: "lessons/library-visit/library-card/audio/vi/vocabulary_vocab_library_visit_library_card_return_book_meaning_c2f18423.mp3",
+    text: "trả sách",
+  },
+  [normalizeText("kệ sách")]: {
+    key: "lessons/library-visit/library-card/audio/vi/vocabulary_vocab_library_visit_library_card_shelf_meaning_5fe81feb.mp3",
+    text: "kệ sách",
+  },
+  [normalizeText("đưa thẻ thư viện")]: {
+    key: "lessons/library-visit/library-card/audio/vi/vocabulary_vocab_library_visit_library_card_show_card_meaning_2aac406b.mp3",
+    text: "đưa thẻ thư viện",
+  },
+  [normalizeText("nói giọng nhỏ")]: {
+    key: "lessons/library-visit/library-card/audio/vi/vocabulary_vocab_library_visit_library_card_use_quiet_voice_meaning_2c48ac0e.mp3",
+    text: "nói giọng nhỏ",
+  },
   [normalizeText("Bé đã ngồi nghe chuyện thật chăm chú.")]: {
     key: "lessons/library-visit/story-circle/audio/vi/completion_a15fbc7e.mp3",
     text: "Bé đã ngồi nghe chuyện thật chăm chú.",
@@ -71460,6 +73680,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/library-visit/story-circle/audio/vi/teach_storyteller_success_a6f86d0a.mp3",
     text: "Từ này nghĩa là người kể chuyện.",
   },
+  [normalizeText("vòng tròn")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/vocabulary_vocab_library_visit_story_circle_circle_meaning_4238714d.mp3",
+    text: "vòng tròn",
+  },
+  [normalizeText("vỗ tay nhẹ")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/vocabulary_vocab_library_visit_story_circle_clap_softly_meaning_f92f9eef.mp3",
+    text: "vỗ tay nhẹ",
+  },
+  [normalizeText("đệm ngồi")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/vocabulary_vocab_library_visit_story_circle_cushion_meaning_72d4a9eb.mp3",
+    text: "đệm ngồi",
+  },
+  [normalizeText("chuông giờ kể chuyện")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/vocabulary_vocab_library_visit_story_circle_library_bell_meaning_c064c0df.mp3",
+    text: "chuông giờ kể chuyện",
+  },
+  [normalizeText("nghe câu chuyện")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/vocabulary_vocab_library_visit_story_circle_listen_story_meaning_589da139.mp3",
+    text: "nghe câu chuyện",
+  },
+  [normalizeText("rối tay")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/vocabulary_vocab_library_visit_story_circle_puppet_meaning_01d6a4f6.mp3",
+    text: "rối tay",
+  },
+  [normalizeText("ngồi thành vòng tròn")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/vocabulary_vocab_library_visit_story_circle_sit_in_circle_meaning_b728d683.mp3",
+    text: "ngồi thành vòng tròn",
+  },
+  [normalizeText("thẻ câu chuyện")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/vocabulary_vocab_library_visit_story_circle_story_card_meaning_d4636383.mp3",
+    text: "thẻ câu chuyện",
+  },
+  [normalizeText("người kể chuyện")]: {
+    key: "lessons/library-visit/story-circle/audio/vi/vocabulary_vocab_library_visit_story_circle_storyteller_meaning_cdb90654.mp3",
+    text: "người kể chuyện",
+  },
   [normalizeText("Bỏ vụn thức ăn vào thùng rác.")]: {
     key: "lessons/lunch-time/after-lunch/audio/vi/cleanup_drag_crumbs_to_trash_74c048d9.mp3",
     text: "Bỏ vụn thức ăn vào thùng rác.",
@@ -71603,6 +73859,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Bé đã dọn gọn sau bữa trưa.")]: {
     key: "lessons/lunch-time/after-lunch/audio/vi/completion_165a53fe.mp3",
     text: "Bé đã dọn gọn sau bữa trưa.",
+  },
+  [normalizeText("vụn thức ăn")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/vocabulary_vocab_crumbs_meaning_74a69485.mp3",
+    text: "vụn thức ăn",
+  },
+  [normalizeText("dọn dẹp")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/vocabulary_vocab_lunch_clean_up_meaning_3da6c1f7.mp3",
+    text: "dọn dẹp",
+  },
+  [normalizeText("thùng rác")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/vocabulary_vocab_trash_bin_meaning_d90858f1.mp3",
+    text: "thùng rác",
+  },
+  [normalizeText("rửa tay")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/vocabulary_vocab_wash_hands_meaning_98a33d57.mp3",
+    text: "rửa tay",
+  },
+  [normalizeText("lau bàn")]: {
+    key: "lessons/lunch-time/after-lunch/audio/vi/vocabulary_vocab_wipe_table_meaning_16db5288.mp3",
+    text: "lau bàn",
   },
   [normalizeText("Bé đã chuẩn bị hộp cơm trưa.")]: {
     key: "lessons/lunch-time/lunch-box/audio/vi/completion_f055c155.mp3",
@@ -71788,6 +74064,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/lunch-time/lunch-box/audio/vi/lunchbox_teach_use_spoon_success_a57cc592.mp3",
     text: "Câu này nghĩa là dùng thìa.",
   },
+  [normalizeText("ăn trưa")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/vocabulary_vocab_eat_lunch_meaning_b6d3acdc.mp3",
+    text: "ăn trưa",
+  },
+  [normalizeText("cái bát")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/vocabulary_vocab_lunch_bowl_meaning_a7f7774c.mp3",
+    text: "cái bát",
+  },
+  [normalizeText("cái nĩa")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/vocabulary_vocab_lunch_fork_meaning_8282365e.mp3",
+    text: "cái nĩa",
+  },
+  [normalizeText("cơm")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/vocabulary_vocab_lunch_rice_meaning_c7cfaf4b.mp3",
+    text: "cơm",
+  },
+  [normalizeText("canh")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/vocabulary_vocab_lunch_soup_meaning_5b8c287f.mp3",
+    text: "canh",
+  },
+  [normalizeText("cái thìa")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/vocabulary_vocab_lunch_spoon_meaning_873c9e7b.mp3",
+    text: "cái thìa",
+  },
+  [normalizeText("mở hộp cơm")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/vocabulary_vocab_open_lunchbox_meaning_5c2bcb3c.mp3",
+    text: "mở hộp cơm",
+  },
+  [normalizeText("dùng thìa")]: {
+    key: "lessons/lunch-time/lunch-box/audio/vi/vocabulary_vocab_use_spoon_meaning_89e30dd4.mp3",
+    text: "dùng thìa",
+  },
   [normalizeText("Bé đã biết ăn trưa cùng bạn.")]: {
     key: "lessons/lunch-time/lunch-table/audio/vi/completion_aebd2395.mp3",
     text: "Bé đã biết ăn trưa cùng bạn.",
@@ -71947,6 +74255,30 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là bàn ăn.")]: {
     key: "lessons/lunch-time/lunch-table/audio/vi/lunchtable_teach_table_success_ab835110.mp3",
     text: "Từ này nghĩa là bàn ăn.",
+  },
+  [normalizeText("trái cây")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/vocabulary_vocab_lunch_fruit_meaning_090bcf7d.mp3",
+    text: "trái cây",
+  },
+  [normalizeText("bàn ăn")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/vocabulary_vocab_lunch_table_meaning_3951b155.mp3",
+    text: "bàn ăn",
+  },
+  [normalizeText("khăn giấy")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/vocabulary_vocab_napkin_meaning_4501b5c4.mp3",
+    text: "khăn giấy",
+  },
+  [normalizeText("nói lời cảm ơn")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/vocabulary_vocab_say_thank_you_meaning_e3917673.mp3",
+    text: "nói lời cảm ơn",
+  },
+  [normalizeText("chia sẻ đồ ăn")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/vocabulary_vocab_share_food_meaning_0e9780e3.mp3",
+    text: "chia sẻ đồ ăn",
+  },
+  [normalizeText("ngồi vào bàn")]: {
+    key: "lessons/lunch-time/lunch-table/audio/vi/vocabulary_vocab_sit_at_table_meaning_986619f0.mp3",
+    text: "ngồi vào bàn",
   },
   [normalizeText("Bé đã vệ sinh thật tốt.")]: {
     key: "lessons/morning-routine/bathroom/audio/vi/completion.mp3",
@@ -72139,6 +74471,46 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Tiếp theo là nước nhé.")]: {
     key: "lessons/morning-routine/bathroom/audio/vi/teach_water.mp3",
     text: "Tiếp theo là nước nhé.",
+  },
+  [normalizeText("đánh răng")]: {
+    key: "lessons/morning-routine/bathroom/audio/vi/vocabulary_vocab_brush_teeth_meaning_2f54ed72.mp3",
+    text: "đánh răng",
+  },
+  [normalizeText("lau mặt")]: {
+    key: "lessons/morning-routine/bathroom/audio/vi/vocabulary_vocab_dry_face_meaning_0d6b0e9f.mp3",
+    text: "lau mặt",
+  },
+  [normalizeText("cái gương")]: {
+    key: "lessons/morning-routine/bathroom/audio/vi/vocabulary_vocab_mirror_meaning_0c0cfe3c.mp3",
+    text: "cái gương",
+  },
+  [normalizeText("bồn rửa")]: {
+    key: "lessons/morning-routine/bathroom/audio/vi/vocabulary_vocab_sink_meaning_eac55b37.mp3",
+    text: "bồn rửa",
+  },
+  [normalizeText("xà phòng")]: {
+    key: "lessons/morning-routine/bathroom/audio/vi/vocabulary_vocab_soap_meaning_ce38c539.mp3",
+    text: "xà phòng",
+  },
+  [normalizeText("bàn chải đánh răng")]: {
+    key: "lessons/morning-routine/bathroom/audio/vi/vocabulary_vocab_toothbrush_meaning_4fa33837.mp3",
+    text: "bàn chải đánh răng",
+  },
+  [normalizeText("kem đánh răng")]: {
+    key: "lessons/morning-routine/bathroom/audio/vi/vocabulary_vocab_toothpaste_meaning_c0a522f3.mp3",
+    text: "kem đánh răng",
+  },
+  [normalizeText("khăn mặt")]: {
+    key: "lessons/morning-routine/bathroom/audio/vi/vocabulary_vocab_towel_meaning_84551a7e.mp3",
+    text: "khăn mặt",
+  },
+  [normalizeText("rửa mặt")]: {
+    key: "lessons/morning-routine/bathroom/audio/vi/vocabulary_vocab_wash_face_meaning_14e0e15f.mp3",
+    text: "rửa mặt",
+  },
+  [normalizeText("nước")]: {
+    key: "lessons/morning-routine/bathroom/audio/vi/vocabulary_vocab_water_meaning_097a0d78.mp3",
+    text: "nước",
   },
   [normalizeText("Đây là cái giường.")]: {
     key: "lessons/morning-routine/bedroom/audio/vi/bed_meaning.mp3",
@@ -72384,6 +74756,50 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/bedroom/audio/vi/teach_sun_intro.mp3",
     text: "Bây giờ mình nhìn mặt trời nhé.",
   },
+  [normalizeText("cái giường")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_bed_meaning_8a47b24f.mp3",
+    text: "cái giường",
+  },
+  [normalizeText("cái chăn")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_blanket_meaning_37ef8d07.mp3",
+    text: "cái chăn",
+  },
+  [normalizeText("cái hộp")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_box_meaning_9404b9b9.mp3",
+    text: "cái hộp",
+  },
+  [normalizeText("đồng hồ")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_clock_meaning_d968780c.mp3",
+    text: "đồng hồ",
+  },
+  [normalizeText("búp bê")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_doll_meaning_176dd475.mp3",
+    text: "búp bê",
+  },
+  [normalizeText("chào buổi sáng")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_good_morning_meaning_5fc89791.mp3",
+    text: "chào buổi sáng",
+  },
+  [normalizeText("đèn ngủ")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_lamp_meaning_a44cadbd.mp3",
+    text: "đèn ngủ",
+  },
+  [normalizeText("dọn giường")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_make_the_bed_meaning_1cc1f624.mp3",
+    text: "dọn giường",
+  },
+  [normalizeText("cái gối")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_pillow_meaning_fef8e848.mp3",
+    text: "cái gối",
+  },
+  [normalizeText("đôi tất")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_socks_meaning_b31d17fb.mp3",
+    text: "đôi tất",
+  },
+  [normalizeText("mặt trời")]: {
+    key: "lessons/morning-routine/bedroom/audio/vi/vocabulary_vocab_sun_meaning_5b981cb5.mp3",
+    text: "mặt trời",
+  },
   [normalizeText("Bé đã ăn sáng vui vẻ.")]: {
     key: "lessons/morning-routine/breakfast/audio/vi/completion.mp3",
     text: "Bé đã ăn sáng vui vẻ.",
@@ -72555,6 +74971,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Mình học câu rót sữa nhé.")]: {
     key: "lessons/morning-routine/breakfast/audio/vi/teach_pour_milk.mp3",
     text: "Mình học câu rót sữa nhé.",
+  },
+  [normalizeText("quả táo")]: {
+    key: "lessons/morning-routine/breakfast/audio/vi/vocabulary_vocab_apple_meaning_27de6303.mp3",
+    text: "quả táo",
+  },
+  [normalizeText("quả chuối")]: {
+    key: "lessons/morning-routine/breakfast/audio/vi/vocabulary_vocab_banana_meaning_df93da72.mp3",
+    text: "quả chuối",
+  },
+  [normalizeText("bánh mì")]: {
+    key: "lessons/morning-routine/breakfast/audio/vi/vocabulary_vocab_bread_meaning_1b4d8789.mp3",
+    text: "bánh mì",
+  },
+  [normalizeText("cái cốc")]: {
+    key: "lessons/morning-routine/breakfast/audio/vi/vocabulary_vocab_cup_meaning_a055be59.mp3",
+    text: "cái cốc",
+  },
+  [normalizeText("ăn sáng")]: {
+    key: "lessons/morning-routine/breakfast/audio/vi/vocabulary_vocab_eat_breakfast_meaning_97556b51.mp3",
+    text: "ăn sáng",
+  },
+  [normalizeText("quả trứng")]: {
+    key: "lessons/morning-routine/breakfast/audio/vi/vocabulary_vocab_egg_meaning_cd052d50.mp3",
+    text: "quả trứng",
+  },
+  [normalizeText("sữa")]: {
+    key: "lessons/morning-routine/breakfast/audio/vi/vocabulary_vocab_milk_meaning_7bd72868.mp3",
+    text: "sữa",
+  },
+  [normalizeText("cái đĩa")]: {
+    key: "lessons/morning-routine/breakfast/audio/vi/vocabulary_vocab_plate_meaning_14d908f9.mp3",
+    text: "cái đĩa",
+  },
+  [normalizeText("rót sữa")]: {
+    key: "lessons/morning-routine/breakfast/audio/vi/vocabulary_vocab_pour_milk_meaning_a23b6f8a.mp3",
+    text: "rót sữa",
   },
   [normalizeText("Bé đã sẵn sàng đi học.")]: {
     key: "lessons/morning-routine/go-to-school/audio/vi/completion.mp3",
@@ -72736,6 +75188,46 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/morning-routine/go-to-school/audio/vi/school_teach_uniform_success_ad977d1b.mp3",
     text: "Từ này nghĩa là đồng phục.",
   },
+  [normalizeText("cặp sách")]: {
+    key: "lessons/morning-routine/go-to-school/audio/vi/vocabulary_vocab_bag_meaning_17a1b676.mp3",
+    text: "cặp sách",
+  },
+  [normalizeText("quyển sách")]: {
+    key: "lessons/morning-routine/go-to-school/audio/vi/vocabulary_vocab_book_meaning_188f17d5.mp3",
+    text: "quyển sách",
+  },
+  [normalizeText("xe buýt")]: {
+    key: "lessons/morning-routine/go-to-school/audio/vi/vocabulary_vocab_bus_meaning_dc3fbbb3.mp3",
+    text: "xe buýt",
+  },
+  [normalizeText("đi học")]: {
+    key: "lessons/morning-routine/go-to-school/audio/vi/vocabulary_vocab_go_to_school_meaning_bb27ff5d.mp3",
+    text: "đi học",
+  },
+  [normalizeText("hộp cơm")]: {
+    key: "lessons/morning-routine/go-to-school/audio/vi/vocabulary_vocab_lunchbox_meaning_6fb2e677.mp3",
+    text: "hộp cơm",
+  },
+  [normalizeText("xếp cặp")]: {
+    key: "lessons/morning-routine/go-to-school/audio/vi/vocabulary_vocab_pack_bag_meaning_06aaf34b.mp3",
+    text: "xếp cặp",
+  },
+  [normalizeText("mang giày")]: {
+    key: "lessons/morning-routine/go-to-school/audio/vi/vocabulary_vocab_put_on_shoes_meaning_c0e8af15.mp3",
+    text: "mang giày",
+  },
+  [normalizeText("trường học")]: {
+    key: "lessons/morning-routine/go-to-school/audio/vi/vocabulary_vocab_school_meaning_7d6a7e91.mp3",
+    text: "trường học",
+  },
+  [normalizeText("giày")]: {
+    key: "lessons/morning-routine/go-to-school/audio/vi/vocabulary_vocab_shoes_meaning_1c16eaa5.mp3",
+    text: "giày",
+  },
+  [normalizeText("đồng phục")]: {
+    key: "lessons/morning-routine/go-to-school/audio/vi/vocabulary_vocab_uniform_meaning_7f700b23.mp3",
+    text: "đồng phục",
+  },
   [normalizeText("Bé đã vận động tay và các ngón thật khéo.")]: {
     key: "lessons/my-body/arms-and-hands/audio/vi/completion_bcd806e9.mp3",
     text: "Bé đã vận động tay và các ngón thật khéo.",
@@ -72891,6 +75383,34 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là cổ tay.")]: {
     key: "lessons/my-body/arms-and-hands/audio/vi/teach_wrist_success_eb127e69.mp3",
     text: "Từ này nghĩa là cổ tay.",
+  },
+  [normalizeText("cánh tay")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/vocabulary_vocab_my_body_arms_and_hands_arm_meaning_59ce5652.mp3",
+    text: "cánh tay",
+  },
+  [normalizeText("các ngón tay")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/vocabulary_vocab_my_body_arms_and_hands_fingers_meaning_16f82f20.mp3",
+    text: "các ngón tay",
+  },
+  [normalizeText("bàn tay")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/vocabulary_vocab_my_body_arms_and_hands_hand_meaning_93eeb2bb.mp3",
+    text: "bàn tay",
+  },
+  [normalizeText("giơ hai tay lên")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/vocabulary_vocab_my_body_arms_and_hands_raise_arms_meaning_8fd3e5fd.mp3",
+    text: "giơ hai tay lên",
+  },
+  [normalizeText("ngón tay cái")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/vocabulary_vocab_my_body_arms_and_hands_thumb_meaning_e5b8c98a.mp3",
+    text: "ngón tay cái",
+  },
+  [normalizeText("ngọ nguậy các ngón tay")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/vocabulary_vocab_my_body_arms_and_hands_wiggle_fingers_meaning_5c7c9c2d.mp3",
+    text: "ngọ nguậy các ngón tay",
+  },
+  [normalizeText("cổ tay")]: {
+    key: "lessons/my-body/arms-and-hands/audio/vi/vocabulary_vocab_my_body_arms_and_hands_wrist_meaning_315eaeff.mp3",
+    text: "cổ tay",
   },
   [normalizeText("Bé đã nhận ra các phần của đầu và khuôn mặt.")]: {
     key: "lessons/my-body/head-and-face/audio/vi/completion_2be66d0b.mp3",
@@ -73076,6 +75596,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/my-body/head-and-face/audio/vi/teach_touch_head_success_30f79ca6.mp3",
     text: "Câu này nghĩa là chạm vào đầu.",
   },
+  [normalizeText("đôi tai")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/vocabulary_vocab_my_body_head_and_face_ears_meaning_8c18bb2f.mp3",
+    text: "đôi tai",
+  },
+  [normalizeText("đôi mắt")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/vocabulary_vocab_my_body_head_and_face_eyes_meaning_8ad4090e.mp3",
+    text: "đôi mắt",
+  },
+  [normalizeText("mái tóc")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/vocabulary_vocab_my_body_head_and_face_hair_meaning_6e63a383.mp3",
+    text: "mái tóc",
+  },
+  [normalizeText("cái đầu")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/vocabulary_vocab_my_body_head_and_face_head_meaning_3e113457.mp3",
+    text: "cái đầu",
+  },
+  [normalizeText("cái miệng")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/vocabulary_vocab_my_body_head_and_face_mouth_meaning_34abb638.mp3",
+    text: "cái miệng",
+  },
+  [normalizeText("cái mũi")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/vocabulary_vocab_my_body_head_and_face_nose_meaning_e075f32f.mp3",
+    text: "cái mũi",
+  },
+  [normalizeText("mở miệng")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/vocabulary_vocab_my_body_head_and_face_open_mouth_meaning_68556ba4.mp3",
+    text: "mở miệng",
+  },
+  [normalizeText("chỉ vào mũi")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/vocabulary_vocab_my_body_head_and_face_point_nose_meaning_28750bbc.mp3",
+    text: "chỉ vào mũi",
+  },
+  [normalizeText("chạm vào đầu")]: {
+    key: "lessons/my-body/head-and-face/audio/vi/vocabulary_vocab_my_body_head_and_face_touch_head_meaning_397ae0e2.mp3",
+    text: "chạm vào đầu",
+  },
   [normalizeText("Bé đã nhận ra các phần của đôi chân.")]: {
     key: "lessons/my-body/legs-and-feet/audio/vi/completion_d6302e60.mp3",
     text: "Bé đã nhận ra các phần của đôi chân.",
@@ -73240,6 +75796,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/my-body/legs-and-feet/audio/vi/teach_toes_success_aadc1983.mp3",
     text: "Từ này nghĩa là các ngón chân.",
   },
+  [normalizeText("mắt cá chân")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/vocabulary_vocab_my_body_legs_and_feet_ankle_meaning_f60339ff.mp3",
+    text: "mắt cá chân",
+  },
+  [normalizeText("khuỵu đầu gối")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/vocabulary_vocab_my_body_legs_and_feet_bend_knees_meaning_a866cbc6.mp3",
+    text: "khuỵu đầu gối",
+  },
+  [normalizeText("bàn chân")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/vocabulary_vocab_my_body_legs_and_feet_foot_meaning_6b92625d.mp3",
+    text: "bàn chân",
+  },
+  [normalizeText("gót chân")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/vocabulary_vocab_my_body_legs_and_feet_heel_meaning_660b24a3.mp3",
+    text: "gót chân",
+  },
+  [normalizeText("chân")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/vocabulary_vocab_my_body_legs_and_feet_leg_meaning_17198793.mp3",
+    text: "chân",
+  },
+  [normalizeText("giậm chân")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/vocabulary_vocab_my_body_legs_and_feet_stomp_feet_meaning_bef8d365.mp3",
+    text: "giậm chân",
+  },
+  [normalizeText("đứng nhón chân")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/vocabulary_vocab_my_body_legs_and_feet_tiptoes_meaning_8a6e5651.mp3",
+    text: "đứng nhón chân",
+  },
+  [normalizeText("các ngón chân")]: {
+    key: "lessons/my-body/legs-and-feet/audio/vi/vocabulary_vocab_my_body_legs_and_feet_toes_meaning_45fc3dc3.mp3",
+    text: "các ngón chân",
+  },
   [normalizeText("Bé đã gọi tên cảm giác giận, sợ và lo.")]: {
     key: "lessons/my-feelings/angry-and-scared/audio/vi/completion_b19c976b.mp3",
     text: "Bé đã gọi tên cảm giác giận, sợ và lo.",
@@ -73396,6 +75984,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/my-feelings/angry-and-scared/audio/vi/teach_worried_success_de50ebba.mp3",
     text: "Từ này nghĩa là lo lắng.",
   },
+  [normalizeText("tức giận")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/vocabulary_vocab_my_feelings_angry_and_scared_angry_meaning_cc28e7ff.mp3",
+    text: "tức giận",
+  },
+  [normalizeText("dũng cảm")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/vocabulary_vocab_my_feelings_angry_and_scared_brave_meaning_166f6b01.mp3",
+    text: "dũng cảm",
+  },
+  [normalizeText("con cảm thấy giận")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/vocabulary_vocab_my_feelings_angry_and_scared_feel_angry_meaning_6f3f9260.mp3",
+    text: "con cảm thấy giận",
+  },
+  [normalizeText("con cảm thấy sợ")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/vocabulary_vocab_my_feelings_angry_and_scared_feel_scared_meaning_74ccdd7c.mp3",
+    text: "con cảm thấy sợ",
+  },
+  [normalizeText("an toàn")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/vocabulary_vocab_my_feelings_angry_and_scared_safe_meaning_4bd78c10.mp3",
+    text: "an toàn",
+  },
+  [normalizeText("sợ hãi")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/vocabulary_vocab_my_feelings_angry_and_scared_scared_meaning_635af5f2.mp3",
+    text: "sợ hãi",
+  },
+  [normalizeText("hãy ở bên con")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/vocabulary_vocab_my_feelings_angry_and_scared_stay_with_me_meaning_75ee91da.mp3",
+    text: "hãy ở bên con",
+  },
+  [normalizeText("khó chịu")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/vocabulary_vocab_my_feelings_angry_and_scared_upset_meaning_c46cf64f.mp3",
+    text: "khó chịu",
+  },
+  [normalizeText("lo lắng")]: {
+    key: "lessons/my-feelings/angry-and-scared/audio/vi/vocabulary_vocab_my_feelings_angry_and_scared_worried_meaning_5f635b79.mp3",
+    text: "lo lắng",
+  },
   [normalizeText("Bé đã chia sẻ niềm háo hức và tự hào.")]: {
     key: "lessons/my-feelings/excited-and-proud/audio/vi/completion_8c6966ae.mp3",
     text: "Bé đã chia sẻ niềm háo hức và tự hào.",
@@ -73551,6 +76175,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là ngạc nhiên.")]: {
     key: "lessons/my-feelings/excited-and-proud/audio/vi/teach_surprised_success_357278c3.mp3",
     text: "Từ này nghĩa là ngạc nhiên.",
+  },
+  [normalizeText("con đang rất háo hức")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/vocabulary_vocab_my_feelings_excited_and_proud_am_excited_meaning_8f85f1df.mp3",
+    text: "con đang rất háo hức",
+  },
+  [normalizeText("tò mò")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/vocabulary_vocab_my_feelings_excited_and_proud_curious_meaning_65838492.mp3",
+    text: "tò mò",
+  },
+  [normalizeText("con làm được rồi")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/vocabulary_vocab_my_feelings_excited_and_proud_did_it_meaning_5fa0133a.mp3",
+    text: "con làm được rồi",
+  },
+  [normalizeText("thất vọng")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/vocabulary_vocab_my_feelings_excited_and_proud_disappointed_meaning_68f42cbb.mp3",
+    text: "thất vọng",
+  },
+  [normalizeText("háo hức")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/vocabulary_vocab_my_feelings_excited_and_proud_excited_meaning_e8eac3ee.mp3",
+    text: "háo hức",
+  },
+  [normalizeText("con cảm thấy tự hào")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/vocabulary_vocab_my_feelings_excited_and_proud_feel_proud_meaning_ce8b8e18.mp3",
+    text: "con cảm thấy tự hào",
+  },
+  [normalizeText("tự hào")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/vocabulary_vocab_my_feelings_excited_and_proud_proud_meaning_36e55651.mp3",
+    text: "tự hào",
+  },
+  [normalizeText("ngại ngùng")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/vocabulary_vocab_my_feelings_excited_and_proud_shy_meaning_3683ef32.mp3",
+    text: "ngại ngùng",
+  },
+  [normalizeText("ngạc nhiên")]: {
+    key: "lessons/my-feelings/excited-and-proud/audio/vi/vocabulary_vocab_my_feelings_excited_and_proud_surprised_meaning_5f076c37.mp3",
+    text: "ngạc nhiên",
   },
   [normalizeText("Bé đã nhận ra cảm xúc vui và buồn.")]: {
     key: "lessons/my-feelings/happy-and-sad/audio/vi/completion_7b45d7a0.mp3",
@@ -73719,6 +76379,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là nước mắt.")]: {
     key: "lessons/my-feelings/happy-and-sad/audio/vi/teach_tears_success_31ff4f8c.mp3",
     text: "Từ này nghĩa là nước mắt.",
+  },
+  [normalizeText("con cảm thấy vui")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/vocabulary_vocab_my_feelings_happy_and_sad_feel_happy_meaning_f4178bc2.mp3",
+    text: "con cảm thấy vui",
+  },
+  [normalizeText("con cảm thấy buồn")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/vocabulary_vocab_my_feelings_happy_and_sad_feel_sad_meaning_111ea91b.mp3",
+    text: "con cảm thấy buồn",
+  },
+  [normalizeText("cái cau mày")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/vocabulary_vocab_my_feelings_happy_and_sad_frown_meaning_ecc7d3a8.mp3",
+    text: "cái cau mày",
+  },
+  [normalizeText("vui vẻ")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/vocabulary_vocab_my_feelings_happy_and_sad_happy_meaning_fa8bb561.mp3",
+    text: "vui vẻ",
+  },
+  [normalizeText("con có thể nói cảm xúc của mình")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/vocabulary_vocab_my_feelings_happy_and_sad_how_you_feel_meaning_9f7473c1.mp3",
+    text: "con có thể nói cảm xúc của mình",
+  },
+  [normalizeText("cười thành tiếng")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/vocabulary_vocab_my_feelings_happy_and_sad_laugh_meaning_89f8d3d8.mp3",
+    text: "cười thành tiếng",
+  },
+  [normalizeText("buồn")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/vocabulary_vocab_my_feelings_happy_and_sad_sad_meaning_a3411da4.mp3",
+    text: "buồn",
+  },
+  [normalizeText("nụ cười")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/vocabulary_vocab_my_feelings_happy_and_sad_smile_meaning_b92be829.mp3",
+    text: "nụ cười",
+  },
+  [normalizeText("nước mắt")]: {
+    key: "lessons/my-feelings/happy-and-sad/audio/vi/vocabulary_vocab_my_feelings_happy_and_sad_tears_meaning_2b0c554f.mp3",
+    text: "nước mắt",
   },
   [normalizeText("Bé đã tìm được đường vào công viên.")]: {
     key: "lessons/park-visit/park-entrance/audio/vi/completion_e76c65bc.mp3",
@@ -73903,6 +76599,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là đi trên lối đi.")]: {
     key: "lessons/park-visit/park-entrance/audio/vi/teach_walk_path_success_2a49c0f7.mp3",
     text: "Câu này nghĩa là đi trên lối đi.",
+  },
+  [normalizeText("đài phun nước")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/vocabulary_vocab_park_visit_park_entrance_fountain_meaning_fcfa15c5.mp3",
+    text: "đài phun nước",
+  },
+  [normalizeText("cánh cổng")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/vocabulary_vocab_park_visit_park_entrance_gate_meaning_e780e647.mp3",
+    text: "cánh cổng",
+  },
+  [normalizeText("xem bản đồ")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/vocabulary_vocab_park_visit_park_entrance_look_map_meaning_d178d15f.mp3",
+    text: "xem bản đồ",
+  },
+  [normalizeText("bản đồ công viên")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/vocabulary_vocab_park_visit_park_entrance_map_meaning_e2b5212e.mp3",
+    text: "bản đồ công viên",
+  },
+  [normalizeText("lối đi")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/vocabulary_vocab_park_visit_park_entrance_path_meaning_e81e0cdc.mp3",
+    text: "lối đi",
+  },
+  [normalizeText("ngồi trên ghế dài")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/vocabulary_vocab_park_visit_park_entrance_sit_bench_meaning_98d3ecae.mp3",
+    text: "ngồi trên ghế dài",
+  },
+  [normalizeText("cái cây")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/vocabulary_vocab_park_visit_park_entrance_tree_meaning_fbd99ae5.mp3",
+    text: "cái cây",
+  },
+  [normalizeText("đi trên lối đi")]: {
+    key: "lessons/park-visit/park-entrance/audio/vi/vocabulary_vocab_park_visit_park_entrance_walk_path_meaning_7cacf5f7.mp3",
+    text: "đi trên lối đi",
   },
   [normalizeText("Bé đã sẵn sàng chơi vận động an toàn.")]: {
     key: "lessons/park-visit/park-games/audio/vi/completion_919c29b8.mp3",
@@ -74096,6 +76824,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/park-visit/park-games/audio/vi/teach_whistle_success_69268926.mp3",
     text: "Từ này nghĩa là còi nhỏ.",
   },
+  [normalizeText("khung leo trèo")]: {
+    key: "lessons/park-visit/park-games/audio/vi/vocabulary_vocab_park_visit_park_games_climbing_frame_meaning_79e0e533.mp3",
+    text: "khung leo trèo",
+  },
+  [normalizeText("đĩa bay")]: {
+    key: "lessons/park-visit/park-games/audio/vi/vocabulary_vocab_park_visit_park_games_frisbee_meaning_d4bcf7a4.mp3",
+    text: "đĩa bay",
+  },
+  [normalizeText("mũ bảo hiểm")]: {
+    key: "lessons/park-visit/park-games/audio/vi/vocabulary_vocab_park_visit_park_games_helmet_meaning_27c4e6f5.mp3",
+    text: "mũ bảo hiểm",
+  },
+  [normalizeText("tham gia cùng đội")]: {
+    key: "lessons/park-visit/park-games/audio/vi/vocabulary_vocab_park_visit_park_games_join_team_meaning_a976e6d3.mp3",
+    text: "tham gia cùng đội",
+  },
+  [normalizeText("xe trượt hai bánh")]: {
+    key: "lessons/park-visit/park-games/audio/vi/vocabulary_vocab_park_visit_park_games_scooter_meaning_32d74e5c.mp3",
+    text: "xe trượt hai bánh",
+  },
+  [normalizeText("đội")]: {
+    key: "lessons/park-visit/park-games/audio/vi/vocabulary_vocab_park_visit_park_games_team_meaning_3a055458.mp3",
+    text: "đội",
+  },
+  [normalizeText("ném đĩa bay")]: {
+    key: "lessons/park-visit/park-games/audio/vi/vocabulary_vocab_park_visit_park_games_throw_frisbee_meaning_cd6d215d.mp3",
+    text: "ném đĩa bay",
+  },
+  [normalizeText("đội mũ bảo hiểm")]: {
+    key: "lessons/park-visit/park-games/audio/vi/vocabulary_vocab_park_visit_park_games_wear_helmet_meaning_af3a4057.mp3",
+    text: "đội mũ bảo hiểm",
+  },
+  [normalizeText("còi nhỏ")]: {
+    key: "lessons/park-visit/park-games/audio/vi/vocabulary_vocab_park_visit_park_games_whistle_meaning_00956f77.mp3",
+    text: "còi nhỏ",
+  },
   [normalizeText("Bé đã chuẩn bị và dọn dẹp buổi dã ngoại.")]: {
     key: "lessons/park-visit/park-picnic/audio/vi/completion_ad464844.mp3",
     text: "Bé đã chuẩn bị và dọn dẹp buổi dã ngoại.",
@@ -74260,6 +77024,30 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/park-visit/park-picnic/audio/vi/teach_throw_trash_success_8507b776.mp3",
     text: "Câu này nghĩa là bỏ rác vào thùng.",
   },
+  [normalizeText("dọn vụn bánh")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/vocabulary_vocab_park_visit_park_picnic_clean_crumbs_meaning_ba6c7b8a.mp3",
+    text: "dọn vụn bánh",
+  },
+  [normalizeText("nước trái cây")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/vocabulary_vocab_park_visit_park_picnic_juice_meaning_4f7ed635.mp3",
+    text: "nước trái cây",
+  },
+  [normalizeText("thảm dã ngoại")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/vocabulary_vocab_park_visit_park_picnic_picnic_mat_meaning_f4ea9ffe.mp3",
+    text: "thảm dã ngoại",
+  },
+  [normalizeText("bánh kẹp")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/vocabulary_vocab_park_visit_park_picnic_sandwich_meaning_74574c13.mp3",
+    text: "bánh kẹp",
+  },
+  [normalizeText("trải thảm")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/vocabulary_vocab_park_visit_park_picnic_spread_mat_meaning_6c2b6b41.mp3",
+    text: "trải thảm",
+  },
+  [normalizeText("bỏ rác vào thùng")]: {
+    key: "lessons/park-visit/park-picnic/audio/vi/vocabulary_vocab_park_visit_park_picnic_throw_trash_meaning_5c1cd518.mp3",
+    text: "bỏ rác vào thùng",
+  },
   [normalizeText("Bé đã giữ đồ chăm sóc cá nhân thật gọn gàng.")]: {
     key: "lessons/personal-care/care-items/audio/vi/completion_580baf69.mp3",
     text: "Bé đã giữ đồ chăm sóc cá nhân thật gọn gàng.",
@@ -74412,6 +77200,30 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/personal-care/care-items/audio/vi/teach_toothbrush_success_c9443dc7.mp3",
     text: "Từ này nghĩa là bàn chải đánh răng.",
   },
+  [normalizeText("đậy nắp kem đánh răng")]: {
+    key: "lessons/personal-care/care-items/audio/vi/vocabulary_vocab_personal_care_care_items_close_toothpaste_meaning_c6938daf.mp3",
+    text: "đậy nắp kem đánh răng",
+  },
+  [normalizeText("dùng bàn chải riêng của bé")]: {
+    key: "lessons/personal-care/care-items/audio/vi/vocabulary_vocab_personal_care_care_items_own_toothbrush_meaning_f89b871e.mp3",
+    text: "dùng bàn chải riêng của bé",
+  },
+  [normalizeText("cất đồ dùng gọn gàng")]: {
+    key: "lessons/personal-care/care-items/audio/vi/vocabulary_vocab_personal_care_care_items_put_things_away_meaning_67d26182.mp3",
+    text: "cất đồ dùng gọn gàng",
+  },
+  [normalizeText("bánh xà phòng")]: {
+    key: "lessons/personal-care/care-items/audio/vi/vocabulary_vocab_personal_care_care_items_soap_bar_meaning_d9dbf493.mp3",
+    text: "bánh xà phòng",
+  },
+  [normalizeText("túi đồ vệ sinh")]: {
+    key: "lessons/personal-care/care-items/audio/vi/vocabulary_vocab_personal_care_care_items_toiletry_bag_meaning_0027518c.mp3",
+    text: "túi đồ vệ sinh",
+  },
+  [normalizeText("cốc cắm bàn chải")]: {
+    key: "lessons/personal-care/care-items/audio/vi/vocabulary_vocab_personal_care_care_items_toothbrush_holder_meaning_22773c1b.mp3",
+    text: "cốc cắm bàn chải",
+  },
   [normalizeText("Bé đã biết chăm sóc khi ho và hắt hơi.")]: {
     key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/completion_cb82ab19.mp3",
     text: "Bé đã biết chăm sóc khi ho và hắt hơi.",
@@ -74543,6 +77355,30 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là bỏ khăn giấy vào thùng rác.")]: {
     key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/teach_throw_tissue_success_5427be31.mp3",
     text: "Câu này nghĩa là bỏ khăn giấy vào thùng rác.",
+  },
+  [normalizeText("ho")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/vocabulary_vocab_personal_care_cough_and_sneeze_care_cough_meaning_9a76a857.mp3",
+    text: "ho",
+  },
+  [normalizeText("che miệng khi ho")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/vocabulary_vocab_personal_care_cough_and_sneeze_care_cover_cough_meaning_acff6f0f.mp3",
+    text: "che miệng khi ho",
+  },
+  [normalizeText("ống tay áo")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/vocabulary_vocab_personal_care_cough_and_sneeze_care_sleeve_meaning_a50dc1b8.mp3",
+    text: "ống tay áo",
+  },
+  [normalizeText("hắt hơi vào khuỷu tay")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/vocabulary_vocab_personal_care_cough_and_sneeze_care_sneeze_elbow_meaning_77fb76bf.mp3",
+    text: "hắt hơi vào khuỷu tay",
+  },
+  [normalizeText("hắt hơi")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/vocabulary_vocab_personal_care_cough_and_sneeze_care_sneeze_meaning_3fbc38cf.mp3",
+    text: "hắt hơi",
+  },
+  [normalizeText("bỏ khăn giấy vào thùng rác")]: {
+    key: "lessons/personal-care/cough-and-sneeze-care/audio/vi/vocabulary_vocab_personal_care_cough_and_sneeze_care_throw_tissue_meaning_24323897.mp3",
+    text: "bỏ khăn giấy vào thùng rác",
   },
   [normalizeText("Bé đã chăm sóc tóc và khuôn mặt thật nhẹ nhàng.")]: {
     key: "lessons/personal-care/face-and-hair-care/audio/vi/completion_d8ccb314.mp3",
@@ -74696,6 +77532,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/personal-care/face-and-hair-care/audio/vi/teach_nail_clippers_success_11d8c756.mp3",
     text: "Từ này nghĩa là cái bấm móng tay.",
   },
+  [normalizeText("dây buộc tóc")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/vocabulary_vocab_personal_care_face_and_hair_care_hair_tie_meaning_b964fd2b.mp3",
+    text: "dây buộc tóc",
+  },
+  [normalizeText("bàn chải tóc")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/vocabulary_vocab_personal_care_face_and_hair_care_hairbrush_meaning_92986a1c.mp3",
+    text: "bàn chải tóc",
+  },
+  [normalizeText("nhờ người lớn giúp cắt móng")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/vocabulary_vocab_personal_care_face_and_hair_care_help_with_nails_meaning_67d394c5.mp3",
+    text: "nhờ người lớn giúp cắt móng",
+  },
+  [normalizeText("gương")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/vocabulary_vocab_personal_care_face_and_hair_care_mirror_meaning_1b0c3373.mp3",
+    text: "gương",
+  },
+  [normalizeText("cái bấm móng tay")]: {
+    key: "lessons/personal-care/face-and-hair-care/audio/vi/vocabulary_vocab_personal_care_face_and_hair_care_nail_clippers_meaning_a3c25fc0.mp3",
+    text: "cái bấm móng tay",
+  },
   [normalizeText("Đất ẩm sẫm màu và hơi ướt. Chạm vào mảng đất nhé.")]: {
     key: "lessons/plant-a-seed/first-watering/audio/vi/check_damp_e8669589.mp3",
     text: "Đất ẩm sẫm màu và hơi ướt. Chạm vào mảng đất nhé.",
@@ -74807,6 +77663,30 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Vũng nước có thể là dấu hiệu mình tưới quá nhiều.")]: {
     key: "lessons/plant-a-seed/first-watering/audio/vi/notice_puddle_success_1ccdc2fe.mp3",
     text: "Vũng nước có thể là dấu hiệu mình tưới quá nhiều.",
+  },
+  [normalizeText("ẩm")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/vocabulary_vocab_plant_a_seed_first_watering_damp_meaning_ab5d2849.mp3",
+    text: "ẩm",
+  },
+  [normalizeText("vũng nước")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/vocabulary_vocab_plant_a_seed_first_watering_puddle_meaning_1ede6439.mp3",
+    text: "vũng nước",
+  },
+  [normalizeText("vòi bình tưới")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/vocabulary_vocab_plant_a_seed_first_watering_spout_meaning_6e6beec5.mp3",
+    text: "vòi bình tưới",
+  },
+  [normalizeText("mầm cây")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/vocabulary_vocab_plant_a_seed_first_watering_sprout_meaning_68c95071.mp3",
+    text: "mầm cây",
+  },
+  [normalizeText("chờ mầm cây nhú lên")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/vocabulary_vocab_plant_a_seed_first_watering_wait_sprout_meaning_a4372168.mp3",
+    text: "chờ mầm cây nhú lên",
+  },
+  [normalizeText("tưới nhẹ nhàng")]: {
+    key: "lessons/plant-a-seed/first-watering/audio/vi/vocabulary_vocab_plant_a_seed_first_watering_water_gently_meaning_fcb32adc.mp3",
+    text: "tưới nhẹ nhàng",
   },
   [normalizeText("Chạm vào vòng mặt trời và mặt trăng phía trên chậu nhé.")]: {
     key: "lessons/plant-a-seed/first-watering/audio/vi/wait_through_time_4abce533.mp3",
@@ -74988,6 +77868,26 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/plant-a-seed/plant-the-seed/audio/vi/plant_seed_success_d229efbb.mp3",
     text: "Hạt giống đã nằm trong đất.",
   },
+  [normalizeText("phủ đất lên hạt")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/vocabulary_vocab_plant_a_seed_plant_the_seed_cover_seed_meaning_c7a31218.mp3",
+    text: "phủ đất lên hạt",
+  },
+  [normalizeText("ngón tay")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/vocabulary_vocab_plant_a_seed_plant_the_seed_finger_meaning_4754bd70.mp3",
+    text: "ngón tay",
+  },
+  [normalizeText("lỗ nhỏ")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/vocabulary_vocab_plant_a_seed_plant_the_seed_hole_meaning_9a07b7b0.mp3",
+    text: "lỗ nhỏ",
+  },
+  [normalizeText("thẻ tên cây")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/vocabulary_vocab_plant_a_seed_plant_the_seed_plant_label_meaning_9432663b.mp3",
+    text: "thẻ tên cây",
+  },
+  [normalizeText("gói hạt giống")]: {
+    key: "lessons/plant-a-seed/plant-the-seed/audio/vi/vocabulary_vocab_plant_a_seed_plant_the_seed_seed_packet_meaning_ba6b6a23.mp3",
+    text: "gói hạt giống",
+  },
   [normalizeText("Đây là lỗ thoát nước. Chạm vào lỗ đen dưới chậu nhé.")]: {
     key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/check_drainage_hole_25a5b035.mp3",
     text: "Đây là lỗ thoát nước. Chạm vào lỗ đen dưới chậu nhé.",
@@ -75107,6 +78007,30 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi, đây là đất trồng.")]: {
     key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/scoop_soil_success_eb0d7bcf.mp3",
     text: "Đúng rồi, đây là đất trồng.",
+  },
+  [normalizeText("lỗ thoát nước")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/vocabulary_vocab_plant_a_seed_prepare_the_pot_drainage_hole_meaning_30cae5ff.mp3",
+    text: "lỗ thoát nước",
+  },
+  [normalizeText("cho đất vào chậu")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/vocabulary_vocab_plant_a_seed_prepare_the_pot_fill_pot_soil_meaning_c616e69f.mp3",
+    text: "cho đất vào chậu",
+  },
+  [normalizeText("chừa lại một khoảng trống")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/vocabulary_vocab_plant_a_seed_prepare_the_pot_leave_space_meaning_84004249.mp3",
+    text: "chừa lại một khoảng trống",
+  },
+  [normalizeText("đất trồng trong chậu")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/vocabulary_vocab_plant_a_seed_prepare_the_pot_potting_mix_meaning_a838677c.mp3",
+    text: "đất trồng trong chậu",
+  },
+  [normalizeText("xẻng xúc đất nhỏ")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/vocabulary_vocab_plant_a_seed_prepare_the_pot_scoop_meaning_9d00de68.mp3",
+    text: "xẻng xúc đất nhỏ",
+  },
+  [normalizeText("đất trồng")]: {
+    key: "lessons/plant-a-seed/prepare-the-pot/audio/vi/vocabulary_vocab_plant_a_seed_prepare_the_pot_soil_meaning_047d7ae5.mp3",
+    text: "đất trồng",
   },
   [normalizeText("Chạm bóng để bắt đầu thêm một lượt nhé.")]: {
     key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/again_practice_188ba68a.mp3",
@@ -75295,6 +78219,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Đúng rồi. Từ vừa nghe có nghĩa là lăn quả bóng.")]: {
     key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/roll_the_ball_teach_success_bf20df77.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là lăn quả bóng.",
+  },
+  [normalizeText("lại một lần nữa")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/vocabulary_vocab_play_with_the_puppy_bring_it_back_again_meaning_1718c59d.mp3",
+    text: "lại một lần nữa",
+  },
+  [normalizeText("mang lại")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/vocabulary_vocab_play_with_the_puppy_bring_it_back_bring_meaning_b279b499.mp3",
+    text: "mang lại",
+  },
+  [normalizeText("chạy đi lấy và mang về")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/vocabulary_vocab_play_with_the_puppy_bring_it_back_fetch_meaning_0a7b8c8a.mp3",
+    text: "chạy đi lấy và mang về",
+  },
+  [normalizeText("đưa cho")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/vocabulary_vocab_play_with_the_puppy_bring_it_back_give_meaning_069090bb.mp3",
+    text: "đưa cho",
+  },
+  [normalizeText("mình cùng chơi nhé")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/vocabulary_vocab_play_with_the_puppy_bring_it_back_lets_play_meaning_c675bc3c.mp3",
+    text: "mình cùng chơi nhé",
+  },
+  [normalizeText("tinh nghịch và thích chơi")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/vocabulary_vocab_play_with_the_puppy_bring_it_back_playful_meaning_f7163607.mp3",
+    text: "tinh nghịch và thích chơi",
+  },
+  [normalizeText("lăn quả bóng")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/vocabulary_vocab_play_with_the_puppy_bring_it_back_roll_the_ball_meaning_d3acde22.mp3",
+    text: "lăn quả bóng",
+  },
+  [normalizeText("đến lượt bạn")]: {
+    key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/vocabulary_vocab_play_with_the_puppy_bring_it_back_your_turn_meaning_665261c8.mp3",
+    text: "đến lượt bạn",
   },
   [normalizeText("Chạm quả bóng trong tay để nhận lượt của bé nhé.")]: {
     key: "lessons/play-with-the-puppy/bring-it-back/audio/vi/your_turn_practice_c70e9817.mp3",
@@ -75536,6 +78492,22 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/play-with-the-puppy/choose-the-ball/audio/vi/toy_teach_success_60b31a55.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là đồ chơi.",
   },
+  [normalizeText("chọn")]: {
+    key: "lessons/play-with-the-puppy/choose-the-ball/audio/vi/vocabulary_vocab_play_with_the_puppy_choose_the_ball_choose_meaning_408751ce.mp3",
+    text: "chọn",
+  },
+  [normalizeText("nhặt nó lên")]: {
+    key: "lessons/play-with-the-puppy/choose-the-ball/audio/vi/vocabulary_vocab_play_with_the_puppy_choose_the_ball_pick_it_up_meaning_26d6f146.mp3",
+    text: "nhặt nó lên",
+  },
+  [normalizeText("chơi")]: {
+    key: "lessons/play-with-the-puppy/choose-the-ball/audio/vi/vocabulary_vocab_play_with_the_puppy_choose_the_ball_play_meaning_7923bf6d.mp3",
+    text: "chơi",
+  },
+  [normalizeText("tròn")]: {
+    key: "lessons/play-with-the-puppy/choose-the-ball/audio/vi/vocabulary_vocab_play_with_the_puppy_choose_the_ball_round_meaning_641aeb17.mp3",
+    text: "tròn",
+  },
   [normalizeText("Chạm quả bóng trước chân cún để bạn bắt lấy nhé.")]: {
     key: "lessons/play-with-the-puppy/roll-and-catch/audio/vi/catch_practice_12507f14.mp3",
     text: "Chạm quả bóng trước chân cún để bạn bắt lấy nhé.",
@@ -75764,6 +78736,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/play-with-the-puppy/roll-and-catch/audio/vi/turn_teach_success_ed557559.mp3",
     text: "Đúng rồi. Từ vừa nghe có nghĩa là quay lại.",
   },
+  [normalizeText("bắt lấy")]: {
+    key: "lessons/play-with-the-puppy/roll-and-catch/audio/vi/vocabulary_vocab_play_with_the_puppy_roll_and_catch_catch_meaning_44061e9a.mp3",
+    text: "bắt lấy",
+  },
+  [normalizeText("bắt quả bóng")]: {
+    key: "lessons/play-with-the-puppy/roll-and-catch/audio/vi/vocabulary_vocab_play_with_the_puppy_roll_and_catch_catch_the_ball_meaning_aed90128.mp3",
+    text: "bắt quả bóng",
+  },
+  [normalizeText("giữ nó")]: {
+    key: "lessons/play-with-the-puppy/roll-and-catch/audio/vi/vocabulary_vocab_play_with_the_puppy_roll_and_catch_hold_it_meaning_20a537d6.mp3",
+    text: "giữ nó",
+  },
+  [normalizeText("giữ")]: {
+    key: "lessons/play-with-the-puppy/roll-and-catch/audio/vi/vocabulary_vocab_play_with_the_puppy_roll_and_catch_hold_meaning_98f4c099.mp3",
+    text: "giữ",
+  },
+  [normalizeText("miệng")]: {
+    key: "lessons/play-with-the-puppy/roll-and-catch/audio/vi/vocabulary_vocab_play_with_the_puppy_roll_and_catch_mouth_meaning_53aafcd2.mp3",
+    text: "miệng",
+  },
+  [normalizeText("lăn")]: {
+    key: "lessons/play-with-the-puppy/roll-and-catch/audio/vi/vocabulary_vocab_play_with_the_puppy_roll_and_catch_roll_meaning_f52c3e0c.mp3",
+    text: "lăn",
+  },
+  [normalizeText("quay vòng lại")]: {
+    key: "lessons/play-with-the-puppy/roll-and-catch/audio/vi/vocabulary_vocab_play_with_the_puppy_roll_and_catch_turn_around_meaning_f5249d1d.mp3",
+    text: "quay vòng lại",
+  },
+  [normalizeText("quay lại")]: {
+    key: "lessons/play-with-the-puppy/roll-and-catch/audio/vi/vocabulary_vocab_play_with_the_puppy_roll_and_catch_turn_meaning_328e0d9a.mp3",
+    text: "quay lại",
+  },
   [normalizeText("Bé đã biết chơi vui và chia sẻ với bạn.")]: {
     key: "lessons/playtime/friend-games/audio/vi/completion_ba602849.mp3",
     text: "Bé đã biết chơi vui và chia sẻ với bạn.",
@@ -75956,6 +78960,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/playtime/friend-games/audio/vi/games_teach_wait_success_879ca239.mp3",
     text: "Từ này nghĩa là chờ.",
   },
+  [normalizeText("khối xếp hình")]: {
+    key: "lessons/playtime/friend-games/audio/vi/vocabulary_vocab_blocks_meaning_738fd7ba.mp3",
+    text: "khối xếp hình",
+  },
+  [normalizeText("cái xô")]: {
+    key: "lessons/playtime/friend-games/audio/vi/vocabulary_vocab_bucket_meaning_b7fb4b53.mp3",
+    text: "cái xô",
+  },
+  [normalizeText("bạn")]: {
+    key: "lessons/playtime/friend-games/audio/vi/vocabulary_vocab_friend_meaning_e8f04322.mp3",
+    text: "bạn",
+  },
+  [normalizeText("diều")]: {
+    key: "lessons/playtime/friend-games/audio/vi/vocabulary_vocab_kite_meaning_204e6569.mp3",
+    text: "diều",
+  },
+  [normalizeText("chơi cùng nhau")]: {
+    key: "lessons/playtime/friend-games/audio/vi/vocabulary_vocab_play_together_meaning_86f96d0e.mp3",
+    text: "chơi cùng nhau",
+  },
+  [normalizeText("dây nhảy")]: {
+    key: "lessons/playtime/friend-games/audio/vi/vocabulary_vocab_rope_meaning_c096387a.mp3",
+    text: "dây nhảy",
+  },
+  [normalizeText("chia sẻ đồ chơi")]: {
+    key: "lessons/playtime/friend-games/audio/vi/vocabulary_vocab_share_toys_meaning_2b15acff.mp3",
+    text: "chia sẻ đồ chơi",
+  },
+  [normalizeText("đồ chơi")]: {
+    key: "lessons/playtime/friend-games/audio/vi/vocabulary_vocab_toy_meaning_cca970d3.mp3",
+    text: "đồ chơi",
+  },
+  [normalizeText("chờ")]: {
+    key: "lessons/playtime/friend-games/audio/vi/vocabulary_vocab_wait_meaning_a980a939.mp3",
+    text: "chờ",
+  },
   [normalizeText("Bé đã chơi ở sân trường thật vui.")]: {
     key: "lessons/playtime/playground/audio/vi/completion_d91c0bd7.mp3",
     text: "Bé đã chơi ở sân trường thật vui.",
@@ -76135,6 +79175,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là lần lượt chơi.")]: {
     key: "lessons/playtime/playground/audio/vi/teach_take_turns_success_a473acb2.mp3",
     text: "Câu này nghĩa là lần lượt chơi.",
+  },
+  [normalizeText("nhảy")]: {
+    key: "lessons/playtime/playground/audio/vi/vocabulary_vocab_jump_meaning_1de5698a.mp3",
+    text: "nhảy",
+  },
+  [normalizeText("sân chơi")]: {
+    key: "lessons/playtime/playground/audio/vi/vocabulary_vocab_playground_meaning_e83cc9cb.mp3",
+    text: "sân chơi",
+  },
+  [normalizeText("quả bóng")]: {
+    key: "lessons/playtime/playground/audio/vi/vocabulary_vocab_playtime_ball_meaning_a3865fb8.mp3",
+    text: "quả bóng",
+  },
+  [normalizeText("chạy")]: {
+    key: "lessons/playtime/playground/audio/vi/vocabulary_vocab_run_meaning_8a7f5829.mp3",
+    text: "chạy",
+  },
+  [normalizeText("hố cát")]: {
+    key: "lessons/playtime/playground/audio/vi/vocabulary_vocab_sandbox_meaning_b7c67e7e.mp3",
+    text: "hố cát",
+  },
+  [normalizeText("bập bênh")]: {
+    key: "lessons/playtime/playground/audio/vi/vocabulary_vocab_seesaw_meaning_e44b3b23.mp3",
+    text: "bập bênh",
+  },
+  [normalizeText("cầu trượt")]: {
+    key: "lessons/playtime/playground/audio/vi/vocabulary_vocab_slide_meaning_6cf5479f.mp3",
+    text: "cầu trượt",
+  },
+  [normalizeText("xích đu")]: {
+    key: "lessons/playtime/playground/audio/vi/vocabulary_vocab_swing_meaning_1e6136d4.mp3",
+    text: "xích đu",
+  },
+  [normalizeText("lần lượt chơi")]: {
+    key: "lessons/playtime/playground/audio/vi/vocabulary_vocab_take_turns_meaning_b129e401.mp3",
+    text: "lần lượt chơi",
   },
   [normalizeText("Bé đã biết nghỉ ngơi sau khi chơi.")]: {
     key: "lessons/playtime/playtime-rest/audio/vi/completion_264e290a.mp3",
@@ -76320,6 +79396,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/playtime/playtime-rest/audio/vi/rest_teach_water_success_bc2ccca0.mp3",
     text: "Từ này nghĩa là nước.",
   },
+  [normalizeText("ghế dài")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/vocabulary_vocab_bench_meaning_d76f9004.mp3",
+    text: "ghế dài",
+  },
+  [normalizeText("bình nước")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/vocabulary_vocab_bottle_meaning_b7b93721.mp3",
+    text: "bình nước",
+  },
+  [normalizeText("uống nước")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/vocabulary_vocab_drink_water_meaning_e6a02dec.mp3",
+    text: "uống nước",
+  },
+  [normalizeText("ăn nhẹ")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/vocabulary_vocab_eat_snack_meaning_3f13142d.mp3",
+    text: "ăn nhẹ",
+  },
+  [normalizeText("khăn lau")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/vocabulary_vocab_playtime_towel_meaning_f3494dee.mp3",
+    text: "khăn lau",
+  },
+  [normalizeText("nghỉ ngơi")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/vocabulary_vocab_rest_meaning_84018c6b.mp3",
+    text: "nghỉ ngơi",
+  },
+  [normalizeText("bóng râm")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/vocabulary_vocab_shade_meaning_183467f7.mp3",
+    text: "bóng râm",
+  },
+  [normalizeText("đồ ăn nhẹ")]: {
+    key: "lessons/playtime/playtime-rest/audio/vi/vocabulary_vocab_snack_meaning_4ba91b6a.mp3",
+    text: "đồ ăn nhẹ",
+  },
   [normalizeText("Bé đã dọn sau bữa xế thật sạch sẽ!")]: {
     key: "lessons/snack-time/snack-cleanup/audio/vi/completion_e813bd9c.mp3",
     text: "Bé đã dọn sau bữa xế thật sạch sẽ!",
@@ -76455,6 +79563,30 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là vỏ bánh.")]: {
     key: "lessons/snack-time/snack-cleanup/audio/vi/teach_wrapper_success_7f120dcf.mp3",
     text: "Từ này nghĩa là vỏ bánh.",
+  },
+  [normalizeText("cất khay")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/vi/vocabulary_vocab_put_away_tray_meaning_73fb1102.mp3",
+    text: "cất khay",
+  },
+  [normalizeText("cái giỏ")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/vi/vocabulary_vocab_snack_basket_meaning_af4ab8a8.mp3",
+    text: "cái giỏ",
+  },
+  [normalizeText("vụn bánh")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/vi/vocabulary_vocab_snack_crumbs_meaning_40e45a91.mp3",
+    text: "vụn bánh",
+  },
+  [normalizeText("cái khay")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/vi/vocabulary_vocab_snack_tray_meaning_5d0d78c5.mp3",
+    text: "cái khay",
+  },
+  [normalizeText("vỏ bánh")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/vi/vocabulary_vocab_snack_wrapper_meaning_1db2d4f7.mp3",
+    text: "vỏ bánh",
+  },
+  [normalizeText("bỏ vỏ bánh")]: {
+    key: "lessons/snack-time/snack-cleanup/audio/vi/vocabulary_vocab_throw_away_wrapper_meaning_28493216.mp3",
+    text: "bỏ vỏ bánh",
   },
   [normalizeText("Bé đã chọn bữa xế thật ngon!")]: {
     key: "lessons/snack-time/snack-prep/audio/vi/completion_eec4573c.mp3",
@@ -76648,6 +79780,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/snack-time/snack-prep/audio/vi/teach_yogurt_success_cbeeb251.mp3",
     text: "Từ này nghĩa là sữa chua.",
   },
+  [normalizeText("chọn bữa xế")]: {
+    key: "lessons/snack-time/snack-prep/audio/vi/vocabulary_vocab_choose_snack_meaning_0f2f2487.mp3",
+    text: "chọn bữa xế",
+  },
+  [normalizeText("mở hộp đồ ăn nhẹ")]: {
+    key: "lessons/snack-time/snack-prep/audio/vi/vocabulary_vocab_open_snack_box_meaning_37bb5eef.mp3",
+    text: "mở hộp đồ ăn nhẹ",
+  },
+  [normalizeText("rót nước ép")]: {
+    key: "lessons/snack-time/snack-prep/audio/vi/vocabulary_vocab_pour_juice_meaning_9e242ddf.mp3",
+    text: "rót nước ép",
+  },
+  [normalizeText("hộp đồ ăn nhẹ")]: {
+    key: "lessons/snack-time/snack-prep/audio/vi/vocabulary_vocab_snack_box_meaning_01581bdb.mp3",
+    text: "hộp đồ ăn nhẹ",
+  },
+  [normalizeText("bánh quy")]: {
+    key: "lessons/snack-time/snack-prep/audio/vi/vocabulary_vocab_snack_cookie_meaning_fe21746a.mp3",
+    text: "bánh quy",
+  },
+  [normalizeText("nước ép")]: {
+    key: "lessons/snack-time/snack-prep/audio/vi/vocabulary_vocab_snack_juice_meaning_f451c824.mp3",
+    text: "nước ép",
+  },
+  [normalizeText("bữa xế")]: {
+    key: "lessons/snack-time/snack-prep/audio/vi/vocabulary_vocab_snack_snack_meaning_b8a2000e.mp3",
+    text: "bữa xế",
+  },
+  [normalizeText("ống hút")]: {
+    key: "lessons/snack-time/snack-prep/audio/vi/vocabulary_vocab_snack_straw_meaning_62ce62b9.mp3",
+    text: "ống hút",
+  },
+  [normalizeText("sữa chua")]: {
+    key: "lessons/snack-time/snack-prep/audio/vi/vocabulary_vocab_snack_yogurt_meaning_fa55854f.mp3",
+    text: "sữa chua",
+  },
   [normalizeText("Bé đã ăn bữa xế thật gọn gàng!")]: {
     key: "lessons/snack-time/snack-table/audio/vi/completion_56e282b6.mp3",
     text: "Bé đã ăn bữa xế thật gọn gàng!",
@@ -76832,6 +80000,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/snack-time/snack-table/audio/vi/teach_wipe_mouth_success_071eff48.mp3",
     text: "Lau miệng sau khi ăn giúp bé sạch sẽ.",
   },
+  [normalizeText("nhấp nước ép")]: {
+    key: "lessons/snack-time/snack-table/audio/vi/vocabulary_vocab_sip_juice_meaning_3aebe363.mp3",
+    text: "nhấp nước ép",
+  },
+  [normalizeText("miếng cắn")]: {
+    key: "lessons/snack-time/snack-table/audio/vi/vocabulary_vocab_snack_bite_meaning_f8a80b65.mp3",
+    text: "miếng cắn",
+  },
+  [normalizeText("bánh giòn")]: {
+    key: "lessons/snack-time/snack-table/audio/vi/vocabulary_vocab_snack_cracker_meaning_6376fa8c.mp3",
+    text: "bánh giòn",
+  },
+  [normalizeText("nho khô")]: {
+    key: "lessons/snack-time/snack-table/audio/vi/vocabulary_vocab_snack_raisins_meaning_c83ceed8.mp3",
+    text: "nho khô",
+  },
+  [normalizeText("ngụm nhỏ")]: {
+    key: "lessons/snack-time/snack-table/audio/vi/vocabulary_vocab_snack_sip_meaning_c4873ccc.mp3",
+    text: "ngụm nhỏ",
+  },
+  [normalizeText("bàn nhỏ")]: {
+    key: "lessons/snack-time/snack-table/audio/vi/vocabulary_vocab_snack_small_table_meaning_6b802d58.mp3",
+    text: "bàn nhỏ",
+  },
+  [normalizeText("cắn một miếng")]: {
+    key: "lessons/snack-time/snack-table/audio/vi/vocabulary_vocab_take_a_bite_meaning_a6aabb50.mp3",
+    text: "cắn một miếng",
+  },
+  [normalizeText("lau miệng")]: {
+    key: "lessons/snack-time/snack-table/audio/vi/vocabulary_vocab_wipe_mouth_meaning_fed70fbc.mp3",
+    text: "lau miệng",
+  },
   [normalizeText("Bé đã tập nói rõ giới hạn và tìm người lớn tin cậy.")]: {
     key: "lessons/speaking-up/body-boundaries/audio/vi/completion_29220f60.mp3",
     text: "Bé đã tập nói rõ giới hạn và tìm người lớn tin cậy.",
@@ -76987,6 +80187,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là vâng, con đồng ý.")]: {
     key: "lessons/speaking-up/body-boundaries/audio/vi/teach_yes_please_success_0e14ea7c.mp3",
     text: "Câu này nghĩa là vâng, con đồng ý.",
+  },
+  [normalizeText("hỏi trước khi chạm")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/vocabulary_vocab_speaking_up_body_boundaries_ask_before_touching_meaning_f3d42a01.mp3",
+    text: "hỏi trước khi chạm",
+  },
+  [normalizeText("con không thích điều đó")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/vocabulary_vocab_speaking_up_body_boundaries_do_not_like_that_meaning_19e14082.mp3",
+    text: "con không thích điều đó",
+  },
+  [normalizeText("không, con không muốn")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/vocabulary_vocab_speaking_up_body_boundaries_no_thank_you_meaning_a334477a.mp3",
+    text: "không, con không muốn",
+  },
+  [normalizeText("sự đồng ý")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/vocabulary_vocab_speaking_up_body_boundaries_permission_meaning_e7b6b0bc.mp3",
+    text: "sự đồng ý",
+  },
+  [normalizeText("không gian riêng quanh cơ thể")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/vocabulary_vocab_speaking_up_body_boundaries_personal_space_meaning_29015981.mp3",
+    text: "không gian riêng quanh cơ thể",
+  },
+  [normalizeText("xin hãy dừng lại")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/vocabulary_vocab_speaking_up_body_boundaries_stop_please_meaning_3014e44e.mp3",
+    text: "xin hãy dừng lại",
+  },
+  [normalizeText("nói với người lớn bé tin tưởng")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/vocabulary_vocab_speaking_up_body_boundaries_tell_trusted_grown_up_meaning_5ac46557.mp3",
+    text: "nói với người lớn bé tin tưởng",
+  },
+  [normalizeText("người lớn bé tin tưởng")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/vocabulary_vocab_speaking_up_body_boundaries_trusted_grown_up_meaning_ab516226.mp3",
+    text: "người lớn bé tin tưởng",
+  },
+  [normalizeText("vâng, con đồng ý")]: {
+    key: "lessons/speaking-up/body-boundaries/audio/vi/vocabulary_vocab_speaking_up_body_boundaries_yes_please_meaning_0d12f232.mp3",
+    text: "vâng, con đồng ý",
   },
   [normalizeText("Bé đã nói được những nhu cầu của cơ thể.")]: {
     key: "lessons/speaking-up/body-needs/audio/vi/completion_8e7535d7.mp3",
@@ -77152,6 +80388,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/speaking-up/body-needs/audio/vi/teach_uncomfortable_success_ae7587dd.mp3",
     text: "Từ này nghĩa là không thoải mái.",
   },
+  [normalizeText("con đang đói")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/vocabulary_vocab_speaking_up_body_needs_am_hungry_meaning_5a6b49ad.mp3",
+    text: "con đang đói",
+  },
+  [normalizeText("lạnh")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/vocabulary_vocab_speaking_up_body_needs_cold_meaning_5f6f1ff5.mp3",
+    text: "lạnh",
+  },
+  [normalizeText("nóng")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/vocabulary_vocab_speaking_up_body_needs_hot_meaning_6a7252b2.mp3",
+    text: "nóng",
+  },
+  [normalizeText("đói")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/vocabulary_vocab_speaking_up_body_needs_hungry_meaning_0592b7e0.mp3",
+    text: "đói",
+  },
+  [normalizeText("con cần nghỉ ngơi")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/vocabulary_vocab_speaking_up_body_needs_need_rest_meaning_7e7a51f8.mp3",
+    text: "con cần nghỉ ngơi",
+  },
+  [normalizeText("con cần uống nước")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/vocabulary_vocab_speaking_up_body_needs_need_water_meaning_cc1c83ea.mp3",
+    text: "con cần uống nước",
+  },
+  [normalizeText("khát")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/vocabulary_vocab_speaking_up_body_needs_thirsty_meaning_ca4aad98.mp3",
+    text: "khát",
+  },
+  [normalizeText("mệt")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/vocabulary_vocab_speaking_up_body_needs_tired_meaning_5fcc7752.mp3",
+    text: "mệt",
+  },
+  [normalizeText("không thoải mái")]: {
+    key: "lessons/speaking-up/body-needs/audio/vi/vocabulary_vocab_speaking_up_body_needs_uncomfortable_meaning_8a8d5257.mp3",
+    text: "không thoải mái",
+  },
   [normalizeText("Bé đã biết nói chỗ đau và nhờ giúp.")]: {
     key: "lessons/speaking-up/pain-and-help/audio/vi/completion_d211a389.mp3",
     text: "Bé đã biết nói chỗ đau và nhờ giúp.",
@@ -77307,6 +80579,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là đau bụng.")]: {
     key: "lessons/speaking-up/pain-and-help/audio/vi/teach_tummy_ache_success_8671f4a3.mp3",
     text: "Từ này nghĩa là đau bụng.",
+  },
+  [normalizeText("chóng mặt")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/vocabulary_vocab_speaking_up_pain_and_help_dizzy_meaning_2e09cfc7.mp3",
+    text: "chóng mặt",
+  },
+  [normalizeText("đau đầu")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/vocabulary_vocab_speaking_up_pain_and_help_headache_meaning_999e0aab.mp3",
+    text: "đau đầu",
+  },
+  [normalizeText("đau")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/vocabulary_vocab_speaking_up_pain_and_help_hurt_meaning_05338a0d.mp3",
+    text: "đau",
+  },
+  [normalizeText("con đau ở đây")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/vocabulary_vocab_speaking_up_pain_and_help_hurts_here_meaning_fa16e04b.mp3",
+    text: "con đau ở đây",
+  },
+  [normalizeText("ngứa")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/vocabulary_vocab_speaking_up_pain_and_help_itchy_meaning_1e5fb394.mp3",
+    text: "ngứa",
+  },
+  [normalizeText("con không khỏe")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/vocabulary_vocab_speaking_up_pain_and_help_not_feel_well_meaning_a41cc6e5.mp3",
+    text: "con không khỏe",
+  },
+  [normalizeText("xin hãy giúp con")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/vocabulary_vocab_speaking_up_pain_and_help_please_help_meaning_1c57f255.mp3",
+    text: "xin hãy giúp con",
+  },
+  [normalizeText("đau họng")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/vocabulary_vocab_speaking_up_pain_and_help_sore_throat_meaning_60eda445.mp3",
+    text: "đau họng",
+  },
+  [normalizeText("đau bụng")]: {
+    key: "lessons/speaking-up/pain-and-help/audio/vi/vocabulary_vocab_speaking_up_pain_and_help_tummy_ache_meaning_41a2fd43.mp3",
+    text: "đau bụng",
   },
   [normalizeText("Bé đã biết thanh toán và mang đồ về.")]: {
     key: "lessons/supermarket-trip/checkout-counter/audio/vi/completion_b125f7b5.mp3",
@@ -77492,6 +80800,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/supermarket-trip/checkout-counter/audio/vi/teach_scanner_success_80539df2.mp3",
     text: "Từ này nghĩa là máy quét mã.",
   },
+  [normalizeText("túi mua hàng")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/vocabulary_vocab_supermarket_trip_checkout_counter_bag_meaning_1c795a36.mp3",
+    text: "túi mua hàng",
+  },
+  [normalizeText("thẻ thanh toán")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/vocabulary_vocab_supermarket_trip_checkout_counter_card_meaning_a1255984.mp3",
+    text: "thẻ thanh toán",
+  },
+  [normalizeText("nhân viên thu ngân")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/vocabulary_vocab_supermarket_trip_checkout_counter_cashier_meaning_c516b782.mp3",
+    text: "nhân viên thu ngân",
+  },
+  [normalizeText("quầy tính tiền")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/vocabulary_vocab_supermarket_trip_checkout_counter_counter_meaning_7931fd86.mp3",
+    text: "quầy tính tiền",
+  },
+  [normalizeText("xếp đồ vào túi")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/vocabulary_vocab_supermarket_trip_checkout_counter_pack_bag_meaning_0f073a2f.mp3",
+    text: "xếp đồ vào túi",
+  },
+  [normalizeText("hóa đơn")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/vocabulary_vocab_supermarket_trip_checkout_counter_receipt_meaning_139ebca7.mp3",
+    text: "hóa đơn",
+  },
+  [normalizeText("quét món hàng")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/vocabulary_vocab_supermarket_trip_checkout_counter_scan_item_meaning_dcf323f5.mp3",
+    text: "quét món hàng",
+  },
+  [normalizeText("máy quét mã")]: {
+    key: "lessons/supermarket-trip/checkout-counter/audio/vi/vocabulary_vocab_supermarket_trip_checkout_counter_scanner_meaning_0cb0875e.mp3",
+    text: "máy quét mã",
+  },
   [normalizeText("Bé đã chọn được rau quả tươi.")]: {
     key: "lessons/supermarket-trip/fresh-foods/audio/vi/completion_80595b73.mp3",
     text: "Bé đã chọn được rau quả tươi.",
@@ -77663,6 +81003,34 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Câu này nghĩa là cân trái cây.")]: {
     key: "lessons/supermarket-trip/fresh-foods/audio/vi/teach_weigh_fruit_success_0d4d907f.mp3",
     text: "Câu này nghĩa là cân trái cây.",
+  },
+  [normalizeText("củ cà rốt")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/vocabulary_vocab_supermarket_trip_fresh_foods_carrot_meaning_84fa60f5.mp3",
+    text: "củ cà rốt",
+  },
+  [normalizeText("chọn đồ uống")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/vocabulary_vocab_supermarket_trip_fresh_foods_choose_drink_meaning_dbe156fd.mp3",
+    text: "chọn đồ uống",
+  },
+  [normalizeText("chùm nho")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/vocabulary_vocab_supermarket_trip_fresh_foods_grapes_meaning_44f80ebb.mp3",
+    text: "chùm nho",
+  },
+  [normalizeText("chọn rau củ")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/vocabulary_vocab_supermarket_trip_fresh_foods_pick_vegetables_meaning_8c684e88.mp3",
+    text: "chọn rau củ",
+  },
+  [normalizeText("cái cân")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/vocabulary_vocab_supermarket_trip_fresh_foods_scale_meaning_0108d0f1.mp3",
+    text: "cái cân",
+  },
+  [normalizeText("quả cà chua")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/vocabulary_vocab_supermarket_trip_fresh_foods_tomato_meaning_1d292cca.mp3",
+    text: "quả cà chua",
+  },
+  [normalizeText("cân trái cây")]: {
+    key: "lessons/supermarket-trip/fresh-foods/audio/vi/vocabulary_vocab_supermarket_trip_fresh_foods_weigh_fruit_meaning_06dbbaef.mp3",
+    text: "cân trái cây",
   },
   [normalizeText("Bé đã chuẩn bị xong trước khi mua sắm.")]: {
     key: "lessons/supermarket-trip/shopping-list/audio/vi/completion_f2fb7252.mp3",
@@ -77844,6 +81212,38 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/supermarket-trip/shopping-list/audio/vi/teach_wallet_success_934241a6.mp3",
     text: "Từ này nghĩa là ví tiền.",
   },
+  [normalizeText("lối đi giữa các kệ")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/vocabulary_vocab_supermarket_trip_shopping_list_aisle_meaning_f442eece.mp3",
+    text: "lối đi giữa các kệ",
+  },
+  [normalizeText("xe đẩy")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/vocabulary_vocab_supermarket_trip_shopping_list_cart_meaning_a3867d30.mp3",
+    text: "xe đẩy",
+  },
+  [normalizeText("kiểm tra danh sách")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/vocabulary_vocab_supermarket_trip_shopping_list_check_list_meaning_c9a74c8b.mp3",
+    text: "kiểm tra danh sách",
+  },
+  [normalizeText("phiếu giảm giá")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/vocabulary_vocab_supermarket_trip_shopping_list_coupon_meaning_d82fb6cf.mp3",
+    text: "phiếu giảm giá",
+  },
+  [normalizeText("lập danh sách mua sắm")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/vocabulary_vocab_supermarket_trip_shopping_list_make_list_meaning_ee5b1cc1.mp3",
+    text: "lập danh sách mua sắm",
+  },
+  [normalizeText("đẩy xe mua hàng")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/vocabulary_vocab_supermarket_trip_shopping_list_push_cart_meaning_2e7ac651.mp3",
+    text: "đẩy xe mua hàng",
+  },
+  [normalizeText("danh sách mua sắm")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/vocabulary_vocab_supermarket_trip_shopping_list_shopping_list_meaning_747ef5ab.mp3",
+    text: "danh sách mua sắm",
+  },
+  [normalizeText("ví tiền")]: {
+    key: "lessons/supermarket-trip/shopping-list/audio/vi/vocabulary_vocab_supermarket_trip_shopping_list_wallet_meaning_84405614.mp3",
+    text: "ví tiền",
+  },
   [normalizeText("Bé đã giữ tay sạch và biết nói điều mình cần.")]: {
     key: "lessons/toilet-routine/clean-and-private/audio/vi/completion_0830d00d.mp3",
     text: "Bé đã giữ tay sạch và biết nói điều mình cần.",
@@ -78015,6 +81415,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Từ này nghĩa là biển sàn ướt.")]: {
     key: "lessons/toilet-routine/clean-and-private/audio/vi/teach_wet_floor_sign_success_c21732ff.mp3",
     text: "Từ này nghĩa là biển sàn ướt.",
+  },
+  [normalizeText("đôi tay sạch")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/vocabulary_vocab_toilet_routine_clean_and_private_clean_hands_meaning_b1651ac7.mp3",
+    text: "đôi tay sạch",
+  },
+  [normalizeText("xin cho con không gian riêng")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/vocabulary_vocab_toilet_routine_clean_and_private_give_privacy_meaning_e1966a1b.mp3",
+    text: "xin cho con không gian riêng",
+  },
+  [normalizeText("xà phòng rửa tay")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/vocabulary_vocab_toilet_routine_clean_and_private_hand_soap_meaning_a1834278.mp3",
+    text: "xà phòng rửa tay",
+  },
+  [normalizeText("khăn lau tay")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/vocabulary_vocab_toilet_routine_clean_and_private_hand_towel_meaning_22bb4bf1.mp3",
+    text: "khăn lau tay",
+  },
+  [normalizeText("con cần giúp đỡ")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/vocabulary_vocab_toilet_routine_clean_and_private_help_if_needed_meaning_8bf45f15.mp3",
+    text: "con cần giúp đỡ",
+  },
+  [normalizeText("sự riêng tư")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/vocabulary_vocab_toilet_routine_clean_and_private_privacy_meaning_ed153476.mp3",
+    text: "sự riêng tư",
+  },
+  [normalizeText("bồn rửa tay")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/vocabulary_vocab_toilet_routine_clean_and_private_sink_meaning_ae551ff6.mp3",
+    text: "bồn rửa tay",
+  },
+  [normalizeText("rửa tay thật sạch")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/vocabulary_vocab_toilet_routine_clean_and_private_wash_hands_well_meaning_5d97219d.mp3",
+    text: "rửa tay thật sạch",
+  },
+  [normalizeText("biển sàn ướt")]: {
+    key: "lessons/toilet-routine/clean-and-private/audio/vi/vocabulary_vocab_toilet_routine_clean_and_private_wet_floor_sign_meaning_965cba5d.mp3",
+    text: "biển sàn ướt",
   },
   [normalizeText("Bé đã biết nói khi cần đi vệ sinh.")]: {
     key: "lessons/toilet-routine/toilet-signals/audio/vi/completion_67308649.mp3",
@@ -78192,6 +81628,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/toilet-routine/toilet-signals/audio/vi/teach_toilet_success_7aae5c22.mp3",
     text: "Từ này nghĩa là bồn cầu.",
   },
+  [normalizeText("xin phép đi vệ sinh")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/vocabulary_vocab_toilet_routine_toilet_signals_ask_use_toilet_meaning_f27c3a1f.mp3",
+    text: "xin phép đi vệ sinh",
+  },
+  [normalizeText("cửa phòng vệ sinh")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/vocabulary_vocab_toilet_routine_toilet_signals_bathroom_door_meaning_43ea69db.mp3",
+    text: "cửa phòng vệ sinh",
+  },
+  [normalizeText("phòng vệ sinh")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/vocabulary_vocab_toilet_routine_toilet_signals_bathroom_meaning_b6922a7a.mp3",
+    text: "phòng vệ sinh",
+  },
+  [normalizeText("biển phòng vệ sinh")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/vocabulary_vocab_toilet_routine_toilet_signals_bathroom_sign_meaning_88a95b26.mp3",
+    text: "biển phòng vệ sinh",
+  },
+  [normalizeText("đi vào phòng vệ sinh")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/vocabulary_vocab_toilet_routine_toilet_signals_go_bathroom_meaning_a395c3a0.mp3",
+    text: "đi vào phòng vệ sinh",
+  },
+  [normalizeText("con cần đi vệ sinh")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/vocabulary_vocab_toilet_routine_toilet_signals_need_toilet_meaning_33dd9d9c.mp3",
+    text: "con cần đi vệ sinh",
+  },
+  [normalizeText("bô vệ sinh")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/vocabulary_vocab_toilet_routine_toilet_signals_potty_meaning_e2eced3d.mp3",
+    text: "bô vệ sinh",
+  },
+  [normalizeText("ghế kê chân")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/vocabulary_vocab_toilet_routine_toilet_signals_step_stool_meaning_b16f3a97.mp3",
+    text: "ghế kê chân",
+  },
+  [normalizeText("bồn cầu")]: {
+    key: "lessons/toilet-routine/toilet-signals/audio/vi/vocabulary_vocab_toilet_routine_toilet_signals_toilet_meaning_8c40d4b7.mp3",
+    text: "bồn cầu",
+  },
   [normalizeText("Bé đã hoàn thành các bước đi vệ sinh.")]: {
     key: "lessons/toilet-routine/toilet-steps/audio/vi/completion_fe9995d6.mp3",
     text: "Bé đã hoàn thành các bước đi vệ sinh.",
@@ -78360,6 +81832,42 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
     key: "lessons/toilet-routine/toilet-steps/audio/vi/teach_waste_bin_success_c35a8884.mp3",
     text: "Từ này nghĩa là thùng rác trong phòng vệ sinh.",
   },
+  [normalizeText("nút xả nước")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/vocabulary_vocab_toilet_routine_toilet_steps_flush_button_meaning_8331d9a2.mp3",
+    text: "nút xả nước",
+  },
+  [normalizeText("xả nước bồn cầu")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/vocabulary_vocab_toilet_routine_toilet_steps_flush_toilet_meaning_7d358338.mp3",
+    text: "xả nước bồn cầu",
+  },
+  [normalizeText("kéo quần xuống")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/vocabulary_vocab_toilet_routine_toilet_steps_pull_down_clothes_meaning_a3fd39e6.mp3",
+    text: "kéo quần xuống",
+  },
+  [normalizeText("giấy vệ sinh")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/vocabulary_vocab_toilet_routine_toilet_steps_toilet_paper_meaning_a8db6ee0.mp3",
+    text: "giấy vệ sinh",
+  },
+  [normalizeText("bệ ngồi bồn cầu")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/vocabulary_vocab_toilet_routine_toilet_steps_toilet_seat_meaning_ccdf17f8.mp3",
+    text: "bệ ngồi bồn cầu",
+  },
+  [normalizeText("quần dài")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/vocabulary_vocab_toilet_routine_toilet_steps_trousers_meaning_c5d87f5f.mp3",
+    text: "quần dài",
+  },
+  [normalizeText("quần lót")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/vocabulary_vocab_toilet_routine_toilet_steps_underwear_meaning_b48e85b8.mp3",
+    text: "quần lót",
+  },
+  [normalizeText("dùng giấy vệ sinh")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/vocabulary_vocab_toilet_routine_toilet_steps_use_toilet_paper_meaning_d0144a4a.mp3",
+    text: "dùng giấy vệ sinh",
+  },
+  [normalizeText("thùng rác trong phòng vệ sinh")]: {
+    key: "lessons/toilet-routine/toilet-steps/audio/vi/vocabulary_vocab_toilet_routine_toilet_steps_waste_bin_meaning_451866e2.mp3",
+    text: "thùng rác trong phòng vệ sinh",
+  },
   [normalizeText("Đúng rồi! Bé giỏi quá!")]: {
     key: "shared/audio/vi/correct.mp3",
     text: "Đúng rồi! Bé giỏi quá!",
@@ -78379,6 +81887,14 @@ const viAudioByText: Record<string, RemoteAudioAsset> = {
   [normalizeText("Không sao, từ sau mình thử đọc cùng cô nhé.")]: {
     key: "shared/audio/vi/recording_try_next_word_cc8c9ffc.mp3",
     text: "Không sao, từ sau mình thử đọc cùng cô nhé.",
+  },
+  [normalizeText("Bé sẽ chỉ nghe tiếng Anh nhé.")]: {
+    key: "shared/audio/vi/scene_vocabulary_meaning_disabled_f7d09258.mp3",
+    text: "Bé sẽ chỉ nghe tiếng Anh nhé.",
+  },
+  [normalizeText("Bé sẽ nghe tiếng Việt sau tiếng Anh nhé.")]: {
+    key: "shared/audio/vi/scene_vocabulary_meaning_enabled_d84aa2c0.mp3",
+    text: "Bé sẽ nghe tiếng Việt sau tiếng Anh nhé.",
   },
   [normalizeText("Cô nghe rồi! Giỏi quá!")]: {
     key: "shared/audio/vi/speak_encourage.mp3",

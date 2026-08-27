@@ -113,9 +113,14 @@ provide explicit English copy (`instructionEn`, `successFeedbackEn`, and
 `completionReward.messageEn`) instead of reusing a scene title as a translation.
 Location hints are resolved as English hints rather than being collapsed into a
 generic tap instruction.
-Vietnamese audio comes from `instructionVi`, `successFeedbackVi`,
-`failFeedbackVi`, completion messages and shared Vietnamese prompts such as
-speech-practice feedback and review-game intros. Bilingual
+Vietnamese audio comes from every vocabulary item's `meaningVi`,
+`instructionVi`, `successFeedbackVi`, `failFeedbackVi`, completion messages and
+shared Vietnamese prompts such as speech-practice feedback and review-game
+intros, including the icon-only vocabulary meaning toggle's spoken state
+confirmations. The generator deduplicates equal normalized meanings across the
+registered catalog, so adding a lesson with authored `meaningVi` values makes
+their standalone review audio part of the next generation run automatically.
+Bilingual
 teacher mode does not have its own generated files; runtime plays the Vietnamese
 segment and then the English segment.
 

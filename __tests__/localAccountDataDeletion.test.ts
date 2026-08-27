@@ -39,7 +39,9 @@ import {
 } from '../src/engine/ProgressManager';
 import {
   loadSceneVocabularyLayout,
+  loadSceneVocabularyMeaningEnabled,
   saveSceneVocabularyLayout,
+  saveSceneVocabularyMeaningEnabled,
 } from '../src/engine/SceneVocabularyLayoutStore';
 import { deleteLocalAccountData } from '../src/services/LocalAccountDataDeletion';
 import { NotificationService } from '../src/services/NotificationService';
@@ -109,6 +111,7 @@ describe('local account data deletion', () => {
     await saveSceneVocabularyLayout('lesson-a', 'scene-a', 'core', [
       { itemId: 'word-a', x: 0.72, y: 0.64, zIndex: 4 },
     ]);
+    await saveSceneVocabularyMeaningEnabled(true);
     await upsertVoiceRecordingSample({
       accent: 'en-US',
       createdAt: '2026-08-01T08:00:00.000Z',
@@ -150,6 +153,7 @@ describe('local account data deletion', () => {
     await expect(
       loadSceneVocabularyLayout('lesson-a', 'scene-a', 'core'),
     ).resolves.toEqual([]);
+    await expect(loadSceneVocabularyMeaningEnabled()).resolves.toBe(false);
     await expect(getVoiceRecordingSamples()).resolves.toEqual([]);
     expect(mockClearLocalCloudSync).toHaveBeenCalledTimes(1);
     expect(mockCancelDailyReminder).toHaveBeenCalledTimes(1);

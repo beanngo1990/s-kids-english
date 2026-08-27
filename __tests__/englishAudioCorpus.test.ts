@@ -3,6 +3,10 @@ import {
   getWordAudioAsset,
 } from '../src/data/audioManifest';
 import { kidLockAudioPrompts } from '../src/data/kidLockAudioPrompts';
+import {
+  sceneVocabularyMeaningDisabledPromptVi,
+  sceneVocabularyMeaningEnabledPromptVi,
+} from '../src/data/speechPrompts';
 import { generatedUiAudioRegistry } from '../src/engine/GeneratedUiAudioRegistry';
 import { ENGLISH_ACCENTS, type EnglishAccent } from '../src/types/audio';
 
@@ -156,6 +160,22 @@ test('recording try-next prompt has generated shared audio', () => {
     const enPath = join(repoRoot, 'src/assets', enAsset?.key ?? '');
     if (existsSync(enPath)) {
       expect(readFileSync(enPath).length).toBeGreaterThan(0);
+    }
+  }
+});
+
+test('vocabulary meaning toggle has generated Vietnamese confirmations', () => {
+  for (const prompt of [
+    sceneVocabularyMeaningEnabledPromptVi,
+    sceneVocabularyMeaningDisabledPromptVi,
+  ]) {
+    const asset = getViAudioAsset(prompt);
+    expect(asset?.key).toMatch(
+      /^shared\/audio\/vi\/scene_vocabulary_meaning_(?:enabled|disabled)_/u,
+    );
+    const assetPath = join(repoRoot, 'src/assets', asset?.key ?? '');
+    if (existsSync(assetPath)) {
+      expect(readFileSync(assetPath).length).toBeGreaterThan(0);
     }
   }
 });

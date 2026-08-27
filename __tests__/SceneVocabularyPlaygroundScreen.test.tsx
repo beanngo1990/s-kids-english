@@ -4,10 +4,18 @@ import { StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { lessons } from '../src/data/lessons';
-import { playWordNarration } from '../src/engine/AudioManager';
+import {
+  sceneVocabularyMeaningDisabledPromptVi,
+  sceneVocabularyMeaningEnabledPromptVi,
+} from '../src/data/speechPrompts';
+import {
+  playVietnameseNarration,
+  playWordNarration,
+} from '../src/engine/AudioManager';
 import {
   clearAllSceneVocabularyLayouts,
   loadSceneVocabularyLayout,
+  loadSceneVocabularyMeaningEnabled,
   saveSceneVocabularyLayout,
 } from '../src/engine/SceneVocabularyLayoutStore';
 import {
@@ -17,16 +25,26 @@ import {
 import { SceneVocabularyPlaygroundScreen } from '../src/screens/SceneVocabularyPlaygroundScreen';
 
 let mockReduceMotion = false;
+let mockNarrationGeneration = 0;
 
 jest.mock('../src/engine/AudioManager', () => ({
+  cancelNarration: jest.fn(() => {
+    mockNarrationGeneration += 1;
+    return Promise.resolve();
+  }),
   playTapSound: jest.fn(() => Promise.resolve()),
+  playVietnameseNarration: jest.fn(() => Promise.resolve('completed')),
   playWordNarration: jest.fn(() => Promise.resolve('completed')),
   speakVi: jest.fn(() => Promise.resolve()),
   speakWord: jest.fn(() => Promise.resolve()),
-  startNarrationSession: jest.fn(() => ({
-    isActive: () => true,
-    ready: Promise.resolve(),
-  })),
+  startNarrationSession: jest.fn(() => {
+    mockNarrationGeneration += 1;
+    const generation = mockNarrationGeneration;
+    return {
+      isActive: () => mockNarrationGeneration === generation,
+      ready: Promise.resolve(),
+    };
+  }),
 }));
 
 jest.mock('../src/engine/AssetRegistry', () => ({
@@ -47,6 +65,7 @@ jest.mock('../src/theme/motion', () => ({
 
 beforeEach(async () => {
   jest.clearAllMocks();
+  mockNarrationGeneration = 0;
   await clearAllSceneVocabularyLayouts();
 });
 
@@ -337,6 +356,192 @@ test('restores a saved object position when the playground opens again', async (
   expect(transforms[0].translateX.__getValue()).toBeCloseTo(0.82 * 320);
   expect(transforms[1].translateY.__getValue()).toBeCloseTo(0.74 * 640);
   expect(placedObjectStyle.zIndex).toBe(42);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('plays Vietnamese after English only while the meaning toggle is enabled', async () => {
+  jest.useFakeTimers();
+  const lesson = lessons[0];
+  const scene = lesson.scenes[0];
+  const learningMode = 'core' as const;
+  const items = getSceneVocabularyPlayItems(scene, learningMode);
+  const firstItem = items[0];
+  const secondItem = items[1];
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <GestureHandlerRootView>
+        <SceneVocabularyPlaygroundScreen
+          navigation={
+            {
+              canGoBack: jest.fn(() => true),
+              goBack: jest.fn(),
+              navigate: jest.fn(),
+              replace: jest.fn(),
+            } as never
+          }
+          route={{
+            key: 'SceneVocabularyPlayground',
+            name: 'SceneVocabularyPlayground',
+            params: {
+              learningMode,
+              lessonId: lesson.id,
+              sceneId: scene.id,
+            },
+          }}
+        />
+      </GestureHandlerRootView>,
+    );
+    await Promise.resolve();
+    await Promise.resolve();
+  });
+
+  const meaningToggle = tree?.root.findAll(
+    node =>
+      node.props.testID === 'scene-vocabulary-meaning-toggle' &&
+      typeof node.props.onPress === 'function',
+  )[0];
+  expect(meaningToggle?.props.accessibilityRole).toBe('switch');
+  expect(meaningToggle?.props.accessibilityState).toMatchObject({
+    checked: false,
+    disabled: false,
+  });
+
+  ReactTestRenderer.act(() => {
+    meaningToggle?.props.onPress();
+  });
+  await expect(loadSceneVocabularyMeaningEnabled()).resolves.toBe(true);
+  expect(playVietnameseNarration).toHaveBeenCalledWith(
+    sceneVocabularyMeaningEnabledPromptVi,
+    expect.objectContaining({ isActive: expect.any(Function) }),
+  );
+  expect(
+    tree?.root.findAll(
+      node =>
+        node.props.testID === 'scene-vocabulary-meaning-language-flag',
+    ).length,
+  ).toBeGreaterThan(0);
+  expect(
+    tree?.root.findAll(
+      node => node.props.testID === 'scene-vocabulary-meaning-enabled-badge',
+    ).length,
+  ).toBeGreaterThan(0);
+  expect(tree?.root.findAll(node => node.props.children === 'EN')).toHaveLength(
+    0,
+  );
+  expect(tree?.root.findAll(node => node.props.children === 'VI')).toHaveLength(
+    0,
+  );
+  jest.mocked(playVietnameseNarration).mockClear();
+
+  const firstPlacedObject = tree?.root.findAll(
+    node =>
+      node.props.testID === `scene-vocabulary-object-${firstItem.id}` &&
+      typeof node.props.onAccessibilityTap === 'function',
+  )[0];
+  ReactTestRenderer.act(() => {
+    firstPlacedObject?.props.onAccessibilityTap();
+  });
+  await ReactTestRenderer.act(async () => {
+    await Promise.resolve();
+  });
+
+  expect(playWordNarration).toHaveBeenLastCalledWith(
+    firstItem.word,
+    undefined,
+    expect.objectContaining({ isActive: expect.any(Function) }),
+  );
+  expect(playVietnameseNarration).not.toHaveBeenCalled();
+  expect(
+    tree?.root.findAll(node => node.props.children === firstItem.meaningVi)
+      .length,
+  ).toBeGreaterThan(0);
+
+  const secondPlacedObject = tree?.root.findAll(
+    node =>
+      node.props.testID === `scene-vocabulary-object-${secondItem.id}` &&
+      typeof node.props.onAccessibilityTap === 'function',
+  )[0];
+  ReactTestRenderer.act(() => {
+    secondPlacedObject?.props.onAccessibilityTap();
+  });
+  await ReactTestRenderer.act(async () => {
+    await Promise.resolve();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(119);
+    await Promise.resolve();
+  });
+  expect(playVietnameseNarration).not.toHaveBeenCalled();
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(1);
+    await Promise.resolve();
+    await Promise.resolve();
+  });
+
+  expect(playVietnameseNarration).toHaveBeenCalledTimes(1);
+  expect(playVietnameseNarration).toHaveBeenCalledWith(
+    secondItem.meaningVi,
+    expect.objectContaining({ isActive: expect.any(Function) }),
+  );
+
+  await ReactTestRenderer.act(async () => {
+    jest.runOnlyPendingTimers();
+    tree?.unmount();
+  });
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <GestureHandlerRootView>
+        <SceneVocabularyPlaygroundScreen
+          navigation={
+            {
+              canGoBack: jest.fn(() => true),
+              goBack: jest.fn(),
+              navigate: jest.fn(),
+              replace: jest.fn(),
+            } as never
+          }
+          route={{
+            key: 'SceneVocabularyPlayground',
+            name: 'SceneVocabularyPlayground',
+            params: {
+              learningMode,
+              lessonId: lesson.id,
+              sceneId: scene.id,
+            },
+          }}
+        />
+      </GestureHandlerRootView>,
+    );
+    await Promise.resolve();
+    await Promise.resolve();
+  });
+  expect(
+    tree?.root.findAll(
+      node =>
+        node.props.testID === 'scene-vocabulary-meaning-toggle' &&
+        node.props.accessibilityState?.checked === true,
+    ).length,
+  ).toBeGreaterThan(0);
+
+  const restoredMeaningToggle = tree?.root.findAll(
+    node =>
+      node.props.testID === 'scene-vocabulary-meaning-toggle' &&
+      typeof node.props.onPress === 'function',
+  )[0];
+  ReactTestRenderer.act(() => {
+    restoredMeaningToggle?.props.onPress();
+  });
+  expect(playVietnameseNarration).toHaveBeenLastCalledWith(
+    sceneVocabularyMeaningDisabledPromptVi,
+    expect.objectContaining({ isActive: expect.any(Function) }),
+  );
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();

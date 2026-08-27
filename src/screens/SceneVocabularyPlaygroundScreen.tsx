@@ -25,6 +25,7 @@ import {
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import { AppButton } from '../components/AppButton';
+import { AppUiIcon } from '../components/AppUiIcon';
 import { KidHeaderActionButton } from '../components/KidRouteHeader';
 import { Screen } from '../components/Screen';
 import { SKidsIcon } from '../components/SKidsIcon';
@@ -35,18 +36,26 @@ import {
 } from '../data/kidLockAudioPrompts';
 import { lessons } from '../data/lessons';
 import {
+  sceneVocabularyMeaningDisabledPromptVi,
+  sceneVocabularyMeaningEnabledPromptVi,
+} from '../data/speechPrompts';
+import {
   playTapSound,
+  playVietnameseNarration,
   playWordNarration,
   speakVi,
   speakWord,
   startNarrationSession,
+  type NarrationSession,
 } from '../engine/AudioManager';
 import { prefetchAssets, resolveAsset } from '../engine/AssetRegistry';
 import { resolveLearningModePreference } from '../engine/ParentSettingsManager';
 import {
   clearSceneVocabularyLayout,
   loadSceneVocabularyLayout,
+  loadSceneVocabularyMeaningEnabled,
   saveSceneVocabularyLayout,
+  saveSceneVocabularyMeaningEnabled,
   type SceneVocabularySavedPlacement,
 } from '../engine/SceneVocabularyLayoutStore';
 import { useContentAccess } from '../engine/useContentAccess';
@@ -85,7 +94,9 @@ type VocabularyPlacement = {
 const PLAY_ITEM_SIZE = 96;
 const WORD_BUBBLE_CANVAS_MARGIN = 12;
 const TAP_FEEDBACK_DURATION_MS = 1800;
+const MEANING_TAP_FEEDBACK_DURATION_MS = 3200;
 const COACH_DURATION_MS = 2800;
+const MEANING_NARRATION_DELAY_MS = 120;
 
 let hasShownPlaygroundCoachThisSession = false;
 
@@ -99,6 +110,7 @@ export function SceneVocabularyPlaygroundScreen({ navigation, route }: Props) {
   const nextZIndexRef = useRef(1);
   const nextTapFeedbackRunRef = useRef(1);
   const placementsRef = useRef<VocabularyPlacement[]>([]);
+  const hasChangedMeaningPreferenceRef = useRef(false);
   const lesson = lessons.find(item => item.id === route.params.lessonId);
   const scene = lesson?.scenes.find(item => item.id === route.params.sceneId);
   const openedFromParent = route.params.openedFromParent === true;
@@ -111,6 +123,9 @@ export function SceneVocabularyPlaygroundScreen({ navigation, route }: Props) {
   });
   const [placements, setPlacements] = useState<VocabularyPlacement[]>([]);
   const [isLayoutReady, setIsLayoutReady] = useState(false);
+  const [isMeaningEnabled, setIsMeaningEnabled] = useState(false);
+  const [isMeaningPreferenceReady, setIsMeaningPreferenceReady] =
+    useState(false);
   const [tapFeedback, setTapFeedback] = useState<
     { itemId: string; run: number } | undefined
   >();
@@ -209,16 +224,38 @@ export function SceneVocabularyPlaygroundScreen({ navigation, route }: Props) {
   }, [defaultPlacements, isAccessGranted, learningMode, lesson, scene]);
 
   useEffect(() => {
+    let isMounted = true;
+    loadSceneVocabularyMeaningEnabled()
+      .then(meaningEnabled => {
+        if (isMounted && !hasChangedMeaningPreferenceRef.current) {
+          setIsMeaningEnabled(meaningEnabled);
+        }
+      })
+      .catch(() => undefined)
+      .finally(() => {
+        if (isMounted) {
+          setIsMeaningPreferenceReady(true);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
     if (!tapFeedback) {
       return;
     }
 
     const timer = setTimeout(
       () => setTapFeedback(undefined),
-      TAP_FEEDBACK_DURATION_MS,
+      isMeaningEnabled
+        ? MEANING_TAP_FEEDBACK_DURATION_MS
+        : TAP_FEEDBACK_DURATION_MS,
     );
     return () => clearTimeout(timer);
-  }, [tapFeedback]);
+  }, [isMeaningEnabled, tapFeedback]);
 
   useEffect(() => {
     if (!isAccessGranted || hasShownPlaygroundCoachThisSession) {
@@ -334,15 +371,40 @@ export function SceneVocabularyPlaygroundScreen({ navigation, route }: Props) {
     });
   };
 
-  const speakVocabularyItem = useCallback((item: SceneVocabularyPlayItem) => {
-    setTapFeedback({
-      itemId: item.id,
-      run: nextTapFeedbackRunRef.current,
-    });
-    nextTapFeedbackRunRef.current += 1;
+  const speakVocabularyItem = useCallback(
+    (item: SceneVocabularyPlayItem) => {
+      setTapFeedback({
+        itemId: item.id,
+        run: nextTapFeedbackRunRef.current,
+      });
+      nextTapFeedbackRunRef.current += 1;
+      const session = startNarrationSession();
+      playVocabularyWithOptionalMeaning(item, isMeaningEnabled, session).catch(
+        () => undefined,
+      );
+    },
+    [isMeaningEnabled],
+  );
+
+  const handleToggleMeaning = () => {
+    if (!isMeaningPreferenceReady) {
+      return;
+    }
+    playTapSound().catch(() => undefined);
+    const nextMeaningEnabled = !isMeaningEnabled;
+    hasChangedMeaningPreferenceRef.current = true;
+    setIsMeaningEnabled(nextMeaningEnabled);
+    saveSceneVocabularyMeaningEnabled(nextMeaningEnabled).catch(
+      () => undefined,
+    );
     const session = startNarrationSession();
-    playWordNarration(item.word, undefined, session).catch(() => undefined);
-  }, []);
+    playVietnameseNarration(
+      nextMeaningEnabled
+        ? sceneVocabularyMeaningEnabledPromptVi
+        : sceneVocabularyMeaningDisabledPromptVi,
+      session,
+    ).catch(() => undefined);
+  };
 
   const bringItemToFront = useCallback((itemId: string) => {
     const zIndex = nextZIndexRef.current;
@@ -461,6 +523,7 @@ export function SceneVocabularyPlaygroundScreen({ navigation, route }: Props) {
               onSpeak={speakVocabularyItem}
               placement={placement}
               reduceMotion={reduceMotion}
+              showMeaning={isMeaningEnabled}
               tapEffectRun={
                 tapFeedback?.itemId === item.id ? tapFeedback.run : 0
               }
@@ -505,6 +568,58 @@ export function SceneVocabularyPlaygroundScreen({ navigation, route }: Props) {
               onPress={handleClose}
               testID="scene-vocabulary-close"
             />
+            <Pressable
+              accessibilityHint={t(
+                'sceneVocabularyPlayground.meaningToggleHint',
+              )}
+              accessibilityLabel={t(
+                isMeaningEnabled
+                  ? 'sceneVocabularyPlayground.disableMeaning'
+                  : 'sceneVocabularyPlayground.enableMeaning',
+              )}
+              accessibilityRole="switch"
+              accessibilityState={{
+                checked: isMeaningEnabled,
+                disabled: !isMeaningPreferenceReady,
+              }}
+              disabled={!isMeaningPreferenceReady}
+              onPress={handleToggleMeaning}
+              style={({ pressed }) => [
+                styles.meaningToggle,
+                isMeaningEnabled && styles.meaningToggleEnabled,
+                !isMeaningPreferenceReady && styles.meaningToggleDisabled,
+                pressed && styles.pressed,
+              ]}
+              testID="scene-vocabulary-meaning-toggle"
+            >
+              <AppUiIcon
+                name="language"
+                size={38}
+                style={[
+                  styles.meaningToggleIcon,
+                  isMeaningEnabled && styles.meaningToggleIconEnabled,
+                ]}
+              />
+              <View
+                pointerEvents="none"
+                style={[
+                  styles.meaningFlagBadge,
+                  !isMeaningEnabled && styles.meaningFlagBadgeDisabled,
+                ]}
+                testID="scene-vocabulary-meaning-language-flag"
+              >
+                <Text style={styles.meaningFlagStar}>★</Text>
+              </View>
+              {isMeaningEnabled ? (
+                <View
+                  pointerEvents="none"
+                  style={styles.meaningToggleCheckBadge}
+                  testID="scene-vocabulary-meaning-enabled-badge"
+                >
+                  <Text style={styles.meaningToggleCheck}>✓</Text>
+                </View>
+              ) : null}
+            </Pressable>
             <Pressable
               accessibilityLabel={t('sceneVocabularyPlayground.reset')}
               accessibilityRole="button"
@@ -556,6 +671,7 @@ type MovableVocabularyItemProps = {
   onSpeak: (item: SceneVocabularyPlayItem) => void;
   placement: VocabularyPlacement;
   reduceMotion: boolean;
+  showMeaning: boolean;
   tapEffectRun: number;
 };
 
@@ -567,6 +683,7 @@ function MovableVocabularyItem({
   onSpeak,
   placement,
   reduceMotion,
+  showMeaning,
   tapEffectRun,
 }: MovableVocabularyItemProps) {
   const translateX = useRef(
@@ -799,7 +916,7 @@ function MovableVocabularyItem({
   });
   const gesture = useSimultaneousGestures(panGesture, tapGesture);
   const wordBubbleLayout = getVocabularyBubbleLayout(
-    item.word,
+    showMeaning ? `${item.word} ${item.meaningVi}` : item.word,
     canvasSize.width,
     placement.x,
   );
@@ -878,6 +995,9 @@ function MovableVocabularyItem({
             >
               {item.word}
             </Text>
+            {showMeaning ? (
+              <Text style={styles.objectMeaningText}>{item.meaningVi}</Text>
+            ) : null}
           </Animated.View>
         ) : null}
       </Animated.View>
@@ -894,6 +1014,34 @@ function VocabularyArtwork({ item }: { item: SceneVocabularyPlayItem }) {
       style={styles.playgroundArtwork}
     />
   );
+}
+
+async function playVocabularyWithOptionalMeaning(
+  item: SceneVocabularyPlayItem,
+  meaningEnabled: boolean,
+  session: NarrationSession,
+) {
+  const englishResult = await playWordNarration(item.word, undefined, session);
+  if (
+    englishResult !== 'completed' ||
+    !meaningEnabled ||
+    !item.meaningVi.trim() ||
+    !session.isActive()
+  ) {
+    return;
+  }
+
+  await waitForMeaningNarrationDelay();
+  if (!session.isActive()) {
+    return;
+  }
+  await playVietnameseNarration(item.meaningVi, session);
+}
+
+function waitForMeaningNarrationDelay() {
+  return new Promise<void>(resolve => {
+    setTimeout(resolve, MEANING_NARRATION_DELAY_MS);
+  });
 }
 
 function restoreSceneVocabularyPlacements(
@@ -1088,6 +1236,81 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     textAlign: 'center',
     ...typography.title,
+  },
+  meaningToggle: {
+    alignItems: 'center',
+    backgroundColor: colors.imageLabelSurface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 58,
+    justifyContent: 'center',
+    position: 'relative',
+    width: 64,
+    ...shadows.soft,
+  },
+  meaningFlagBadge: {
+    alignItems: 'center',
+    backgroundColor: '#DA251D',
+    borderColor: colors.surface,
+    borderRadius: 5,
+    borderWidth: 2,
+    bottom: 4,
+    height: 18,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 5,
+    width: 25,
+  },
+  meaningFlagBadgeDisabled: {
+    opacity: 0.42,
+  },
+  meaningFlagStar: {
+    color: '#FFDD00',
+    fontSize: 11,
+    lineHeight: 13,
+    textAlign: 'center',
+  },
+  meaningToggleCheck: {
+    color: colors.white,
+    fontSize: 13,
+    fontWeight: '900',
+    lineHeight: 16,
+    textAlign: 'center',
+  },
+  meaningToggleCheckBadge: {
+    alignItems: 'center',
+    backgroundColor: colors.green,
+    borderColor: colors.surface,
+    borderRadius: 12,
+    borderWidth: 2,
+    height: 24,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: -5,
+    top: -5,
+    width: 24,
+  },
+  meaningToggleDisabled: {
+    opacity: 0.62,
+  },
+  meaningToggleEnabled: {
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+  },
+  meaningToggleIcon: {
+    opacity: 0.6,
+  },
+  meaningToggleIconEnabled: {
+    opacity: 1,
+  },
+  objectMeaningText: {
+    color: colors.textSoft,
+    fontSize: 16,
+    fontWeight: '800',
+    lineHeight: 21,
+    marginTop: 1,
+    textAlign: 'center',
   },
   placedItem: {
     alignItems: 'center',

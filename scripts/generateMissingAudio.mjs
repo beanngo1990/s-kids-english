@@ -657,6 +657,16 @@ function collectAudioTargets(
           scene,
           text: vocabularyItem.word,
         });
+        addViTarget(targets, {
+          defaultKey: getVietnameseVocabularyMeaningAudioKey(
+            lesson.id,
+            scene.id,
+            vocabularyItem.id,
+            vocabularyItem.meaningVi,
+          ),
+          existingViAudio,
+          text: vocabularyItem.meaningVi,
+        });
       }
 
       for (const step of scene.steps ?? []) {
@@ -913,6 +923,20 @@ function collectAudioTargets(
     text: 'Đúng rồi! Bé giỏi quá!',
   });
   addSharedViTarget(targets, {
+    defaultKey: `shared/audio/vi/scene_vocabulary_meaning_enabled_${textDigest(
+      speechPrompts.sceneVocabularyMeaningEnabledPromptVi,
+    )}.mp3`,
+    existingViAudio,
+    text: speechPrompts.sceneVocabularyMeaningEnabledPromptVi,
+  });
+  addSharedViTarget(targets, {
+    defaultKey: `shared/audio/vi/scene_vocabulary_meaning_disabled_${textDigest(
+      speechPrompts.sceneVocabularyMeaningDisabledPromptVi,
+    )}.mp3`,
+    existingViAudio,
+    text: speechPrompts.sceneVocabularyMeaningDisabledPromptVi,
+  });
+  addSharedViTarget(targets, {
     defaultKey: 'shared/audio/vi/memory_game_intro.mp3',
     existingViAudio,
     text: reviewGamePrompts.memoryGameIntroPromptVi,
@@ -1136,6 +1160,17 @@ function getStepAudioKey(lessonId, sceneId, stepId, part, text) {
   return `lessons/${lessonId}/${sceneId}/audio/vi/${stepSlug}${suffix}_${textDigest(
     text,
   )}.mp3`;
+}
+
+function getVietnameseVocabularyMeaningAudioKey(
+  lessonId,
+  sceneId,
+  vocabularyId,
+  text,
+) {
+  return `lessons/${lessonId}/${sceneId}/audio/vi/vocabulary_${slug(
+    vocabularyId,
+  )}_meaning_${textDigest(text)}.mp3`;
 }
 
 function getEnglishStepAudioKey(lessonId, sceneId, stepId, text) {

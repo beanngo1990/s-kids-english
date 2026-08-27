@@ -619,14 +619,15 @@ export const vi = {
   'scene.completion.title': 'Giỏi quá!',
   'scene.completion.vocabularyPlayground': 'Chơi với từ',
 
-  'sceneVocabularyPlayground.coach':
-    'Mình cùng chơi với những từ vừa học nhé!',
+  'sceneVocabularyPlayground.coach': 'Mình cùng chơi với những từ vừa học nhé!',
+  'sceneVocabularyPlayground.disableMeaning': 'Tắt nghĩa tiếng Việt',
   'sceneVocabularyPlayground.emptyVocabulary':
     'Cảnh này chưa có từ vựng để chơi.',
-  'sceneVocabularyPlayground.hint':
-    'Chạm đồ vật để nghe · Kéo đồ vật để chơi',
-  'sceneVocabularyPlayground.notFound':
-    'Không tìm thấy góc chơi của cảnh này.',
+  'sceneVocabularyPlayground.enableMeaning': 'Bật nghĩa tiếng Việt',
+  'sceneVocabularyPlayground.hint': 'Chạm đồ vật để nghe · Kéo đồ vật để chơi',
+  'sceneVocabularyPlayground.meaningToggleHint':
+    'Khi bật, bé sẽ nghe tiếng Anh trước rồi nghe nghĩa tiếng Việt.',
+  'sceneVocabularyPlayground.notFound': 'Không tìm thấy góc chơi của cảnh này.',
   'sceneVocabularyPlayground.reset': 'Đặt lại',
 
   'lessonPack.openVocabularyPlayground': 'Chơi với từ',

@@ -626,10 +626,14 @@ export const en: TranslationDictionary = {
 
   'sceneVocabularyPlayground.coach':
     'Let’s play with the words you just learned!',
+  'sceneVocabularyPlayground.disableMeaning': 'Turn off Vietnamese meanings',
   'sceneVocabularyPlayground.emptyVocabulary':
     'This scene does not have any words to play with yet.',
+  'sceneVocabularyPlayground.enableMeaning': 'Turn on Vietnamese meanings',
   'sceneVocabularyPlayground.hint':
     'Tap an object to listen · Drag an object to play',
+  'sceneVocabularyPlayground.meaningToggleHint':
+    'When enabled, the English word plays first, followed by its Vietnamese meaning.',
   'sceneVocabularyPlayground.notFound':
     'This scene’s vocabulary playground could not be found.',
   'sceneVocabularyPlayground.reset': 'Restore',

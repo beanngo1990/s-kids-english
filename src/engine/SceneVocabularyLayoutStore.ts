@@ -24,11 +24,13 @@ type SceneVocabularySavedLayout = {
 
 type SceneVocabularyLayoutStoreState = {
   layouts: Record<string, SceneVocabularySavedLayout>;
+  meaningEnabled: boolean;
   version: 1;
 };
 
 const emptySceneVocabularyLayoutStore: SceneVocabularyLayoutStoreState = {
   layouts: {},
+  meaningEnabled: false,
   version: STORE_VERSION,
 };
 
@@ -54,6 +56,25 @@ export function loadSceneVocabularyLayout(
   });
 }
 
+export function loadSceneVocabularyMeaningEnabled(): Promise<boolean> {
+  return enqueueSceneVocabularyLayoutOperation(async () => {
+    const state = await readSceneVocabularyLayoutStore();
+    return state.meaningEnabled;
+  });
+}
+
+export function saveSceneVocabularyMeaningEnabled(
+  meaningEnabled: boolean,
+): Promise<void> {
+  return enqueueSceneVocabularyLayoutOperation(async () => {
+    const state = await readSceneVocabularyLayoutStore();
+    await persistSceneVocabularyLayoutStore({
+      ...state,
+      meaningEnabled,
+    });
+  });
+}
+
 export function saveSceneVocabularyLayout(
   lessonId: string,
   sceneId: string,
@@ -70,6 +91,7 @@ export function saveSceneVocabularyLayout(
       delete remainingLayouts[key];
       await persistSceneVocabularyLayoutStore({
         layouts: remainingLayouts,
+        meaningEnabled: state.meaningEnabled,
         version: STORE_VERSION,
       });
       return [];
@@ -84,6 +106,7 @@ export function saveSceneVocabularyLayout(
     });
     await persistSceneVocabularyLayoutStore({
       layouts,
+      meaningEnabled: state.meaningEnabled,
       version: STORE_VERSION,
     });
     return normalizedPlacements;
@@ -106,6 +129,7 @@ export function clearSceneVocabularyLayout(
     delete remainingLayouts[key];
     await persistSceneVocabularyLayoutStore({
       layouts: remainingLayouts,
+      meaningEnabled: state.meaningEnabled,
       version: STORE_VERSION,
     });
   });
@@ -135,7 +159,7 @@ async function readSceneVocabularyLayoutStore() {
 async function persistSceneVocabularyLayoutStore(
   state: SceneVocabularyLayoutStoreState,
 ) {
-  if (Object.keys(state.layouts).length === 0) {
+  if (Object.keys(state.layouts).length === 0 && !state.meaningEnabled) {
     await AsyncStorage.removeItem(SCENE_VOCABULARY_LAYOUTS_STORAGE_KEY);
     return;
   }
@@ -170,6 +194,7 @@ function normalizeSceneVocabularyLayoutStore(
 
   return {
     layouts: pruneLayouts(layouts),
+    meaningEnabled: value.meaningEnabled === true,
     version: STORE_VERSION,
   };
 }

@@ -254,7 +254,7 @@ chưa có trên disk.
 
 ## 9. Persistence và notifications
 
-Bảy local stores hiện tại:
+Tám local stores hiện tại:
 
 - `@skidsenglish/parent-settings/v1` qua `ParentSettingsManager.ts`.
 - `@skidsenglish/progress/v1` qua `ProgressManager.ts`.
@@ -267,6 +267,8 @@ Bảy local stores hiện tại:
   local để throttle lời mời đánh giá trong Parent Mode.
 - `@skidsenglish/voice-recordings/v1` qua `VoiceRecordingStore.ts`, giữ metadata first/latest và
   pending file cleanup cho thư viện giọng đọc local-only; audio nằm trong native no-backup storage.
+- `@skidsenglish/scene-vocabulary-layouts/v1` qua `SceneVocabularyLayoutStore.ts`, giữ vị trí đồ
+  vật theo lesson/scene/learning mode và preference dịch nghĩa local-only của Góc chơi từ vựng.
 
 Không đổi hoặc xóa key versioned nếu chưa có migration/compatibility plan. Normalizer phải chịu
 được dữ liệu thiếu field từ version cũ.

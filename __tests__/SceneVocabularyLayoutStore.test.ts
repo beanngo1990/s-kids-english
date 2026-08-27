@@ -6,7 +6,9 @@ import {
   clearSceneVocabularyLayout,
   getSceneVocabularyLayoutKey,
   loadSceneVocabularyLayout,
+  loadSceneVocabularyMeaningEnabled,
   saveSceneVocabularyLayout,
+  saveSceneVocabularyMeaningEnabled,
 } from '../src/engine/SceneVocabularyLayoutStore';
 
 describe('SceneVocabularyLayoutStore', () => {
@@ -67,6 +69,24 @@ describe('SceneVocabularyLayoutStore', () => {
     await expect(
       loadSceneVocabularyLayout('lesson-a', 'scene-a', 'expanded'),
     ).resolves.toEqual([{ itemId: 'apple', x: 0, y: 1, zIndex: 4 }]);
+    await expect(loadSceneVocabularyMeaningEnabled()).resolves.toBe(false);
+  });
+
+  test('remembers one device-wide meaning preference independently of layouts', async () => {
+    await expect(loadSceneVocabularyMeaningEnabled()).resolves.toBe(false);
+
+    await saveSceneVocabularyMeaningEnabled(true);
+    await saveSceneVocabularyLayout('lesson-a', 'scene-a', 'core', [
+      { itemId: 'apple', x: 0.2, y: 0.3, zIndex: 2 },
+    ]);
+    await clearSceneVocabularyLayout('lesson-a', 'scene-a', 'core');
+
+    await expect(loadSceneVocabularyMeaningEnabled()).resolves.toBe(true);
+
+    await saveSceneVocabularyMeaningEnabled(false);
+    await expect(
+      AsyncStorage.getItem(SCENE_VOCABULARY_LAYOUTS_STORAGE_KEY),
+    ).resolves.toBeNull();
   });
 
   test('clears one layout independently and can clear the complete local store', async () => {
