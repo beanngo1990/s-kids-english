@@ -139,15 +139,27 @@ export const vi = {
   'premium.signInTitle': 'Tài khoản phụ huynh tùy chọn',
   'premium.signInText':
     'Ba mẹ chỉ cần đăng nhập nếu muốn liên kết quyền Premium với tài khoản phụ huynh để đồng bộ cloud và khôi phục theo tài khoản.',
-  'premium.founder.badge': 'Quà ra mắt dành cho phụ huynh sớm',
-  'premium.founder.title': 'Premium miễn phí trong 1 năm',
+  'premium.founder.badge': 'Quà ra mắt',
+  'premium.founder.title': 'Nhận 1 năm Sungy Premium miễn phí',
+  'premium.founder.pageSubtitle':
+    'Quà ra mắt đang chờ ba mẹ nhận — không cần thanh toán.',
+  'premium.founder.price': '0đ',
+  'premium.founder.duration': '365 ngày Premium',
   'premium.founder.marketingText':
-    'Tài khoản đủ điều kiện được mở Premium trong 365 ngày, tính từ lần đầu mở ứng dụng sau khi ba mẹ đăng nhập.',
+    'Mở toàn bộ bài học, cảnh tương tác và nội dung ôn tập hiện có.',
   'premium.founder.terms':
     'Không cần thông tin thanh toán, không tự động gia hạn và không phát sinh phí.',
+  'premium.founder.noCard': 'Không cần thẻ',
+  'premium.founder.noRenewal': 'Không tự động gia hạn',
+  'premium.founder.noFee': 'Không phát sinh phí',
   'premium.founder.signInText':
-    'Lần mở ứng dụng này đủ điều kiện. Ba mẹ hãy đăng nhập để kích hoạt quà tặng.',
+    'Ưu đãi đã được xác nhận. Ba mẹ đăng nhập để kích hoạt quà tặng.',
   'premium.founder.signInAction': 'Đăng nhập và kích hoạt',
+  'premium.founder.signInAppleAction': 'Đăng nhập Apple để nhận quà',
+  'premium.founder.signInGoogleAction': 'Đăng nhập Google để nhận quà',
+  'premium.founder.viewPaidPlans': 'Xem các gói trả phí',
+  'premium.founder.hidePaidPlans': 'Ẩn các gói trả phí',
+  'premium.founder.paidPlansHint': 'Không cần mua gói để nhận quà.',
   'premium.package.monthly': '1 tháng',
   'premium.package.annual': '1 năm',
   'premium.package.lifetime': 'Trọn đời',

@@ -859,6 +859,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   `founder_premium_duration_days`, so sánh với RevenueCat `CustomerInfo.firstSeen` và chỉ mở nội
   dung sau khi Firebase parent sign-in. Cutoff rỗng/date không hợp lệ fail closed; cơ chế này không
   phải quota chính xác 500 và không được mô tả là “500 lượt tải đầu tiên”.
+- Khi anonymous customer đang đủ điều kiện Founder nhưng phụ huynh chưa đăng nhập, `PremiumScreen`
+  ưu tiên hero quà tặng `0đ · 365 ngày` trước quyền lợi và chỉ hiển thị một nhóm CTA đăng nhập để
+  kích hoạt. Các package trả phí mặc định được thu gọn sau action phụ `Xem các gói trả phí`; nếu
+  phụ huynh chủ động mở phần này, checkout không lặp lại card đăng nhập tùy chọn của luồng mua.
 
 ### Scene learning
 

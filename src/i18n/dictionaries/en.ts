@@ -142,15 +142,27 @@ export const en: TranslationDictionary = {
   'premium.signInTitle': 'Optional parent account',
   'premium.signInText':
     'Sign in only if you want to link Premium access with a parent account for cloud sync and account-based restore.',
-  'premium.founder.badge': 'Launch gift for early parents',
-  'premium.founder.title': 'One year of Premium free',
+  'premium.founder.badge': 'Launch gift',
+  'premium.founder.title': 'Get one year of Sungy Premium free',
+  'premium.founder.pageSubtitle':
+    'Your launch gift is ready — no payment required.',
+  'premium.founder.price': 'Free',
+  'premium.founder.duration': '365 days of Premium',
   'premium.founder.marketingText':
-    'Eligible accounts receive 365 days of Premium from the first app session after a parent signs in.',
+    'Open every available lesson, interactive scene, and review activity.',
   'premium.founder.terms':
     'No payment details are required, it will not renew automatically, and there is no charge.',
+  'premium.founder.noCard': 'No payment card',
+  'premium.founder.noRenewal': 'No automatic renewal',
+  'premium.founder.noFee': 'No charge',
   'premium.founder.signInText':
-    'This app record is eligible. Sign in a parent account to activate the gift.',
+    'Your eligibility is confirmed. Sign in a parent account to activate the gift.',
   'premium.founder.signInAction': 'Sign in and activate',
+  'premium.founder.signInAppleAction': 'Sign in with Apple to get the gift',
+  'premium.founder.signInGoogleAction': 'Sign in with Google to get the gift',
+  'premium.founder.viewPaidPlans': 'View paid plans',
+  'premium.founder.hidePaidPlans': 'Hide paid plans',
+  'premium.founder.paidPlansHint': 'You do not need to buy a plan to get the gift.',
   'premium.package.monthly': '1 month',
   'premium.package.annual': '1 year',
   'premium.package.lifetime': 'Lifetime',
