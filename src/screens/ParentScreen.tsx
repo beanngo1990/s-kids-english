@@ -20,7 +20,6 @@ import {
 } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { NotificationService } from '../services/NotificationService';
 import {
@@ -42,6 +41,7 @@ import { ParentVoiceRecordingSettingsCard } from '../components/ParentVoiceRecor
 import { ParentVoiceSummaryCard } from '../components/ParentVoiceSummaryCard';
 import { PremiumStatusCard } from '../components/PremiumStatusCard';
 import { PremiumUpgradeCard } from '../components/PremiumUpgradeCard';
+import { ReminderTimePickerModal } from '../components/ReminderTimePickerModal';
 import { Screen } from '../components/Screen';
 import { WeeklyChart } from '../components/WeeklyChart';
 import { APP_SUPPORT_EMAIL } from '../config/appInfo';
@@ -1092,34 +1092,36 @@ export function ParentScreen({ navigation, route }: Props) {
     }
   };
 
-  const handleTimeChange = async (event: any, selectedDate?: Date) => {
-    setShowTimePicker(false);
-    if (selectedDate && beginReminderUpdate()) {
-      const previousTime = reminderTime;
-      const hours = selectedDate.getHours().toString().padStart(2, '0');
-      const minutes = selectedDate.getMinutes().toString().padStart(2, '0');
-      const timeString = `${hours}:${minutes}`;
+  const handleConfirmReminderTime = async (timeString: string) => {
+    if (!beginReminderUpdate()) {
+      return;
+    }
+
+    let didSaveTime = false;
+    try {
+      await saveParentSettings({ reminderTime: timeString });
+      didSaveTime = true;
       setReminderTime(timeString);
 
-      try {
-        await saveParentSettings({ reminderTime: timeString });
-
-        if (reminderEnabled) {
-          const didSchedule = await scheduleReminderForParent(timeString);
-          if (!didSchedule) {
-            await resetReminderAfterFailure();
-            showReminderPermissionAlert();
-          }
-        }
-      } catch {
-        setReminderTime(previousTime);
-        if (reminderEnabled) {
+      if (reminderEnabled) {
+        const didSchedule = await scheduleReminderForParent(timeString);
+        if (!didSchedule) {
           await resetReminderAfterFailure();
+          setShowTimePicker(false);
+          showReminderPermissionAlert();
+          return;
         }
-        showReminderUpdateError();
-      } finally {
-        finishReminderUpdate();
       }
+
+      setShowTimePicker(false);
+    } catch {
+      if (reminderEnabled && didSaveTime) {
+        await resetReminderAfterFailure();
+        setShowTimePicker(false);
+      }
+      showReminderUpdateError();
+    } finally {
+      finishReminderUpdate();
     }
   };
 
@@ -1668,76 +1670,90 @@ export function ParentScreen({ navigation, route }: Props) {
 
         {activeTab === 'settings' && (
           <View style={styles.tabContent}>
-            <View style={styles.settingsHero}>
-              <KidBadge tone="teal">{t('parent.settings.heroBadge')}</KidBadge>
-              <Text style={styles.settingsHeroTitle}>
-                {t('parent.settings.heroTitle', { name: childDisplayName })}
+            <View style={styles.settingsPageIntro}>
+              <Text style={styles.settingsPageTitle}>
+                {t('parent.settings.pageTitle')}
               </Text>
-              <Text style={styles.settingsHeroSubtitle}>
-                {t('parent.settings.heroSubtitle')}
+              <Text style={styles.settingsPageSubtitle}>
+                {t('parent.settings.pageSubtitle')}
               </Text>
             </View>
 
-            <AppCard style={styles.profileSettingsCard}>
-              <View style={styles.profileSummary}>
-                <View style={styles.profileMascot}>
-                  <MascotImage decorative pose="avatar" size={64} />
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.settings.profileSectionTitle')}
+              </Text>
+              <View style={styles.learningSettingsList}>
+                <View style={styles.learningSettingsRow}>
+                  <View style={styles.profileRowAvatar}>
+                    <MascotImage decorative pose="avatar" size={42} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.displayNameLabel')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {childAge && childAge > 0
+                        ? t('parent.settings.childAge', { age: childAge })
+                        : t('parent.settings.profileMissingBirthYear')}
+                    </Text>
+                  </View>
+                  <TextInput
+                    accessibilityLabel={t(
+                      'parent.settings.displayNameLabel',
+                    )}
+                    maxLength={20}
+                    onBlur={() => {
+                      const name =
+                        childProfile.name.trim() || defaultChildProfile.name;
+                      const next = { ...childProfile, name };
+                      setChildProfile(next);
+                      saveParentSettings({ childProfile: next });
+                    }}
+                    onChangeText={text => {
+                      const next = { ...childProfile, name: text };
+                      setChildProfile(next);
+                    }}
+                    placeholder={t(
+                      'parent.settings.displayNamePlaceholder',
+                    )}
+                    placeholderTextColor={colors.muted}
+                    style={styles.settingsTextInput}
+                    value={childProfile.name}
+                  />
                 </View>
-                <View style={styles.profileSummaryCopy}>
-                  <KidBadge tone="sky">
-                    {t('parent.settings.profileBadge')}
-                  </KidBadge>
-                  <Text style={styles.profileSummaryName}>
-                    {childDisplayName}
-                  </Text>
-                  <Text style={styles.profileSummaryMeta}>
-                    {childAge && childAge > 0
-                      ? t('parent.settings.childAge', { age: childAge })
-                      : t('parent.settings.profileMissingBirthYear')}
-                  </Text>
-                </View>
-              </View>
 
-              <View style={styles.settingsInputRow}>
-                <View style={styles.settingTextGroup}>
-                  <Text style={styles.settingsFieldLabel}>
-                    {t('parent.settings.displayNameLabel')}
-                  </Text>
-                </View>
-                <TextInput
-                  style={styles.settingsTextInput}
-                  value={childProfile.name}
-                  onChangeText={text => {
-                    const next = { ...childProfile, name: text };
-                    setChildProfile(next);
-                  }}
-                  onBlur={() => {
-                    const name =
-                      childProfile.name.trim() || defaultChildProfile.name;
-                    const next = { ...childProfile, name };
-                    setChildProfile(next);
-                    saveParentSettings({ childProfile: next });
-                  }}
-                  placeholder={t('parent.settings.displayNamePlaceholder')}
-                  placeholderTextColor={colors.muted}
-                  maxLength={20}
-                />
-              </View>
-
-              <View style={styles.settingsInputRow}>
-                <View style={styles.settingTextGroup}>
-                  <Text style={styles.settingsFieldLabel}>
-                    {t('parent.settings.birthYearLabel')}
-                  </Text>
-                </View>
                 <Pressable
-                  style={styles.settingsTextInputSmall}
+                  accessibilityLabel={t('parent.settings.birthYearLabel')}
+                  accessibilityRole="button"
                   onPress={() => setShowYearPicker(true)}
+                  style={({ pressed }) => [
+                    styles.learningSettingsRow,
+                    styles.learningSettingsRowLast,
+                    pressed && styles.pressed,
+                  ]}
                 >
-                  <Text style={styles.yearPickerButtonText}>
-                    {childProfile.birthYear?.toString() ??
-                      t('parent.settings.birthYearPlaceholder')}
-                  </Text>
+                  <View style={styles.learningSettingsRowIcon}>
+                    <AppUiIcon name="daily" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.birthYearLabel')}
+                    </Text>
+                    <Text style={styles.learningSettingsRowSubtitle}>
+                      {t('parent.settings.birthYearSubtitle')}
+                    </Text>
+                  </View>
+                  <View style={styles.learningSettingsRowValue}>
+                    <Text style={styles.learningSettingsValueText}>
+                      {childProfile.birthYear?.toString() ??
+                        t('parent.settings.birthYearPlaceholder')}
+                    </Text>
+                    <Text style={styles.learningSettingsChevron}>›</Text>
+                  </View>
                 </Pressable>
               </View>
 
@@ -1781,7 +1797,8 @@ export function ParentScreen({ navigation, route }: Props) {
                             <Text
                               style={[
                                 styles.yearPickerItemText,
-                                isSelected && styles.yearPickerItemTextSelected,
+                                isSelected &&
+                                  styles.yearPickerItemTextSelected,
                               ]}
                             >
                               {item}
@@ -1796,41 +1813,12 @@ export function ParentScreen({ navigation, route }: Props) {
                   </View>
                 </Pressable>
               </Modal>
-            </AppCard>
+            </View>
 
-            <ParentVoiceRecordingSettingsCard />
-
-            <AppCard style={styles.dailySettingsCard}>
-              <View style={styles.settingsCardHeader}>
-                <KidBadge tone="sun">
-                  {t('parent.settings.dailyBadge')}
-                </KidBadge>
-                <Text style={styles.dailySettingsTitle}>
-                  {t('parent.settings.dailyTitle')}
-                </Text>
-              </View>
-
-              <View style={styles.learningSummaryPanel}>
-                <View style={styles.learningSummaryIcon}>
-                  <AppUiIcon name="daily" size={34} />
-                </View>
-                <View style={styles.learningSummaryCopy}>
-                  <Text style={styles.learningSummaryLabel}>
-                    {t('parent.settings.dailySummaryLabel')}
-                  </Text>
-                  <Text style={styles.learningSummaryTitle}>
-                    {reminderEnabled
-                      ? t('parent.settings.dailySummaryEnabled', {
-                          time: reminderTime,
-                        })
-                      : t('parent.settings.dailySummaryDisabled')}
-                  </Text>
-                  <Text style={styles.learningSummarySubtitle}>
-                    {t('parent.settings.dailySummarySubtitle')}
-                  </Text>
-                </View>
-              </View>
-
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.settings.routineSectionTitle')}
+              </Text>
               <View style={styles.learningSettingsList}>
                 <View style={styles.learningSettingsRow}>
                   <View style={styles.learningSettingsRowIcon}>
@@ -1862,11 +1850,14 @@ export function ParentScreen({ navigation, route }: Props) {
 
                 <Pressable
                   accessibilityRole="button"
+                  accessibilityState={{ disabled: isReminderUpdatePending }}
+                  disabled={isReminderUpdatePending}
                   onPress={() => setShowTimePicker(true)}
                   style={({ pressed }) => [
                     styles.learningSettingsRow,
                     styles.learningSettingsRowLast,
-                    pressed && styles.pressed,
+                    pressed && !isReminderUpdatePending && styles.pressed,
+                    isReminderUpdatePending && styles.actionDisabled,
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
@@ -1899,32 +1890,128 @@ export function ParentScreen({ navigation, route }: Props) {
                 </Pressable>
               </View>
 
-              {showTimePicker && (
-                <DateTimePicker
-                  value={(() => {
-                    const d = new Date();
-                    const [h, m] = reminderTime.split(':').map(Number);
-                    d.setHours(h);
-                    d.setMinutes(m);
-                    return d;
-                  })()}
-                  mode="time"
-                  display="spinner"
-                  onChange={handleTimeChange}
-                />
-              )}
-            </AppCard>
+              <ReminderTimePickerModal
+                isSaving={isReminderUpdatePending}
+                onClose={() => setShowTimePicker(false)}
+                onConfirm={handleConfirmReminderTime}
+                value={reminderTime}
+                visible={showTimePicker}
+              />
+            </View>
 
-            <AppCard style={styles.appExperienceCard}>
-              <View style={styles.settingsCardHeader}>
-                <KidBadge tone="sky">
-                  {t('parent.settings.appExperienceBadge')}
-                </KidBadge>
-                <Text style={styles.appSettingsTitle}>
-                  {t('parent.settings.appExperienceTitle')}
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.settings.voiceDataSectionTitle')}
+              </Text>
+              <View style={styles.learningSettingsList}>
+                <ParentVoiceRecordingSettingsCard embedded />
+
+                <View
+                  style={[
+                    styles.learningSettingsRow,
+                    !shouldShowCrashReportPrompt &&
+                      styles.learningSettingsRowLast,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <AppUiIcon name="settings" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    {renderSettingsRowTitle(
+                      t('parent.settings.crashReportingTitle'),
+                      'crashReporting',
+                    )}
+                    <Text
+                      numberOfLines={3}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {crashReportingEnabled
+                        ? t('parent.settings.crashReportingEnabled')
+                        : t('parent.settings.crashReportingDisabled')}
+                    </Text>
+                  </View>
+                  <Switch
+                    disabled={isCrashReportActionPending}
+                    value={crashReportingEnabled}
+                    onValueChange={handleToggleCrashReporting}
+                    trackColor={{ false: colors.border, true: colors.primary }}
+                  />
+                </View>
+
+                {shouldShowCrashReportPrompt ? (
+                  <View
+                    style={[
+                      styles.crashReportPromptRow,
+                      styles.learningSettingsRowLast,
+                    ]}
+                  >
+                    <View style={styles.crashReportPromptCopy}>
+                      <Text style={styles.crashReportPromptTitle}>
+                        {t('parent.settings.crashReportPromptTitle')}
+                      </Text>
+                      <Text style={styles.crashReportPromptText}>
+                        {t('parent.settings.crashReportPromptText')}
+                      </Text>
+                    </View>
+                    <View style={styles.crashReportPromptActions}>
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityState={{
+                          disabled: isCrashReportActionPending,
+                        }}
+                        disabled={isCrashReportActionPending}
+                        onPress={handleSendPendingCrashReport}
+                        style={({ pressed }) => [
+                          styles.crashReportPrimaryAction,
+                          isCrashReportActionPending && styles.actionDisabled,
+                          pressed && styles.pressed,
+                        ]}
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={styles.crashReportPrimaryActionText}
+                        >
+                          {t('parent.settings.crashReportPromptSend')}
+                        </Text>
+                      </Pressable>
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityState={{
+                          disabled: isCrashReportActionPending,
+                        }}
+                        disabled={isCrashReportActionPending}
+                        onPress={handleDiscardPendingCrashReport}
+                        style={({ pressed }) => [
+                          styles.crashReportSecondaryAction,
+                          isCrashReportActionPending && styles.actionDisabled,
+                          pressed && styles.pressed,
+                        ]}
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={styles.crashReportSecondaryActionText}
+                        >
+                          {t('parent.settings.crashReportPromptDiscard')}
+                        </Text>
+                      </Pressable>
+                    </View>
+                  </View>
+                ) : null}
+              </View>
+              <View style={styles.settingsPrivacyNote}>
+                <Text style={styles.settingsPrivacyNoteTitle}>
+                  {t('parent.privacy.title')}
+                </Text>
+                <Text style={styles.settingsPrivacyNoteText}>
+                  {t('parent.privacy.text')}
                 </Text>
               </View>
+            </View>
 
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.settings.appSectionTitle')}
+              </Text>
               <View style={styles.learningSettingsList}>
                 <Pressable
                   accessibilityRole="button"
@@ -2058,7 +2145,12 @@ export function ParentScreen({ navigation, route }: Props) {
                   </View>
                 </Pressable>
 
-                <View style={styles.learningSettingsRow}>
+                <View
+                  style={[
+                    styles.learningSettingsRow,
+                    styles.learningSettingsRowLast,
+                  ]}
+                >
                   <View style={styles.learningSettingsRowIcon}>
                     <AppUiIcon name="gameListen" size={30} />
                   </View>
@@ -2082,98 +2174,6 @@ export function ParentScreen({ navigation, route }: Props) {
                     trackColor={{ false: colors.border, true: colors.primary }}
                   />
                 </View>
-
-                <View
-                  style={[
-                    styles.learningSettingsRow,
-                    !shouldShowCrashReportPrompt &&
-                      styles.learningSettingsRowLast,
-                  ]}
-                >
-                  <View style={styles.learningSettingsRowIcon}>
-                    <AppUiIcon name="settings" size={30} />
-                  </View>
-                  <View style={styles.learningSettingsRowCopy}>
-                    {renderSettingsRowTitle(
-                      t('parent.settings.crashReportingTitle'),
-                      'crashReporting',
-                    )}
-                    <Text
-                      numberOfLines={3}
-                      style={styles.learningSettingsRowSubtitle}
-                    >
-                      {crashReportingEnabled
-                        ? t('parent.settings.crashReportingEnabled')
-                        : t('parent.settings.crashReportingDisabled')}
-                    </Text>
-                  </View>
-                  <Switch
-                    disabled={isCrashReportActionPending}
-                    value={crashReportingEnabled}
-                    onValueChange={handleToggleCrashReporting}
-                    trackColor={{ false: colors.border, true: colors.primary }}
-                  />
-                </View>
-
-                {shouldShowCrashReportPrompt ? (
-                  <View
-                    style={[
-                      styles.crashReportPromptRow,
-                      styles.learningSettingsRowLast,
-                    ]}
-                  >
-                    <View style={styles.crashReportPromptCopy}>
-                      <Text style={styles.crashReportPromptTitle}>
-                        {t('parent.settings.crashReportPromptTitle')}
-                      </Text>
-                      <Text style={styles.crashReportPromptText}>
-                        {t('parent.settings.crashReportPromptText')}
-                      </Text>
-                    </View>
-                    <View style={styles.crashReportPromptActions}>
-                      <Pressable
-                        accessibilityRole="button"
-                        accessibilityState={{
-                          disabled: isCrashReportActionPending,
-                        }}
-                        disabled={isCrashReportActionPending}
-                        onPress={handleSendPendingCrashReport}
-                        style={({ pressed }) => [
-                          styles.crashReportPrimaryAction,
-                          isCrashReportActionPending && styles.actionDisabled,
-                          pressed && styles.pressed,
-                        ]}
-                      >
-                        <Text
-                          numberOfLines={2}
-                          style={styles.crashReportPrimaryActionText}
-                        >
-                          {t('parent.settings.crashReportPromptSend')}
-                        </Text>
-                      </Pressable>
-                      <Pressable
-                        accessibilityRole="button"
-                        accessibilityState={{
-                          disabled: isCrashReportActionPending,
-                        }}
-                        disabled={isCrashReportActionPending}
-                        onPress={handleDiscardPendingCrashReport}
-                        style={({ pressed }) => [
-                          styles.crashReportSecondaryAction,
-                          isCrashReportActionPending && styles.actionDisabled,
-                          pressed && styles.pressed,
-                        ]}
-                      >
-                        <Text
-                          numberOfLines={2}
-                          style={styles.crashReportSecondaryActionText}
-                        >
-                          {t('parent.settings.crashReportPromptDiscard')}
-                        </Text>
-                      </Pressable>
-                    </View>
-                  </View>
-                ) : null}
               </View>
 
               <Modal
@@ -2406,18 +2406,17 @@ export function ParentScreen({ navigation, route }: Props) {
                   </Pressable>
                 </Pressable>
               </Modal>
-            </AppCard>
+            </View>
 
-            <ParentAccountCard
-              onCloudSyncInfoPress={() => setInfoTopic('cloudSync')}
-            />
-
-            <AppCard style={styles.privacyCard}>
-              <Text style={styles.privacyTitle}>
-                {t('parent.privacy.title')}
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.settings.accountSectionTitle')}
               </Text>
-              <Text style={styles.privacyText}>{t('parent.privacy.text')}</Text>
-            </AppCard>
+              <ParentAccountCard
+                compact
+                onCloudSyncInfoPress={() => setInfoTopic('cloudSync')}
+              />
+            </View>
 
             {__DEV__ && (
               <AppCard style={styles.settingsCard}>
@@ -2454,14 +2453,10 @@ export function ParentScreen({ navigation, route }: Props) {
               </AppCard>
             )}
 
-            <AppCard style={styles.appExperienceCard}>
-              <View style={styles.settingsCardHeader}>
-                <KidBadge tone="teal">{t('parent.support.badge')}</KidBadge>
-                <Text style={styles.appSettingsTitle}>
-                  {t('parent.support.title')}
-                </Text>
-              </View>
-
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.support.title')}
+              </Text>
               <View style={styles.learningSettingsList}>
                 <Pressable
                   accessibilityLabel={t('parent.support.emailAccessibility')}
@@ -2586,7 +2581,7 @@ export function ParentScreen({ navigation, route }: Props) {
                   </Pressable>
                 ) : null}
               </View>
-            </AppCard>
+            </View>
           </View>
         )}
       </Screen>
@@ -2792,35 +2787,6 @@ const styles = createThemedStyles(() => ({
   },
   dashboardCardCompact: {
     padding: spacing.md,
-  },
-  appSettingsDivider: {
-    backgroundColor: colors.border,
-    height: 1,
-    marginVertical: spacing.xs,
-  },
-  appSettingsTitle: {
-    color: colors.text,
-    ...typography.subtitle,
-  },
-  appExperienceCard: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderWidth: 1,
-    gap: spacing.md,
-  },
-  dailySettingsCard: {
-    backgroundColor: colors.surface,
-    borderColor: colors.borderWarm,
-    borderWidth: 1,
-    gap: spacing.md,
-  },
-  dailySettingsSubtitle: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  dailySettingsTitle: {
-    color: colors.text,
-    ...typography.subtitle,
   },
   difficultyChoice: {
     alignItems: 'center',
@@ -3449,38 +3415,16 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     ...typography.caption,
   },
-  profileMascot: {
+  profileRowAvatar: {
     alignItems: 'center',
     backgroundColor: colors.secondarySoft,
     borderColor: colors.secondary,
-    borderRadius: radius.lg,
+    borderRadius: radius.md,
     borderWidth: 1,
-    height: 76,
+    height: 48,
     justifyContent: 'center',
-    width: 76,
-  },
-  profileSettingsCard: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderWidth: 1,
-    gap: spacing.md,
-  },
-  profileSummary: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.md,
-  },
-  profileSummaryCopy: {
-    flex: 1,
-    gap: spacing.xs,
-  },
-  profileSummaryMeta: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  profileSummaryName: {
-    color: colors.text,
-    ...typography.subtitle,
+    overflow: 'hidden',
+    width: 48,
   },
   reminderClock: {
     alignItems: 'center',
@@ -3534,29 +3478,42 @@ const styles = createThemedStyles(() => ({
   settingsCardHeader: {
     gap: spacing.xs,
   },
-  settingsFieldLabel: {
-    color: colors.text,
-    ...typography.caption,
+  settingsPageIntro: {
+    gap: spacing.xxs,
+    marginBottom: spacing.sm,
   },
-  settingsHero: {
-    gap: spacing.xs,
-    marginBottom: spacing.xs,
-  },
-  settingsHeroSubtitle: {
+  settingsPageSubtitle: {
     color: colors.textSoft,
     ...typography.caption,
   },
-  settingsHeroTitle: {
+  settingsPageTitle: {
     color: colors.text,
-    ...typography.title,
+    ...typography.subtitle,
   },
-  settingsInputRow: {
-    alignItems: 'center',
-    borderTopColor: colors.border,
-    borderTopWidth: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingTop: spacing.sm,
+  settingsPrivacyNote: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    gap: spacing.xxs,
+    padding: spacing.sm,
+  },
+  settingsPrivacyNoteText: {
+    ...typography.caption,
+    color: colors.textSoft,
+    fontWeight: '600',
+  },
+  settingsPrivacyNoteTitle: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  settingsSection: {
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  settingsSectionTitle: {
+    color: colors.text,
+    ...typography.body,
   },
   settingsTextInput: {
     backgroundColor: colors.surfaceBlue,
@@ -3564,31 +3521,12 @@ const styles = createThemedStyles(() => ({
     borderRadius: radius.pill,
     borderWidth: 1,
     color: colors.text,
-    minWidth: 136,
+    maxWidth: '42%',
+    minWidth: 112,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xs,
     textAlign: 'right',
     ...typography.caption,
-  },
-  settingsTextInputSmall: {
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.border,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    color: colors.text,
-    minWidth: 108,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-    textAlign: 'right',
-    ...typography.caption,
-  },
-  privacyCard: {
-    backgroundColor: colors.surfaceBlue,
-    marginTop: spacing.lg,
-  },
-  privacyText: {
-    color: colors.textSoft,
-    ...typography.body,
   },
   privacyTitle: {
     color: colors.text,

@@ -82,6 +82,21 @@ describe('ParentAccountCard sign-out choices', () => {
     alertSpy.mockRestore();
   });
 
+  test('shows a compact signed-in summary without the sign-in heading', async () => {
+    const tree = await renderCard(true);
+
+    expect(getChildText(tree.toJSON())).toContain('parent@example.com');
+    expect(getChildText(tree.toJSON())).toContain('Đăng nhập bằng Google');
+    expect(getChildText(tree.toJSON())).not.toContain(
+      'Đăng nhập tài khoản ba mẹ',
+    );
+    expect(findButtonByText(tree, 'Đăng xuất')).toBeDefined();
+
+    await act(async () => {
+      tree.unmount();
+    });
+  });
+
   test('signs out without clearing local data when parent chooses to keep data', async () => {
     const tree = await renderCard();
 
@@ -135,10 +150,10 @@ describe('ParentAccountCard sign-out choices', () => {
   });
 });
 
-async function renderCard() {
+async function renderCard(compact = false) {
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
   await act(async () => {
-    tree = ReactTestRenderer.create(<ParentAccountCard />);
+    tree = ReactTestRenderer.create(<ParentAccountCard compact={compact} />);
   });
   return tree!;
 }
@@ -181,6 +196,9 @@ function getChildText(value: unknown): string {
     return getChildText(
       (value.props as { children?: unknown } | undefined)?.children,
     );
+  }
+  if (value && typeof value === 'object' && 'children' in value) {
+    return getChildText((value as { children?: unknown }).children);
   }
   return '';
 }

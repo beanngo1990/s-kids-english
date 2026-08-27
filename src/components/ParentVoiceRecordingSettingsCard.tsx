@@ -12,8 +12,15 @@ import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import { AppCard } from './AppCard';
+import { AppUiIcon } from './AppUiIcon';
 
-export function ParentVoiceRecordingSettingsCard() {
+type ParentVoiceRecordingSettingsCardProps = {
+  embedded?: boolean;
+};
+
+export function ParentVoiceRecordingSettingsCard({
+  embedded = false,
+}: ParentVoiceRecordingSettingsCardProps) {
   useThemeSync();
   const t = useI18n();
   const [preference, setPreference] =
@@ -122,51 +129,65 @@ export function ParentVoiceRecordingSettingsCard() {
     );
   }, [t]);
 
-  return (
-    <AppCard style={styles.card}>
-      <View style={styles.settingRow}>
-        <View style={styles.settingCopy}>
-          <View style={styles.titleRow}>
-            <Text style={styles.settingTitle}>
-              {t('parent.voice.autoSaveTitle')}
-            </Text>
-            <Pressable
-              accessibilityLabel={t('parent.voice.infoAccessibility')}
-              accessibilityRole="button"
-              hitSlop={spacing.sm}
-              onPress={handleShowInfo}
-              style={({ pressed }) => [
-                styles.infoAction,
-                pressed && styles.pressed,
-              ]}
-            >
-              <Text accessibilityElementsHidden style={styles.infoIcon}>
-                ⓘ
-              </Text>
-            </Pressable>
-          </View>
-          <Text style={styles.settingSubtitle}>
-            {preference.enabled
-              ? t('parent.voice.autoSaveEnabled')
-              : t('parent.voice.autoSaveDisabled')}
-          </Text>
-        </View>
-        <Switch
-          accessibilityLabel={t('parent.voice.autoSaveTitle')}
-          disabled={isPending}
-          onValueChange={handleToggle}
-          trackColor={{ false: colors.border, true: colors.primary }}
-          value={preference.enabled}
-        />
+  const settingRow = (
+    <View style={[styles.settingRow, embedded && styles.embeddedRow]}>
+      <View style={styles.settingIcon}>
+        <AppUiIcon name="gameListen" size={28} />
       </View>
-    </AppCard>
+      <View style={styles.settingCopy}>
+        <View style={styles.titleRow}>
+          <Text style={styles.settingTitle}>
+            {t('parent.voice.autoSaveTitle')}
+          </Text>
+          <Pressable
+            accessibilityLabel={t('parent.voice.infoAccessibility')}
+            accessibilityRole="button"
+            hitSlop={spacing.sm}
+            onPress={handleShowInfo}
+            style={({ pressed }) => [
+              styles.infoAction,
+              pressed && styles.pressed,
+            ]}
+          >
+            <Text accessibilityElementsHidden style={styles.infoIcon}>
+              ⓘ
+            </Text>
+          </Pressable>
+        </View>
+        <Text style={styles.settingSubtitle}>
+          {preference.enabled
+            ? t('parent.voice.autoSaveEnabled')
+            : t('parent.voice.autoSaveDisabled')}
+        </Text>
+      </View>
+      <Switch
+        accessibilityLabel={t('parent.voice.autoSaveTitle')}
+        disabled={isPending}
+        onValueChange={handleToggle}
+        trackColor={{ false: colors.border, true: colors.primary }}
+        value={preference.enabled}
+      />
+    </View>
   );
+
+  if (embedded) {
+    return settingRow;
+  }
+
+  return <AppCard style={styles.card}>{settingRow}</AppCard>;
 }
 
 const styles = createThemedStyles(() => ({
   card: {
     borderColor: colors.accentSoft,
     borderWidth: 1,
+  },
+  embeddedRow: {
+    borderBottomColor: colors.border,
+    borderBottomWidth: 1,
+    minHeight: 72,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.sm,
   },
   infoAction: {
     alignItems: 'center',
@@ -188,10 +209,18 @@ const styles = createThemedStyles(() => ({
     gap: spacing.xxs,
     minWidth: 0,
   },
+  settingIcon: {
+    alignItems: 'center',
+    backgroundColor: colors.surfaceBlue,
+    borderRadius: radius.md,
+    height: 48,
+    justifyContent: 'center',
+    width: 48,
+  },
   settingRow: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: spacing.md,
+    gap: spacing.sm,
     minHeight: 64,
   },
   settingSubtitle: {
@@ -200,7 +229,7 @@ const styles = createThemedStyles(() => ({
     fontWeight: '600',
   },
   settingTitle: {
-    ...typography.body,
+    ...typography.caption,
     color: colors.text,
     flexShrink: 1,
   },

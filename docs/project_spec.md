@@ -741,12 +741,15 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   ban đầu. Mở/thu danh sách bài không làm draft bị dirty. Nếu quay lại khi có thay đổi chưa lưu,
   màn hình yêu cầu xác nhận trước khi bỏ draft. Chỉnh từng lesson không đổi
   `progress.activeThemeId`; nếu tắt đúng theme đang mở, màn hình báo trước và khi lưu sẽ chuyển
-  active map sang theme đang bật kế tiếp. Tab Cài đặt chỉnh child profile,
-  Light/Dark/System theme,
-  app-language preference, teacher prompt mode, English accent, daily reminder time, optional
-  background music, thư viện giọng đọc local, contact support email và app version đọc trực tiếp
-  từ native release metadata. Card giọng đọc có toggle và thao tác xóa toàn bộ độc lập, nên phụ
-  huynh có thể dọn lịch sử mà vẫn giữ tự động lưu cho các buổi sau.
+  active map sang theme đang bật kế tiếp. Tab Cài đặt bỏ hero/card giới thiệu lớn và dùng các nhóm
+  danh sách nhất quán theo thứ tự `Hồ sơ của bé`, `Thói quen học`, `Giọng đọc & dữ liệu`, `Ứng
+  dụng`, `Tài khoản & đồng bộ`, `Liên hệ & thông tin`. Tab này chỉnh child profile,
+  Light/Dark/System theme, app-language preference, teacher prompt mode, English accent, daily
+  reminder time, optional background music, thư viện giọng đọc local, crash reporting, contact
+  support email và app version đọc trực tiếp từ native release metadata. Các lựa chọn tiếp tục tự
+  lưu theo từng thao tác; nhóm hồ sơ giữ name field và birth-year picker ngay trong danh sách gọn.
+  Card giọng đọc có toggle và thao tác xóa toàn bộ độc lập, nên phụ huynh có thể dọn lịch sử mà vẫn
+  giữ tự động lưu cho các buổi sau.
 - **Implemented:** đánh giá ứng dụng là parent-only. Prompt native chỉ được cân nhắc khi Parent
   dashboard đã ổn định, app đã được theo dõi ít nhất 7 ngày, có hoạt động học ở ít nhất 3 ngày và
   đã hoàn thành ít nhất 3 lesson. App chờ 2,5 giây tại điểm nghỉ, không hiện cùng update/crash/
@@ -764,7 +767,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   tiếng Anh, giao diện, nhạc nền, thư viện giọng đọc, crash reporting và cloud learning data sync.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
   Google và Apple. Đây là tài khoản phụ huynh. Trên iOS hỗ trợ Apple Sign-In, nút Apple đứng trước
-  Google trong Parent/Premium, kể cả luồng kích hoạt Founder; Android chỉ hiện Google.
+  Google trong Parent/Premium, kể cả luồng kích hoạt Founder; Android chỉ hiện Google. Trong nhóm
+  `Tài khoản & đồng bộ` của tab Cài đặt, trạng thái đã đăng nhập hiển thị thành một summary row gồm
+  tên, provider và badge Premium nếu có; cloud sync là một row riêng gồm status cùng switch. Quản
+  lý gói và đăng xuất dùng action row gọn, còn xóa tài khoản là destructive link ít nổi bật ở cuối
+  nhóm thay vì ba nút lớn xếp dọc.
 - **Implemented:** trong account card, phụ huynh chủ động bật/tắt cloud learning data sync. Consent
   modal liệt kê progress và selected settings được sync; opt-out cho phép giữ hoặc xóa bản cloud.
   Daily activity, voice recordings, lesson assets và per-device notification permission/schedule
@@ -1157,7 +1164,10 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
   notification permission và trigger `daily-reminder` thực tế để không báo đang nhắc khi lịch native
   không hoạt động.
 - Row "Giờ nhắc" vẫn chỉnh được khi reminder đang tắt để phụ huynh chọn giờ trước; subtitle phân
-  biệt giờ dự kiến khi tắt và lịch nhắc hằng ngày đang hoạt động khi bật.
+  biệt giờ dự kiến khi tắt và lịch nhắc hằng ngày đang hoạt động khi bật. Trên iOS, row này mở
+  modal Sungy chứa spinner và hai CTA; trên Android, app chỉ mở một native clock dialog 24 giờ,
+  không lồng thêm modal phía dưới. App chỉ persist/reschedule sau `Xác nhận`/native confirm; `Hủy`,
+  chạm ra ngoài hoặc đóng dialog giữ nguyên giờ cũ.
 - Service cancel notification cũ trước khi tạo schedule mới.
 - **Partial verification:** chưa có native E2E tests trong repo chứng minh behavior trên cả hai OS;
   thay đổi reminder cần kiểm tra trên platform hoặc báo rõ chưa chạy.
@@ -1335,7 +1345,7 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Parent setting local-only: `crashReportingEnabled` trong
   `@skidsenglish/parent-settings/v1`, mặc định `false` cho cả install mới và persisted settings
   legacy. Setting này không sync qua tài khoản/cloud.
-- Parent UI entry: tab Settings, nhóm "Dành cho ba mẹ", toggle "Gửi báo cáo lỗi". Khi Crashlytics
+- Parent UI entry: tab Settings, nhóm "Giọng đọc & dữ liệu", toggle "Gửi báo cáo lỗi". Khi Crashlytics
   đang tắt và native báo có unsent crash report, Settings hiển thị thêm CTA inline chỉ cho report
   đó: "Gửi báo cáo lỗi" hoặc "Không gửi". Mọi hành động đều đi qua parent gate vì nằm trong Parent
   Mode.

@@ -32,11 +32,11 @@ jest.mock('../src/i18n', () => {
 
 import { ParentVoiceRecordingSettingsCard } from '../src/components/ParentVoiceRecordingSettingsCard';
 
-async function renderCard() {
+async function renderCard(embedded = false) {
   let renderer: ReactTestRenderer.ReactTestRenderer | undefined;
   await act(async () => {
     renderer = ReactTestRenderer.create(
-      <ParentVoiceRecordingSettingsCard />,
+      <ParentVoiceRecordingSettingsCard embedded={embedded} />,
     );
     await Promise.resolve();
   });
@@ -46,6 +46,19 @@ async function renderCard() {
 beforeEach(() => {
   jest.clearAllMocks();
   mockVoiceSetting = { enabled: false };
+});
+
+test('supports the compact embedded settings-row layout', async () => {
+  const renderer = await renderCard(true);
+
+  expect(renderer.root.findByType(Switch)).toBeDefined();
+  expect(
+    renderer.root.findByProps({
+      accessibilityLabel: 'Tự động lưu giọng đọc',
+    }),
+  ).toBeDefined();
+
+  await act(async () => renderer.unmount());
 });
 
 test('requires explicit parent confirmation only before first enable', async () => {

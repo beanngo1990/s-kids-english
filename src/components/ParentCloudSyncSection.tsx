@@ -19,6 +19,7 @@ import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 
 type ParentCloudSyncSectionProps = {
+  compact?: boolean;
   firebaseConfigMissing: boolean;
   isAccountBusy: boolean;
   isSignedIn: boolean;
@@ -28,6 +29,7 @@ type ParentCloudSyncSectionProps = {
 type PendingSyncAction = 'delete' | 'disable' | 'enable';
 
 export function ParentCloudSyncSection({
+  compact = false,
   firebaseConfigMissing,
   isAccountBusy,
   isSignedIn,
@@ -160,13 +162,20 @@ export function ParentCloudSyncSection({
     !isSignedIn ||
     !syncSnapshot.isReady ||
     isAccountMismatch;
+  const statusText = getCloudSyncStatusText(
+    t,
+    syncSnapshot,
+    pendingAction,
+  );
 
   return (
-    <View style={styles.section}>
-      <View style={styles.toggleRow}>
-        <View style={styles.toggleCopy}>
+    <View style={[styles.section, compact && styles.sectionCompact]}>
+      <View style={[styles.toggleRow, compact && styles.toggleRowCompact]}>
+        <View style={[styles.toggleCopy, compact && styles.toggleCopyCompact]}>
           <View style={styles.titleRow}>
-            <Text style={styles.title}>{t('parent.cloudSync.title')}</Text>
+            <Text style={[styles.title, compact && styles.titleCompact]}>
+              {t('parent.cloudSync.title')}
+            </Text>
             {onInfoPress ? (
               <Pressable
                 accessibilityLabel={t('parent.info.openAccessibility')}
@@ -182,9 +191,22 @@ export function ParentCloudSyncSection({
               </Pressable>
             ) : null}
           </View>
-          <Text style={styles.description}>
-            {t('parent.cloudSync.description')}
-          </Text>
+          {compact ? (
+            <Text
+              numberOfLines={2}
+              style={[
+                styles.status,
+                styles.statusCompact,
+                syncSnapshot.status === 'error' && styles.errorStatus,
+              ]}
+            >
+              {statusText}
+            </Text>
+          ) : (
+            <Text style={styles.description}>
+              {t('parent.cloudSync.description')}
+            </Text>
+          )}
         </View>
         <Switch
           accessibilityLabel={t('parent.cloudSync.accessibilityLabel')}
@@ -195,19 +217,22 @@ export function ParentCloudSyncSection({
         />
       </View>
 
-      <Text
-        style={[
-          styles.status,
-          syncSnapshot.status === 'error' && styles.errorStatus,
-        ]}
-      >
-        {getCloudSyncStatusText(t, syncSnapshot, pendingAction)}
-      </Text>
+      {!compact ? (
+        <Text
+          style={[
+            styles.status,
+            syncSnapshot.status === 'error' && styles.errorStatus,
+          ]}
+        >
+          {statusText}
+        </Text>
+      ) : null}
 
       {syncSnapshot.status === 'error' && isSignedIn ? (
         <AppButton
           disabled={isBusy}
           onPress={retryCloudProgressSync}
+          style={compact && styles.compactAction}
           title={t('parent.cloudSync.retry')}
           variant="ghost"
         />
@@ -217,6 +242,7 @@ export function ParentCloudSyncSection({
         <AppButton
           disabled={isBusy}
           onPress={clearMismatchedConsent}
+          style={compact && styles.compactAction}
           title={t('parent.cloudSync.clearConsentAction')}
           variant="ghost"
         />
@@ -301,6 +327,11 @@ export function getCloudSyncErrorMessage(
 }
 
 const styles = createThemedStyles(() => ({
+  compactAction: {
+    marginBottom: spacing.sm,
+    marginHorizontal: spacing.md,
+    minHeight: 48,
+  },
   description: {
     ...typography.caption,
     color: colors.textSoft,
@@ -333,14 +364,25 @@ const styles = createThemedStyles(() => ({
     gap: spacing.sm,
     paddingTop: spacing.md,
   },
+  sectionCompact: {
+    gap: 0,
+    paddingTop: 0,
+  },
   status: {
     ...typography.caption,
     color: colors.primaryDark,
+  },
+  statusCompact: {
+    color: colors.textSoft,
+    fontWeight: '600',
   },
   title: {
     ...typography.body,
     color: colors.text,
     flexShrink: 1,
+  },
+  titleCompact: {
+    ...typography.caption,
   },
   titleRow: {
     alignItems: 'center',
@@ -352,9 +394,17 @@ const styles = createThemedStyles(() => ({
     gap: spacing.xs,
     paddingRight: spacing.sm,
   },
+  toggleCopyCompact: {
+    gap: spacing.xxs,
+  },
   toggleRow: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  toggleRowCompact: {
+    minHeight: 72,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
   },
 }));

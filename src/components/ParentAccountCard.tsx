@@ -1,5 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, Alert, Linking, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Alert,
+  Linking,
+  Pressable,
+  Text,
+  View,
+} from 'react-native';
 
 import { AppButton } from './AppButton';
 import { AppCard } from './AppCard';
@@ -41,10 +48,12 @@ type PendingAction =
   | 'signOutClearLocal';
 
 type ParentAccountCardProps = {
+  compact?: boolean;
   onCloudSyncInfoPress?: () => void;
 };
 
 export function ParentAccountCard({
+  compact = false,
   onCloudSyncInfoPress,
 }: ParentAccountCardProps) {
   useThemeSync();
@@ -269,6 +278,157 @@ export function ParentAccountCard({
     : googleConfigMissing && !appleAvailable
     ? t('parent.account.googleConfigMissing')
     : '';
+  const canManageSubscription = Boolean(
+    monetization.managementUrl &&
+      (monetization.activeProductType === 'monthly' ||
+        monetization.activeProductType === 'annual'),
+  );
+
+  if (compact) {
+    return (
+      <AppCard style={styles.compactCard}>
+        <View style={styles.compactAccountRow}>
+          {user ? (
+            <View style={styles.compactAvatar}>
+              <Text style={styles.compactAvatarText}>
+                {(displayName || t('parent.account.badge'))
+                  .trim()
+                  .charAt(0)
+                  .toLocaleUpperCase()}
+              </Text>
+            </View>
+          ) : null}
+          <View style={styles.compactAccountCopy}>
+            <Text numberOfLines={2} style={styles.compactAccountName}>
+              {user ? displayName : t('parent.account.title')}
+            </Text>
+            <Text numberOfLines={2} style={styles.compactAccountMeta}>
+              {user && providerLabel
+                ? t('parent.account.providerSummary', {
+                    provider: providerLabel,
+                  })
+                : t('parent.account.signedOut')}
+            </Text>
+          </View>
+          {!authSnapshot.isReady ? (
+            <ActivityIndicator color={colors.primaryDark} size="small" />
+          ) : monetization.status === 'premium' ? (
+            <PremiumStatusBadge compact variant="account" />
+          ) : null}
+        </View>
+
+        {configWarning ? (
+          <View style={[styles.notice, styles.compactNotice]}>
+            <Text style={styles.noticeTitle}>
+              {t('parent.account.configMissingTitle')}
+            </Text>
+            <Text style={styles.noticeText}>{configWarning}</Text>
+          </View>
+        ) : null}
+
+        <ParentCloudSyncSection
+          compact
+          firebaseConfigMissing={firebaseConfigMissing}
+          isAccountBusy={isBusy}
+          isSignedIn={Boolean(user)}
+          onInfoPress={onCloudSyncInfoPress}
+        />
+
+        {user ? (
+          <>
+            {canManageSubscription ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ disabled: isBusy }}
+                disabled={isBusy}
+                onPress={handleManageSubscription}
+                style={({ pressed }) => [
+                  styles.compactActionRow,
+                  isBusy && styles.compactActionDisabled,
+                  pressed && styles.compactActionPressed,
+                ]}
+              >
+                <Text style={styles.compactActionText}>
+                  {t('premium.manage')}
+                </Text>
+                <Text style={styles.compactActionChevron}>›</Text>
+              </Pressable>
+            ) : null}
+
+            <Pressable
+              accessibilityRole="button"
+              accessibilityState={{
+                disabled: isBusy || firebaseConfigMissing,
+              }}
+              disabled={isBusy || firebaseConfigMissing}
+              onPress={handleSignOutPress}
+              style={({ pressed }) => [
+                styles.compactActionRow,
+                (isBusy || firebaseConfigMissing) &&
+                  styles.compactActionDisabled,
+                pressed && styles.compactActionPressed,
+              ]}
+            >
+              <Text style={styles.compactActionText}>
+                {isSigningOut
+                  ? t('parent.account.signingOut')
+                  : t('parent.account.signOut')}
+              </Text>
+              <Text style={styles.compactActionChevron}>›</Text>
+            </Pressable>
+
+            <Pressable
+              accessibilityRole="button"
+              accessibilityState={{
+                disabled: isBusy || firebaseConfigMissing,
+              }}
+              disabled={isBusy || firebaseConfigMissing}
+              onPress={handleDeletePress}
+              style={({ pressed }) => [
+                styles.compactDeleteAction,
+                (isBusy || firebaseConfigMissing) &&
+                  styles.compactActionDisabled,
+                pressed && styles.compactActionPressed,
+              ]}
+            >
+              <Text style={styles.compactDeleteActionText}>
+                {pendingAction === 'delete'
+                  ? t('parent.account.deleting')
+                  : t('parent.account.deleteAccount')}
+              </Text>
+            </Pressable>
+          </>
+        ) : (
+          <View style={styles.compactSignInActions}>
+            {appleAvailable && (
+              <AppButton
+                disabled={isBusy || firebaseConfigMissing}
+                onPress={handleApplePress}
+                title={
+                  pendingAction === 'apple'
+                    ? t('parent.account.signingIn')
+                    : t('parent.account.signInApple')
+                }
+                variant="secondary"
+              />
+            )}
+            <AppButton
+              disabled={
+                isBusy || firebaseConfigMissing || googleConfigMissing
+              }
+              onPress={handleGooglePress}
+              title={
+                pendingAction === 'google'
+                  ? t('parent.account.signingIn')
+                  : t('parent.account.signInGoogle')
+              }
+              variant={appleAvailable ? 'outlined' : 'secondary'}
+            />
+          </View>
+        )}
+      </AppCard>
+    );
+  }
 
   return (
     <AppCard style={styles.card}>
@@ -322,9 +482,7 @@ export function ParentAccountCard({
 
       {user ? (
         <View style={styles.actions}>
-          {monetization.managementUrl &&
-          (monetization.activeProductType === 'monthly' ||
-            monetization.activeProductType === 'annual') ? (
+          {canManageSubscription ? (
             <AppButton
               disabled={isBusy}
               onPress={handleManageSubscription}
@@ -472,6 +630,97 @@ const styles = createThemedStyles(() => ({
   },
   card: {
     gap: spacing.md,
+  },
+  compactAccountCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+    minWidth: 0,
+  },
+  compactAccountMeta: {
+    ...typography.caption,
+    color: colors.textSoft,
+    fontWeight: '600',
+  },
+  compactAccountName: {
+    ...typography.body,
+    color: colors.text,
+  },
+  compactAccountRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    minHeight: 80,
+    padding: spacing.md,
+  },
+  compactActionChevron: {
+    color: colors.primaryDark,
+    fontSize: 28,
+    fontWeight: '700',
+  },
+  compactActionDisabled: {
+    opacity: 0.5,
+  },
+  compactActionPressed: {
+    backgroundColor: colors.surfaceBlue,
+  },
+  compactActionRow: {
+    alignItems: 'center',
+    borderTopColor: colors.border,
+    borderTopWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    minHeight: 56,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  compactActionText: {
+    ...typography.caption,
+    color: colors.text,
+    flex: 1,
+  },
+  compactAvatar: {
+    alignItems: 'center',
+    backgroundColor: colors.primarySoft,
+    borderColor: colors.primary,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    height: 48,
+    justifyContent: 'center',
+    width: 48,
+  },
+  compactAvatarText: {
+    color: colors.primaryDark,
+    fontSize: 20,
+    fontWeight: '900',
+  },
+  compactCard: {
+    borderColor: colors.border,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    overflow: 'hidden',
+    padding: 0,
+  },
+  compactDeleteAction: {
+    alignItems: 'flex-start',
+    borderTopColor: colors.border,
+    borderTopWidth: 1,
+    minHeight: 48,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  compactDeleteActionText: {
+    ...typography.caption,
+    color: colors.alert,
+  },
+  compactNotice: {
+    marginBottom: spacing.sm,
+    marginHorizontal: spacing.md,
+  },
+  compactSignInActions: {
+    borderTopColor: colors.border,
+    borderTopWidth: 1,
+    gap: spacing.sm,
+    padding: spacing.md,
   },
   deleteButtonText: {
     color: colors.alert,

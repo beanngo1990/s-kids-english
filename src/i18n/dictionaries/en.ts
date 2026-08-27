@@ -496,6 +496,8 @@ export const en: TranslationDictionary = {
   'parent.support.versionSubtitle': 'The version installed on this device.',
   'parent.support.versionTitle': 'App information',
   'parent.support.versionValue': 'v{version}',
+  'parent.settings.accountSectionTitle': 'Account & sync',
+  'parent.settings.appSectionTitle': 'App',
   'parent.settings.appExperienceBadge': 'App experience',
   'parent.settings.appExperienceTitle': 'For parents',
   'parent.settings.appLanguageEnglish': 'English',
@@ -518,6 +520,7 @@ export const en: TranslationDictionary = {
   'parent.settings.englishAccentTitle': 'English accent',
   'parent.settings.birthYearLabel': 'Birth year',
   'parent.settings.birthYearPlaceholder': 'Choose year',
+  'parent.settings.birthYearSubtitle': 'Used to display your child’s age.',
   'parent.settings.childAge': '{age} years old',
   'parent.settings.crashReportingDisabled':
     'Off. The app does not send technical crash reports.',
@@ -565,9 +568,12 @@ export const en: TranslationDictionary = {
   'parent.settings.learningSummarySubtitle':
     'Quickly adjust lesson access and difficulty.',
   'parent.settings.learningSummaryTitle': '{journey} • {difficulty}',
+  'parent.settings.pageSubtitle':
+    'Your child’s profile, reminders, and app experience.',
+  'parent.settings.pageTitle': 'Settings',
   'parent.settings.profileBadge': 'Child profile',
-  'parent.settings.profileMissingBirthYear':
-    'Add a birth year to personalize the journey',
+  'parent.settings.profileMissingBirthYear': 'Birth year not set',
+  'parent.settings.profileSectionTitle': 'Child profile',
   'parent.settings.reminderDisabled':
     'Turn on reminders at your child’s most comfortable time',
   'parent.settings.reminderEnabled': 'Reminding daily at {time} ✎',
@@ -579,11 +585,19 @@ export const en: TranslationDictionary = {
     'Will remind at {time} when enabled.',
   'parent.settings.reminderTimeEnabledSubtitle':
     'Currently reminding every day at {time}.',
+  'parent.settings.reminderTimeCancelAction': 'Cancel',
+  'parent.settings.reminderTimeConfirmAction': 'Confirm',
+  'parent.settings.reminderTimePickerAccessibility':
+    'Choose learning reminder time',
+  'parent.settings.reminderTimePickerSubtitle':
+    'Spin to choose a time. The change is saved only after you confirm.',
+  'parent.settings.reminderTimePickerTitle': 'Choose reminder time',
   'parent.settings.reminderTimeTitle': 'Reminder time',
   'parent.settings.reminderTitle': 'Learning reminder',
   'parent.settings.reminderUpdateErrorText':
     'The reminder schedule could not be updated. Please try again later.',
   'parent.settings.reminderUpdateErrorTitle': 'Reminder was not updated',
+  'parent.settings.routineSectionTitle': 'Learning routine',
   'parent.settings.sheetDifficultyTitle': 'Choose difficulty',
   'parent.settings.sheetEnglishAccentTitle': 'Choose English accent',
   'parent.settings.sheetJourneyTitle': 'Choose lesson access',
@@ -600,6 +614,7 @@ export const en: TranslationDictionary = {
   'parent.settings.themeLight': 'Light',
   'parent.settings.themeSubtitle': 'Light, dark, or system default.',
   'parent.settings.themeTitle': 'Theme',
+  'parent.settings.voiceDataSectionTitle': 'Voice & data',
   'parent.settings.yearPickerTitle': 'Choose birth year',
   'parent.tabs.lessons': 'Lessons',
   'parent.tabs.settings': 'Settings',

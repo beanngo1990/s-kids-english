@@ -497,6 +497,8 @@ export const vi = {
   'parent.support.versionSubtitle': 'Phiên bản đang cài đặt trên thiết bị.',
   'parent.support.versionTitle': 'Thông tin ứng dụng',
   'parent.support.versionValue': 'v{version}',
+  'parent.settings.accountSectionTitle': 'Tài khoản & đồng bộ',
+  'parent.settings.appSectionTitle': 'Ứng dụng',
   'parent.settings.appExperienceBadge': 'Trải nghiệm ứng dụng',
   'parent.settings.appExperienceTitle': 'Dành cho ba mẹ',
   'parent.settings.appLanguageEnglish': 'English',
@@ -519,6 +521,7 @@ export const vi = {
   'parent.settings.englishAccentTitle': 'Giọng tiếng Anh',
   'parent.settings.birthYearLabel': 'Năm sinh',
   'parent.settings.birthYearPlaceholder': 'Chọn năm',
+  'parent.settings.birthYearSubtitle': 'Dùng để hiển thị tuổi của bé.',
   'parent.settings.childAge': '{age} tuổi',
   'parent.settings.crashReportingDisabled':
     'Đang tắt. Ứng dụng không gửi báo cáo lỗi kỹ thuật.',
@@ -563,9 +566,12 @@ export const vi = {
   'parent.settings.learningSummarySubtitle':
     'Chỉnh nhanh cách mở bài và độ khó.',
   'parent.settings.learningSummaryTitle': '{journey} • {difficulty}',
+  'parent.settings.pageSubtitle':
+    'Hồ sơ, nhắc học và trải nghiệm của bé.',
+  'parent.settings.pageTitle': 'Cài đặt',
   'parent.settings.profileBadge': 'Hồ sơ bé',
-  'parent.settings.profileMissingBirthYear':
-    'Thêm năm sinh để cá nhân hoá hành trình',
+  'parent.settings.profileMissingBirthYear': 'Chưa có năm sinh',
+  'parent.settings.profileSectionTitle': 'Hồ sơ của bé',
   'parent.settings.reminderDisabled': 'Bật nhắc học vào giờ bé thoải mái nhất',
   'parent.settings.reminderEnabled': 'Đang nhắc mỗi ngày lúc {time} ✎',
   'parent.settings.reminderPermissionAction': 'Mở Cài đặt',
@@ -575,11 +581,18 @@ export const vi = {
   'parent.settings.reminderTimeDisabledSubtitle': 'Sẽ nhắc lúc {time} khi bật.',
   'parent.settings.reminderTimeEnabledSubtitle':
     'Đang nhắc mỗi ngày lúc {time}.',
+  'parent.settings.reminderTimeCancelAction': 'Hủy',
+  'parent.settings.reminderTimeConfirmAction': 'Xác nhận',
+  'parent.settings.reminderTimePickerAccessibility': 'Chọn giờ nhắc học',
+  'parent.settings.reminderTimePickerSubtitle':
+    'Xoay để chọn giờ. Thay đổi chỉ được lưu sau khi ba mẹ xác nhận.',
+  'parent.settings.reminderTimePickerTitle': 'Chọn giờ nhắc',
   'parent.settings.reminderTimeTitle': 'Giờ nhắc',
   'parent.settings.reminderTitle': 'Nhắc bé học',
   'parent.settings.reminderUpdateErrorText':
     'Chưa thể cập nhật lịch nhắc. Ba mẹ thử lại sau nhé.',
   'parent.settings.reminderUpdateErrorTitle': 'Nhắc học chưa được cập nhật',
+  'parent.settings.routineSectionTitle': 'Thói quen học',
   'parent.settings.sheetDifficultyTitle': 'Chọn độ khó',
   'parent.settings.sheetEnglishAccentTitle': 'Chọn giọng tiếng Anh',
   'parent.settings.sheetJourneyTitle': 'Chọn cách mở bài',
@@ -596,6 +609,7 @@ export const vi = {
   'parent.settings.themeLight': 'Sáng',
   'parent.settings.themeSubtitle': 'Sáng, tối hoặc theo hệ thống.',
   'parent.settings.themeTitle': 'Giao diện',
+  'parent.settings.voiceDataSectionTitle': 'Giọng đọc & dữ liệu',
   'parent.settings.yearPickerTitle': 'Chọn năm sinh của bé',
   'parent.tabs.lessons': 'Bài học',
   'parent.tabs.settings': 'Cài đặt',
