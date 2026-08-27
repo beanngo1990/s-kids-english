@@ -26,6 +26,7 @@ import { useI18n, useSavedPromptLanguage } from '../i18n';
 import type { AppLanguage } from '../i18n/types';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { useReducedMotion } from '../theme/motion';
+import { useResponsiveLayout } from '../theme/responsive';
 import { shadows } from '../theme/shadows';
 import { radius, spacing } from '../theme/spacing';
 import type { Lesson } from '../types/lesson';
@@ -62,6 +63,8 @@ export function KidPlayPanel({
   const t = useI18n();
   const monetizationSnapshot = useMonetizationSnapshot();
   const reducedMotion = useReducedMotion();
+  const responsiveLayout = useResponsiveLayout();
+  const useCompactPlaygroundLayout = responsiveLayout.width < 420;
 
   const activeTheme = useMemo(
     () => themes.find(theme => theme.id === activeThemeId) ?? themes[0],
@@ -201,23 +204,44 @@ export function KidPlayPanel({
           style={styles.cardPressable}
         >
           <AppCard style={styles.playgroundCard}>
-            <View style={styles.cardMain}>
-              <View style={[styles.iconBox, styles.playgroundIconBox]}>
-                <SKidsIcon name="sticker" size={54} />
+            <View
+              style={[
+                styles.playgroundMain,
+                useCompactPlaygroundLayout && styles.playgroundMainCompact,
+              ]}
+              testID="sticker-playground-layout"
+            >
+              <View
+                style={[
+                  styles.playgroundInfoRow,
+                  useCompactPlaygroundLayout &&
+                    styles.playgroundInfoRowCompact,
+                ]}
+              >
+                <View style={[styles.iconBox, styles.playgroundIconBox]}>
+                  <SKidsIcon name="sticker" size={54} />
+                </View>
+                <View style={styles.cardText}>
+                  <Text style={styles.playgroundEyebrow}>
+                    {t('playPanel.stickerPlaygroundBadge')}
+                  </Text>
+                  <Text style={styles.lessonTitle}>
+                    {t('playPanel.stickerPlaygroundTitle')}
+                  </Text>
+                  <Text style={styles.gameTitle}>
+                    {t('playPanel.stickerPlaygroundSubtitle')}
+                  </Text>
+                </View>
               </View>
-              <View style={styles.cardText}>
-                <KidBadge tone="sun">
-                  {t('playPanel.stickerPlaygroundBadge')}
-                </KidBadge>
-                <Text style={styles.lessonTitle}>
-                  {t('playPanel.stickerPlaygroundTitle')}
-                </Text>
-                <Text style={styles.gameTitle}>
-                  {t('playPanel.stickerPlaygroundSubtitle')}
-                </Text>
-              </View>
-              <View style={styles.playButton}>
+              <View
+                style={[
+                  styles.playButton,
+                  useCompactPlaygroundLayout &&
+                    styles.playgroundActionCompact,
+                ]}
+              >
                 <Text
+                  numberOfLines={1}
                   style={[
                     styles.playButtonText,
                     styles.playButtonTextActive,
@@ -317,24 +341,9 @@ export function KidPlayPanel({
                   </View>
 
                   <View style={styles.cardText}>
-                    <View style={styles.badgeRow}>
-                      <KidBadge
-                        tone={
-                          isPremiumLocked
-                            ? 'alert'
-                            : isPending
-                            ? 'alert'
-                            : isProgressUnlocked
-                            ? 'teal'
-                            : 'sky'
-                        }
-                      >
-                        {statusLabel}
-                      </KidBadge>
-                      <KidBadge tone="sun">
-                        {completedSceneCount}/{lesson.scenes.length} bài
-                      </KidBadge>
-                    </View>
+                    <KidBadge tone="sun">
+                      {completedSceneCount}/{lesson.scenes.length} bài
+                    </KidBadge>
                     <Text style={styles.lessonTitle}>{lessonTitle}</Text>
                     <Text style={styles.gameTitle}>{reviewGameTitle}</Text>
                   </View>
@@ -362,12 +371,10 @@ export function KidPlayPanel({
                       ]}
                     >
                       {!isProgressUnlocked || isPremiumLocked
-                        ? `🔒 Khóa`
-                        : isPending
-                        ? `🎮 Chơi`
+                        ? t('playPanel.locked')
                         : isCompleted
-                        ? `🔄 Lại`
-                        : `🎮 Chơi`}
+                        ? t('playPanel.playAgain')
+                        : `🎮 ${t('playPanel.play')}`}
                     </Text>
                   </View>
                 </View>
@@ -394,11 +401,6 @@ function isReviewGameUnlocked(lesson: Lesson, completedSceneIds: Set<string>) {
 }
 
 const styles = createThemedStyles(() => ({
-  badgeRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.xs,
-  },
   cardMain: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -518,9 +520,36 @@ const styles = createThemedStyles(() => ({
     padding: spacing.md,
     ...shadows.warm,
   },
+  playgroundActionCompact: {
+    alignSelf: 'stretch',
+  },
   playgroundIconBox: {
     backgroundColor: colors.secondarySoft,
     borderColor: colors.secondary,
+  },
+  playgroundInfoRow: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  playgroundInfoRowCompact: {
+    flex: 0,
+  },
+  playgroundMain: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  playgroundMainCompact: {
+    alignItems: 'stretch',
+    flexDirection: 'column',
+  },
+  playgroundEyebrow: {
+    color: colors.primaryDark,
+    fontSize: 11,
+    fontWeight: '900',
+    letterSpacing: 0.8,
   },
   reviewCard: {
     backgroundColor: colors.surface,

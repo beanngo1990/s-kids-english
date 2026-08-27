@@ -703,12 +703,12 @@ export const vi = {
   'playPanel.playAgain': '🔄 Chơi lại',
   'playPanel.unlocked': '✨ Sẵn sàng',
   'playPanel.locked': '🔒 Đang khóa',
-  'playPanel.stickerPlaygroundAccessibility': 'Mở Sân chơi Sticker của Sungy',
-  'playPanel.stickerPlaygroundBadge': 'Sáng tạo tự do',
-  'playPanel.stickerPlaygroundTitle': 'Sân chơi Sticker',
-  'playPanel.stickerPlaygroundSubtitle':
-    'Dùng sticker đã mở để trang trí cùng Sungy.',
-  'playPanel.stickerPlaygroundAction': 'Trang trí',
+  'playPanel.stickerPlaygroundAccessibility':
+    'Mở trò chơi trang trí Sticker cùng Sungy',
+  'playPanel.stickerPlaygroundBadge': 'GÓC SÁNG TẠO',
+  'playPanel.stickerPlaygroundTitle': 'Trang trí cùng Sungy',
+  'playPanel.stickerPlaygroundSubtitle': 'Dùng sticker bé đã mở!',
+  'playPanel.stickerPlaygroundAction': '⭐ Chơi Sticker',
   'tabs.mapAccessibility': 'Mở bản đồ bài học',
   'tabs.map': 'Bản đồ',
   'tabs.playAccessibility': 'Mở khu chơi',

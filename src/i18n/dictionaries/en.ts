@@ -711,12 +711,12 @@ export const en: TranslationDictionary = {
   'playPanel.playAgain': '🔄 Play Again',
   'playPanel.unlocked': '✨ Ready',
   'playPanel.locked': '🔒 Locked',
-  'playPanel.stickerPlaygroundAccessibility': "Open Sungy's Sticker Playground",
-  'playPanel.stickerPlaygroundBadge': 'Free creativity',
-  'playPanel.stickerPlaygroundTitle': 'Sticker Playground',
-  'playPanel.stickerPlaygroundSubtitle':
-    'Decorate with Sungy using unlocked stickers.',
-  'playPanel.stickerPlaygroundAction': 'Decorate',
+  'playPanel.stickerPlaygroundAccessibility':
+    'Open sticker decorating with Sungy',
+  'playPanel.stickerPlaygroundBadge': 'CREATIVE CORNER',
+  'playPanel.stickerPlaygroundTitle': 'Decorate with Sungy',
+  'playPanel.stickerPlaygroundSubtitle': 'Use your unlocked stickers!',
+  'playPanel.stickerPlaygroundAction': '⭐ Play with stickers',
   'tabs.mapAccessibility': 'Open lesson map',
   'tabs.map': 'Map',
   'tabs.playAccessibility': 'Open play area',
