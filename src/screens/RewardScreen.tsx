@@ -23,14 +23,14 @@ import {
   type LocalProgress,
 } from '../engine/ProgressManager';
 import { playCompleteSound, playTapSound, speakVi, speakWord } from '../engine/AudioManager';
+import { getLessonVocabularyVisuals } from '../games/reviewItems';
 import {
   getKidLockAudioPrompt,
   type KidLockReason,
 } from '../data/kidLockAudioPrompts';
-import { resolveAsset } from '../engine/AssetRegistry';
 import { getLocalizedLessonTitle } from '../i18n/domainCopy';
 import { useI18n, useSavedAppLanguage, useSavedPromptLanguage } from '../i18n';
-import type { SceneObject } from '../types/lesson';
+import { getNextScene } from '../utils/lessonProgress';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { useResponsiveLayout } from '../theme/responsive';
 import { radius, spacing } from '../theme/spacing';
@@ -72,21 +72,14 @@ export function RewardScreen({ navigation, route }: Props) {
 
   const vocabImages = useMemo(() => {
     if (!lesson) {
-      return new Map<string, SceneObject>();
+      return new Map();
     }
-    const objectByVocabId = new Map<string, SceneObject>();
-    lesson.scenes.forEach(scene => {
-      const renderables = scene.character
-        ? [scene.character, ...scene.objects]
-        : scene.objects;
-      renderables.forEach(object => {
-        if (object.vocabId && !objectByVocabId.has(object.vocabId)) {
-          objectByVocabId.set(object.vocabId, object);
-        }
-      });
-    });
-    return objectByVocabId;
-  }, [lesson]);
+
+    return getLessonVocabularyVisuals(
+      lesson,
+      route.params.learningMode ?? 'core',
+    );
+  }, [lesson, route.params.learningMode]);
 
   const currentLessonIndex = lesson
     ? lessons.findIndex(l => l.id === lesson.id)
@@ -168,12 +161,11 @@ export function RewardScreen({ navigation, route }: Props) {
     };
   }, []);
 
-  const handleGoHome = () => {
-    if (route.params.sourceScreen === 'ReviewGame') {
-      navigation.navigate('Home', { activeTab: 'play' });
-    } else {
-      navigation.navigate('Home', { activeTab: 'map' });
-    }
+  const handleGoToMap = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Home', params: { activeTab: 'map' } }],
+    });
   };
 
   if (!lesson) {
@@ -183,7 +175,7 @@ export function RewardScreen({ navigation, route }: Props) {
           <Text style={styles.title}>{t('reward.notFound')}</Text>
           <AppButton
             title={t('reward.backToList')}
-            onPress={handleGoHome}
+            onPress={handleGoToMap}
           />
         </View>
       </Screen>
@@ -193,12 +185,34 @@ export function RewardScreen({ navigation, route }: Props) {
   const handleReplayCurrent = () => {
     handleOpenLesson(lesson.id, () => {
       if (route.params.sourceScreen === 'ReviewGame' || route.params.gameType) {
-        navigation.replace('ReviewGame', {
-          gameType: route.params.gameType,
-          lessonId: lesson.id,
+        navigation.reset({
+          index: 1,
+          routes: [
+            { name: 'Home', params: { activeTab: 'map' } },
+            {
+              name: 'ReviewGame',
+              params: {
+                gameType: route.params.gameType,
+                lessonId: lesson.id,
+                learningMode: route.params.learningMode,
+              },
+            },
+          ],
         });
       } else {
-        navigation.replace('ScenePlayer', { lessonId: lesson.id });
+        navigation.reset({
+          index: 1,
+          routes: [
+            { name: 'Home', params: { activeTab: 'map' } },
+            {
+              name: 'ScenePlayer',
+              params: {
+                learningMode: route.params.learningMode,
+                lessonId: lesson.id,
+              },
+            },
+          ],
+        });
       }
     });
   };
@@ -211,19 +225,38 @@ export function RewardScreen({ navigation, route }: Props) {
     handleOpenLesson(nextLesson.id, () => {
       setIsOpeningNextLesson(true);
 
-      const openNextLessonPack = () => {
-        navigation.replace('LessonPack', { lessonId: nextLesson.id });
+      const openNextLesson = () => {
+        const nextScene = getNextScene(
+          nextLesson.scenes,
+          new Set(progress?.completedSceneIds ?? []),
+          nextLesson.id,
+        );
+
+        navigation.reset({
+          index: 1,
+          routes: [
+            { name: 'Home', params: { activeTab: 'map' } },
+            {
+              name: 'ScenePlayer',
+              params: {
+                learningMode: route.params.learningMode,
+                lessonId: nextLesson.id,
+                sceneId: nextScene?.id,
+              },
+            },
+          ],
+        });
       };
       const activeThemeId = progress?.activeThemeId;
 
       if (activeThemeId === nextLesson.themeId) {
-        openNextLessonPack();
+        openNextLesson();
         return;
       }
 
       saveActiveThemeId(nextLesson.themeId)
         .catch(() => undefined)
-        .finally(openNextLessonPack);
+        .finally(openNextLesson);
     });
   };
 
@@ -291,7 +324,15 @@ export function RewardScreen({ navigation, route }: Props) {
                 <AppButton
                   iconName="sticker"
                   iconSize={20}
-                  onPress={() => navigation.navigate('StickerPlayground')}
+                  onPress={() =>
+                    navigation.reset({
+                      index: 1,
+                      routes: [
+                        { name: 'Home', params: { activeTab: 'play' } },
+                        { name: 'StickerPlayground' },
+                      ],
+                    })
+                  }
                   style={styles.decorateNowButton}
                   textStyle={styles.decorateNowButtonText}
                   title={t('reward.decorateNow')}
@@ -308,8 +349,7 @@ export function RewardScreen({ navigation, route }: Props) {
               </View>
               <View style={styles.wordList}>
                 {displayWords.map(item => {
-                  const obj = vocabImages.get(item.id);
-                  const imgSource = obj ? resolveAsset(obj.asset.source) : null;
+                  const imgSource = vocabImages.get(item.id)?.imageSource;
 
                   return (
                     <Pressable
@@ -374,7 +414,7 @@ export function RewardScreen({ navigation, route }: Props) {
                         iconSize={22}
                         title={t('reward.backToList')}
                         variant="secondary"
-                        onPress={handleGoHome}
+                        onPress={handleGoToMap}
                       />
                     </View>
                     <View style={styles.flexItem}>
@@ -397,7 +437,7 @@ export function RewardScreen({ navigation, route }: Props) {
                     iconName="map"
                     iconSize={26}
                     title={t('reward.backToList')}
-                    onPress={handleGoHome}
+                    onPress={handleGoToMap}
                   />
                   <AppButton
                     iconName="replay"

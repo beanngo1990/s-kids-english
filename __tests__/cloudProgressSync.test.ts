@@ -188,6 +188,7 @@ test('cloud parent settings serialization excludes local-only fields', () => {
       ownerUid: 'parent-a',
     },
     crashReportingEnabled: true,
+    disabledThemeIds: ['theme-b', 'theme-a', 'theme-a'],
     enableSceneEditor: true,
     hasCompletedOnboarding: true,
     journeyMode: 'free',
@@ -223,6 +224,7 @@ test('cloud parent settings serialization excludes local-only fields', () => {
       birthYear: 2021,
       name: 'Sweet kid',
     },
+    disabledThemeIds: ['theme-a', 'theme-b'],
     englishAccent: 'en-GB',
     hasCompletedOnboarding: true,
     journeyMode: 'free',
@@ -262,6 +264,12 @@ test('cloud parent settings parser rejects unsupported shapes', () => {
       },
     }),
   ).toBeNull();
+  expect(
+    parseCloudParentSettingsData({
+      ...validSettings,
+      disabledThemeIds: ['theme-a', 2],
+    }),
+  ).toBeNull();
 });
 
 test('cloud parent settings fingerprint ignores timestamp-only writes', () => {
@@ -289,6 +297,7 @@ test('cloud-applied parent settings preserve local-only fields', async () => {
       enabled: true,
       ownerUid: 'parent-a',
     },
+    disabledThemeIds: ['mot-ngay-cua-be'],
     enableSceneEditor: true,
     voiceRecordingLibrary: {
       consentedAt: '2026-07-15T08:00:00.000Z',
@@ -311,6 +320,7 @@ test('cloud-applied parent settings preserve local-only fields', async () => {
       birthYear: 2020,
       name: 'Cloud kid',
     },
+    disabledThemeIds: undefined,
     updatedAt: '2026-07-16T08:00:00.000Z',
     visibleLessonIds: undefined,
   });
@@ -331,6 +341,7 @@ test('cloud-applied parent settings preserve local-only fields', async () => {
       birthYear: 2020,
       name: 'Cloud kid',
     },
+    disabledThemeIds: undefined,
     updatedAt: '2026-07-16T08:00:00.000Z',
     visibleLessonIds: undefined,
   });

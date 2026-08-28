@@ -79,6 +79,9 @@ function getContentType(filePath) {
   if (/\.wav$/iu.test(filePath)) {
     return 'audio/wav';
   }
+  if (/\.mp3$/iu.test(filePath)) {
+    return 'audio/mpeg';
+  }
   return 'application/octet-stream';
 }
 

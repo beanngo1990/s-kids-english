@@ -11,11 +11,20 @@ import { bedtimeLesson } from './lessons/bedtime';
 import { beachDayLesson } from './lessons/beachDay';
 import { birthdayPartyLesson } from './lessons/birthdayParty';
 import { calmMyselfLesson } from './lessons/calmMyself';
+import { careForTheRabbitLesson } from './lessons/careForTheRabbit';
+import { cleanMuddyPawsLesson } from './lessons/cleanMuddyPaws';
 import { doctorVisitLesson } from './lessons/doctorVisit';
 import { dressMyselfLesson } from './lessons/dressMyself';
 import { familyDinnerLesson } from './lessons/familyDinner';
+import { feedThePuppyLesson } from './lessons/feedThePuppy';
+import { findTheKittenLesson } from './lessons/findTheKitten';
 import { fiveSensesLesson } from './lessons/fiveSenses';
+import { gardenFriendsLesson } from './lessons/gardenFriends';
+import { gardenToTableLesson } from './lessons/gardenToTable';
 import { grandparentsVisitLesson } from './lessons/grandparentsVisit';
+import { groomTheKittenLesson } from './lessons/groomTheKitten';
+import { harvestDayLesson } from './lessons/harvestDay';
+import { helpItGrowLesson } from './lessons/helpItGrow';
 import { homePlayLesson } from './lessons/homePlay';
 import { libraryVisitLesson } from './lessons/libraryVisit';
 import { lunchTimeLesson } from './lessons/lunchTime';
@@ -24,6 +33,8 @@ import { myBodyLesson } from './lessons/myBody';
 import { myFeelingsLesson } from './lessons/myFeelings';
 import { parkVisitLesson } from './lessons/parkVisit';
 import { personalCareLesson } from './lessons/personalCare';
+import { plantASeedLesson } from './lessons/plantASeed';
+import { playWithThePuppyLesson } from './lessons/playWithThePuppy';
 import { playtimeLesson } from './lessons/playtime';
 import { snackTimeLesson } from './lessons/snackTime';
 import { speakingUpLesson } from './lessons/speakingUp';
@@ -58,6 +69,17 @@ const lessonCatalog: Lesson[] = [
   dressMyselfLesson,
   toiletRoutineLesson,
   speakingUpLesson,
+  plantASeedLesson,
+  helpItGrowLesson,
+  gardenFriendsLesson,
+  harvestDayLesson,
+  gardenToTableLesson,
+  feedThePuppyLesson,
+  playWithThePuppyLesson,
+  findTheKittenLesson,
+  cleanMuddyPawsLesson,
+  careForTheRabbitLesson,
+  groomTheKittenLesson,
 ];
 
 assertValidLessons(lessonCatalog);
@@ -75,11 +97,20 @@ export {
   beachDayLesson,
   birthdayPartyLesson,
   calmMyselfLesson,
+  careForTheRabbitLesson,
+  cleanMuddyPawsLesson,
   doctorVisitLesson,
   dressMyselfLesson,
   familyDinnerLesson,
+  feedThePuppyLesson,
+  findTheKittenLesson,
   fiveSensesLesson,
+  gardenFriendsLesson,
+  gardenToTableLesson,
   grandparentsVisitLesson,
+  groomTheKittenLesson,
+  harvestDayLesson,
+  helpItGrowLesson,
   homePlayLesson,
   libraryVisitLesson,
   lunchTimeLesson,
@@ -88,6 +119,8 @@ export {
   myFeelingsLesson,
   parkVisitLesson,
   personalCareLesson,
+  plantASeedLesson,
+  playWithThePuppyLesson,
   playtimeLesson,
   snackTimeLesson,
   speakingUpLesson,

@@ -75,6 +75,61 @@ test('keeps a sourced image visible before native load callbacks fire', async ()
   expect(image?.props.onLoadStart).toBeUndefined();
 });
 
+test('gently reveals a runtime-shown object and respects Reduce Motion', async () => {
+  const timingSpy = jest.spyOn(Animated, 'timing');
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        animateEntrance
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isTargeted={false}
+        label="vật vừa xuất hiện"
+        object={headObject}
+        onPress={() => undefined}
+        reduceMotion={false}
+      />,
+    );
+  });
+
+  expect(
+    timingSpy.mock.calls.some(([, config]) => config.duration === 260),
+  ).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+  timingSpy.mockClear();
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        animateEntrance
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isTargeted={false}
+        label="vật vừa xuất hiện"
+        object={headObject}
+        onPress={() => undefined}
+        reduceMotion
+      />,
+    );
+  });
+
+  expect(
+    timingSpy.mock.calls.some(([, config]) => config.duration === 260),
+  ).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+  timingSpy.mockRestore();
+});
+
 test('uses the image silhouette for a targeted-object highlight', async () => {
   let tree: ReactTestRenderer.ReactTestRenderer | undefined;
   await ReactTestRenderer.act(async () => {
@@ -149,6 +204,43 @@ test('raises an interaction target above overlapping siblings without showing a 
   const wrapper = tree?.root.findAllByType(Animated.View)[0];
   expect(StyleSheet.flatten(wrapper?.props.style).zIndex).toBe(2);
   expect(tree?.root.findAllByType(Animated.Image)).toHaveLength(1);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('renders action illustrations as transparent cutouts', async () => {
+  const actionObject: SceneObject = {
+    ...headObject,
+    id: 'water-gently',
+    presentation: 'cutout',
+  };
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SceneObjectRenderer
+        effect="none"
+        isDimmed={false}
+        isDisabled={false}
+        isTargeted={false}
+        label="water it gently"
+        object={actionObject}
+        onPress={() => undefined}
+      />,
+    );
+  });
+
+  const pressable = tree?.root
+    .findAll(node => typeof node.props.style === 'function')
+    .find(node => node.props.accessibilityLabel === 'water it gently');
+  const pressableStyle = StyleSheet.flatten(pressable?.props.style({
+    pressed: false,
+  }));
+
+  expect(pressableStyle.backgroundColor).toBe('transparent');
+  expect(pressableStyle.borderWidth).toBe(0);
 
   await ReactTestRenderer.act(async () => {
     tree?.unmount();

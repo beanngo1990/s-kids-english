@@ -22,6 +22,7 @@ import { NativeModules, Platform } from 'react-native';
 import {
   detectDeviceLanguage,
   getParentSettings,
+  resolveLearningModePreference,
   saveParentSettings,
   subscribeParentSettings,
 } from '../src/engine/ParentSettingsManager';
@@ -64,6 +65,15 @@ const lesson = {
 
 beforeEach(async () => {
   await AsyncStorage.clear();
+});
+
+test('resolves the saved learning mode when navigation omits it', async () => {
+  await saveParentSettings({ learningMode: 'challenge' });
+
+  await expect(resolveLearningModePreference()).resolves.toBe('challenge');
+  await expect(resolveLearningModePreference('expanded')).resolves.toBe(
+    'expanded',
+  );
 });
 
 test('translates typed keys and interpolates params', () => {

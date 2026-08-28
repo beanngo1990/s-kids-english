@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 import {
   GestureDetector,
+  ScrollView as GestureScrollView,
   usePanGesture,
   usePinchGesture,
   useRotationGesture,
@@ -721,7 +722,7 @@ export function StickerPlaygroundScreen({ navigation }: Props) {
           </View>
           {hasLoadedProgress && hasLoadedActivity ? (
             unlockedStickers.length > 0 ? (
-              <ScrollView
+              <GestureScrollView
                 contentContainerStyle={styles.trayList}
                 horizontal
                 showsHorizontalScrollIndicator={false}
@@ -743,7 +744,7 @@ export function StickerPlaygroundScreen({ navigation }: Props) {
                     sticker={sticker}
                   />
                 ))}
-              </ScrollView>
+              </GestureScrollView>
             ) : (
               <Pressable
                 accessibilityRole="button"
@@ -771,7 +772,12 @@ export function StickerPlaygroundScreen({ navigation }: Props) {
             pointerEvents="none"
             style={[
               styles.dragPreview,
-              { transform: previewPosition.getTranslateTransform() },
+              {
+                transform: [
+                  ...previewPosition.getTranslateTransform(),
+                  { scale: 1.08 },
+                ],
+              },
             ]}
           >
             <StickerArtwork item={previewSticker} size="playground" />
@@ -1003,10 +1009,13 @@ function StickerTrayItem({
 }: StickerTrayItemProps) {
   const t = useI18n();
   const dragGesture = usePanGesture({
-    activateAfterLongPress: 220,
+    activeOffsetY: -8,
     averageTouches: true,
+    cancelsJSResponder: true,
+    cancelsTouchesInView: true,
     disableReanimated: true,
-    minDistance: 4,
+    failOffsetX: [-14, 14],
+    failOffsetY: 10,
     onActivate: event => onDragStart(event.absoluteX, event.absoluteY),
     onDeactivate: event =>
       onDragEnd(
@@ -1014,13 +1023,16 @@ function StickerTrayItem({
         event.canceled ? -1 : event.absoluteY,
       ),
     onUpdate: event => onDragMove(event.absoluteX, event.absoluteY),
+    testID: 'sticker-tray-drag',
   });
 
   return (
     <GestureDetector gesture={dragGesture}>
       <Pressable
         accessibilityHint={
-          isPlaced ? t('stickerPlayground.placedHint') : sticker.title
+          isPlaced
+            ? t('stickerPlayground.placedHint')
+            : t('stickerPlayground.unplacedHint')
         }
         accessibilityLabel={sticker.title}
         accessibilityRole="button"
@@ -1138,12 +1150,18 @@ const styles = createThemedStyles(() => ({
     position: 'relative',
   },
   dragPreview: {
+    backgroundColor: colors.surface,
+    borderColor: colors.primary,
+    borderRadius: radius.pill,
+    borderWidth: 3,
     height: BASE_STICKER_SIZE,
     left: 0,
+    opacity: 0.96,
     position: 'absolute',
     top: 0,
     width: BASE_STICKER_SIZE,
     zIndex: 20000,
+    ...shadows.floating,
   },
   emptyTray: {
     alignItems: 'center',

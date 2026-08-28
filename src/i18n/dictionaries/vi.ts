@@ -37,11 +37,13 @@ export const vi = {
   'nav.themeLibrary': 'Thư viện chủ đề',
   'nav.lessonList': 'Bài học',
   'nav.lessonPack': 'Gói bài học',
+  'nav.sceneVocabularyPlayground': 'Góc chơi từ vựng',
   'nav.reviewGame': 'Game ôn tập',
   'nav.reward': 'Phần thưởng',
   'nav.stickerCollection': 'Bộ sưu tập',
   'nav.stickerPlayground': 'Sân chơi Sticker',
   'nav.parent': 'Góc phụ huynh',
+  'nav.parentLessonPlan': 'Chỉnh lộ trình',
   'nav.parentVoiceLibrary': 'Giọng đọc của bé',
   'nav.premium': 'Sungy Premium',
 
@@ -137,15 +139,27 @@ export const vi = {
   'premium.signInTitle': 'Tài khoản phụ huynh tùy chọn',
   'premium.signInText':
     'Ba mẹ chỉ cần đăng nhập nếu muốn liên kết quyền Premium với tài khoản phụ huynh để đồng bộ cloud và khôi phục theo tài khoản.',
-  'premium.founder.badge': 'Quà ra mắt dành cho phụ huynh sớm',
-  'premium.founder.title': 'Premium miễn phí trong 1 năm',
+  'premium.founder.badge': 'Quà ra mắt',
+  'premium.founder.title': 'Nhận 1 năm Sungy Premium miễn phí',
+  'premium.founder.pageSubtitle':
+    'Quà ra mắt đang chờ ba mẹ nhận — không cần thanh toán.',
+  'premium.founder.price': '0đ',
+  'premium.founder.duration': '365 ngày Premium',
   'premium.founder.marketingText':
-    'Tài khoản đủ điều kiện được mở Premium trong 365 ngày, tính từ lần đầu mở ứng dụng sau khi ba mẹ đăng nhập.',
+    'Mở toàn bộ bài học, cảnh tương tác và nội dung ôn tập hiện có.',
   'premium.founder.terms':
     'Không cần thông tin thanh toán, không tự động gia hạn và không phát sinh phí.',
+  'premium.founder.noCard': 'Không cần thẻ',
+  'premium.founder.noRenewal': 'Không tự động gia hạn',
+  'premium.founder.noFee': 'Không phát sinh phí',
   'premium.founder.signInText':
-    'Lần mở ứng dụng này đủ điều kiện. Ba mẹ hãy đăng nhập để kích hoạt quà tặng.',
+    'Ưu đãi đã được xác nhận. Ba mẹ đăng nhập để kích hoạt quà tặng.',
   'premium.founder.signInAction': 'Đăng nhập và kích hoạt',
+  'premium.founder.signInAppleAction': 'Đăng nhập Apple để nhận quà',
+  'premium.founder.signInGoogleAction': 'Đăng nhập Google để nhận quà',
+  'premium.founder.viewPaidPlans': 'Xem các gói trả phí',
+  'premium.founder.hidePaidPlans': 'Ẩn các gói trả phí',
+  'premium.founder.paidPlansHint': 'Không cần mua gói để nhận quà.',
   'premium.package.monthly': '1 tháng',
   'premium.package.annual': '1 năm',
   'premium.package.lifetime': 'Trọn đời',
@@ -434,7 +448,7 @@ export const vi = {
   'parent.info.journey.what':
     'Quyết định bé học theo thứ tự gợi ý hay được mở bài linh hoạt hơn.',
   'parent.info.lessonPace.childImpact':
-    'Tất cả bài bật toàn bộ lộ trình; Nhẹ nhàng chỉ bật vài bài gần bài bé đang học; Tự chọn để ba mẹ ẩn/hiện từng bài.',
+    'Tất cả bật toàn bộ lộ trình; Gợi ý giữ một bài khởi đầu trong mỗi chủ đề; Tự chọn để ba mẹ chỉnh từng bài.',
   'parent.info.lessonPace.privacy':
     'Danh sách bài đang bật lưu trong cài đặt phụ huynh và chỉ sync cloud nếu ba mẹ bật đồng bộ.',
   'parent.info.lessonPace.title': 'Phạm vi bài học',
@@ -495,6 +509,8 @@ export const vi = {
   'parent.support.versionSubtitle': 'Phiên bản đang cài đặt trên thiết bị.',
   'parent.support.versionTitle': 'Thông tin ứng dụng',
   'parent.support.versionValue': 'v{version}',
+  'parent.settings.accountSectionTitle': 'Tài khoản & đồng bộ',
+  'parent.settings.appSectionTitle': 'Ứng dụng',
   'parent.settings.appExperienceBadge': 'Trải nghiệm ứng dụng',
   'parent.settings.appExperienceTitle': 'Dành cho ba mẹ',
   'parent.settings.appLanguageEnglish': 'English',
@@ -517,6 +533,7 @@ export const vi = {
   'parent.settings.englishAccentTitle': 'Giọng tiếng Anh',
   'parent.settings.birthYearLabel': 'Năm sinh',
   'parent.settings.birthYearPlaceholder': 'Chọn năm',
+  'parent.settings.birthYearSubtitle': 'Dùng để hiển thị tuổi của bé.',
   'parent.settings.childAge': '{age} tuổi',
   'parent.settings.crashReportingDisabled':
     'Đang tắt. Ứng dụng không gửi báo cáo lỗi kỹ thuật.',
@@ -561,9 +578,12 @@ export const vi = {
   'parent.settings.learningSummarySubtitle':
     'Chỉnh nhanh cách mở bài và độ khó.',
   'parent.settings.learningSummaryTitle': '{journey} • {difficulty}',
+  'parent.settings.pageSubtitle':
+    'Hồ sơ, nhắc học và trải nghiệm của bé.',
+  'parent.settings.pageTitle': 'Cài đặt',
   'parent.settings.profileBadge': 'Hồ sơ bé',
-  'parent.settings.profileMissingBirthYear':
-    'Thêm năm sinh để cá nhân hoá hành trình',
+  'parent.settings.profileMissingBirthYear': 'Chưa có năm sinh',
+  'parent.settings.profileSectionTitle': 'Hồ sơ của bé',
   'parent.settings.reminderDisabled': 'Bật nhắc học vào giờ bé thoải mái nhất',
   'parent.settings.reminderEnabled': 'Đang nhắc mỗi ngày lúc {time} ✎',
   'parent.settings.reminderPermissionAction': 'Mở Cài đặt',
@@ -573,11 +593,18 @@ export const vi = {
   'parent.settings.reminderTimeDisabledSubtitle': 'Sẽ nhắc lúc {time} khi bật.',
   'parent.settings.reminderTimeEnabledSubtitle':
     'Đang nhắc mỗi ngày lúc {time}.',
+  'parent.settings.reminderTimeCancelAction': 'Hủy',
+  'parent.settings.reminderTimeConfirmAction': 'Xác nhận',
+  'parent.settings.reminderTimePickerAccessibility': 'Chọn giờ nhắc học',
+  'parent.settings.reminderTimePickerSubtitle':
+    'Xoay để chọn giờ. Thay đổi chỉ được lưu sau khi ba mẹ xác nhận.',
+  'parent.settings.reminderTimePickerTitle': 'Chọn giờ nhắc',
   'parent.settings.reminderTimeTitle': 'Giờ nhắc',
   'parent.settings.reminderTitle': 'Nhắc bé học',
   'parent.settings.reminderUpdateErrorText':
     'Chưa thể cập nhật lịch nhắc. Ba mẹ thử lại sau nhé.',
   'parent.settings.reminderUpdateErrorTitle': 'Nhắc học chưa được cập nhật',
+  'parent.settings.routineSectionTitle': 'Thói quen học',
   'parent.settings.sheetDifficultyTitle': 'Chọn độ khó',
   'parent.settings.sheetEnglishAccentTitle': 'Chọn giọng tiếng Anh',
   'parent.settings.sheetJourneyTitle': 'Chọn cách mở bài',
@@ -594,6 +621,7 @@ export const vi = {
   'parent.settings.themeLight': 'Sáng',
   'parent.settings.themeSubtitle': 'Sáng, tối hoặc theo hệ thống.',
   'parent.settings.themeTitle': 'Giao diện',
+  'parent.settings.voiceDataSectionTitle': 'Giọng đọc & dữ liệu',
   'parent.settings.yearPickerTitle': 'Chọn năm sinh của bé',
   'parent.tabs.lessons': 'Bài học',
   'parent.tabs.settings': 'Cài đặt',
@@ -616,6 +644,20 @@ export const vi = {
   'scene.completion.tapReward': 'Sungy đang giữ sticker mới cho bé đây.',
   'scene.completion.tapContinue': 'Chạm nút màu vàng để tiếp tục nào!',
   'scene.completion.title': 'Giỏi quá!',
+  'scene.completion.vocabularyPlayground': 'Chơi với từ',
+
+  'sceneVocabularyPlayground.coach': 'Mình cùng chơi với những từ vừa học nhé!',
+  'sceneVocabularyPlayground.disableMeaning': 'Tắt nghĩa tiếng Việt',
+  'sceneVocabularyPlayground.emptyVocabulary':
+    'Cảnh này chưa có từ vựng để chơi.',
+  'sceneVocabularyPlayground.enableMeaning': 'Bật nghĩa tiếng Việt',
+  'sceneVocabularyPlayground.hint': 'Chạm đồ vật để nghe · Kéo đồ vật để chơi',
+  'sceneVocabularyPlayground.meaningToggleHint':
+    'Khi bật, bé sẽ nghe tiếng Anh trước rồi nghe nghĩa tiếng Việt.',
+  'sceneVocabularyPlayground.notFound': 'Không tìm thấy góc chơi của cảnh này.',
+  'sceneVocabularyPlayground.reset': 'Đặt lại',
+
+  'lessonPack.openVocabularyPlayground': 'Chơi với từ',
   'scene.characterLabel': 'bé',
   'scene.continue': 'Tiếp tục',
   'scene.continueAccessibility': 'Tiếp tục',
@@ -637,10 +679,13 @@ export const vi = {
   'scene.replayInstructionAccessibility': 'Nghe lại hướng dẫn',
   'scene.replayInstructionFallback': 'Thử lại nhé.',
   'scene.successFallback': 'Giỏi lắm!',
-  'header.openHub': 'Mở Sungy Hub',
+  'header.openHub': 'Mở chặng tiếp theo',
   'header.themeLibrary': 'Đổi chủ đề bản đồ',
   'header.parentGate': 'Góc phụ huynh',
   'header.level': 'Cấp {level}',
+  'header.levelActionHint': 'Chạm để xem tiến độ cấp',
+  'header.levelProgressHint':
+    'Còn {remaining} hạt dẻ nữa để lên Cấp {nextLevel}!',
   'streak.notLearnedToday': 'Bé chưa học hôm nay',
   'streak.learnedToday': 'Bé đã học hôm nay!',
   'profile.age': '{age} tuổi',
@@ -659,12 +704,11 @@ export const vi = {
   'playPanel.unlocked': '✨ Sẵn sàng',
   'playPanel.locked': '🔒 Đang khóa',
   'playPanel.stickerPlaygroundAccessibility':
-    'Mở Sân chơi Sticker của Sungy',
-  'playPanel.stickerPlaygroundBadge': 'Sáng tạo tự do',
-  'playPanel.stickerPlaygroundTitle': 'Sân chơi Sticker',
-  'playPanel.stickerPlaygroundSubtitle':
-    'Dùng sticker đã mở để trang trí cùng Sungy.',
-  'playPanel.stickerPlaygroundAction': 'Trang trí',
+    'Mở trò chơi trang trí Sticker cùng Sungy',
+  'playPanel.stickerPlaygroundBadge': 'GÓC SÁNG TẠO',
+  'playPanel.stickerPlaygroundTitle': 'Trang trí cùng Sungy',
+  'playPanel.stickerPlaygroundSubtitle': 'Dùng sticker bé đã mở!',
+  'playPanel.stickerPlaygroundAction': '⭐ Chơi Sticker',
   'tabs.mapAccessibility': 'Mở bản đồ bài học',
   'tabs.map': 'Bản đồ',
   'tabs.playAccessibility': 'Mở khu chơi',
@@ -710,6 +754,7 @@ export const vi = {
   'home.emptyMap.badge': 'Chưa có trạm',
   'home.emptyMap.title': 'Chủ đề này chưa có gói bài học.',
   'home.mapFallbackTitle': 'Bản đồ Sungy',
+  'home.map.focusCurrent': 'Đưa bản đồ về trạm hiện tại',
   'home.recentLesson': 'bài vừa học',
   'home.freePremiumCta.badge': 'Hoàn thành phần miễn phí',
   'home.freePremiumCta.title': 'Bé đã sẵn sàng cho chặng tiếp theo',
@@ -718,8 +763,8 @@ export const vi = {
   'home.freePremiumCta.action': 'Nhờ ba mẹ mở khóa',
   'home.freePremiumCta.accessibility':
     'Bé đã hoàn thành phần miễn phí. Nhờ ba mẹ mở Premium để học tiếp {lessonTitle}',
-  'home.hub.title': 'Hôm nay mình đi đâu?',
-  'home.hub.closeAccessibility': 'Đóng Sungy Hub',
+  'home.hub.title': 'Chặng tiếp theo',
+  'home.hub.closeAccessibility': 'Đóng chặng tiếp theo',
   'home.hub.reviewTitle': 'Ôn lại {lessonTitle}',
   'home.hub.completeTitle': 'Bản đồ đã đủ sao',
   'home.hub.readyTitle': 'Sẵn sàng học tiếp',
@@ -730,18 +775,16 @@ export const vi = {
   'home.hub.emptySubtitle': 'Bản đồ sẽ hiện bài mới khi có nội dung.',
   'home.hub.primaryReview': 'Chơi ôn tập',
   'home.hub.primaryReplay': 'Chơi lại trạm đầu',
-  'home.hub.primaryContinue': 'Học tiếp',
-  'home.hub.giftReview': 'Xong phần ôn tập, bé nhận thêm sticker thưởng.',
-  'home.hub.giftComplete': 'Chơi lại một trạm để giữ cảm giác tự tin.',
-  'home.hub.giftNext': 'Đi hết bài và ôn tập để mở sticker mới.',
-  'home.hub.openStickerCollection': 'Mở bộ sưu tập sticker',
+  'home.hub.primaryContinue': 'Đi đến trạm tiếp theo',
+  'home.hub.giftReview': 'Hoàn thành ôn tập để nhận sticker thưởng.',
+  'home.hub.giftComplete': 'Chạm để xem lại bộ sưu tập sticker của bé.',
+  'home.hub.giftNext': 'Hoàn thành bài để nhận sticker mới.',
+  'home.hub.openStickerCollection': 'Xem bộ sưu tập sticker',
+  'home.hub.primaryCardAccessibility':
+    '{action}: {title}. Tiến độ {completed}/{total} trạm',
+  'home.hub.progressCount': '{completed}/{total} trạm',
   'home.hub.progressAccessibility':
     'Bé đã hoàn thành {percent} phần trăm bản đồ',
-  'home.hub.starsEarned': 'Sao đã nhận',
-  'home.hub.stopsRemaining': 'Trạm còn lại',
-  'home.hub.giftTitle': 'Quà hôm nay',
-  'home.hub.focusAccessibility': 'Đưa bản đồ về trạm hiện tại',
-  'home.hub.focusCurrent': 'Về trạm hiện tại',
   'home.progressLockedTitle': 'Bài này chưa mở',
   'home.progressLockedText':
     'Con hãy hoàn thành bài phía trước để mở bài này nhé!',
@@ -751,6 +794,8 @@ export const vi = {
   'home.mapStop.actionAccessibility': '{position}: {action} {sceneTitle}',
   'home.mapStop.replayAction': 'Chơi lại',
   'home.mapStop.continueAction': 'Học tiếp',
+  'home.mapStop.vocabularyPlaygroundAccessibility':
+    'Ôn từ trong cảnh {sceneTitle}',
   'home.lessonMilestone.accessibility': 'Bài {title} đạt {stars} trên 3 sao',
   'lessonList.mapTitle': 'Bản đồ bài học',
   'lessonList.title': 'Hành trình tiếng Anh của bé',
@@ -863,28 +908,38 @@ export const vi = {
     'Bé hãy gỡ bớt sticker trước khi thêm sticker mới nhé.',
   'stickerPlayground.trayTitle': 'Sticker của bé',
   'stickerPlayground.trayHint':
-    'Chạm để thêm hoặc chọn; nhấn giữ rồi kéo lên tranh.',
+    'Chạm để thêm hoặc chọn; kéo thẳng lên để đặt vào tranh.',
+  'stickerPlayground.unplacedHint':
+    'Chạm để thêm vào giữa hoặc kéo thẳng lên để đặt vào tranh.',
   'stickerPlayground.placedHint':
-    'Sticker đã có trên nền này. Chạm để chọn lại.',
+    'Sticker đã có trên nền này. Chạm để chọn hoặc kéo lên để chuyển vị trí.',
   'stickerPlayground.empty':
     'Bé chưa có sticker. Chạm để mở album và xem cách nhận sticker nhé!',
   'themeLibrary.badge': 'Thư viện chủ đề',
-  'themeLibrary.title': 'Chọn lộ trình học',
+  'themeLibrary.title': 'Bé muốn khám phá gì?',
   'themeLibrary.parentNote': 'Ghi chú cho phụ huynh',
+  'themeLibrary.startJourney': 'Bắt đầu hành trình',
   'themeLibrary.continueOnMap': 'Tiếp tục trên bản đồ',
+  'themeLibrary.revisitMap': 'Xem lại bản đồ',
   'themeLibrary.chooseThisTheme': 'Chọn chủ đề này',
   'themeLibrary.activeDescription':
     'Đang hiển thị trên Home. Bấm để tiếp tục lộ trình hiện tại.',
   'themeLibrary.inactiveDescription':
     'Chọn để đổi Siêu bản đồ trên Home sang chủ đề này.',
-  'themeLibrary.activeStatus': 'Đang học',
+  'themeLibrary.activeStatus': 'Đang khám phá',
+  'themeLibrary.completedStatus': 'Đã hoàn thành',
+  'themeLibrary.completedShortStatus': 'Hoàn tất',
   'themeLibrary.themeStatus': 'Chủ đề',
   'themeLibrary.savingStatus': 'Đang lưu',
-  'themeLibrary.savingAction': 'Đang lưu...',
-  'themeLibrary.subtitle': 'Mỗi chủ đề là một hành trình học riêng cho bé.',
+  'themeLibrary.savingAction': 'Đang mở...',
+  'themeLibrary.subtitle': 'Chọn một thế giới và bắt đầu hành trình!',
+  'themeLibrary.currentSection': 'Hành trình của bé',
+  'themeLibrary.exploreSection': 'Khám phá thêm',
+  'themeLibrary.exploreHint': 'Chạm vào một chủ đề để đổi bản đồ.',
   'themeLibrary.parentNoteDescription':
     'Chọn chủ đề phù hợp với bé. Bé sẽ học từng bài theo lộ trình trong chủ đề đó.',
   'themeLibrary.stations': 'trạm học',
+  'themeLibrary.stationProgress': '{completed}/{total} trạm',
   'reviewGame.notFound': 'Không tìm thấy bài học này.',
   'reviewGame.backToList': 'Về danh sách bài học',
   'reviewGame.noGame': 'Bài học này chưa có game ôn tập.',
@@ -973,8 +1028,7 @@ export const vi = {
   'speakPractice.promptSpeak': 'Bé nói theo cô:',
   'speakPractice.enableMicAccessibility': 'Bật mic để bé luyện nói',
   'speakPractice.enableMic': 'Bật mic',
-  'speakPractice.askParentAccessibility':
-    'Nhờ ba mẹ bật mic trong Cài đặt',
+  'speakPractice.askParentAccessibility': 'Nhờ ba mẹ bật mic trong Cài đặt',
   'speakPractice.askParent': 'Nhờ ba mẹ',
   'speakPractice.micUnavailableAccessibility':
     'Mic hiện chưa sẵn sàng. Bé nghe từ mẫu rồi tiếp tục nhé.',
@@ -1043,26 +1097,28 @@ export const vi = {
   'parent.stats.allLessons': 'Tất cả bài',
   'parent.stats.guidedPlanTitle': 'Tất cả bài',
   'parent.stats.guidedPlanSubtitle': 'Bật toàn bộ lộ trình',
-  'parent.stats.gentlePlanTitle': 'Nhẹ nhàng',
-  'parent.stats.gentleLessons': '{count} bài gần bài bé đang học',
+  'parent.stats.gentlePlanTitle': 'Gợi ý',
+  'parent.stats.gentleLessons': '{count} bài khởi đầu theo chủ đề',
   'parent.stats.gentlePlanSubtitle':
-    'Chỉ bật {count} bài gần bài bé đang học nhất.',
+    'Bật {count} bài khởi đầu, mỗi chủ đề một bài.',
   'parent.stats.customPlanTitle': 'Tự chọn',
   'parent.stats.customLessons': 'Từng bài',
   'parent.stats.customLessonsHint':
-    'Đang tự chọn từng bài. Dùng công tắc trong các chủ đề bên dưới để ẩn hoặc hiện bài cho bé.',
+    'Mở từng chủ đề bên dưới để ẩn hoặc hiện bài cho bé.',
   'parent.stats.currentPlanLabel': 'Đang dùng',
   'parent.stats.openLessonAccessibility': 'Mở {lessonTitle}',
-  'parent.stats.themeListTitle': 'Các chủ đề bé đang học',
+  'parent.stats.themeListTitle': 'Bài học trong từng chủ đề',
   'parent.stats.themeListSubtitle':
     'Mỗi chủ đề chứa các bài học và từ vựng riêng của bé.',
   'parent.stats.customPlanBadge': 'Tự chọn',
   'parent.stats.completedLessonsOfTotal': '{completed}/{total} bài hoàn thành',
   'parent.stats.visibleLessonsCount': '{count} bài bật',
-  'parent.stats.themeStatusAll': 'Bật tất cả ({count})',
-  'parent.stats.themeStatusSome': 'Mở {count}/{total} bài',
-  'parent.stats.themeStatusOff': 'Đã tắt',
-  'parent.stats.quickToggleTheme': 'Bật hoặc tắt toàn bộ chủ đề',
+  'parent.stats.themeLessonSummary':
+    '{visible}/{total} bài bật · {completed} hoàn thành',
+  'parent.stats.enableAllThemeLessons': 'Bật tất cả bài',
+  'parent.stats.keepOneLessonHint': 'Mỗi chủ đề luôn có ít nhất 1 bài cho bé.',
+  'parent.stats.chooseCustomToEdit':
+    'Chọn “Tự chọn” ở trên để bật hoặc ẩn từng bài.',
   'parent.stats.lessonStateHidden': 'Đang ẩn',
   'parent.stats.lessonStateReadyToReview': 'Sẵn sàng ôn',
   'parent.stats.lessonStateLearning': 'Đang học',
@@ -1076,6 +1132,52 @@ export const vi = {
   'parent.stats.viewLessonPrefix': 'Xem bài ',
   'parent.stats.viewLesson': 'Xem bài học',
   'parent.stats.lessonPreviewLabel': 'Bé sẽ khám phá',
+
+  'parent.lessonPlanEditor.title': 'Chọn lộ trình cho bé',
+  'parent.lessonPlanEditor.subtitle':
+    'Bật chủ đề bé sẽ học, rồi chọn các bài bên trong. Tiến độ luôn được giữ nguyên.',
+  'parent.lessonPlanEditor.presetRecommended': 'Gợi ý',
+  'parent.lessonPlanEditor.presetRecommendedDescription':
+    'Mỗi chủ đề một bài khởi đầu',
+  'parent.lessonPlanEditor.presetAll': 'Tất cả',
+  'parent.lessonPlanEditor.presetAllDescription': 'Toàn bộ lộ trình của bé',
+  'parent.lessonPlanEditor.presetCustom': 'Tự chọn',
+  'parent.lessonPlanEditor.presetCustomDescription':
+    'Điều chỉnh theo từng chủ đề và bài học',
+  'parent.lessonPlanEditor.themesTitle': 'Chủ đề và bài học',
+  'parent.lessonPlanEditor.themesSubtitle':
+    'Mỗi chủ đề đang bật cần giữ lại ít nhất 1 bài.',
+  'parent.lessonPlanEditor.themeCount': '{selected}/{total} bài',
+  'parent.lessonPlanEditor.themeDisabledCount':
+    'Đang tắt · giữ {selected} bài đã chọn',
+  'parent.lessonPlanEditor.disableThemeAccessibility':
+    'Tắt chủ đề {themeTitle}',
+  'parent.lessonPlanEditor.enableThemeAccessibility':
+    'Bật chủ đề {themeTitle}',
+  'parent.lessonPlanEditor.keepOneTheme':
+    'Luôn giữ ít nhất 1 chủ đề cho bé.',
+  'parent.lessonPlanEditor.mapWillSwitch':
+    'Khi lưu, bản đồ của bé sẽ chuyển sang “{themeTitle}”.',
+  'parent.lessonPlanEditor.showLessons': 'Xem {count} bài',
+  'parent.lessonPlanEditor.hideLessons': 'Ẩn danh sách bài',
+  'parent.lessonPlanEditor.lessonSectionTitle': 'Bài trong chủ đề',
+  'parent.lessonPlanEditor.selectAll': 'Chọn tất cả',
+  'parent.lessonPlanEditor.allSelected': 'Đã chọn hết',
+  'parent.lessonPlanEditor.selectAllAccessibility':
+    'Chọn tất cả bài trong chủ đề {themeTitle}',
+  'parent.lessonPlanEditor.requiredLesson': 'Bài tối thiểu của chủ đề',
+  'parent.lessonPlanEditor.stations': '{count} trạm học',
+  'parent.lessonPlanEditor.selectedCount': '{count} bài đang bật',
+  'parent.lessonPlanEditor.saveChanges': 'Lưu thay đổi',
+  'parent.lessonPlanEditor.discardTitle': 'Bỏ thay đổi?',
+  'parent.lessonPlanEditor.discardText':
+    'Những điều chỉnh trong lộ trình chưa được lưu.',
+  'parent.lessonPlanEditor.keepEditing': 'Tiếp tục chỉnh',
+  'parent.lessonPlanEditor.discardAction': 'Bỏ thay đổi',
+  'parent.lessonPlanEditor.loading': 'Đang tải lộ trình…',
+  'parent.lessonPlanEditor.saveErrorTitle': 'Chưa lưu được lộ trình',
+  'parent.lessonPlanEditor.saveErrorText':
+    'Ba mẹ thử lại sau một chút nhé.',
 
   'parent.voice.autoSaveDisabled': 'Không lưu bản đọc mới.',
   'parent.voice.autoSaveEnabled': 'Tự động lưu khi bé luyện đọc.',
@@ -1114,12 +1216,10 @@ export const vi = {
   'parent.voice.enableText':
     'Sungy sẽ tự động lưu bản đọc cuối có tiếng nói của mỗi lần luyện từ. Bản ghi chỉ nằm trên thiết bị này, không tải lên cloud hoặc đưa vào bản sao lưu hệ thống. Sungy giữ tối đa 100 mốc giọng đọc.',
   'parent.voice.enableTitle': 'Bật lưu giọng đọc của bé?',
-  'parent.voice.emptyLibrary':
-    'Bật tự động lưu để lưu lại khi bé luyện đọc.',
+  'parent.voice.emptyLibrary': 'Bật tự động lưu để lưu lại khi bé luyện đọc.',
   'parent.voice.emptyTitle': 'Chưa có giọng đọc',
   'parent.voice.firstMilestone': 'Lần đầu',
-  'parent.voice.infoAccessibility':
-    'Xem thông tin về tự động lưu giọng đọc',
+  'parent.voice.infoAccessibility': 'Xem thông tin về tự động lưu giọng đọc',
   'parent.voice.latestMilestone': 'Gần đây',
   'parent.voice.loading': 'Đang tải giọng đọc của bé…',
   'parent.voice.localOnlyText':

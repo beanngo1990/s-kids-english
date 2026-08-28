@@ -1,16 +1,27 @@
-import React from 'react';
-import { Pressable, Text, useWindowDimensions, View } from 'react-native';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  AccessibilityInfo,
+  Animated,
+  Pressable,
+  Text,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppLogo } from './AppLogo';
 import { KidIconButton } from './KidIconButton';
 import { PremiumStatusBadge } from './PremiumStatusBadge';
 import { SKidsIcon } from './SKidsIcon';
+import { createBounceAnimation } from '../engine/animations';
+import { playTapSound } from '../engine/AudioManager';
 import { getLevelProgress } from '../engine/ProgressManager';
 import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { shadows } from '../theme/shadows';
 import { layout, radius, spacing } from '../theme/spacing';
+
+const LEVEL_HINT_DURATION_MS = 2800;
 
 type KidModeHeaderProps = {
   isPremium?: boolean;
@@ -40,6 +51,10 @@ export function KidModeHeader({
   });
   const useTightHeader =
     Boolean(onOpenThemeLibrary) && (width < 390 || fontScale > 1.2);
+  const handleOpenThemeLibrary = useCallback(() => {
+    playTapSound().catch(() => undefined);
+    onOpenThemeLibrary?.();
+  }, [onOpenThemeLibrary]);
 
   const brandContent = (
     <>
@@ -101,7 +116,7 @@ export function KidModeHeader({
             <KidIconButton
               accessibilityLabel={t('header.themeLibrary')}
               icon="map"
-              onPress={onOpenThemeLibrary}
+              onPress={handleOpenThemeLibrary}
               size="md"
               style={styles.themeLibrary}
               tone="secondary"
@@ -131,69 +146,135 @@ function TopProgressStatus({
   variant = 'full',
 }: TopProgressStatusProps) {
   const t = useI18n();
+  const scale = useRef(new Animated.Value(1)).current;
+  const hintTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isHintVisible, setIsHintVisible] = useState(false);
   const { level, xpInLevel, xpNeeded, progressPercent } =
     getLevelProgress(totalXP);
 
   const clampedPercent = Math.min(100, Math.max(0, progressPercent));
+  const remainingXP = Math.max(0, xpNeeded - xpInLevel);
   const isIconOnly = variant === 'icon';
   const levelLabel =
     variant === 'full'
       ? t('header.level', { level: String(level) })
       : String(level);
+  const levelSummary = t('header.levelAccessibility', {
+    level: String(level),
+    xpInLevel: String(xpInLevel),
+    xpNeeded: String(remainingXP),
+  });
+  const levelHint = t('header.levelProgressHint', {
+    nextLevel: String(level + 1),
+    remaining: String(remainingXP),
+  });
+
+  useEffect(() => {
+    return () => {
+      if (hintTimerRef.current) {
+        clearTimeout(hintTimerRef.current);
+      }
+      scale.stopAnimation();
+    };
+  }, [scale]);
+
+  const handlePress = useCallback(() => {
+    playTapSound().catch(() => undefined);
+    setIsHintVisible(true);
+
+    if (hintTimerRef.current) {
+      clearTimeout(hintTimerRef.current);
+    }
+    hintTimerRef.current = setTimeout(() => {
+      setIsHintVisible(false);
+      hintTimerRef.current = null;
+    }, LEVEL_HINT_DURATION_MS);
+
+    AccessibilityInfo.isReduceMotionEnabled()
+      .then(isEnabled => {
+        if (!isEnabled) {
+          createBounceAnimation(scale).start();
+        }
+      })
+      .catch(() => undefined);
+  }, [scale]);
 
   return (
-    <View
-      accessibilityLabel={t('header.levelAccessibility', {
-        level: String(level),
-        xpInLevel: String(xpInLevel),
-        xpNeeded: String(xpNeeded - xpInLevel),
-      })}
-      accessibilityRole="progressbar"
-      style={[
-        styles.topStatusCard,
-        variant === 'icon' && styles.topStatusCardIcon,
-      ]}
-    >
-      <View
-        style={[
-          styles.topStatusContent,
-          isIconOnly && styles.topStatusContentIcon,
-        ]}
+    <View style={styles.topStatusAnchor}>
+      <Pressable
+        accessibilityHint={t('header.levelActionHint')}
+        accessibilityLabel={levelSummary}
+        accessibilityRole="button"
+        hitSlop={6}
+        onPress={handlePress}
+        testID="kid-level-progress"
       >
-        <View style={styles.topStatusIconBox}>
-          <SKidsIcon name="acorn" size={isIconOnly ? 30 : 22} />
-        </View>
-        <View
+        <Animated.View
           style={[
-            styles.topStatusMeta,
-            isIconOnly && styles.topStatusMetaIcon,
+            styles.topStatusCard,
+            variant === 'icon' && styles.topStatusCardIcon,
+            { transform: [{ scale }] },
           ]}
         >
-          <Text
-            adjustsFontSizeToFit
-            minimumFontScale={0.82}
-            numberOfLines={1}
+          <View
             style={[
-              styles.topStatusLevelText,
-              variant === 'icon' && styles.topStatusLevelTextIcon,
+              styles.topStatusContent,
+              isIconOnly && styles.topStatusContentIcon,
             ]}
           >
-            {levelLabel}
-          </Text>
-          {variant === 'full' ? (
-            <View style={styles.topStatusTrack}>
-              <View
-                style={[
-                  styles.topStatusFill,
-                  {
-                    width: `${clampedPercent}%`,
-                  },
-                ]}
-              />
+            <View style={styles.topStatusIconBox}>
+              <SKidsIcon name="acorn" size={isIconOnly ? 30 : 22} />
             </View>
-          ) : null}
+            <View
+              style={[
+                styles.topStatusMeta,
+                isIconOnly && styles.topStatusMetaIcon,
+              ]}
+            >
+              <Text
+                adjustsFontSizeToFit
+                minimumFontScale={0.82}
+                numberOfLines={1}
+                style={[
+                  styles.topStatusLevelText,
+                  variant === 'icon' && styles.topStatusLevelTextIcon,
+                ]}
+              >
+                {levelLabel}
+              </Text>
+              {variant === 'full' ? (
+                <View style={styles.topStatusTrack}>
+                  <View
+                    style={[
+                      styles.topStatusFill,
+                      {
+                        width: `${clampedPercent}%`,
+                      },
+                    ]}
+                  />
+                </View>
+              ) : null}
+            </View>
+          </View>
+        </Animated.View>
+      </Pressable>
+      {isHintVisible ? (
+        <View
+          accessibilityLabel={`${t('header.level', {
+            level: String(level),
+          })}. ${levelHint}`}
+          accessibilityLiveRegion="polite"
+          accessible
+          pointerEvents="none"
+          style={styles.levelHintBubble}
+          testID="kid-level-progress-hint"
+        >
+          <Text style={styles.levelHintTitle}>
+            {t('header.level', { level: String(level) })}
+          </Text>
+          <Text style={styles.levelHintText}>{levelHint}</Text>
         </View>
-      </View>
+      ) : null}
     </View>
   );
 }
@@ -285,6 +366,31 @@ const styles = createThemedStyles(() => ({
     letterSpacing: -0.2,
     lineHeight: 24,
   },
+  levelHintBubble: {
+    backgroundColor: colors.surface,
+    borderColor: colors.secondary,
+    borderRadius: radius.md,
+    borderWidth: 2,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    position: 'absolute',
+    right: 0,
+    top: 52,
+    width: 220,
+    ...shadows.soft,
+  },
+  levelHintText: {
+    color: colors.textSoft,
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 18,
+  },
+  levelHintTitle: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '900',
+    lineHeight: 20,
+  },
   topActions: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -312,6 +418,10 @@ const styles = createThemedStyles(() => ({
     paddingHorizontal: spacing.xs,
     paddingVertical: 3,
     ...shadows.soft,
+  },
+  topStatusAnchor: {
+    position: 'relative',
+    zIndex: 3,
   },
   topStatusCardIcon: {
     alignItems: 'center',

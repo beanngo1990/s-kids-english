@@ -140,6 +140,7 @@ service cloud.firestore {
           'appLanguage',
           'appTheme',
           'childProfile',
+          'disabledThemeIds',
           'englishAccent',
           'hasCompletedOnboarding',
           'journeyMode',
@@ -175,6 +176,9 @@ service cloud.firestore {
         settings.teacherPromptMode in ['en', 'vi', 'bilingual'] &&
         settings.updatedAt is string &&
         settings.updatedAt.size() <= 40 &&
+        (!('disabledThemeIds' in settings) ||
+          (settings.disabledThemeIds is list &&
+            settings.disabledThemeIds.size() <= 100)) &&
         (!('visibleLessonIds' in settings) ||
           (settings.visibleLessonIds is list &&
             settings.visibleLessonIds.size() <= 500)) &&

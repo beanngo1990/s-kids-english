@@ -1,8 +1,10 @@
 import { bedtimeLesson } from '../src/data/lessons/bedtime';
 import { lessons } from '../src/data/lessons';
+import { playWithThePuppyLesson } from '../src/data/lessons/playWithThePuppy';
 import {
   getReviewGameItems,
   getReviewItemCount,
+  getLessonVocabularyVisuals,
 } from '../src/games/reviewItems';
 import { hasPlayableReviewGame } from '../src/games/GameRegistry';
 import type { Lesson } from '../src/types/lesson';
@@ -48,6 +50,40 @@ test('challenge review progresses from easy to medium and hard without duplicate
     'hard',
   ]);
   expect(new Set(reviewedItems.map(item => item.visualId)).size).toBe(6);
+});
+
+test('lesson vocabulary visuals reuse step targets when objects have no direct vocabId', () => {
+  const visuals = getLessonVocabularyVisuals(
+    playWithThePuppyLesson,
+    'challenge',
+  );
+  const playId = 'vocab-play-with-the-puppy-choose-the-ball-play';
+  const ballId = 'vocab-play-with-the-puppy-choose-the-ball-ball';
+
+  expect(visuals.get(playId)?.visualId).toBe('choose-the-ball-hero');
+  expect(visuals.get(ballId)?.visualId).toBe('choose-the-ball-red-ball');
+  expect(visuals.get(playId)?.imageSource).toBeDefined();
+  expect(visuals.get(ballId)?.imageSource).toBeDefined();
+});
+
+test('lesson vocabulary visuals follow authored object variants before teach steps', () => {
+  const lesson = lessons.find(item => item.id === 'feed-the-puppy');
+
+  expect(lesson).toBeDefined();
+  const visuals = getLessonVocabularyVisuals(lesson!, 'challenge');
+
+  expect(visuals.get('vocab-feed-the-puppy-fill-the-bowl-meal')).toMatchObject({
+    assetSource:
+      'lessons/feed-the-puppy/fill-the-bowl/images/bowl-on-mat-filled.webp',
+    visualId: 'fill-the-bowl-story-bowl:on-mat-filled',
+  });
+  expect(visuals.get('vocab-feed-the-puppy-fill-the-bowl-ready')).toMatchObject(
+    {
+      assetSource:
+        'lessons/feed-the-puppy/fill-the-bowl/images/bowl-ready.webp',
+      visualId: 'fill-the-bowl-story-bowl:ready',
+    },
+  );
 });
 
 test('review items still respect learning mode scope when config includes later words', () => {
@@ -115,6 +151,14 @@ test('every authored review scales its playable pool across all three modes', ()
       lessonId: lesson.id,
       uniqueVisuals: new Set(challengeItems.map(item => item.visualId)).size,
     }).toEqual({ lessonId: lesson.id, uniqueVisuals: challengeItems.length });
+    expect({
+      lessonId: lesson.id,
+      uniqueVisualAssets: new Set(challengeItems.map(item => item.assetSource))
+        .size,
+    }).toEqual({
+      lessonId: lesson.id,
+      uniqueVisualAssets: challengeItems.length,
+    });
   }
 });
 

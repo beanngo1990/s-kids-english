@@ -15,13 +15,11 @@ import {
   Switch,
   Text,
   TextInput,
-  type DimensionValue,
   type GestureResponderEvent,
   View,
 } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { NotificationService } from '../services/NotificationService';
 import {
@@ -41,11 +39,10 @@ import { ParentAppUpdateCard } from '../components/ParentAppUpdateCard';
 import { ParentGateChallengeCard } from '../components/ParentGateChallengeCard';
 import { ParentVoiceRecordingSettingsCard } from '../components/ParentVoiceRecordingSettingsCard';
 import { ParentVoiceSummaryCard } from '../components/ParentVoiceSummaryCard';
-import { PremiumLessonLockIndicator } from '../components/PremiumLessonLockIndicator';
 import { PremiumStatusCard } from '../components/PremiumStatusCard';
 import { PremiumUpgradeCard } from '../components/PremiumUpgradeCard';
+import { ReminderTimePickerModal } from '../components/ReminderTimePickerModal';
 import { Screen } from '../components/Screen';
-import { SKidsIcon } from '../components/SKidsIcon';
 import { WeeklyChart } from '../components/WeeklyChart';
 import { APP_SUPPORT_EMAIL } from '../config/appInfo';
 import { monetizationConfig } from '../config/monetization';
@@ -87,31 +84,21 @@ import type {
   EnglishAccent,
   TeacherPromptMode,
 } from '../engine/ParentSettingsManager';
-import {
-  getLocalizedLessonTitle,
-  getLocalizedThemeDescription,
-  getLocalizedThemeTitle,
-} from '../i18n/domainCopy';
+import { getLocalizedLessonTitle } from '../i18n/domainCopy';
 import { getLearningModeCopy } from '../i18n/learningModeCopy';
 import { useI18n } from '../i18n';
-import {
-  getLessonVocabularyForLearningMode,
-  getProgress,
-  saveActiveThemeId,
-  type LocalProgress,
-} from '../engine/ProgressManager';
+import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import { useAppTheme } from '../theme/AppTheme';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
 import { typography } from '../theme/typography';
 import { useResponsiveLayout } from '../theme/responsive';
-import type { LearningMode, LessonTheme } from '../types/lesson';
+import type { LearningMode } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
-import { getLessonIconName } from '../utils/lessonIcons';
 import {
-  getLessonCompletionPercent,
   getLessonPlanSelection,
+  getRecommendedLessonIds,
 } from '../utils/lessonPlan';
 import { isSceneProgressComplete } from '../utils/lessonProgress';
 import {
@@ -172,9 +159,6 @@ export function ParentScreen({ navigation, route }: Props) {
   const [appVersion, setAppVersion] = useState('—');
   const [isOpeningReviewStore, setIsOpeningReviewStore] = useState(false);
   const [activeTab, setActiveTab] = useState<ParentTab>('stats');
-  const [expandedThemeId, setExpandedThemeId] = useState<string | null>(null);
-  const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
-  const [isCustomPlanMode, setIsCustomPlanMode] = useState(false);
 
   // Settings State
   const [learningMode, setLearningMode] = useState<LearningMode>('core');
@@ -197,6 +181,7 @@ export function ParentScreen({ navigation, route }: Props) {
   const [visibleLessonIds, setVisibleLessonIds] = useState<
     string[] | undefined
   >(undefined);
+  const [disabledThemeIds, setDisabledThemeIds] = useState<string[]>([]);
   const [childProfile, setChildProfile] =
     useState<ChildProfile>(defaultChildProfile);
   const childAge = childProfile.birthYear
@@ -266,12 +251,18 @@ export function ParentScreen({ navigation, route }: Props) {
   const recentLessonId =
     progress?.completedLessonIds[progress?.completedLessonIds.length - 1];
   const recentLesson = lessons.find(l => l.id === recentLessonId);
+  const disabledThemeIdSet = useMemo(
+    () => new Set(disabledThemeIds),
+    [disabledThemeIds],
+  );
   const visibleLessons = useMemo(
     () =>
       journeyLessons.filter(
-        lesson => !visibleLessonIds || visibleLessonIds.includes(lesson.id),
+        lesson =>
+          !disabledThemeIdSet.has(lesson.themeId) &&
+          (!visibleLessonIds || visibleLessonIds.includes(lesson.id)),
       ),
-    [journeyLessons, visibleLessonIds],
+    [disabledThemeIdSet, journeyLessons, visibleLessonIds],
   );
   const completedLessonIds = useMemo(
     () => new Set(progress?.completedLessonIds ?? []),
@@ -326,69 +317,28 @@ export function ParentScreen({ navigation, route }: Props) {
       isSceneProgressComplete(completedSceneIds, focusLesson.id, scene.id),
     ).length;
   }, [completedSceneIds, focusLesson]);
-  const allLessonIds = useMemo(
-    () => journeyLessons.map(lesson => lesson.id),
-    [journeyLessons],
+  const recommendedLessonIds = useMemo(
+    () => getRecommendedLessonIds(themes),
+    [],
   );
-  const gentleLessonIds = useMemo(() => {
-    const focusIndex = Math.max(
-      journeyLessons.findIndex(lesson => lesson.id === focusLesson?.id),
-      0,
-    );
-    const startIndex = Math.min(
-      focusIndex,
-      Math.max(journeyLessons.length - 3, 0),
-    );
-
-    return journeyLessons
-      .slice(startIndex, startIndex + 3)
-      .map(lesson => lesson.id);
-  }, [focusLesson, journeyLessons]);
-  const enabledLessonIds = visibleLessonIds ?? allLessonIds;
   const lessonPlanSelection = getLessonPlanSelection(
-    enabledLessonIds,
-    allLessonIds,
-    gentleLessonIds,
-    isCustomPlanMode,
+    visibleLessonIds,
+    recommendedLessonIds,
+    disabledThemeIds,
   );
-  const isFullJourneyEnabled = lessonPlanSelection === 'full';
-  const isGentlePlanEnabled = lessonPlanSelection === 'gentle';
-  const isCustomPlanActive = lessonPlanSelection === 'custom';
-  const currentLessonPlanTitle = isFullJourneyEnabled
-    ? t('parent.stats.guidedPlanTitle')
-    : isGentlePlanEnabled
-    ? t('parent.stats.gentlePlanTitle')
-    : t('parent.stats.customPlanTitle');
-  const currentLessonPlanSubtitle = isFullJourneyEnabled
-    ? t('parent.stats.guidedPlanSubtitle')
-    : isGentlePlanEnabled
-    ? t('parent.stats.gentleLessons', {
-        count: String(gentleLessonIds.length),
-      })
-    : t('parent.stats.customLessons');
-  const focusTheme = themes.find(theme =>
-    theme.lessonIds.includes(focusLesson?.id ?? ''),
-  );
-  const fullLearningPathSubtitle =
-    themes.length === 1
-      ? themes[0]
-        ? getLocalizedThemeDescription(themes[0], appLanguage)
-        : t('parent.stats.learningPathSubtitleDefault')
-      : t('parent.stats.learningPathSubtitleCustom');
-  const completedVisibleLessonCount = visibleLessons.filter(lesson =>
-    completedLessonIds.has(lesson.id),
-  ).length;
-  const lessonPlanCompletionPercent = getLessonCompletionPercent(
-    completedVisibleLessonCount,
-    visibleLessons.length,
-  );
-  const learningPathSubtitle = isGentlePlanEnabled
-    ? t('parent.stats.gentlePlanSubtitle', {
-        count: String(gentleLessonIds.length),
-      })
-    : isCustomPlanActive
-    ? t('parent.stats.learningPathSubtitleCustom')
-    : fullLearningPathSubtitle;
+  const currentLessonPlanTitle =
+    lessonPlanSelection === 'all'
+      ? t('parent.lessonPlanEditor.presetAll')
+      : lessonPlanSelection === 'recommended'
+      ? t('parent.lessonPlanEditor.presetRecommended')
+      : t('parent.lessonPlanEditor.presetCustom');
+  const currentLessonPlanSubtitle =
+    lessonPlanSelection === 'all'
+      ? t('parent.lessonPlanEditor.presetAllDescription')
+      : lessonPlanSelection === 'recommended'
+      ? t('parent.lessonPlanEditor.presetRecommendedDescription')
+      : t('parent.lessonPlanEditor.presetCustomDescription');
+  const learningPathSubtitle = currentLessonPlanSubtitle;
   const reviewLesson =
     visibleLessons.find(lesson => lesson.id === recentLesson?.id) ??
     focusLesson;
@@ -522,15 +472,6 @@ export function ParentScreen({ navigation, route }: Props) {
     reviewWordText: word => t('parent.stats.tipReviewWords', { word }),
     reviewWords,
   });
-
-  useEffect(() => {
-    if (!isDashboardReady || !focusTheme?.id || !focusLesson?.id) {
-      return;
-    }
-
-    setExpandedThemeId(current => current ?? focusTheme.id);
-    setSelectedLessonId(current => current ?? focusLesson.id);
-  }, [focusLesson?.id, focusTheme?.id, isDashboardReady]);
 
   useEffect(() => {
     setAppTheme(appThemePreference);
@@ -673,6 +614,7 @@ export function ParentScreen({ navigation, route }: Props) {
         setReminderEnabled(isReminderActive);
         setReminderTime(settings.reminderTime);
       }
+      setDisabledThemeIds(settings.disabledThemeIds ?? []);
       setVisibleLessonIds(settings.visibleLessonIds);
       setChildProfile(settings.childProfile);
     } else {
@@ -864,18 +806,6 @@ export function ParentScreen({ navigation, route }: Props) {
       lessonId: reviewLesson.id,
       openedFromParent: true,
     });
-  };
-
-  const handleSelectLessonPlan = async (lessonIds?: string[]) => {
-    setIsCustomPlanMode(false);
-    setVisibleLessonIds(lessonIds);
-    await saveParentSettings({ visibleLessonIds: lessonIds });
-  };
-
-  const handleOpenCustomPlan = () => {
-    setIsCustomPlanMode(true);
-    setExpandedThemeId(focusTheme?.id ?? themes[0]?.id ?? null);
-    setSelectedLessonId(null);
   };
 
   const handleSelectLearningMode = async (nextLearningMode: LearningMode) => {
@@ -1162,108 +1092,37 @@ export function ParentScreen({ navigation, route }: Props) {
     }
   };
 
-  const handleTimeChange = async (event: any, selectedDate?: Date) => {
-    setShowTimePicker(false);
-    if (selectedDate && beginReminderUpdate()) {
-      const previousTime = reminderTime;
-      const hours = selectedDate.getHours().toString().padStart(2, '0');
-      const minutes = selectedDate.getMinutes().toString().padStart(2, '0');
-      const timeString = `${hours}:${minutes}`;
+  const handleConfirmReminderTime = async (timeString: string) => {
+    if (!beginReminderUpdate()) {
+      return;
+    }
+
+    let didSaveTime = false;
+    try {
+      await saveParentSettings({ reminderTime: timeString });
+      didSaveTime = true;
       setReminderTime(timeString);
 
-      try {
-        await saveParentSettings({ reminderTime: timeString });
-
-        if (reminderEnabled) {
-          const didSchedule = await scheduleReminderForParent(timeString);
-          if (!didSchedule) {
-            await resetReminderAfterFailure();
-            showReminderPermissionAlert();
-          }
-        }
-      } catch {
-        setReminderTime(previousTime);
-        if (reminderEnabled) {
+      if (reminderEnabled) {
+        const didSchedule = await scheduleReminderForParent(timeString);
+        if (!didSchedule) {
           await resetReminderAfterFailure();
-        }
-        showReminderUpdateError();
-      } finally {
-        finishReminderUpdate();
-      }
-    }
-  };
-
-  const handleToggleLesson = async (lessonId: string) => {
-    const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
-    const wasVisible = currentVisible.includes(lessonId);
-    const lesson = lessons.find(l => l.id === lessonId);
-    let nextVisible: string[];
-
-    if (wasVisible) {
-      if (lesson) {
-        const themeLessons = lessons.filter(l => l.themeId === lesson.themeId);
-        const visibleInTheme = themeLessons.filter(l =>
-          currentVisible.includes(l.id),
-        );
-        if (visibleInTheme.length <= 1) {
-          Alert.alert(
-            t('parent.alert.notice'),
-            t('parent.alert.keepOneLesson'),
-          );
+          setShowTimePicker(false);
+          showReminderPermissionAlert();
           return;
         }
       }
-      nextVisible = currentVisible.filter(id => id !== lessonId);
-    } else {
-      nextVisible = [...currentVisible, lessonId];
-    }
 
-    setIsCustomPlanMode(true);
-    setVisibleLessonIds(nextVisible);
-    await saveParentSettings({ visibleLessonIds: nextVisible });
-
-    if (!wasVisible && lesson && lesson.themeId !== progress?.activeThemeId) {
-      try {
-        const nextProgress = await saveActiveThemeId(lesson.themeId);
-        setProgress(nextProgress);
-      } catch {
-        // Visibility is the source of truth for the plan; theme switching is
-        // a convenience so Home reflects the newly enabled theme.
+      setShowTimePicker(false);
+    } catch {
+      if (reminderEnabled && didSaveTime) {
+        await resetReminderAfterFailure();
+        setShowTimePicker(false);
       }
+      showReminderUpdateError();
+    } finally {
+      finishReminderUpdate();
     }
-  };
-
-  const handleToggleTheme = async (theme: LessonTheme) => {
-    const themeLessonIds = theme.lessonIds;
-    const currentVisible = visibleLessonIds ?? lessons.map(l => l.id);
-    const themeVisibleIds = themeLessonIds.filter(id =>
-      currentVisible.includes(id),
-    );
-    const isThemeFullyVisible =
-      themeVisibleIds.length === themeLessonIds.length;
-
-    let nextVisible: string[];
-
-    if (isThemeFullyVisible || themeVisibleIds.length > 0) {
-      const remainingVisible = currentVisible.filter(
-        id => !themeLessonIds.includes(id),
-      );
-      if (remainingVisible.length === 0) {
-        Alert.alert(
-          t('parent.alert.notice'),
-          t('parent.alert.keepOneLesson'),
-        );
-        return;
-      }
-      nextVisible = remainingVisible;
-    } else {
-      const toAdd = themeLessonIds.filter(id => !currentVisible.includes(id));
-      nextVisible = [...currentVisible, ...toAdd];
-    }
-
-    setIsCustomPlanMode(true);
-    setVisibleLessonIds(nextVisible);
-    await saveParentSettings({ visibleLessonIds: nextVisible });
   };
 
   const renderLearningSettingsCard = () => (
@@ -1759,12 +1618,15 @@ export function ParentScreen({ navigation, route }: Props) {
         {activeTab === 'lessons' && (
           <View style={styles.tabContent}>
             <AppCard style={styles.learningPathCard}>
-              <View style={styles.learningPathTopRow}>
+              <View style={styles.lessonPlanSummaryRow}>
+                <View style={styles.learningSummaryIcon}>
+                  <AppUiIcon name="journey" size={34} />
+                </View>
                 <View style={styles.learningPathCopy}>
                   <KidBadge tone="teal">
                     {t('parent.stats.learningPathTitleDefault')}
                   </KidBadge>
-                  <Text style={styles.lessonPlanOptionTitle}>
+                  <Text style={styles.lessonPlanSummaryTitle}>
                     {currentLessonPlanTitle}
                   </Text>
                   <Text style={styles.learningPathSubtitle}>
@@ -1777,518 +1639,30 @@ export function ParentScreen({ navigation, route }: Props) {
                       count: String(visibleLessons.length),
                     })}
                   </Text>
-                  {visibleLessons.length < journeyLessons.length ? (
-                    <Text style={styles.learningPathCountLabel}>
-                      {t('parent.stats.totalLessons', {
-                        total: String(journeyLessons.length),
-                      })}
-                    </Text>
-                  ) : null}
-                </View>
-              </View>
-              <View style={styles.learningPathTrack}>
-                {journeyLessons.length > 0 ? (
-                  <View
-                    style={[
-                      styles.learningPathFill,
-                      {
-                        width:
-                          `${lessonPlanCompletionPercent}%` as DimensionValue,
-                      },
-                    ]}
-                  />
-                ) : null}
-              </View>
-              <Text style={styles.learningPathFootnote}>
-                {t('parent.stats.completedEnabledLessons', {
-                  completed: String(completedVisibleLessonCount),
-                  total: String(visibleLessons.length),
-                })}
-              </Text>
-            </AppCard>
-
-            <AppCard style={styles.lessonPlanCard}>
-              <View style={styles.settingsCardHeader}>
-                <View style={styles.configTitleRow}>
-                  <Text style={styles.lessonPlanTitle}>
-                    {t('parent.stats.selectLearningPace')}
-                  </Text>
-                  {renderInfoButton('lessonPace')}
-                </View>
-              </View>
-
-              <View style={styles.learningSummaryPanel}>
-                <View style={styles.learningSummaryIcon}>
-                  <AppUiIcon name="journey" size={34} />
-                </View>
-                <View style={styles.learningSummaryCopy}>
-                  <Text style={styles.learningSummaryLabel}>
-                    {t('parent.stats.currentPlanLabel')}
-                  </Text>
-                  <Text style={styles.learningSummaryTitle}>
-                    {currentLessonPlanTitle}
-                  </Text>
-                  <Text style={styles.learningSummarySubtitle}>
-                    {currentLessonPlanSubtitle}
+                  <Text style={styles.learningPathCountLabel}>
+                    {t('parent.stats.totalLessons', {
+                      total: String(journeyLessons.length),
+                    })}
                   </Text>
                 </View>
               </View>
 
-              <View style={styles.learningSettingsList}>
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityState={{ selected: isFullJourneyEnabled }}
-                  disabled={!isDashboardReady}
-                  onPress={() => handleSelectLessonPlan()}
-                  style={({ pressed }) => [
-                    styles.learningSettingsRow,
-                    isFullJourneyEnabled && styles.learningSettingsRowSelected,
-                    !isDashboardReady && styles.optionDisabled,
-                    pressed && isDashboardReady && styles.pressed,
-                  ]}
-                >
-                  <View style={styles.learningSettingsRowIcon}>
-                    <AppUiIcon name="journey" size={30} />
-                  </View>
-                  <View style={styles.learningSettingsRowCopy}>
-                    <Text style={styles.learningSettingsRowTitle}>
-                      {t('parent.stats.guidedPlanTitle')}
-                    </Text>
-                    <Text
-                      numberOfLines={2}
-                      style={styles.learningSettingsRowSubtitle}
-                    >
-                      {t('parent.stats.guidedPlanSubtitle')}
-                    </Text>
-                  </View>
-                  <Text style={styles.learningSettingsChevron}>
-                    {isFullJourneyEnabled ? '✓' : '›'}
-                  </Text>
-                </Pressable>
-
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityState={{ selected: isGentlePlanEnabled }}
-                  disabled={!isDashboardReady}
-                  onPress={() => handleSelectLessonPlan(gentleLessonIds)}
-                  style={({ pressed }) => [
-                    styles.learningSettingsRow,
-                    isGentlePlanEnabled && styles.learningSettingsRowSelected,
-                    !isDashboardReady && styles.optionDisabled,
-                    pressed && isDashboardReady && styles.pressed,
-                  ]}
-                >
-                  <View style={styles.learningSettingsRowIcon}>
-                    <AppUiIcon name="lesson" size={30} />
-                  </View>
-                  <View style={styles.learningSettingsRowCopy}>
-                    <Text style={styles.learningSettingsRowTitle}>
-                      {t('parent.stats.gentlePlanTitle')}
-                    </Text>
-                    <Text
-                      numberOfLines={2}
-                      style={styles.learningSettingsRowSubtitle}
-                    >
-                      {t('parent.stats.gentleLessons', {
-                        count: String(gentleLessonIds.length),
-                      })}
-                    </Text>
-                  </View>
-                  <Text style={styles.learningSettingsChevron}>
-                    {isGentlePlanEnabled ? '✓' : '›'}
-                  </Text>
-                </Pressable>
-
-                <Pressable
-                  accessibilityRole="button"
-                  accessibilityState={{ selected: isCustomPlanActive }}
-                  disabled={!isDashboardReady}
-                  onPress={handleOpenCustomPlan}
-                  style={({ pressed }) => [
-                    styles.learningSettingsRow,
-                    styles.learningSettingsRowLast,
-                    isCustomPlanActive && styles.learningSettingsRowSelected,
-                    !isDashboardReady && styles.optionDisabled,
-                    pressed && isDashboardReady && styles.pressed,
-                  ]}
-                >
-                  <View style={styles.learningSettingsRowIcon}>
-                    <AppUiIcon name="custom" size={30} />
-                  </View>
-                  <View style={styles.learningSettingsRowCopy}>
-                    <Text style={styles.learningSettingsRowTitle}>
-                      {t('parent.stats.customPlanTitle')}
-                    </Text>
-                    <Text
-                      numberOfLines={2}
-                      style={styles.learningSettingsRowSubtitle}
-                    >
-                      {t('parent.stats.customLessons')}
-                    </Text>
-                  </View>
-                  <Text style={styles.learningSettingsChevron}>
-                    {isCustomPlanActive ? '✓' : '›'}
-                  </Text>
-                </Pressable>
-              </View>
-
-              {isCustomPlanActive ? (
-                <View style={styles.customPlanNotice}>
-                  <View style={styles.customPlanNoticeDot} />
-                  <Text style={styles.customPlanNoticeText}>
-                    {t('parent.stats.customLessonsHint')}
-                  </Text>
-                </View>
-              ) : null}
-            </AppCard>
-
-            <View style={styles.lessonSectionHeading}>
-              <View style={styles.lessonSectionHeadingCopy}>
-                <Text style={styles.lessonSectionHeadingTitle}>
-                  {t('parent.stats.themeListTitle')}
+              <Pressable
+                accessibilityRole="button"
+                disabled={!isDashboardReady}
+                onPress={() => navigation.navigate('ParentLessonPlan')}
+                style={({ pressed }) => [
+                  styles.lessonPlanEditAction,
+                  !isDashboardReady && styles.optionDisabled,
+                  pressed && isDashboardReady && styles.pressed,
+                ]}
+              >
+                <Text style={styles.lessonPlanEditActionText}>
+                  {t('nav.parentLessonPlan')}
                 </Text>
-              </View>
-              {isCustomPlanActive ? (
-                <KidBadge tone="sky">
-                  {t('parent.stats.customPlanBadge')}
-                </KidBadge>
-              ) : null}
-            </View>
-
-            <View style={styles.lessonSectionList}>
-              {themes.map(theme => {
-                const themeLessons = journeyLessons.filter(lesson =>
-                  theme.lessonIds.includes(lesson.id),
-                );
-                const visibleCount = themeLessons.filter(lesson =>
-                  enabledLessonIds.includes(lesson.id),
-                ).length;
-                const completedCount = themeLessons.filter(lesson =>
-                  completedLessonIds.has(lesson.id),
-                ).length;
-                const isExpanded = expandedThemeId === theme.id;
-                const isThemeFullyVisible =
-                  visibleCount === themeLessons.length;
-                const isThemePartiallyVisible =
-                  visibleCount > 0 && visibleCount < themeLessons.length;
-                const isThemeOff = visibleCount === 0;
-
-                const badgeTone = isThemeFullyVisible
-                  ? 'teal'
-                  : isThemePartiallyVisible
-                  ? 'sun'
-                  : 'sky';
-
-                const statusBadgeText = isThemeFullyVisible
-                  ? `🟢 ${t('parent.stats.themeStatusAll', {
-                      count: String(visibleCount),
-                    })}`
-                  : isThemePartiallyVisible
-                  ? `🟡 ${t('parent.stats.themeStatusSome', {
-                      count: String(visibleCount),
-                      total: String(themeLessons.length),
-                    })}`
-                  : `⚪ ${t('parent.stats.themeStatusOff')}`;
-
-                return (
-                  <AppCard
-                    key={theme.id}
-                    style={[
-                      styles.lessonSectionCard,
-                      isExpanded && styles.lessonSectionCardExpanded,
-                    ]}
-                  >
-                    <Pressable
-                      accessibilityRole="button"
-                      accessibilityState={{ expanded: isExpanded }}
-                      onPress={() =>
-                        setExpandedThemeId(isExpanded ? null : theme.id)
-                      }
-                      style={({ pressed }) => [
-                        styles.lessonSectionHeader,
-                        pressed && styles.pressed,
-                      ]}
-                    >
-                      <View style={styles.lessonSectionEmoji}>
-                        {theme.iconName ? (
-                          <SKidsIcon name={theme.iconName} size={42} />
-                        ) : (
-                          <Text style={styles.lessonSectionEmojiText}>
-                            {theme.thumbnailEmoji}
-                          </Text>
-                        )}
-                      </View>
-                      <View style={styles.lessonSectionCopy}>
-                        <View style={styles.themeHeaderTitleRow}>
-                          <Text style={styles.lessonSectionTitle}>
-                            {getLocalizedThemeTitle(theme, appLanguage)}
-                          </Text>
-                          <KidBadge tone={badgeTone}>
-                            {statusBadgeText}
-                          </KidBadge>
-                        </View>
-                        <Text style={styles.lessonSectionSubtitle}>
-                          {t('parent.stats.completedLessonsOfTotal', {
-                            completed: String(completedCount),
-                            total: String(themeLessons.length),
-                          })}
-                        </Text>
-                      </View>
-
-                      <Pressable
-                        accessibilityLabel={t('parent.stats.quickToggleTheme')}
-                        accessibilityRole="switch"
-                        accessibilityState={{ checked: !isThemeOff }}
-                        hitSlop={8}
-                        onPress={e => {
-                          e.stopPropagation();
-                          handleToggleTheme(theme);
-                        }}
-                        style={({ pressed }) => [
-                          styles.themeQuickSwitch,
-                          !isThemeOff && styles.themeQuickSwitchOn,
-                          pressed && styles.pressed,
-                        ]}
-                      >
-                        <View
-                          style={[
-                            styles.themeQuickSwitchKnob,
-                            !isThemeOff && styles.themeQuickSwitchKnobOn,
-                          ]}
-                        />
-                      </Pressable>
-
-                      <View style={styles.chevronBox}>
-                        <Text style={styles.lessonSectionExpandIcon}>
-                          {isExpanded ? '▲' : '▼'}
-                        </Text>
-                      </View>
-                    </Pressable>
-
-                    {isExpanded ? (
-                      <View style={styles.managedLessonList}>
-                        {themeLessons.map((lesson, index) => {
-                          const lessonTitle = getLocalizedLessonTitle(
-                            lesson,
-                            appLanguage,
-                          );
-                          const isVisible = enabledLessonIds.includes(
-                            lesson.id,
-                          );
-                          const completedSceneCount = lesson.scenes.filter(
-                            scene =>
-                              isSceneProgressComplete(
-                                completedSceneIds,
-                                lesson.id,
-                                scene.id,
-                              ),
-                          ).length;
-                          const hasCompletedAllScenes =
-                            lesson.scenes.length > 0 &&
-                            completedSceneCount === lesson.scenes.length;
-                          const isCompleted = completedLessonIds.has(lesson.id);
-                          const isCurrentLesson = focusLesson?.id === lesson.id;
-                          const isSelected = selectedLessonId === lesson.id;
-                          const isLast = index === themeLessons.length - 1;
-                          const hasLessonAccess = canAccessLesson(
-                            lesson.id,
-                            monetizationSnapshot,
-                          );
-                          const lessonWords = hasLessonAccess
-                            ? getLessonVocabularyForLearningMode(
-                                lesson,
-                                learningMode,
-                              )
-                                .slice(0, 3)
-                                .map(item => item.word)
-                            : [];
-                          const lessonState = !hasLessonAccess
-                            ? t('premium.lessonRow.badge')
-                            : !isVisible
-                            ? t('parent.stats.lessonStateHidden')
-                            : isCurrentLesson && hasCompletedAllScenes
-                            ? t('parent.stats.lessonStateReadyToReview')
-                            : isCurrentLesson
-                            ? t('parent.stats.lessonStateLearning')
-                            : isCompleted
-                            ? t('parent.stats.lessonStateCompleted')
-                            : hasCompletedAllScenes
-                            ? t('parent.stats.lessonStateAwaitingReview')
-                            : completedSceneCount > 0
-                            ? t('parent.stats.lessonStateContinuing')
-                            : t('parent.stats.lessonStateReady');
-
-                          return (
-                            <View
-                              key={lesson.id}
-                              style={[
-                                styles.managedLesson,
-                                isSelected && styles.managedLessonSelected,
-                                !isVisible && styles.managedLessonHidden,
-                                isLast && styles.managedLessonLast,
-                              ]}
-                            >
-                              <View style={styles.managedLessonRow}>
-                                <Pressable
-                                  accessibilityLabel={
-                                    hasLessonAccess
-                                      ? undefined
-                                      : t(
-                                          'premium.lessonRow.openPlansAccessibility',
-                                          { lessonTitle },
-                                        )
-                                  }
-                                  accessibilityRole="button"
-                                  accessibilityState={{
-                                    expanded: hasLessonAccess
-                                      ? isSelected
-                                      : false,
-                                  }}
-                                  onPress={() => {
-                                    if (!hasLessonAccess) {
-                                      handleOpenLesson(lesson.id);
-                                      return;
-                                    }
-
-                                    setSelectedLessonId(
-                                      isSelected ? null : lesson.id,
-                                    );
-                                  }}
-                                  style={({ pressed }) => [
-                                    styles.managedLessonPressable,
-                                    pressed && styles.pressed,
-                                  ]}
-                                >
-                                  <View style={styles.managedLessonIcon}>
-                                    <SKidsIcon
-                                      name={getLessonIconName(lesson)}
-                                      size={48}
-                                    />
-                                  </View>
-                                  <View style={styles.managedLessonCopy}>
-                                    <Text style={styles.managedLessonTitle}>
-                                      {lessonTitle}
-                                    </Text>
-                                    <Text
-                                      style={[
-                                        styles.managedLessonSubtitle,
-                                        isCurrentLesson &&
-                                          styles.managedLessonStateCurrent,
-                                        isCompleted &&
-                                          styles.managedLessonStateDone,
-                                        !isVisible &&
-                                          styles.managedLessonStateHidden,
-                                      ]}
-                                    >
-                                      {lessonState}
-                                      {' · '}
-                                      {t('parent.stats.stationsTotal', {
-                                        count: String(lesson.scenes.length),
-                                      })}
-                                    </Text>
-                                    {!hasLessonAccess ? (
-                                      <PremiumLessonLockIndicator
-                                        compact={isCompactDashboard}
-                                      />
-                                    ) : null}
-                                  </View>
-                                  <Text style={styles.managedLessonChevron}>
-                                    {isSelected ? '⌃' : '›'}
-                                  </Text>
-                                </Pressable>
-                                <Switch
-                                  accessibilityLabel={
-                                    isVisible
-                                      ? t(
-                                          'parent.stats.hideLessonAccessibility',
-                                          {
-                                            lessonTitle,
-                                          },
-                                        )
-                                      : t(
-                                          'parent.stats.showLessonAccessibility',
-                                          {
-                                            lessonTitle,
-                                          },
-                                        )
-                                  }
-                                  disabled={!isDashboardReady}
-                                  value={isVisible}
-                                  onValueChange={() =>
-                                    handleToggleLesson(lesson.id)
-                                  }
-                                  trackColor={{
-                                    false: colors.border,
-                                    true: colors.primary,
-                                  }}
-                                />
-                              </View>
-
-                              {isSelected && isVisible ? (
-                                <View style={styles.lessonPreview}>
-                                  <Text style={styles.lessonPreviewLabel}>
-                                    {hasLessonAccess
-                                      ? t('parent.stats.lessonPreviewLabel')
-                                      : t('premium.parentLockedMessage')}
-                                  </Text>
-                                  <View style={styles.lessonPreviewWords}>
-                                    {lessonWords.map((word, wordIndex) => (
-                                      <View
-                                        key={lesson.id + '-' + wordIndex}
-                                        style={styles.lessonPreviewWord}
-                                      >
-                                        <Text
-                                          style={styles.lessonPreviewWordText}
-                                        >
-                                          {word}
-                                        </Text>
-                                      </View>
-                                    ))}
-                                  </View>
-                                  <Pressable
-                                    accessibilityLabel={
-                                      hasLessonAccess
-                                        ? t('parent.stats.viewLessonPrefix') +
-                                          lessonTitle
-                                        : t(
-                                            'premium.lessonRow.openPlansAccessibility',
-                                            { lessonTitle },
-                                          )
-                                    }
-                                    accessibilityRole="button"
-                                    disabled={!isDashboardReady}
-                                    onPress={() => handleOpenLesson(lesson.id)}
-                                    style={({ pressed }) => [
-                                      styles.lessonPreviewAction,
-                                      !isDashboardReady &&
-                                        styles.actionDisabled,
-                                      pressed && styles.pressed,
-                                    ]}
-                                  >
-                                    <Text
-                                      style={styles.lessonPreviewActionText}
-                                    >
-                                      {hasLessonAccess
-                                        ? t('parent.stats.viewLesson')
-                                        : t('premium.openPlans')}
-                                    </Text>
-                                    <Text
-                                      style={styles.lessonPreviewActionArrow}
-                                    >
-                                      →
-                                    </Text>
-                                  </Pressable>
-                                </View>
-                              ) : null}
-                            </View>
-                          );
-                        })}
-                      </View>
-                    ) : null}
-                  </AppCard>
-                );
-              })}
-            </View>
+                <Text style={styles.lessonPlanEditActionArrow}>→</Text>
+              </Pressable>
+            </AppCard>
 
             {renderLearningSettingsCard()}
           </View>
@@ -2296,76 +1670,90 @@ export function ParentScreen({ navigation, route }: Props) {
 
         {activeTab === 'settings' && (
           <View style={styles.tabContent}>
-            <View style={styles.settingsHero}>
-              <KidBadge tone="teal">{t('parent.settings.heroBadge')}</KidBadge>
-              <Text style={styles.settingsHeroTitle}>
-                {t('parent.settings.heroTitle', { name: childDisplayName })}
+            <View style={styles.settingsPageIntro}>
+              <Text style={styles.settingsPageTitle}>
+                {t('parent.settings.pageTitle')}
               </Text>
-              <Text style={styles.settingsHeroSubtitle}>
-                {t('parent.settings.heroSubtitle')}
+              <Text style={styles.settingsPageSubtitle}>
+                {t('parent.settings.pageSubtitle')}
               </Text>
             </View>
 
-            <AppCard style={styles.profileSettingsCard}>
-              <View style={styles.profileSummary}>
-                <View style={styles.profileMascot}>
-                  <MascotImage decorative pose="avatar" size={64} />
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.settings.profileSectionTitle')}
+              </Text>
+              <View style={styles.learningSettingsList}>
+                <View style={styles.learningSettingsRow}>
+                  <View style={styles.profileRowAvatar}>
+                    <MascotImage decorative pose="avatar" size={42} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.displayNameLabel')}
+                    </Text>
+                    <Text
+                      numberOfLines={2}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {childAge && childAge > 0
+                        ? t('parent.settings.childAge', { age: childAge })
+                        : t('parent.settings.profileMissingBirthYear')}
+                    </Text>
+                  </View>
+                  <TextInput
+                    accessibilityLabel={t(
+                      'parent.settings.displayNameLabel',
+                    )}
+                    maxLength={20}
+                    onBlur={() => {
+                      const name =
+                        childProfile.name.trim() || defaultChildProfile.name;
+                      const next = { ...childProfile, name };
+                      setChildProfile(next);
+                      saveParentSettings({ childProfile: next });
+                    }}
+                    onChangeText={text => {
+                      const next = { ...childProfile, name: text };
+                      setChildProfile(next);
+                    }}
+                    placeholder={t(
+                      'parent.settings.displayNamePlaceholder',
+                    )}
+                    placeholderTextColor={colors.muted}
+                    style={styles.settingsTextInput}
+                    value={childProfile.name}
+                  />
                 </View>
-                <View style={styles.profileSummaryCopy}>
-                  <KidBadge tone="sky">
-                    {t('parent.settings.profileBadge')}
-                  </KidBadge>
-                  <Text style={styles.profileSummaryName}>
-                    {childDisplayName}
-                  </Text>
-                  <Text style={styles.profileSummaryMeta}>
-                    {childAge && childAge > 0
-                      ? t('parent.settings.childAge', { age: childAge })
-                      : t('parent.settings.profileMissingBirthYear')}
-                  </Text>
-                </View>
-              </View>
 
-              <View style={styles.settingsInputRow}>
-                <View style={styles.settingTextGroup}>
-                  <Text style={styles.settingsFieldLabel}>
-                    {t('parent.settings.displayNameLabel')}
-                  </Text>
-                </View>
-                <TextInput
-                  style={styles.settingsTextInput}
-                  value={childProfile.name}
-                  onChangeText={text => {
-                    const next = { ...childProfile, name: text };
-                    setChildProfile(next);
-                  }}
-                  onBlur={() => {
-                    const name =
-                      childProfile.name.trim() || defaultChildProfile.name;
-                    const next = { ...childProfile, name };
-                    setChildProfile(next);
-                    saveParentSettings({ childProfile: next });
-                  }}
-                  placeholder={t('parent.settings.displayNamePlaceholder')}
-                  placeholderTextColor={colors.muted}
-                  maxLength={20}
-                />
-              </View>
-
-              <View style={styles.settingsInputRow}>
-                <View style={styles.settingTextGroup}>
-                  <Text style={styles.settingsFieldLabel}>
-                    {t('parent.settings.birthYearLabel')}
-                  </Text>
-                </View>
                 <Pressable
-                  style={styles.settingsTextInputSmall}
+                  accessibilityLabel={t('parent.settings.birthYearLabel')}
+                  accessibilityRole="button"
                   onPress={() => setShowYearPicker(true)}
+                  style={({ pressed }) => [
+                    styles.learningSettingsRow,
+                    styles.learningSettingsRowLast,
+                    pressed && styles.pressed,
+                  ]}
                 >
-                  <Text style={styles.yearPickerButtonText}>
-                    {childProfile.birthYear?.toString() ??
-                      t('parent.settings.birthYearPlaceholder')}
-                  </Text>
+                  <View style={styles.learningSettingsRowIcon}>
+                    <AppUiIcon name="daily" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    <Text style={styles.learningSettingsRowTitle}>
+                      {t('parent.settings.birthYearLabel')}
+                    </Text>
+                    <Text style={styles.learningSettingsRowSubtitle}>
+                      {t('parent.settings.birthYearSubtitle')}
+                    </Text>
+                  </View>
+                  <View style={styles.learningSettingsRowValue}>
+                    <Text style={styles.learningSettingsValueText}>
+                      {childProfile.birthYear?.toString() ??
+                        t('parent.settings.birthYearPlaceholder')}
+                    </Text>
+                    <Text style={styles.learningSettingsChevron}>›</Text>
+                  </View>
                 </Pressable>
               </View>
 
@@ -2409,7 +1797,8 @@ export function ParentScreen({ navigation, route }: Props) {
                             <Text
                               style={[
                                 styles.yearPickerItemText,
-                                isSelected && styles.yearPickerItemTextSelected,
+                                isSelected &&
+                                  styles.yearPickerItemTextSelected,
                               ]}
                             >
                               {item}
@@ -2424,41 +1813,12 @@ export function ParentScreen({ navigation, route }: Props) {
                   </View>
                 </Pressable>
               </Modal>
-            </AppCard>
+            </View>
 
-            <ParentVoiceRecordingSettingsCard />
-
-            <AppCard style={styles.dailySettingsCard}>
-              <View style={styles.settingsCardHeader}>
-                <KidBadge tone="sun">
-                  {t('parent.settings.dailyBadge')}
-                </KidBadge>
-                <Text style={styles.dailySettingsTitle}>
-                  {t('parent.settings.dailyTitle')}
-                </Text>
-              </View>
-
-              <View style={styles.learningSummaryPanel}>
-                <View style={styles.learningSummaryIcon}>
-                  <AppUiIcon name="daily" size={34} />
-                </View>
-                <View style={styles.learningSummaryCopy}>
-                  <Text style={styles.learningSummaryLabel}>
-                    {t('parent.settings.dailySummaryLabel')}
-                  </Text>
-                  <Text style={styles.learningSummaryTitle}>
-                    {reminderEnabled
-                      ? t('parent.settings.dailySummaryEnabled', {
-                          time: reminderTime,
-                        })
-                      : t('parent.settings.dailySummaryDisabled')}
-                  </Text>
-                  <Text style={styles.learningSummarySubtitle}>
-                    {t('parent.settings.dailySummarySubtitle')}
-                  </Text>
-                </View>
-              </View>
-
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.settings.routineSectionTitle')}
+              </Text>
               <View style={styles.learningSettingsList}>
                 <View style={styles.learningSettingsRow}>
                   <View style={styles.learningSettingsRowIcon}>
@@ -2490,11 +1850,14 @@ export function ParentScreen({ navigation, route }: Props) {
 
                 <Pressable
                   accessibilityRole="button"
+                  accessibilityState={{ disabled: isReminderUpdatePending }}
+                  disabled={isReminderUpdatePending}
                   onPress={() => setShowTimePicker(true)}
                   style={({ pressed }) => [
                     styles.learningSettingsRow,
                     styles.learningSettingsRowLast,
-                    pressed && styles.pressed,
+                    pressed && !isReminderUpdatePending && styles.pressed,
+                    isReminderUpdatePending && styles.actionDisabled,
                   ]}
                 >
                   <View style={styles.learningSettingsRowIcon}>
@@ -2527,32 +1890,128 @@ export function ParentScreen({ navigation, route }: Props) {
                 </Pressable>
               </View>
 
-              {showTimePicker && (
-                <DateTimePicker
-                  value={(() => {
-                    const d = new Date();
-                    const [h, m] = reminderTime.split(':').map(Number);
-                    d.setHours(h);
-                    d.setMinutes(m);
-                    return d;
-                  })()}
-                  mode="time"
-                  display="spinner"
-                  onChange={handleTimeChange}
-                />
-              )}
-            </AppCard>
+              <ReminderTimePickerModal
+                isSaving={isReminderUpdatePending}
+                onClose={() => setShowTimePicker(false)}
+                onConfirm={handleConfirmReminderTime}
+                value={reminderTime}
+                visible={showTimePicker}
+              />
+            </View>
 
-            <AppCard style={styles.appExperienceCard}>
-              <View style={styles.settingsCardHeader}>
-                <KidBadge tone="sky">
-                  {t('parent.settings.appExperienceBadge')}
-                </KidBadge>
-                <Text style={styles.appSettingsTitle}>
-                  {t('parent.settings.appExperienceTitle')}
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.settings.voiceDataSectionTitle')}
+              </Text>
+              <View style={styles.learningSettingsList}>
+                <ParentVoiceRecordingSettingsCard embedded />
+
+                <View
+                  style={[
+                    styles.learningSettingsRow,
+                    !shouldShowCrashReportPrompt &&
+                      styles.learningSettingsRowLast,
+                  ]}
+                >
+                  <View style={styles.learningSettingsRowIcon}>
+                    <AppUiIcon name="settings" size={30} />
+                  </View>
+                  <View style={styles.learningSettingsRowCopy}>
+                    {renderSettingsRowTitle(
+                      t('parent.settings.crashReportingTitle'),
+                      'crashReporting',
+                    )}
+                    <Text
+                      numberOfLines={3}
+                      style={styles.learningSettingsRowSubtitle}
+                    >
+                      {crashReportingEnabled
+                        ? t('parent.settings.crashReportingEnabled')
+                        : t('parent.settings.crashReportingDisabled')}
+                    </Text>
+                  </View>
+                  <Switch
+                    disabled={isCrashReportActionPending}
+                    value={crashReportingEnabled}
+                    onValueChange={handleToggleCrashReporting}
+                    trackColor={{ false: colors.border, true: colors.primary }}
+                  />
+                </View>
+
+                {shouldShowCrashReportPrompt ? (
+                  <View
+                    style={[
+                      styles.crashReportPromptRow,
+                      styles.learningSettingsRowLast,
+                    ]}
+                  >
+                    <View style={styles.crashReportPromptCopy}>
+                      <Text style={styles.crashReportPromptTitle}>
+                        {t('parent.settings.crashReportPromptTitle')}
+                      </Text>
+                      <Text style={styles.crashReportPromptText}>
+                        {t('parent.settings.crashReportPromptText')}
+                      </Text>
+                    </View>
+                    <View style={styles.crashReportPromptActions}>
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityState={{
+                          disabled: isCrashReportActionPending,
+                        }}
+                        disabled={isCrashReportActionPending}
+                        onPress={handleSendPendingCrashReport}
+                        style={({ pressed }) => [
+                          styles.crashReportPrimaryAction,
+                          isCrashReportActionPending && styles.actionDisabled,
+                          pressed && styles.pressed,
+                        ]}
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={styles.crashReportPrimaryActionText}
+                        >
+                          {t('parent.settings.crashReportPromptSend')}
+                        </Text>
+                      </Pressable>
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityState={{
+                          disabled: isCrashReportActionPending,
+                        }}
+                        disabled={isCrashReportActionPending}
+                        onPress={handleDiscardPendingCrashReport}
+                        style={({ pressed }) => [
+                          styles.crashReportSecondaryAction,
+                          isCrashReportActionPending && styles.actionDisabled,
+                          pressed && styles.pressed,
+                        ]}
+                      >
+                        <Text
+                          numberOfLines={2}
+                          style={styles.crashReportSecondaryActionText}
+                        >
+                          {t('parent.settings.crashReportPromptDiscard')}
+                        </Text>
+                      </Pressable>
+                    </View>
+                  </View>
+                ) : null}
+              </View>
+              <View style={styles.settingsPrivacyNote}>
+                <Text style={styles.settingsPrivacyNoteTitle}>
+                  {t('parent.privacy.title')}
+                </Text>
+                <Text style={styles.settingsPrivacyNoteText}>
+                  {t('parent.privacy.text')}
                 </Text>
               </View>
+            </View>
 
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.settings.appSectionTitle')}
+              </Text>
               <View style={styles.learningSettingsList}>
                 <Pressable
                   accessibilityRole="button"
@@ -2686,7 +2145,12 @@ export function ParentScreen({ navigation, route }: Props) {
                   </View>
                 </Pressable>
 
-                <View style={styles.learningSettingsRow}>
+                <View
+                  style={[
+                    styles.learningSettingsRow,
+                    styles.learningSettingsRowLast,
+                  ]}
+                >
                   <View style={styles.learningSettingsRowIcon}>
                     <AppUiIcon name="gameListen" size={30} />
                   </View>
@@ -2710,98 +2174,6 @@ export function ParentScreen({ navigation, route }: Props) {
                     trackColor={{ false: colors.border, true: colors.primary }}
                   />
                 </View>
-
-                <View
-                  style={[
-                    styles.learningSettingsRow,
-                    !shouldShowCrashReportPrompt &&
-                      styles.learningSettingsRowLast,
-                  ]}
-                >
-                  <View style={styles.learningSettingsRowIcon}>
-                    <AppUiIcon name="settings" size={30} />
-                  </View>
-                  <View style={styles.learningSettingsRowCopy}>
-                    {renderSettingsRowTitle(
-                      t('parent.settings.crashReportingTitle'),
-                      'crashReporting',
-                    )}
-                    <Text
-                      numberOfLines={3}
-                      style={styles.learningSettingsRowSubtitle}
-                    >
-                      {crashReportingEnabled
-                        ? t('parent.settings.crashReportingEnabled')
-                        : t('parent.settings.crashReportingDisabled')}
-                    </Text>
-                  </View>
-                  <Switch
-                    disabled={isCrashReportActionPending}
-                    value={crashReportingEnabled}
-                    onValueChange={handleToggleCrashReporting}
-                    trackColor={{ false: colors.border, true: colors.primary }}
-                  />
-                </View>
-
-                {shouldShowCrashReportPrompt ? (
-                  <View
-                    style={[
-                      styles.crashReportPromptRow,
-                      styles.learningSettingsRowLast,
-                    ]}
-                  >
-                    <View style={styles.crashReportPromptCopy}>
-                      <Text style={styles.crashReportPromptTitle}>
-                        {t('parent.settings.crashReportPromptTitle')}
-                      </Text>
-                      <Text style={styles.crashReportPromptText}>
-                        {t('parent.settings.crashReportPromptText')}
-                      </Text>
-                    </View>
-                    <View style={styles.crashReportPromptActions}>
-                      <Pressable
-                        accessibilityRole="button"
-                        accessibilityState={{
-                          disabled: isCrashReportActionPending,
-                        }}
-                        disabled={isCrashReportActionPending}
-                        onPress={handleSendPendingCrashReport}
-                        style={({ pressed }) => [
-                          styles.crashReportPrimaryAction,
-                          isCrashReportActionPending && styles.actionDisabled,
-                          pressed && styles.pressed,
-                        ]}
-                      >
-                        <Text
-                          numberOfLines={2}
-                          style={styles.crashReportPrimaryActionText}
-                        >
-                          {t('parent.settings.crashReportPromptSend')}
-                        </Text>
-                      </Pressable>
-                      <Pressable
-                        accessibilityRole="button"
-                        accessibilityState={{
-                          disabled: isCrashReportActionPending,
-                        }}
-                        disabled={isCrashReportActionPending}
-                        onPress={handleDiscardPendingCrashReport}
-                        style={({ pressed }) => [
-                          styles.crashReportSecondaryAction,
-                          isCrashReportActionPending && styles.actionDisabled,
-                          pressed && styles.pressed,
-                        ]}
-                      >
-                        <Text
-                          numberOfLines={2}
-                          style={styles.crashReportSecondaryActionText}
-                        >
-                          {t('parent.settings.crashReportPromptDiscard')}
-                        </Text>
-                      </Pressable>
-                    </View>
-                  </View>
-                ) : null}
               </View>
 
               <Modal
@@ -3034,18 +2406,17 @@ export function ParentScreen({ navigation, route }: Props) {
                   </Pressable>
                 </Pressable>
               </Modal>
-            </AppCard>
+            </View>
 
-            <ParentAccountCard
-              onCloudSyncInfoPress={() => setInfoTopic('cloudSync')}
-            />
-
-            <AppCard style={styles.privacyCard}>
-              <Text style={styles.privacyTitle}>
-                {t('parent.privacy.title')}
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.settings.accountSectionTitle')}
               </Text>
-              <Text style={styles.privacyText}>{t('parent.privacy.text')}</Text>
-            </AppCard>
+              <ParentAccountCard
+                compact
+                onCloudSyncInfoPress={() => setInfoTopic('cloudSync')}
+              />
+            </View>
 
             {__DEV__ && (
               <AppCard style={styles.settingsCard}>
@@ -3082,14 +2453,10 @@ export function ParentScreen({ navigation, route }: Props) {
               </AppCard>
             )}
 
-            <AppCard style={styles.appExperienceCard}>
-              <View style={styles.settingsCardHeader}>
-                <KidBadge tone="teal">{t('parent.support.badge')}</KidBadge>
-                <Text style={styles.appSettingsTitle}>
-                  {t('parent.support.title')}
-                </Text>
-              </View>
-
+            <View style={styles.settingsSection}>
+              <Text style={styles.settingsSectionTitle}>
+                {t('parent.support.title')}
+              </Text>
               <View style={styles.learningSettingsList}>
                 <Pressable
                   accessibilityLabel={t('parent.support.emailAccessibility')}
@@ -3214,7 +2581,7 @@ export function ParentScreen({ navigation, route }: Props) {
                   </Pressable>
                 ) : null}
               </View>
-            </AppCard>
+            </View>
           </View>
         )}
       </Screen>
@@ -3418,60 +2785,8 @@ const styles = createThemedStyles(() => ({
   cardPressable: {
     borderRadius: radius.xl,
   },
-  customPlanNotice: {
-    alignItems: 'flex-start',
-    backgroundColor: colors.primarySoft,
-    borderColor: colors.primary,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    flexDirection: 'row',
-    gap: spacing.xs,
-    marginTop: spacing.sm,
-    padding: spacing.sm,
-  },
-  customPlanNoticeDot: {
-    backgroundColor: colors.primary,
-    borderRadius: radius.pill,
-    height: 10,
-    marginTop: 4,
-    width: 10,
-  },
-  customPlanNoticeText: {
-    color: colors.primaryDark,
-    flex: 1,
-    ...typography.caption,
-  },
   dashboardCardCompact: {
     padding: spacing.md,
-  },
-  appSettingsDivider: {
-    backgroundColor: colors.border,
-    height: 1,
-    marginVertical: spacing.xs,
-  },
-  appSettingsTitle: {
-    color: colors.text,
-    ...typography.subtitle,
-  },
-  appExperienceCard: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderWidth: 1,
-    gap: spacing.md,
-  },
-  dailySettingsCard: {
-    backgroundColor: colors.surface,
-    borderColor: colors.borderWarm,
-    borderWidth: 1,
-    gap: spacing.md,
-  },
-  dailySettingsSubtitle: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  dailySettingsTitle: {
-    color: colors.text,
-    ...typography.subtitle,
   },
   difficultyChoice: {
     alignItems: 'center',
@@ -3744,34 +3059,38 @@ const styles = createThemedStyles(() => ({
     color: colors.primaryDark,
     ...typography.subtitle,
   },
-  learningPathFill: {
-    backgroundColor: colors.primary,
-    borderRadius: radius.pill,
-    height: '100%',
-  },
-  learningPathFootnote: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
   learningPathSubtitle: {
     color: colors.textSoft,
     ...typography.caption,
   },
-  learningPathTitle: {
-    color: colors.text,
-    ...typography.subtitle,
-  },
-  learningPathTopRow: {
-    alignItems: 'flex-start',
-    flexDirection: 'row',
-    gap: spacing.md,
-    justifyContent: 'space-between',
-  },
-  learningPathTrack: {
-    backgroundColor: colors.primarySoft,
+  lessonPlanEditAction: {
+    alignItems: 'center',
+    backgroundColor: colors.primary,
+    borderColor: colors.primaryDark,
     borderRadius: radius.pill,
-    height: 10,
-    overflow: 'hidden',
+    borderWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    minHeight: 52,
+    paddingHorizontal: spacing.md,
+  },
+  lessonPlanEditActionArrow: {
+    color: colors.white,
+    fontSize: 24,
+    fontWeight: '900',
+  },
+  lessonPlanEditActionText: {
+    color: colors.white,
+    ...typography.button,
+  },
+  lessonPlanSummaryRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  lessonPlanSummaryTitle: {
+    color: colors.text,
+    ...typography.body,
   },
   learningSettingsCard: {
     backgroundColor: colors.surface,
@@ -4045,298 +3364,6 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     ...typography.body,
   },
-  lessonPlanCard: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderWidth: 1,
-    gap: spacing.md,
-  },
-  lessonPlanOption: {
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.border,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    flex: 1,
-    gap: spacing.xxs,
-    justifyContent: 'center',
-    minHeight: 82,
-    padding: spacing.sm,
-  },
-  lessonPlanOptionCompact: {
-    flexBasis: '46%',
-  },
-  lessonPlanOptionLastCompact: {
-    flexBasis: '100%',
-  },
-  lessonPlanOptionActive: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primaryDark,
-  },
-  lessonPlanOptionCustom: {
-    backgroundColor: colors.primarySoft,
-    borderColor: colors.primary,
-  },
-  lessonPlanOptionCustomText: {
-    color: colors.primaryDark,
-  },
-  lessonPlanOptionSubtitle: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  lessonPlanOptionSubtitleActive: {
-    color: colors.surface,
-  },
-  lessonPlanOptionTitle: {
-    color: colors.text,
-    ...typography.caption,
-  },
-  lessonPlanOptionTitleActive: {
-    color: colors.surface,
-  },
-  lessonPlanOptionWarm: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-  },
-  lessonPlanOptionWarmText: {
-    color: colors.text,
-  },
-  lessonPlanOptions: {
-    flexDirection: 'row',
-    gap: spacing.xs,
-    marginTop: spacing.xs,
-  },
-  lessonPlanOptionsCompact: {
-    flexWrap: 'wrap',
-  },
-  lessonPlanSubtitle: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  lessonPlanTitle: {
-    color: colors.text,
-    flex: 1,
-    ...typography.subtitle,
-  },
-  lessonPreview: {
-    borderTopColor: colors.border,
-    borderTopWidth: 1,
-    gap: spacing.sm,
-    marginTop: spacing.sm,
-    paddingTop: spacing.sm,
-  },
-  lessonPreviewAction: {
-    alignItems: 'center',
-    backgroundColor: colors.primary,
-    borderColor: colors.primaryDark,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    minHeight: 46,
-    paddingHorizontal: spacing.md,
-  },
-  lessonPreviewActionArrow: {
-    color: colors.text,
-    fontSize: 22,
-    fontWeight: '900',
-  },
-  lessonPreviewActionText: {
-    color: colors.text,
-    ...typography.caption,
-  },
-  lessonPreviewLabel: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  lessonPreviewWord: {
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-  },
-  lessonPreviewWordText: {
-    color: colors.text,
-    ...typography.caption,
-  },
-  lessonPreviewWords: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.xs,
-  },
-  lessonSectionCard: {
-    borderColor: colors.border,
-    borderWidth: 1,
-    overflow: 'hidden',
-    padding: 0,
-  },
-  lessonSectionCardExpanded: {
-    borderColor: colors.primary,
-  },
-  lessonSectionCopy: {
-    flex: 1,
-    gap: spacing.xxs,
-    minWidth: 0,
-  },
-  lessonSectionEmoji: {
-    alignItems: 'center',
-    backgroundColor: colors.backgroundWarm,
-    borderRadius: radius.md,
-    height: 52,
-    justifyContent: 'center',
-    width: 52,
-  },
-  lessonSectionEmojiText: {
-    fontSize: 26,
-    lineHeight: 32,
-  },
-  chevronBox: {
-    alignItems: 'center',
-    backgroundColor: colors.surfaceBlue,
-    borderRadius: radius.pill,
-    height: 32,
-    justifyContent: 'center',
-    width: 32,
-  },
-  lessonSectionExpandIcon: {
-    color: colors.primary,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  lessonSectionHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.sm,
-    padding: spacing.md,
-  },
-  themeHeaderTitleRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.xs,
-  },
-  themeQuickSwitch: {
-    backgroundColor: colors.border,
-    borderRadius: radius.pill,
-    height: 28,
-    justifyContent: 'center',
-    padding: 3,
-    width: 48,
-  },
-  themeQuickSwitchKnob: {
-    backgroundColor: colors.white,
-    borderRadius: radius.pill,
-    height: 22,
-    width: 22,
-    ...shadows.soft,
-  },
-  themeQuickSwitchKnobOn: {
-    alignSelf: 'flex-end',
-  },
-  themeQuickSwitchOn: {
-    backgroundColor: colors.primary,
-  },
-  lessonSectionHeading: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.md,
-    justifyContent: 'space-between',
-    marginTop: spacing.sm,
-  },
-  lessonSectionHeadingCopy: {
-    flex: 1,
-    gap: spacing.xxs,
-  },
-  lessonSectionHeadingSubtitle: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  lessonSectionHeadingTitle: {
-    color: colors.text,
-    ...typography.subtitle,
-  },
-  lessonSectionList: {
-    gap: spacing.sm,
-  },
-  lessonSectionSubtitle: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  lessonSectionTitle: {
-    color: colors.text,
-    ...typography.subtitle,
-  },
-  managedLesson: {
-    borderBottomColor: colors.border,
-    borderBottomWidth: 1,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-  },
-  managedLessonChevron: {
-    color: colors.primaryDark,
-    fontSize: 22,
-    fontWeight: '900',
-  },
-  managedLessonCopy: {
-    flex: 1,
-    gap: spacing.xxs,
-    minWidth: 0,
-  },
-  managedLessonHidden: {
-    opacity: 0.56,
-  },
-  managedLessonIcon: {
-    alignItems: 'center',
-    backgroundColor: colors.surfaceBlue,
-    borderRadius: radius.md,
-    height: 56,
-    justifyContent: 'center',
-    width: 56,
-  },
-  managedLessonLast: {
-    borderBottomWidth: 0,
-  },
-  managedLessonList: {
-    borderTopColor: colors.border,
-    borderTopWidth: 1,
-  },
-  managedLessonPressable: {
-    alignItems: 'center',
-    flex: 1,
-    flexDirection: 'row',
-    gap: spacing.sm,
-    minWidth: 0,
-  },
-  managedLessonRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
-  managedLessonSelected: {
-    backgroundColor: colors.surfaceBlue,
-  },
-  managedLessonState: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  managedLessonStateCurrent: {
-    color: colors.primaryDark,
-  },
-  managedLessonStateDone: {
-    color: colors.secondaryDark,
-  },
-  managedLessonStateHidden: {
-    color: colors.muted,
-  },
-  managedLessonSubtitle: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  managedLessonTitle: {
-    color: colors.text,
-    ...typography.subtitle,
-  },
   preferenceChoice: {
     alignItems: 'center',
     backgroundColor: colors.surfaceBlue,
@@ -4388,38 +3415,16 @@ const styles = createThemedStyles(() => ({
     color: colors.text,
     ...typography.caption,
   },
-  profileMascot: {
+  profileRowAvatar: {
     alignItems: 'center',
     backgroundColor: colors.secondarySoft,
     borderColor: colors.secondary,
-    borderRadius: radius.lg,
+    borderRadius: radius.md,
     borderWidth: 1,
-    height: 76,
+    height: 48,
     justifyContent: 'center',
-    width: 76,
-  },
-  profileSettingsCard: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderWidth: 1,
-    gap: spacing.md,
-  },
-  profileSummary: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: spacing.md,
-  },
-  profileSummaryCopy: {
-    flex: 1,
-    gap: spacing.xs,
-  },
-  profileSummaryMeta: {
-    color: colors.textSoft,
-    ...typography.caption,
-  },
-  profileSummaryName: {
-    color: colors.text,
-    ...typography.subtitle,
+    overflow: 'hidden',
+    width: 48,
   },
   reminderClock: {
     alignItems: 'center',
@@ -4473,29 +3478,42 @@ const styles = createThemedStyles(() => ({
   settingsCardHeader: {
     gap: spacing.xs,
   },
-  settingsFieldLabel: {
-    color: colors.text,
-    ...typography.caption,
+  settingsPageIntro: {
+    gap: spacing.xxs,
+    marginBottom: spacing.sm,
   },
-  settingsHero: {
-    gap: spacing.xs,
-    marginBottom: spacing.xs,
-  },
-  settingsHeroSubtitle: {
+  settingsPageSubtitle: {
     color: colors.textSoft,
     ...typography.caption,
   },
-  settingsHeroTitle: {
+  settingsPageTitle: {
     color: colors.text,
-    ...typography.title,
+    ...typography.subtitle,
   },
-  settingsInputRow: {
-    alignItems: 'center',
-    borderTopColor: colors.border,
-    borderTopWidth: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingTop: spacing.sm,
+  settingsPrivacyNote: {
+    backgroundColor: colors.surfaceBlue,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    gap: spacing.xxs,
+    padding: spacing.sm,
+  },
+  settingsPrivacyNoteText: {
+    ...typography.caption,
+    color: colors.textSoft,
+    fontWeight: '600',
+  },
+  settingsPrivacyNoteTitle: {
+    color: colors.primaryDark,
+    ...typography.caption,
+  },
+  settingsSection: {
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  settingsSectionTitle: {
+    color: colors.text,
+    ...typography.body,
   },
   settingsTextInput: {
     backgroundColor: colors.surfaceBlue,
@@ -4503,31 +3521,12 @@ const styles = createThemedStyles(() => ({
     borderRadius: radius.pill,
     borderWidth: 1,
     color: colors.text,
-    minWidth: 136,
+    maxWidth: '42%',
+    minWidth: 112,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.xs,
     textAlign: 'right',
     ...typography.caption,
-  },
-  settingsTextInputSmall: {
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.border,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    color: colors.text,
-    minWidth: 108,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-    textAlign: 'right',
-    ...typography.caption,
-  },
-  privacyCard: {
-    backgroundColor: colors.surfaceBlue,
-    marginTop: spacing.lg,
-  },
-  privacyText: {
-    color: colors.textSoft,
-    ...typography.body,
   },
   privacyTitle: {
     color: colors.text,

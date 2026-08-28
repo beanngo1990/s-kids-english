@@ -39,11 +39,13 @@ export const en: TranslationDictionary = {
   'nav.themeLibrary': 'Theme Library',
   'nav.lessonList': 'Lessons',
   'nav.lessonPack': 'Lesson Pack',
+  'nav.sceneVocabularyPlayground': 'Vocabulary Playground',
   'nav.reviewGame': 'Review Game',
   'nav.reward': 'Reward',
   'nav.stickerCollection': 'Sticker Collection',
   'nav.stickerPlayground': 'Sticker Playground',
   'nav.parent': 'Parent Mode',
+  'nav.parentLessonPlan': 'Edit Learning Path',
   'nav.parentVoiceLibrary': "Child's Reading Voice",
   'nav.premium': 'Sungy Premium',
 
@@ -140,15 +142,27 @@ export const en: TranslationDictionary = {
   'premium.signInTitle': 'Optional parent account',
   'premium.signInText':
     'Sign in only if you want to link Premium access with a parent account for cloud sync and account-based restore.',
-  'premium.founder.badge': 'Launch gift for early parents',
-  'premium.founder.title': 'One year of Premium free',
+  'premium.founder.badge': 'Launch gift',
+  'premium.founder.title': 'Get one year of Sungy Premium free',
+  'premium.founder.pageSubtitle':
+    'Your launch gift is ready — no payment required.',
+  'premium.founder.price': 'Free',
+  'premium.founder.duration': '365 days of Premium',
   'premium.founder.marketingText':
-    'Eligible accounts receive 365 days of Premium from the first app session after a parent signs in.',
+    'Open every available lesson, interactive scene, and review activity.',
   'premium.founder.terms':
     'No payment details are required, it will not renew automatically, and there is no charge.',
+  'premium.founder.noCard': 'No payment card',
+  'premium.founder.noRenewal': 'No automatic renewal',
+  'premium.founder.noFee': 'No charge',
   'premium.founder.signInText':
-    'This app record is eligible. Sign in a parent account to activate the gift.',
+    'Your eligibility is confirmed. Sign in a parent account to activate the gift.',
   'premium.founder.signInAction': 'Sign in and activate',
+  'premium.founder.signInAppleAction': 'Sign in with Apple to get the gift',
+  'premium.founder.signInGoogleAction': 'Sign in with Google to get the gift',
+  'premium.founder.viewPaidPlans': 'View paid plans',
+  'premium.founder.hidePaidPlans': 'Hide paid plans',
+  'premium.founder.paidPlansHint': 'You do not need to buy a plan to get the gift.',
   'premium.package.monthly': '1 month',
   'premium.package.annual': '1 year',
   'premium.package.lifetime': 'Lifetime',
@@ -434,7 +448,7 @@ export const en: TranslationDictionary = {
   'parent.info.journey.what':
     'Decides whether your child follows the suggested order or can open lessons more freely.',
   'parent.info.lessonPace.childImpact':
-    'All lessons enables the full path; Gentle keeps a few lessons near the current one; Custom lets parents show or hide each lesson.',
+    'All enables the full path; Suggested keeps one starting lesson in each theme; Custom lets parents adjust individual lessons.',
   'parent.info.lessonPace.privacy':
     'The enabled lesson list is stored in parent settings and only syncs to cloud if learning data sync is enabled.',
   'parent.info.lessonPace.title': 'Lesson scope',
@@ -494,6 +508,8 @@ export const en: TranslationDictionary = {
   'parent.support.versionSubtitle': 'The version installed on this device.',
   'parent.support.versionTitle': 'App information',
   'parent.support.versionValue': 'v{version}',
+  'parent.settings.accountSectionTitle': 'Account & sync',
+  'parent.settings.appSectionTitle': 'App',
   'parent.settings.appExperienceBadge': 'App experience',
   'parent.settings.appExperienceTitle': 'For parents',
   'parent.settings.appLanguageEnglish': 'English',
@@ -516,6 +532,7 @@ export const en: TranslationDictionary = {
   'parent.settings.englishAccentTitle': 'English accent',
   'parent.settings.birthYearLabel': 'Birth year',
   'parent.settings.birthYearPlaceholder': 'Choose year',
+  'parent.settings.birthYearSubtitle': 'Used to display your child’s age.',
   'parent.settings.childAge': '{age} years old',
   'parent.settings.crashReportingDisabled':
     'Off. The app does not send technical crash reports.',
@@ -563,9 +580,12 @@ export const en: TranslationDictionary = {
   'parent.settings.learningSummarySubtitle':
     'Quickly adjust lesson access and difficulty.',
   'parent.settings.learningSummaryTitle': '{journey} • {difficulty}',
+  'parent.settings.pageSubtitle':
+    'Your child’s profile, reminders, and app experience.',
+  'parent.settings.pageTitle': 'Settings',
   'parent.settings.profileBadge': 'Child profile',
-  'parent.settings.profileMissingBirthYear':
-    'Add a birth year to personalize the journey',
+  'parent.settings.profileMissingBirthYear': 'Birth year not set',
+  'parent.settings.profileSectionTitle': 'Child profile',
   'parent.settings.reminderDisabled':
     'Turn on reminders at your child’s most comfortable time',
   'parent.settings.reminderEnabled': 'Reminding daily at {time} ✎',
@@ -577,11 +597,19 @@ export const en: TranslationDictionary = {
     'Will remind at {time} when enabled.',
   'parent.settings.reminderTimeEnabledSubtitle':
     'Currently reminding every day at {time}.',
+  'parent.settings.reminderTimeCancelAction': 'Cancel',
+  'parent.settings.reminderTimeConfirmAction': 'Confirm',
+  'parent.settings.reminderTimePickerAccessibility':
+    'Choose learning reminder time',
+  'parent.settings.reminderTimePickerSubtitle':
+    'Spin to choose a time. The change is saved only after you confirm.',
+  'parent.settings.reminderTimePickerTitle': 'Choose reminder time',
   'parent.settings.reminderTimeTitle': 'Reminder time',
   'parent.settings.reminderTitle': 'Learning reminder',
   'parent.settings.reminderUpdateErrorText':
     'The reminder schedule could not be updated. Please try again later.',
   'parent.settings.reminderUpdateErrorTitle': 'Reminder was not updated',
+  'parent.settings.routineSectionTitle': 'Learning routine',
   'parent.settings.sheetDifficultyTitle': 'Choose difficulty',
   'parent.settings.sheetEnglishAccentTitle': 'Choose English accent',
   'parent.settings.sheetJourneyTitle': 'Choose lesson access',
@@ -598,6 +626,7 @@ export const en: TranslationDictionary = {
   'parent.settings.themeLight': 'Light',
   'parent.settings.themeSubtitle': 'Light, dark, or system default.',
   'parent.settings.themeTitle': 'Theme',
+  'parent.settings.voiceDataSectionTitle': 'Voice & data',
   'parent.settings.yearPickerTitle': 'Choose birth year',
   'parent.tabs.lessons': 'Lessons',
   'parent.tabs.settings': 'Settings',
@@ -621,6 +650,23 @@ export const en: TranslationDictionary = {
   'scene.completion.tapReward': 'Sungy is keeping a new sticker for you.',
   'scene.completion.tapContinue': 'Tap the yellow button to continue.',
   'scene.completion.title': 'Great job!',
+  'scene.completion.vocabularyPlayground': 'Play with words',
+
+  'sceneVocabularyPlayground.coach':
+    'Let’s play with the words you just learned!',
+  'sceneVocabularyPlayground.disableMeaning': 'Turn off Vietnamese meanings',
+  'sceneVocabularyPlayground.emptyVocabulary':
+    'This scene does not have any words to play with yet.',
+  'sceneVocabularyPlayground.enableMeaning': 'Turn on Vietnamese meanings',
+  'sceneVocabularyPlayground.hint':
+    'Tap an object to listen · Drag an object to play',
+  'sceneVocabularyPlayground.meaningToggleHint':
+    'When enabled, the English word plays first, followed by its Vietnamese meaning.',
+  'sceneVocabularyPlayground.notFound':
+    'This scene’s vocabulary playground could not be found.',
+  'sceneVocabularyPlayground.reset': 'Restore',
+
+  'lessonPack.openVocabularyPlayground': 'Play with words',
   'scene.characterLabel': 'kid',
   'scene.continue': 'Continue',
   'scene.continueAccessibility': 'Continue',
@@ -642,10 +688,13 @@ export const en: TranslationDictionary = {
   'scene.replayInstructionAccessibility': 'Replay instruction',
   'scene.replayInstructionFallback': 'Try again.',
   'scene.successFallback': 'Great job!',
-  'header.openHub': 'Open Sungy Hub',
+  'header.openHub': 'Open the next stop',
   'header.themeLibrary': 'Change map theme',
   'header.parentGate': 'Parent mode',
   'header.level': 'Level {level}',
+  'header.levelActionHint': 'Tap to view level progress',
+  'header.levelProgressHint':
+    '{remaining} more acorns to reach Level {nextLevel}!',
   'streak.notLearnedToday': 'Not learned today',
   'streak.learnedToday': 'Learned today!',
   'profile.age': '{age} years old',
@@ -663,12 +712,11 @@ export const en: TranslationDictionary = {
   'playPanel.unlocked': '✨ Ready',
   'playPanel.locked': '🔒 Locked',
   'playPanel.stickerPlaygroundAccessibility':
-    "Open Sungy's Sticker Playground",
-  'playPanel.stickerPlaygroundBadge': 'Free creativity',
-  'playPanel.stickerPlaygroundTitle': 'Sticker Playground',
-  'playPanel.stickerPlaygroundSubtitle':
-    'Decorate with Sungy using unlocked stickers.',
-  'playPanel.stickerPlaygroundAction': 'Decorate',
+    'Open sticker decorating with Sungy',
+  'playPanel.stickerPlaygroundBadge': 'CREATIVE CORNER',
+  'playPanel.stickerPlaygroundTitle': 'Decorate with Sungy',
+  'playPanel.stickerPlaygroundSubtitle': 'Use your unlocked stickers!',
+  'playPanel.stickerPlaygroundAction': '⭐ Play with stickers',
   'tabs.mapAccessibility': 'Open lesson map',
   'tabs.map': 'Map',
   'tabs.playAccessibility': 'Open play area',
@@ -714,6 +762,7 @@ export const en: TranslationDictionary = {
   'home.emptyMap.badge': 'No stops yet',
   'home.emptyMap.title': 'This theme has no lesson packs yet.',
   'home.mapFallbackTitle': 'Sungy Map',
+  'home.map.focusCurrent': 'Move the map to the current stop',
   'home.recentLesson': 'the recent lesson',
   'home.freePremiumCta.badge': 'Free path complete',
   'home.freePremiumCta.title': 'Ready for the next step',
@@ -722,8 +771,8 @@ export const en: TranslationDictionary = {
   'home.freePremiumCta.action': 'Ask a parent to unlock',
   'home.freePremiumCta.accessibility':
     'Free content is complete. Ask a parent to unlock Premium and continue with {lessonTitle}',
-  'home.hub.title': 'Where to today?',
-  'home.hub.closeAccessibility': 'Close Sungy Hub',
+  'home.hub.title': 'Next stop',
+  'home.hub.closeAccessibility': 'Close the next stop',
   'home.hub.reviewTitle': 'Review {lessonTitle}',
   'home.hub.completeTitle': 'Map complete',
   'home.hub.readyTitle': 'Ready to keep learning',
@@ -736,17 +785,15 @@ export const en: TranslationDictionary = {
     'New lessons will appear on the map when content is available.',
   'home.hub.primaryReview': 'Play review',
   'home.hub.primaryReplay': 'Replay first stop',
-  'home.hub.primaryContinue': 'Continue',
-  'home.hub.giftReview': 'Finish the review to earn an extra sticker.',
-  'home.hub.giftComplete': 'Replay a stop to keep confidence high.',
-  'home.hub.giftNext': 'Finish the lesson and review to unlock a new sticker.',
-  'home.hub.openStickerCollection': 'Open sticker collection',
+  'home.hub.primaryContinue': 'Go to the next stop',
+  'home.hub.giftReview': 'Finish the review to earn a bonus sticker.',
+  'home.hub.giftComplete': 'Tap to revisit your sticker collection.',
+  'home.hub.giftNext': 'Finish the lesson to earn a new sticker.',
+  'home.hub.openStickerCollection': 'View sticker collection',
+  'home.hub.primaryCardAccessibility':
+    '{action}: {title}. Progress {completed}/{total} stops',
+  'home.hub.progressCount': '{completed}/{total} stops',
   'home.hub.progressAccessibility': 'Completed {percent}% of the map',
-  'home.hub.starsEarned': 'Stars earned',
-  'home.hub.stopsRemaining': 'Stops left',
-  'home.hub.giftTitle': 'Today’s reward',
-  'home.hub.focusAccessibility': 'Move the map to the current stop',
-  'home.hub.focusCurrent': 'Current stop',
   'home.progressLockedTitle': 'This lesson is still locked',
   'home.progressLockedText': 'Finish the lesson before this one to unlock it.',
   'home.mapStop.position':
@@ -755,6 +802,8 @@ export const en: TranslationDictionary = {
   'home.mapStop.actionAccessibility': '{position}: {action} {sceneTitle}',
   'home.mapStop.replayAction': 'Replay',
   'home.mapStop.continueAction': 'Continue',
+  'home.mapStop.vocabularyPlaygroundAccessibility':
+    'Review words from {sceneTitle}',
   'home.lessonMilestone.accessibility': 'Lesson {title} has {stars} of 3 stars',
   'lessonList.mapTitle': 'Lesson map',
   'lessonList.title': 'English learning journey',
@@ -867,28 +916,37 @@ export const en: TranslationDictionary = {
     'Remove a few stickers before adding another one.',
   'stickerPlayground.trayTitle': 'Your stickers',
   'stickerPlayground.trayHint':
-    'Tap to add or select; press and hold to drag onto the picture.',
+    'Tap to add or select; drag straight up to place it on the picture.',
+  'stickerPlayground.unplacedHint':
+    'Tap to add in the middle or drag straight up to place it.',
   'stickerPlayground.placedHint':
-    'This sticker is already on this background. Tap to select it.',
+    'Already on this background. Tap to select or drag up to move it.',
   'stickerPlayground.empty':
     'No stickers yet. Tap to open the album and see how to earn one!',
   'themeLibrary.badge': 'Theme library',
-  'themeLibrary.title': 'Choose a learning path',
+  'themeLibrary.title': 'What will you explore?',
   'themeLibrary.parentNote': 'Note for parents',
+  'themeLibrary.startJourney': 'Start the journey',
   'themeLibrary.continueOnMap': 'Continue on map',
+  'themeLibrary.revisitMap': 'Revisit the map',
   'themeLibrary.chooseThisTheme': 'Choose this theme',
   'themeLibrary.activeDescription': 'Currently shown on Home. Tap to continue.',
   'themeLibrary.inactiveDescription':
     'Tap to change the Super Map on Home to this theme.',
-  'themeLibrary.activeStatus': 'Learning',
+  'themeLibrary.activeStatus': 'Exploring now',
+  'themeLibrary.completedStatus': 'Completed',
+  'themeLibrary.completedShortStatus': 'Done',
   'themeLibrary.themeStatus': 'Theme',
   'themeLibrary.savingStatus': 'Saving',
-  'themeLibrary.savingAction': 'Saving...',
-  'themeLibrary.subtitle':
-    'Each theme is a unique learning journey for your child.',
+  'themeLibrary.savingAction': 'Opening...',
+  'themeLibrary.subtitle': 'Choose a world and start your journey!',
+  'themeLibrary.currentSection': 'Your journey',
+  'themeLibrary.exploreSection': 'Explore more',
+  'themeLibrary.exploreHint': 'Tap a theme to change the map.',
   'themeLibrary.parentNoteDescription':
     'Choose a theme that suits your child. They will learn lesson by lesson within that theme.',
   'themeLibrary.stations': 'stations',
+  'themeLibrary.stationProgress': '{completed}/{total} stops',
   'reviewGame.notFound': 'Lesson not found.',
   'reviewGame.backToList': 'Back to lessons',
   'reviewGame.noGame': 'This lesson has no review game yet.',
@@ -1046,27 +1104,30 @@ export const en: TranslationDictionary = {
   'parent.stats.allLessons': 'All lessons',
   'parent.stats.guidedPlanTitle': 'All lessons',
   'parent.stats.guidedPlanSubtitle': 'Enable the full learning path',
-  'parent.stats.gentlePlanTitle': 'Gentle pace',
-  'parent.stats.gentleLessons': '{count} lessons near the current lesson',
+  'parent.stats.gentlePlanTitle': 'Suggested',
+  'parent.stats.gentleLessons': '{count} starting lessons by theme',
   'parent.stats.gentlePlanSubtitle':
-    'Only enables the {count} lessons nearest to the current lesson.',
+    'Enables {count} starting lessons, one in each theme.',
   'parent.stats.customPlanTitle': 'Custom',
   'parent.stats.customLessons': 'Custom lessons',
   'parent.stats.customLessonsHint':
-    'Manually selecting lessons. Use the toggles below to show or hide lessons.',
+    'Open each theme below to show or hide lessons.',
   'parent.stats.currentPlanLabel': 'Current plan',
   'parent.stats.openLessonAccessibility': 'Open {lessonTitle}',
-  'parent.stats.themeListTitle': 'Themes your child is learning',
+  'parent.stats.themeListTitle': 'Lessons in each theme',
   'parent.stats.themeListSubtitle':
     'Each theme contains lessons and vocabulary for your child.',
   'parent.stats.customPlanBadge': 'Custom',
   'parent.stats.completedLessonsOfTotal':
     '{completed}/{total} lessons completed',
   'parent.stats.visibleLessonsCount': '{count} lessons enabled',
-  'parent.stats.themeStatusAll': 'All on ({count})',
-  'parent.stats.themeStatusSome': 'On {count}/{total}',
-  'parent.stats.themeStatusOff': 'Off',
-  'parent.stats.quickToggleTheme': 'Toggle entire theme',
+  'parent.stats.themeLessonSummary':
+    '{visible}/{total} enabled · {completed} completed',
+  'parent.stats.enableAllThemeLessons': 'Enable all lessons',
+  'parent.stats.keepOneLessonHint':
+    'Each theme always keeps at least 1 lesson for your child.',
+  'parent.stats.chooseCustomToEdit':
+    'Choose “Custom” above to show or hide individual lessons.',
   'parent.stats.lessonStateHidden': 'Hidden',
   'parent.stats.lessonStateReadyToReview': 'Ready to review',
   'parent.stats.lessonStateLearning': 'Learning',
@@ -1080,6 +1141,50 @@ export const en: TranslationDictionary = {
   'parent.stats.viewLessonPrefix': 'View lesson ',
   'parent.stats.viewLesson': 'View lesson',
   'parent.stats.lessonPreviewLabel': 'Child will explore',
+
+  'parent.lessonPlanEditor.title': 'Choose a learning path',
+  'parent.lessonPlanEditor.subtitle':
+    'Turn on the themes your child will learn, then choose the lessons inside. Progress is always kept.',
+  'parent.lessonPlanEditor.presetRecommended': 'Suggested',
+  'parent.lessonPlanEditor.presetRecommendedDescription':
+    'One starting lesson per theme',
+  'parent.lessonPlanEditor.presetAll': 'All',
+  'parent.lessonPlanEditor.presetAllDescription': 'The complete learning path',
+  'parent.lessonPlanEditor.presetCustom': 'Custom',
+  'parent.lessonPlanEditor.presetCustomDescription':
+    'Adjust themes and individual lessons',
+  'parent.lessonPlanEditor.themesTitle': 'Themes and lessons',
+  'parent.lessonPlanEditor.themesSubtitle':
+    'Keep at least 1 lesson in every enabled theme.',
+  'parent.lessonPlanEditor.themeCount': '{selected}/{total} lessons',
+  'parent.lessonPlanEditor.themeDisabledCount':
+    'Off · saving {selected} lesson choices',
+  'parent.lessonPlanEditor.disableThemeAccessibility':
+    'Turn off {themeTitle}',
+  'parent.lessonPlanEditor.enableThemeAccessibility': 'Turn on {themeTitle}',
+  'parent.lessonPlanEditor.keepOneTheme':
+    'Keep at least 1 theme available for your child.',
+  'parent.lessonPlanEditor.mapWillSwitch':
+    'When saved, your child’s map will switch to “{themeTitle}”.',
+  'parent.lessonPlanEditor.showLessons': 'Show {count} lessons',
+  'parent.lessonPlanEditor.hideLessons': 'Hide lesson list',
+  'parent.lessonPlanEditor.lessonSectionTitle': 'Lessons in this theme',
+  'parent.lessonPlanEditor.selectAll': 'Select all',
+  'parent.lessonPlanEditor.allSelected': 'All selected',
+  'parent.lessonPlanEditor.selectAllAccessibility':
+    'Select every lesson in {themeTitle}',
+  'parent.lessonPlanEditor.requiredLesson': 'Required theme lesson',
+  'parent.lessonPlanEditor.stations': '{count} learning stops',
+  'parent.lessonPlanEditor.selectedCount': '{count} lessons on',
+  'parent.lessonPlanEditor.saveChanges': 'Save changes',
+  'parent.lessonPlanEditor.discardTitle': 'Discard changes?',
+  'parent.lessonPlanEditor.discardText':
+    'Your learning path changes have not been saved.',
+  'parent.lessonPlanEditor.keepEditing': 'Keep editing',
+  'parent.lessonPlanEditor.discardAction': 'Discard changes',
+  'parent.lessonPlanEditor.loading': 'Loading learning path…',
+  'parent.lessonPlanEditor.saveErrorTitle': 'Could not save the learning path',
+  'parent.lessonPlanEditor.saveErrorText': 'Please try again in a moment.',
 
   'parent.voice.autoSaveDisabled': 'Does not save new recordings.',
   'parent.voice.autoSaveEnabled':
@@ -1119,7 +1224,7 @@ export const en: TranslationDictionary = {
   'parent.voice.durationSeconds': '{seconds} sec',
   'parent.voice.enableAction': 'Enable automatic saving',
   'parent.voice.enableText':
-    "Sungy will automatically save the final spoken attempt from each word practice. Recordings stay only on this device and are never uploaded to the cloud or included in system backups. Sungy keeps up to 100 voice milestones.",
+    'Sungy will automatically save the final spoken attempt from each word practice. Recordings stay only on this device and are never uploaded to the cloud or included in system backups. Sungy keeps up to 100 voice milestones.',
   'parent.voice.enableTitle': "Save your child's reading voice?",
   'parent.voice.emptyLibrary':
     "Enable automatic saving to keep your child's reading practice.",

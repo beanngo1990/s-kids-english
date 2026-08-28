@@ -38,7 +38,10 @@ export const glowStyle = new Proxy({} as ViewStyle, {
   },
 });
 
-export function createBounceAnimation(scale: Animated.Value) {
+export function createBounceAnimation(
+  scale: Animated.Value,
+  useNativeDriver = true,
+) {
   scale.stopAnimation();
   scale.setValue(1);
 
@@ -47,13 +50,13 @@ export function createBounceAnimation(scale: Animated.Value) {
       friction: 4,
       tension: 140,
       toValue: 1.12,
-      useNativeDriver: true,
+      useNativeDriver,
     }),
     Animated.spring(scale, {
       friction: 5,
       tension: 110,
       toValue: 1,
-      useNativeDriver: true,
+      useNativeDriver,
     }),
   ]);
 }

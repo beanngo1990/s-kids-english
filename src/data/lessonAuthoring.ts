@@ -1,10 +1,16 @@
 import type {
   AssetRef,
   EntityId,
+  LearningScope,
   PercentRect,
   SceneEffect,
   SceneObject,
+  SceneObjectPresentation,
+  SceneObjectRole,
+  SceneObjectVariant,
+  SceneObjectVisibility,
   SceneSoundEffect,
+  SceneStateChange,
   SceneStep,
   SceneStepType,
   VocabularyItem,
@@ -35,12 +41,67 @@ export function spriteAsset(id: EntityId, source: string): AssetRef {
   };
 }
 
+type StatefulObjectOptions = {
+  initialVariantId?: EntityId;
+  initialVisibility?: SceneObjectVisibility;
+  variants?: SceneObjectVariant[];
+};
+
+type SceneObjectInput = StatefulObjectOptions & {
+  assetId?: EntityId;
+  assetSource: string;
+  defaultAnimation?: string;
+  id: EntityId;
+  isInteractive?: boolean;
+  learningScope?: LearningScope;
+  position: PercentRect;
+  presentation?: SceneObjectPresentation;
+  role?: SceneObjectRole;
+  touchArea?: PercentRect;
+  vocabId?: EntityId;
+};
+
+export function sceneObject({
+  assetId,
+  assetSource,
+  defaultAnimation,
+  id,
+  initialVariantId,
+  initialVisibility,
+  isInteractive = false,
+  learningScope,
+  position,
+  presentation,
+  role = 'decoration',
+  touchArea,
+  variants,
+  vocabId,
+}: SceneObjectInput): SceneObject {
+  return {
+    asset: imageAsset(assetId ?? `${id}-asset`, assetSource),
+    defaultAnimation,
+    id,
+    initialVariantId,
+    initialVisibility,
+    isInteractive,
+    learningScope,
+    position,
+    presentation,
+    role,
+    touchArea,
+    variants,
+    vocabId,
+  };
+}
+
 export function characterObject(
   id: EntityId,
   source: string,
   position: PercentRect,
+  stateOptions: StatefulObjectOptions = {},
 ): SceneObject {
   return {
+    ...stateOptions,
     id,
     asset: spriteAsset(`${id}-asset`, source),
     defaultAnimation: 'wave',
@@ -56,8 +117,12 @@ type LearningObjectInput = {
   assetSource: string;
   defaultAnimation?: string;
   isInteractive?: boolean;
+  initialVariantId?: EntityId;
+  initialVisibility?: SceneObjectVisibility;
+  learningScope?: LearningScope;
   position: PercentRect;
   touchArea?: PercentRect;
+  variants?: SceneObjectVariant[];
   vocab: VocabularyItem;
 };
 
@@ -67,35 +132,71 @@ export function learningObject({
   assetSource,
   defaultAnimation,
   isInteractive = true,
+  initialVariantId,
+  initialVisibility,
+  learningScope,
   position,
   touchArea,
+  variants,
   vocab,
 }: LearningObjectInput): SceneObject {
   return {
     id,
     asset: imageAsset(assetId ?? vocab.word, assetSource),
     defaultAnimation,
+    initialVariantId,
+    initialVisibility,
     isInteractive,
+    learningScope,
     position,
     role: 'learning',
     touchArea,
+    variants,
     vocabId: vocab.id,
   };
 }
 
+type ObjectVariantInput = {
+  assetId?: EntityId;
+  assetSource: string;
+  id: EntityId;
+  position?: PercentRect;
+  touchArea?: PercentRect;
+};
+
+export function objectVariant({
+  assetId,
+  assetSource,
+  id,
+  position,
+  touchArea,
+}: ObjectVariantInput): SceneObjectVariant {
+  return {
+    asset: imageAsset(assetId ?? `${id}-asset`, assetSource),
+    id,
+    position,
+    touchArea,
+  };
+}
+
 type BaseStepInput = {
+  afterSuccessStateChanges?: SceneStateChange[];
   id: EntityId;
   effects?: SceneEffect[];
   failFeedbackEn?: string;
   failFeedbackVi?: string;
   instructionEn?: string;
   instructionVi: string;
+  learningScope?: LearningScope;
   nextStepId?: EntityId;
   promptText?: string;
+  speechPractice?: SceneStep['speechPractice'];
+  successStateChanges?: SceneStateChange[];
   successFeedbackEn?: string;
   successFeedbackVi: string;
   targetObjectIds: EntityId[];
   type: SceneStepType;
+  vocabId?: EntityId;
 };
 
 export function listenStep(input: BaseStepInput): SceneStep {
@@ -126,6 +227,23 @@ export function tapStep({
       correctObjectIds: correctObjectIds ?? [targetObjectId],
       targetObjectId,
       type: 'tap',
+    },
+    targetObjectIds: targetObjectIds ?? [targetObjectId],
+  };
+}
+
+export function findStep({
+  correctObjectIds,
+  targetObjectId,
+  targetObjectIds,
+  ...input
+}: TapStepInput): SceneStep {
+  return {
+    ...input,
+    interaction: {
+      correctObjectIds: correctObjectIds ?? [targetObjectId],
+      targetObjectId,
+      type: 'find',
     },
     targetObjectIds: targetObjectIds ?? [targetObjectId],
   };
@@ -173,5 +291,20 @@ export const lessonEffects = {
   },
   sparkle(targetObjectId: EntityId): SceneEffect {
     return lessonEffects.animation('sparkle', targetObjectId);
+  },
+};
+
+export const sceneStateChanges = {
+  hide(targetObjectId: EntityId): SceneStateChange {
+    return { targetObjectId, type: 'hideObject' };
+  },
+  setVariant(
+    targetObjectId: EntityId,
+    variantId: EntityId,
+  ): SceneStateChange {
+    return { targetObjectId, type: 'setObjectVariant', variantId };
+  },
+  show(targetObjectId: EntityId): SceneStateChange {
+    return { targetObjectId, type: 'showObject' };
   },
 };

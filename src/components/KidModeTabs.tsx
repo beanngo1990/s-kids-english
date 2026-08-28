@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
-import { Pressable, Text, View } from 'react-native';
-import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
+import React, { useEffect, useRef } from 'react';
+import { Animated, Text, View } from 'react-native';
 
 import { type SKidsIconName } from '../assets/icons/skids';
+import { KidPressable } from './KidPressable';
 import { SKidsIcon } from './SKidsIcon';
+import { createBounceAnimation } from '../engine/animations';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
+import { useReducedMotion } from '../theme/motion';
 import { useI18n } from '../i18n';
 
 export type KidModeTab = 'map' | 'play';
@@ -15,6 +17,10 @@ type KidModeTabsProps = {
   onSelectMap: () => void;
   onSelectPlay: () => void;
 };
+
+// Android Fabric can assert when native-driven opacity/transform updates overlap
+// the React commit that moves the active styling between tabs.
+const TAB_ANIMATION_USES_NATIVE_DRIVER = false;
 
 // Moved into component to use t()
 const getTabs = (t: (key: any) => string): Array<{
@@ -45,17 +51,40 @@ export function KidModeTabs({
   useThemeSync();
   const t = useI18n();
   const tabs = getTabs(t);
-  const insets = useContext(SafeAreaInsetsContext) ?? {
-    bottom: 0,
-    left: 0,
-    right: 0,
-    top: 0,
+  const reducedMotion = useReducedMotion();
+  const activeIconScale = useRef(new Animated.Value(1)).current;
+  const previousActiveTabRef = useRef(activeTab);
+  const activeIconAnimatedStyle = {
+    transform: [{ scale: activeIconScale }],
   };
+
+  useEffect(() => {
+    if (previousActiveTabRef.current === activeTab) {
+      return;
+    }
+    previousActiveTabRef.current = activeTab;
+
+    if (reducedMotion) {
+      activeIconScale.stopAnimation();
+      activeIconScale.setValue(1);
+      return;
+    }
+
+    createBounceAnimation(
+      activeIconScale,
+      TAB_ANIMATION_USES_NATIVE_DRIVER,
+    ).start();
+  }, [activeIconScale, activeTab, reducedMotion]);
+
+  useEffect(() => {
+    return () => activeIconScale.stopAnimation();
+  }, [activeIconScale]);
 
   return (
     <View
       pointerEvents="box-none"
-      style={[styles.footer, { bottom: spacing.xs - insets.bottom }]}
+      style={styles.footer}
+      testID="kid-mode-tabs"
     >
       <View style={styles.tabBar}>
         {tabs.map(tab => {
@@ -63,29 +92,37 @@ export function KidModeTabs({
           const onPress = tab.id === 'map' ? onSelectMap : onSelectPlay;
 
           return (
-            <Pressable
+            <KidPressable
               accessibilityLabel={tab.accessibilityLabel}
               accessibilityRole="tab"
               accessibilityState={{ selected: isActive }}
+              feedback="soft"
               key={tab.id}
               onPress={onPress}
-              style={({ pressed }) => [
+              playSound={!isActive}
+              reducedMotion={reducedMotion}
+              style={[
                 styles.tab,
                 isActive && styles.tabActive,
-                pressed && styles.tabPressed,
               ]}
+              useNativeDriver={TAB_ANIMATION_USES_NATIVE_DRIVER}
             >
-              <View style={styles.iconContainer}>
+              <Animated.View
+                style={[
+                  styles.iconContainer,
+                  isActive && activeIconAnimatedStyle,
+                ]}
+              >
                 {isActive && <View style={styles.iconActiveBg} />}
                 <SKidsIcon name={tab.icon} size={28} />
-              </View>
+              </Animated.View>
               <Text
                 numberOfLines={1}
                 style={[styles.label, isActive && styles.labelActive]}
               >
                 {tab.label}
               </Text>
-            </Pressable>
+            </KidPressable>
           );
         })}
       </View>
@@ -95,6 +132,7 @@ export function KidModeTabs({
 
 const styles = createThemedStyles(() => ({
   footer: {
+    bottom: spacing.xs,
     left: layout.screenPadding,
     position: 'absolute',
     right: layout.screenPadding,
@@ -161,9 +199,5 @@ const styles = createThemedStyles(() => ({
     shadowOpacity: 0.16,
     shadowRadius: 16,
     elevation: 8,
-  },
-  tabPressed: {
-    opacity: 0.92,
-    transform: [{ translateY: 1 }, { scale: 0.99 }],
   },
 }));

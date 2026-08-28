@@ -80,6 +80,8 @@ export function PremiumScreen({ navigation }: Props) {
     null,
   );
   const [signInAction, setSignInAction] = useState<SignInAction>(null);
+  const [showPaidPlansForFounder, setShowPaidPlansForFounder] =
+    useState(false);
 
   useEffect(() => {
     if (!isGranted) {
@@ -136,11 +138,6 @@ export function PremiumScreen({ navigation }: Props) {
       remoteConfig.premiumPurchaseEnabled &&
       !isBusy,
   );
-  const showLoadError =
-    monetization.status === 'unavailable' ||
-    (monetization.status !== 'premium' &&
-      monetization.status !== 'initializing' &&
-      packages.length === 0);
   const canFounderSignIn = Boolean(
     monetization.founderAccessActive &&
       !monetization.isSignedIn &&
@@ -163,6 +160,23 @@ export function PremiumScreen({ navigation }: Props) {
   const shouldShowPlanPicker = Boolean(
     monetization.status !== 'premium' && packages.length > 0,
   );
+  const shouldDisplayPlanPicker = Boolean(
+    shouldShowPlanPicker &&
+      (!shouldShowFounderCampaign || showPaidPlansForFounder),
+  );
+  const showLoadError = Boolean(
+    !shouldShowFounderCampaign &&
+      (monetization.status === 'unavailable' ||
+        (monetization.status !== 'premium' &&
+          monetization.status !== 'initializing' &&
+          packages.length === 0)),
+  );
+
+  useEffect(() => {
+    if (!shouldShowFounderCampaign) {
+      setShowPaidPlansForFounder(false);
+    }
+  }, [shouldShowFounderCampaign]);
 
   const openLink = useCallback(
     async (url: string) => {
@@ -334,7 +348,11 @@ export function PremiumScreen({ navigation }: Props) {
     <Screen scroll>
       <View style={styles.heroIntro}>
         <Text style={styles.heroTitle}>{t('premium.title')}</Text>
-        <Text style={styles.heroSubtitle}>{t('premium.subtitle')}</Text>
+        <Text style={styles.heroSubtitle}>
+          {shouldShowFounderCampaign
+            ? t('premium.founder.pageSubtitle')
+            : t('premium.subtitle')}
+        </Text>
       </View>
 
       {monetization.status === 'initializing' && (
@@ -356,7 +374,52 @@ export function PremiumScreen({ navigation }: Props) {
         />
       )}
 
-      {shouldShowPlanPicker && (
+      {shouldShowFounderCampaign && (
+        <FounderCampaignCard
+          appleSignInAvailable={appleSignInAvailable}
+          canInteract={canFounderSignIn && !isBusy}
+          googleSignInConfigured={googleSignInConfigured}
+          onApplePress={() => handleFounderSignIn('apple')}
+          onGooglePress={() => handleFounderSignIn('google')}
+          signInAction={signInAction}
+          t={t}
+        />
+      )}
+
+      {shouldShowFounderCampaign && <PremiumBenefits t={t} />}
+
+      {shouldShowFounderCampaign && shouldShowPlanPicker && (
+        <Pressable
+          accessibilityLabel={
+            showPaidPlansForFounder
+              ? t('premium.founder.hidePaidPlans')
+              : t('premium.founder.viewPaidPlans')
+          }
+          accessibilityRole="button"
+          accessibilityState={{ expanded: showPaidPlansForFounder }}
+          onPress={() => setShowPaidPlansForFounder(current => !current)}
+          style={({ pressed }) => [
+            styles.founderPaidPlansAction,
+            pressed && styles.founderPaidPlansActionPressed,
+          ]}
+        >
+          <View style={styles.founderPaidPlansCopy}>
+            <Text style={styles.founderPaidPlansTitle}>
+              {showPaidPlansForFounder
+                ? t('premium.founder.hidePaidPlans')
+                : t('premium.founder.viewPaidPlans')}
+            </Text>
+            <Text style={styles.founderPaidPlansHint}>
+              {t('premium.founder.paidPlansHint')}
+            </Text>
+          </View>
+          <Text style={styles.founderPaidPlansChevron}>
+            {showPaidPlansForFounder ? '⌃' : '›'}
+          </Text>
+        </Pressable>
+      )}
+
+      {shouldDisplayPlanPicker && (
         <View style={styles.packageSection}>
           <Text style={styles.packageSectionTitle}>
             {t('premium.package.chooseTitle')}
@@ -376,7 +439,7 @@ export function PremiumScreen({ navigation }: Props) {
         </View>
       )}
 
-      {shouldShowPlanPicker && selectedPackage && (
+      {shouldDisplayPlanPicker && selectedPackage && (
         <>
           <SelectedPackageCard
             appleSignInAvailable={appleSignInAvailable}
@@ -396,6 +459,7 @@ export function PremiumScreen({ navigation }: Props) {
             onPurchase={handlePurchase}
             pendingAction={monetization.pendingAction}
             signInAction={signInAction}
+            showOptionalAccountSignIn={!shouldShowFounderCampaign}
             t={t}
           />
 
@@ -412,32 +476,7 @@ export function PremiumScreen({ navigation }: Props) {
         </>
       )}
 
-      {shouldShowFounderCampaign && (
-        <FounderCampaignCard
-          appleSignInAvailable={appleSignInAvailable}
-          canInteract={canFounderSignIn && !isBusy}
-          googleSignInConfigured={googleSignInConfigured}
-          onApplePress={() => handleFounderSignIn('apple')}
-          onGooglePress={() => handleFounderSignIn('google')}
-          signInAction={signInAction}
-          t={t}
-        />
-      )}
-
-      <View style={styles.benefits}>
-        <BenefitRow
-          text={t('premium.benefit.journeyText')}
-          title={t('premium.benefit.journeyTitle')}
-        />
-        <BenefitRow
-          text={t('premium.benefit.reviewText')}
-          title={t('premium.benefit.reviewTitle')}
-        />
-        <BenefitRow
-          text={t('premium.benefit.accountText')}
-          title={t('premium.benefit.accountTitle')}
-        />
-      </View>
+      {!shouldShowFounderCampaign && <PremiumBenefits t={t} />}
 
       {showLoadError && (
         <AppCard style={styles.errorCard}>
@@ -544,9 +583,23 @@ function FounderCampaignCard({
   return (
     <AppCard style={styles.founderCard}>
       <KidBadge tone="sun">{t('premium.founder.badge')}</KidBadge>
-      <Text style={styles.sectionTitle}>{t('premium.founder.title')}</Text>
-      <Text style={styles.bodyText}>{t('premium.founder.marketingText')}</Text>
-      <Text style={styles.founderTerms}>{t('premium.founder.terms')}</Text>
+      <Text style={styles.founderTitle}>{t('premium.founder.title')}</Text>
+      <View style={styles.founderValuePanel}>
+        <View style={styles.founderValueRow}>
+          <Text style={styles.founderPrice}>{t('premium.founder.price')}</Text>
+          <Text style={styles.founderDuration}>
+            {t('premium.founder.duration')}
+          </Text>
+        </View>
+        <Text style={styles.founderValueText}>
+          {t('premium.founder.marketingText')}
+        </Text>
+      </View>
+      <View style={styles.founderAssurances}>
+        <FounderAssurance text={t('premium.founder.noCard')} />
+        <FounderAssurance text={t('premium.founder.noRenewal')} />
+        <FounderAssurance text={t('premium.founder.noFee')} />
+      </View>
       <Text style={styles.founderStatus}>
         {t('premium.founder.signInText')}
       </Text>
@@ -558,7 +611,7 @@ function FounderCampaignCard({
             title={
               signInAction === 'apple'
                 ? t('parent.account.signingIn')
-                : t('parent.account.signInApple')
+                : t('premium.founder.signInAppleAction')
             }
             variant="secondary"
           />
@@ -569,12 +622,42 @@ function FounderCampaignCard({
           title={
             signInAction === 'google'
               ? t('parent.account.signingIn')
-              : t('parent.account.signInGoogle')
+              : t('premium.founder.signInGoogleAction')
           }
           variant={appleSignInAvailable ? 'outlined' : 'secondary'}
         />
       </View>
     </AppCard>
+  );
+}
+
+function FounderAssurance({ text }: { text: string }) {
+  return (
+    <View style={styles.founderAssuranceRow}>
+      <View style={styles.founderAssuranceMark}>
+        <Text style={styles.founderAssuranceMarkText}>✓</Text>
+      </View>
+      <Text style={styles.founderAssuranceText}>{text}</Text>
+    </View>
+  );
+}
+
+function PremiumBenefits({ t }: { t: Translator }) {
+  return (
+    <View style={styles.benefits}>
+      <BenefitRow
+        text={t('premium.benefit.journeyText')}
+        title={t('premium.benefit.journeyTitle')}
+      />
+      <BenefitRow
+        text={t('premium.benefit.reviewText')}
+        title={t('premium.benefit.reviewTitle')}
+      />
+      <BenefitRow
+        text={t('premium.benefit.accountText')}
+        title={t('premium.benefit.accountTitle')}
+      />
+    </View>
   );
 }
 
@@ -610,6 +693,7 @@ function SelectedPackageCard({
   onPurchase,
   pendingAction,
   signInAction,
+  showOptionalAccountSignIn,
   t,
 }: {
   appleSignInAvailable: boolean;
@@ -629,6 +713,7 @@ function SelectedPackageCard({
   onPurchase: () => void;
   pendingAction: MonetizationPendingAction;
   signInAction: SignInAction;
+  showOptionalAccountSignIn: boolean;
   t: Translator;
 }) {
   const hasSignInProvider = googleSignInConfigured || appleSignInAvailable;
@@ -699,7 +784,7 @@ function SelectedPackageCard({
         </Pressable>
       </View>
 
-      {!isSignedIn && isAuthReady && (
+      {showOptionalAccountSignIn && !isSignedIn && isAuthReady && (
         <View style={styles.checkoutAccountBox}>
           <Text style={styles.checkoutGateTitle}>
             {t('premium.signInTitle')}
@@ -1151,15 +1236,103 @@ const styles = createThemedStyles(() => ({
     backgroundColor: colors.secondarySoft,
     borderColor: colors.secondary,
     borderWidth: 2,
+    gap: spacing.md,
+    marginTop: spacing.md,
+  },
+  founderAssuranceMark: {
+    alignItems: 'center',
+    backgroundColor: colors.primarySoft,
+    borderRadius: radius.pill,
+    height: 24,
+    justifyContent: 'center',
+    width: 24,
+  },
+  founderAssuranceMarkText: {
+    color: colors.primaryDark,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  founderAssuranceRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
+  },
+  founderAssuranceText: {
+    color: colors.text,
+    flex: 1,
+    ...typography.caption,
+  },
+  founderAssurances: {
+    gap: spacing.xs,
+  },
+  founderDuration: {
+    color: colors.text,
+    flex: 1,
+    textAlign: 'right',
+    ...typography.subtitle,
+  },
+  founderPaidPlansAction: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    flexDirection: 'row',
     gap: spacing.sm,
-    marginTop: spacing.lg,
+    justifyContent: 'space-between',
+    marginTop: spacing.xl,
+    minHeight: 64,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+  },
+  founderPaidPlansActionPressed: {
+    opacity: 0.88,
+    transform: [{ translateY: 2 }, { scale: 0.99 }],
+  },
+  founderPaidPlansChevron: {
+    color: colors.primaryDark,
+    fontSize: 28,
+    fontWeight: '900',
+  },
+  founderPaidPlansCopy: {
+    flex: 1,
+    gap: spacing.xxs,
+  },
+  founderPaidPlansHint: {
+    color: colors.textSoft,
+    ...typography.caption,
+  },
+  founderPaidPlansTitle: {
+    color: colors.primaryDark,
+    ...typography.body,
+  },
+  founderPrice: {
+    color: colors.primaryDark,
+    ...typography.hero,
   },
   founderStatus: {
-    ...typography.body,
     color: colors.primaryDark,
-    fontWeight: '800',
+    ...typography.caption,
   },
-  founderTerms: {
+  founderTitle: {
+    color: colors.text,
+    ...typography.title,
+  },
+  founderValuePanel: {
+    backgroundColor: colors.surface,
+    borderColor: colors.borderWarm,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    gap: spacing.xs,
+    padding: spacing.md,
+  },
+  founderValueRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
+    justifyContent: 'space-between',
+  },
+  founderValueText: {
     ...typography.caption,
     color: colors.textSoft,
   },

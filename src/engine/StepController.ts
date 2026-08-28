@@ -3,6 +3,7 @@ import type {
   Scene,
   SceneInteractionType,
   SceneSoundEffect,
+  SceneStateChange,
   SceneStep,
 } from '../types/lesson';
 
@@ -20,6 +21,8 @@ export type StepInteractionResult = {
   feedbackVi?: string;
   effectObjectIds: EntityId[];
   objectEffects: StepObjectEffect[];
+  afterSuccessStateChanges: SceneStateChange[];
+  stateChanges: SceneStateChange[];
   soundEffect?: SceneSoundEffect;
   nextStep?: SceneStep;
   isSceneComplete: boolean;
@@ -71,6 +74,18 @@ export function isStepTargetObject(step: SceneStep, objectId: EntityId) {
   return step.targetObjectIds.includes(objectId);
 }
 
+export function getStepHintObjectIds(step: SceneStep): EntityId[] {
+  const correctIds = step.interaction.correctObjectIds;
+
+  if (correctIds?.length) {
+    return correctIds;
+  }
+
+  return step.interaction.targetObjectId
+    ? [step.interaction.targetObjectId]
+    : step.targetObjectIds;
+}
+
 export function shouldDimObjectForStep(step: SceneStep, objectId: EntityId) {
   if (
     step.type !== 'intro' &&
@@ -90,7 +105,9 @@ export function resolveContinueInteraction(
   if (!isListenStep(step)) {
     return {
       effectObjectIds: [],
+      afterSuccessStateChanges: [],
       objectEffects: [],
+      stateChanges: [],
       isSceneComplete: false,
       status: 'ignored',
     };
@@ -107,7 +124,9 @@ export function resolveObjectInteraction(
   if (!canPressObjects(step)) {
     return {
       effectObjectIds: [],
+      afterSuccessStateChanges: [],
       objectEffects: [],
+      stateChanges: [],
       isSceneComplete: false,
       status: 'ignored',
     };
@@ -119,10 +138,12 @@ export function resolveObjectInteraction(
 
   return {
     effectObjectIds: [objectId],
+    afterSuccessStateChanges: [],
     feedbackEn: step.failFeedbackEn,
     feedbackVi: step.failFeedbackVi ?? 'Thử lại nhé.',
     isSceneComplete: false,
     objectEffects: [],
+    stateChanges: [],
     status: 'incorrect',
   };
 }
@@ -136,7 +157,9 @@ export function resolveDragInteraction(
   if (step.interaction.type !== 'drag') {
     return {
       effectObjectIds: [],
+      afterSuccessStateChanges: [],
       objectEffects: [],
+      stateChanges: [],
       isSceneComplete: false,
       status: 'ignored',
     };
@@ -148,10 +171,12 @@ export function resolveDragInteraction(
 
   return {
     effectObjectIds: [objectId],
+    afterSuccessStateChanges: [],
     feedbackEn: step.failFeedbackEn,
     feedbackVi: step.failFeedbackVi ?? 'Kéo vào vùng đúng nhé.',
     isSceneComplete: false,
     objectEffects: [],
+    stateChanges: [],
     status: 'incorrect',
   };
 }
@@ -175,6 +200,7 @@ function buildCorrectResult(
   const objectEffects = getSuccessObjectEffects(step, objectId);
 
   return {
+    afterSuccessStateChanges: step.afterSuccessStateChanges ?? [],
     effectObjectIds: objectEffects.map(effect => effect.targetObjectId),
     feedbackEn: step.successFeedbackEn,
     feedbackVi: step.successFeedbackVi,
@@ -182,6 +208,7 @@ function buildCorrectResult(
     nextStep,
     objectEffects,
     soundEffect: getSuccessSoundEffect(step),
+    stateChanges: step.successStateChanges ?? [],
     status: 'correct',
   };
 }
@@ -211,11 +238,15 @@ function getSuccessObjectEffects(
   const explicitTargetIds = new Set(
     explicitObjectEffects.map(effect => effect.targetObjectId),
   );
-  const fallbackTargets = [
-    objectId,
-    step.interaction.targetObjectId,
-    ...step.targetObjectIds,
-  ].filter((targetId): targetId is EntityId => Boolean(targetId));
+  // targetObjectIds describes every object participating in the step, which
+  // can include distractors. For an interactive success, only the object the
+  // child actually selected receives the implicit celebration. Authors can
+  // still celebrate additional objects with explicit animation effects.
+  const fallbackTargets = objectId
+    ? [objectId]
+    : step.interaction.targetObjectId
+      ? [step.interaction.targetObjectId]
+      : step.targetObjectIds;
 
   const fallbackObjectEffects = Array.from(new Set(fallbackTargets))
     .filter(targetId => !explicitTargetIds.has(targetId))

@@ -23,23 +23,81 @@ export function haveSameLessonIds(first: string[], second: string[]) {
   );
 }
 
+export function getRecommendedLessonIds(
+  themeGroups: ReadonlyArray<{ lessonIds: readonly string[] }>,
+) {
+  const recommendedLessonIds: string[] = [];
+  const seenLessonIds = new Set<string>();
+
+  themeGroups.forEach(theme => {
+    const firstLessonId = theme.lessonIds.find(id => !seenLessonIds.has(id));
+    if (!firstLessonId) {
+      return;
+    }
+
+    seenLessonIds.add(firstLessonId);
+    recommendedLessonIds.push(firstLessonId);
+  });
+
+  return recommendedLessonIds;
+}
+
 export function getLessonPlanSelection(
-  enabledLessonIds: string[],
-  allLessonIds: string[],
-  gentleLessonIds: string[],
-  isCustomPlanMode: boolean,
-): 'full' | 'gentle' | 'custom' {
-  if (isCustomPlanMode) {
-    return 'custom';
+  visibleLessonIds: string[] | undefined,
+  recommendedLessonIds: string[],
+  disabledThemeIds: string[] | undefined = undefined,
+): 'all' | 'recommended' | 'custom' {
+  if (!visibleLessonIds && !disabledThemeIds?.length) {
+    return 'all';
   }
 
-  if (haveSameLessonIds(enabledLessonIds, allLessonIds)) {
-    return 'full';
-  }
-
-  if (haveSameLessonIds(enabledLessonIds, gentleLessonIds)) {
-    return 'gentle';
+  if (
+    visibleLessonIds &&
+    !disabledThemeIds?.length &&
+    haveSameLessonIds(visibleLessonIds, recommendedLessonIds)
+  ) {
+    return 'recommended';
   }
 
   return 'custom';
+}
+
+export function getEnabledLessonIds(
+  allLessonIds: string[],
+  visibleLessonIds: string[] | undefined,
+  themeGroups: ReadonlyArray<{
+    id: string;
+    lessonIds: readonly string[];
+  }>,
+  disabledThemeIds: string[] | undefined,
+) {
+  const selectedLessonIds = visibleLessonIds ?? allLessonIds;
+  if (!disabledThemeIds?.length) {
+    return selectedLessonIds;
+  }
+
+  const disabledThemeIdSet = new Set(disabledThemeIds);
+  const disabledLessonIds = new Set(
+    themeGroups
+      .filter(theme => disabledThemeIdSet.has(theme.id))
+      .flatMap(theme => theme.lessonIds),
+  );
+
+  return selectedLessonIds.filter(id => !disabledLessonIds.has(id));
+}
+
+export function isOnlyVisibleLessonInTheme(
+  lessonId: string,
+  themeLessonIds: string[],
+  enabledLessonIds: string[],
+) {
+  if (!enabledLessonIds.includes(lessonId)) {
+    return false;
+  }
+
+  return (
+    themeLessonIds.filter(themeLessonId =>
+      enabledLessonIds.includes(themeLessonId),
+    ).length <= 1
+  );
 }

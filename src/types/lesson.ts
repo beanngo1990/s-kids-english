@@ -54,8 +54,22 @@ export type SceneObjectRole =
   | 'dropZone'
   | 'character';
 
+/** Cách runtime trình bày vùng bao quanh hình; cutout giữ nền alpha nguyên bản. */
+export type SceneObjectPresentation = 'card' | 'cutout';
+
 /** Tên animation mặc định cho object, ví dụ idle, bounce hoặc wave. */
 export type SceneAnimation = string;
+
+/** Trạng thái hiển thị bền vững của object trong một lượt chạy scene. */
+export type SceneObjectVisibility = 'hidden' | 'visible';
+
+/** Một biến thể hình ảnh/vị trí mà object có thể chuyển sang trong scene. */
+export type SceneObjectVariant = {
+  id: EntityId;
+  asset: AssetRef;
+  position?: PercentRect;
+  touchArea?: PercentRect;
+};
 
 /** Tên sound effect ngắn, vui, chạy local hoặc qua remote cache. */
 export type SceneSoundEffect =
@@ -73,11 +87,15 @@ export type SceneObject = {
   vocabId?: EntityId;
   role: SceneObjectRole;
   asset: AssetRef;
+  variants?: SceneObjectVariant[];
+  initialVariantId?: EntityId;
+  initialVisibility?: SceneObjectVisibility;
   position: PercentRect;
   touchArea?: PercentRect;
   isInteractive: boolean;
   defaultAnimation?: SceneAnimation;
   learningScope?: LearningScope;
+  presentation?: SceneObjectPresentation;
 };
 
 /** Khu vực thả object trong các bài kéo thả. */
@@ -93,6 +111,9 @@ export type SceneStepType = 'intro' | 'teach' | 'practice' | 'review';
 
 /** Kiểu tương tác mà bé cần thực hiện ở một step. */
 export type SceneInteractionType = 'listen' | 'tap' | 'drag' | 'find';
+
+/** Cách một step mở lượt luyện nói sau khi bé đã nghe mẫu. */
+export type SpeechPracticeMode = 'auto' | 'optional';
 
 /** Cấu hình tương tác của step, trỏ tới object hoặc drop zone liên quan. */
 export type SceneInteraction = {
@@ -111,6 +132,18 @@ export type SceneEffect = {
   sound?: SceneSoundEffect;
 };
 
+/** Thay đổi object state chỉ được áp dụng sau khi hoàn thành đúng một step. */
+export type SceneStateChange =
+  | {
+      type: 'setObjectVariant';
+      targetObjectId: EntityId;
+      variantId: EntityId;
+    }
+  | {
+      type: 'showObject' | 'hideObject';
+      targetObjectId: EntityId;
+    };
+
 /** Một bước học nhỏ trong scene với hướng dẫn, tương tác và phản hồi. */
 export type SceneStep = {
   id: EntityId;
@@ -125,8 +158,11 @@ export type SceneStep = {
   failFeedbackVi?: string;
   failFeedbackEn?: string;
   effects?: SceneEffect[];
+  successStateChanges?: SceneStateChange[];
+  afterSuccessStateChanges?: SceneStateChange[];
   learningScope?: LearningScope;
   nextStepId?: EntityId;
+  speechPractice?: SpeechPracticeMode;
   vocabId?: EntityId;
 };
 

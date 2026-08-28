@@ -3,7 +3,13 @@ import {
   getWordAudioAsset,
 } from '../src/data/audioManifest';
 import { kidLockAudioPrompts } from '../src/data/kidLockAudioPrompts';
+import {
+  sceneVocabularyMeaningDisabledPromptVi,
+  sceneVocabularyMeaningEnabledPromptVi,
+} from '../src/data/speechPrompts';
 import { generatedUiAudioRegistry } from '../src/engine/GeneratedUiAudioRegistry';
+import { en } from '../src/i18n/dictionaries/en';
+import { vi, type TranslationKey } from '../src/i18n/dictionaries/vi';
 import { ENGLISH_ACCENTS, type EnglishAccent } from '../src/types/audio';
 
 declare const __dirname: string;
@@ -49,23 +55,24 @@ const manifest = JSON.parse(
     'utf8',
   ),
 ) as GenerationManifest;
-const expectedEnglishTargetCountPerAccent = 3827;
-const bundledEnglishUiPrompts = [
-  'Hi! I am Sungy, your child’s learning buddy.',
-  'Let’s learn with Sungy today!',
-  'Wonderful! The whole map is complete. Let’s collect more stars!',
-  'Great job! Let’s look at the sticker collection.',
-  'Sungy can see the whole map lighting up!',
-  'You can replay a stop to review new words.',
-  'Let’s flip cards to remember words longer.',
-  'Finish the review and Sungy will give a sticker!',
-  'Tap Play to open the unlocked game.',
-  'Tap the glowing stop to keep learning.',
-  'Sungy is going with you!',
-  'Let’s earn more stars!',
-];
+const bundledSungyUiPromptKeys = [
+  'onboarding.coach.greeting',
+  'home.coach.default',
+  'home.coach.complete',
+  'home.coach.completeTapOne',
+  'home.coach.completeTapTwo',
+  'home.coach.completeTapThree',
+  'home.coach.reviewTapOne',
+  'home.coach.reviewTapTwo',
+  'home.coach.reviewTapThree',
+  'home.coach.guideTapOne',
+  'home.coach.guideTapTwo',
+  'home.coach.guideTapThree',
+] as const satisfies readonly TranslationKey[];
 
-test('English Neural2-C corpus is complete and matches its provenance', () => {
+// `generate:audio:dry-run` owns current-corpus completeness. This test protects
+// the integrity and cross-accent parity of the published provenance snapshot.
+test('English Neural2-C provenance is internally consistent across accents', () => {
   expect(manifest).toMatchObject({
     config: {
       audioEncoding: 'LINEAR16',
@@ -91,33 +98,46 @@ test('English Neural2-C corpus is complete and matches its provenance', () => {
   const counts = new Map<EnglishAccent, number>(
     ENGLISH_ACCENTS.map(accent => [accent, 0]),
   );
+  const textsByAccent = new Map<EnglishAccent, Set<string>>(
+    ENGLISH_ACCENTS.map(accent => [accent, new Set<string>()]),
+  );
   const uniqueKeys = new Set<string>();
 
   for (const target of manifest.targets) {
+    expect(ENGLISH_ACCENTS).toContain(target.accent);
     expect(uniqueKeys.has(target.key)).toBe(false);
     uniqueKeys.add(target.key);
     counts.set(target.accent, (counts.get(target.accent) ?? 0) + 1);
+    textsByAccent.get(target.accent)?.add(target.text);
 
     expect(target.key).toContain(
       `/audio/${target.accent}/${manifest.release}/`,
     );
     expect(target.voice).toBe(`${target.accent}-Neural2-C`);
+    expect(target.bytes).toBeGreaterThan(0);
+    expect(target.sha256).toMatch(/^[0-9a-f]{64}$/u);
+    expect(target.text.trim()).toBe(target.text);
+    expect(target.text.length).toBeGreaterThan(0);
     expect(getWordAudioAsset(target.text, target.accent)?.key).toBe(target.key);
 
     const assetPath = join(repoRoot, 'src/assets', target.key);
     if (existsSync(assetPath)) {
       const content = readFileSync(assetPath);
-      expect(content.length).toBeGreaterThan(0);
+      expect(content.length).toBe(target.bytes);
     }
   }
 
+  const usTexts = textsByAccent.get('en-US') ?? new Set<string>();
+  const gbTexts = textsByAccent.get('en-GB') ?? new Set<string>();
+
+  expect(counts.get('en-US')).toBeGreaterThan(0);
+  expect(counts.get('en-GB')).toBe(counts.get('en-US'));
+  expect(usTexts.size).toBe(counts.get('en-US'));
+  expect(gbTexts.size).toBe(counts.get('en-GB'));
+  expect([...gbTexts].sort()).toEqual([...usTexts].sort());
   expect(manifest.targets).toHaveLength(
-    expectedEnglishTargetCountPerAccent * ENGLISH_ACCENTS.length,
+    (counts.get('en-US') ?? 0) + (counts.get('en-GB') ?? 0),
   );
-  expect(Object.fromEntries(counts)).toEqual({
-    'en-GB': expectedEnglishTargetCountPerAccent,
-    'en-US': expectedEnglishTargetCountPerAccent,
-  });
   expect(uniqueKeys.size).toBe(manifest.targets.length);
 });
 
@@ -142,6 +162,22 @@ test('recording try-next prompt has generated shared audio', () => {
     const enPath = join(repoRoot, 'src/assets', enAsset?.key ?? '');
     if (existsSync(enPath)) {
       expect(readFileSync(enPath).length).toBeGreaterThan(0);
+    }
+  }
+});
+
+test('vocabulary meaning toggle has generated Vietnamese confirmations', () => {
+  for (const prompt of [
+    sceneVocabularyMeaningEnabledPromptVi,
+    sceneVocabularyMeaningDisabledPromptVi,
+  ]) {
+    const asset = getViAudioAsset(prompt);
+    expect(asset?.key).toMatch(
+      /^shared\/audio\/vi\/scene_vocabulary_meaning_(?:enabled|disabled)_/u,
+    );
+    const assetPath = join(repoRoot, 'src/assets', asset?.key ?? '');
+    if (existsSync(assetPath)) {
+      expect(readFileSync(assetPath).length).toBeGreaterThan(0);
     }
   }
 });
@@ -183,10 +219,18 @@ test('review game intro prompts have generated shared audio', () => {
   }
 });
 
-test('Sungy UI prompts keep bundled English audio', () => {
-  for (const prompt of bundledEnglishUiPrompts) {
+test('Sungy UI prompts keep bundled English and Vietnamese audio', () => {
+  for (const promptKey of bundledSungyUiPromptKeys) {
+    const viAsset = getViAudioAsset(vi[promptKey]);
+    expect(viAsset).toBeDefined();
+    expect(viAsset?.key).toContain('ui/audio/vi/');
+    expect(generatedUiAudioRegistry[viAsset?.key ?? '']).toBeDefined();
+    expect(
+      readFileSync(join(repoRoot, 'src/assets', viAsset?.key ?? '')).length,
+    ).toBeGreaterThan(44);
+
     for (const accent of ENGLISH_ACCENTS) {
-      const enAsset = getWordAudioAsset(prompt, accent);
+      const enAsset = getWordAudioAsset(en[promptKey], accent);
       expect(enAsset?.key).toContain(`ui/audio/${accent}/`);
       expect(generatedUiAudioRegistry[enAsset?.key ?? '']).toBeDefined();
       expect(

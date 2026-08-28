@@ -19,10 +19,7 @@ import { snackTimeLesson } from '../src/data/lessons/snackTime';
 import { supermarketTripLesson } from '../src/data/lessons/supermarketTrip';
 import { validateLesson, validateLessons } from '../src/data/lessonValidation';
 import { validateThemes } from '../src/data/themeValidation';
-import {
-  BODY_FEELINGS_SELF_CARE_THEME_ID,
-  themes,
-} from '../src/data/themes';
+import { BODY_FEELINGS_SELF_CARE_THEME_ID, themes } from '../src/data/themes';
 import {
   getTeacherFeedbackEn,
   getTeacherInstructionEn,
@@ -155,6 +152,17 @@ test('lesson catalog keeps theme journeys in authored order', () => {
     'dress-myself',
     'toilet-routine',
     'speaking-up',
+    'plant-a-seed',
+    'help-it-grow',
+    'garden-friends',
+    'harvest-day',
+    'garden-to-table',
+    'feed-the-puppy',
+    'play-with-the-puppy',
+    'find-the-kitten',
+    'clean-muddy-paws',
+    'care-for-the-rabbit',
+    'groom-the-kitten',
   ]);
 });
 
@@ -184,12 +192,8 @@ test('supermarket prompts stay concise after earlier drag steps move objects', (
   expect(grapes?.instructionVi).toBe(
     'Kéo chùm nho tím trên cân vào vòng sáng nhé.',
   );
-  expect(scale?.instructionVi).toBe(
-    'Chạm vào cái cân xanh bên phải nhé.',
-  );
-  expect(receipt?.instructionVi).toBe(
-    'Chạm vào hóa đơn dưới cô thu ngân nhé.',
-  );
+  expect(scale?.instructionVi).toBe('Chạm vào cái cân xanh bên phải nhé.');
+  expect(receipt?.instructionVi).toBe('Chạm vào hóa đơn dưới cô thu ngân nhé.');
   expect(scanner?.instructionVi).toBe(
     'Chạm vào máy quét bên trái thẻ thanh toán nhé.',
   );
@@ -223,9 +227,7 @@ test('beach prompts do not anchor later steps to moved objects', () => {
   expect(bucket?.instructionVi).toBe(
     'Chạm vào cái xô ở phía trên bên phải nhé.',
   );
-  expect(bucket?.failFeedbackVi).toBe(
-    'Cái xô nằm ở phía trên bên phải.',
-  );
+  expect(bucket?.failFeedbackVi).toBe('Cái xô nằm ở phía trên bên phải.');
   expect(bucket?.instructionVi).not.toContain('vỏ sò');
   expect(bucket?.failFeedbackVi).not.toContain('vỏ sò');
 });
@@ -287,25 +289,22 @@ test('Theme 2 lesson content stays concise, progressive, and natural', () => {
       );
 
       for (const vocabulary of scene.vocabulary ?? []) {
-        const normalizedWord = vocabulary.word.trim().toLocaleLowerCase('en-US');
+        const normalizedWord = vocabulary.word
+          .trim()
+          .toLocaleLowerCase('en-US');
         expect(seenWords.has(normalizedWord)).toBe(false);
         seenWords.add(normalizedWord);
 
         if (nonDraggableWords.has(normalizedWord)) {
           const practiceStep = scene.steps.find(
-            step =>
-              step.type === 'practice' && step.vocabId === vocabulary.id,
+            step => step.type === 'practice' && step.vocabId === vocabulary.id,
           );
           expect(practiceStep?.interaction.type).not.toBe('drag');
         }
 
-        if (
-          vocabulary.type === 'phrase' &&
-          lesson.id !== 'supermarket-trip'
-        ) {
+        if (vocabulary.type === 'phrase' && lesson.id !== 'supermarket-trip') {
           const practiceStep = scene.steps.find(
-            step =>
-              step.type === 'practice' && step.vocabId === vocabulary.id,
+            step => step.type === 'practice' && step.vocabId === vocabulary.id,
           );
           expect(getTeacherInstructionEn(practiceStep!, scene)).toMatch(
             /^(?:Drag|Tap) the matching action card\b/u,
@@ -314,9 +313,9 @@ test('Theme 2 lesson content stays concise, progressive, and natural', () => {
       }
 
       for (const step of scene.steps.filter(item => item.type === 'practice')) {
-        expect(step.instructionVi.trim().split(/\s+/u).length).toBeLessThanOrEqual(
-          12,
-        );
+        expect(
+          step.instructionVi.trim().split(/\s+/u).length,
+        ).toBeLessThanOrEqual(12);
         expect(getTeacherInstructionEn(step, scene)).not.toMatch(
           /\b(?:into|to) the action\b/iu,
         );
@@ -378,7 +377,9 @@ test('Theme 3 content progresses from body awareness to speaking up', () => {
       ).toHaveLength(9);
 
       for (const vocabulary of scene.vocabulary ?? []) {
-        const normalizedWord = vocabulary.word.trim().toLocaleLowerCase('en-US');
+        const normalizedWord = vocabulary.word
+          .trim()
+          .toLocaleLowerCase('en-US');
         expect(seenWords.has(normalizedWord)).toBe(false);
         seenWords.add(normalizedWord);
 
@@ -406,9 +407,9 @@ test('Theme 3 content progresses from body awareness to speaking up', () => {
         if (step.interaction.type === 'drag') {
           draggableStepIds.add(step.id);
         }
-        expect(step.instructionVi.trim().split(/\s+/u).length).toBeLessThanOrEqual(
-          12,
-        );
+        expect(
+          step.instructionVi.trim().split(/\s+/u).length,
+        ).toBeLessThanOrEqual(12);
         expect(step.instructionVi).not.toMatch(/(?:bên cạnh|ngay cạnh)/iu);
         expect(step.instructionVi).not.toMatch(
           /(?:góc (?:trên|dưới)|hàng dưới|phía (?:trên|dưới) bên|ở (?:bên trái|bên phải|chính giữa))/iu,
@@ -418,28 +419,29 @@ test('Theme 3 content progresses from body awareness to speaking up', () => {
         );
       }
 
-      expect(scene.objects.slice(6).every(object => object.position.y >= 80)).toBe(
-        true,
-      );
+      expect(
+        scene.objects.slice(6).every(object => object.position.y >= 80),
+      ).toBe(true);
     }
   }
 
   const bodyLesson = themeLessons.find(lesson => lesson.id === 'my-body');
   for (const scene of bodyLesson?.scenes ?? []) {
     const character = scene.character!;
-    const characterCenter =
-      character.position.x + character.position.width / 2;
+    const characterCenter = character.position.x + character.position.width / 2;
     const contextualObjects = scene.objects.slice(0, 6);
 
     expect(character.position.x).toBeGreaterThanOrEqual(30);
     expect(
       contextualObjects.filter(
-        object => object.position.x + object.position.width / 2 < characterCenter,
+        object =>
+          object.position.x + object.position.width / 2 < characterCenter,
       ).length,
     ).toBeGreaterThanOrEqual(2);
     expect(
       contextualObjects.filter(
-        object => object.position.x + object.position.width / 2 > characterCenter,
+        object =>
+          object.position.x + object.position.width / 2 > characterCenter,
       ).length,
     ).toBeGreaterThanOrEqual(2);
   }
@@ -496,6 +498,173 @@ test('validator catches missing object references', () => {
 
   expect(issues.some(issue => issue.message.includes('missing-object'))).toBe(
     true,
+  );
+});
+
+test('validator rejects duplicate vocabulary ids within a scene', () => {
+  const invalidLesson: Lesson = {
+    ageRange: { max: 5, min: 3 },
+    descriptionVi: 'Demo',
+    id: 'invalid-duplicate-vocabulary',
+    scenes: [
+      {
+        background: {
+          id: 'invalid-duplicate-vocabulary-background',
+          source: 'lessons/invalid-duplicate-vocabulary/images/background.png',
+          type: 'image',
+        },
+        id: 'invalid-duplicate-vocabulary-scene',
+        objects: [],
+        steps: [
+          {
+            id: 'invalid-duplicate-vocabulary-step',
+            instructionVi: 'Mình cùng bắt đầu nhé.',
+            interaction: { type: 'listen' },
+            successFeedbackVi: 'Mình bắt đầu thôi!',
+            targetObjectIds: [],
+            type: 'intro',
+          },
+        ],
+        titleEn: 'Invalid duplicate vocabulary',
+        titleVi: 'Từ vựng trùng lặp',
+        vocabulary: [
+          {
+            id: 'duplicate-vocabulary-id',
+            level: 'easy',
+            meaningVi: 'mèo',
+            type: 'noun',
+            word: 'cat',
+          },
+          {
+            id: 'duplicate-vocabulary-id',
+            level: 'easy',
+            meaningVi: 'mèo con',
+            type: 'noun',
+            word: 'kitten',
+          },
+        ],
+      },
+    ],
+    themeId: 'nhung-nguoi-ban-dong-vat',
+    titleEn: 'Invalid duplicate vocabulary',
+    titleVi: 'Từ vựng trùng lặp',
+  };
+
+  const issues = validateLesson(invalidLesson);
+
+  expect(issues).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        message: 'Duplicate id "duplicate-vocabulary-id".',
+        path: 'invalid-duplicate-vocabulary.scenes[0:invalid-duplicate-vocabulary-scene].vocabulary[1]',
+        severity: 'error',
+      }),
+    ]),
+  );
+});
+
+test('validator rejects conflicting vocabulary ids across scenes in a lesson', () => {
+  const sharedVocabularyId = 'duplicate-cross-scene-vocabulary-id';
+  const makeScene = (sceneId: string, word: string) => ({
+    background: {
+      id: `${sceneId}-background`,
+      source: `lessons/invalid-duplicate-cross-scene/${sceneId}/images/background.png`,
+      type: 'image' as const,
+    },
+    id: sceneId,
+    objects: [],
+    steps: [
+      {
+        id: `${sceneId}-intro`,
+        instructionVi: 'Mình cùng bắt đầu nhé.',
+        interaction: { type: 'listen' as const },
+        successFeedbackVi: 'Mình bắt đầu thôi!',
+        targetObjectIds: [],
+        type: 'intro' as const,
+      },
+    ],
+    titleEn: sceneId,
+    titleVi: sceneId,
+    vocabulary: [
+      {
+        id: sharedVocabularyId,
+        level: 'easy' as const,
+        meaningVi: word,
+        type: 'noun' as const,
+        word,
+      },
+    ],
+  });
+  const invalidLesson: Lesson = {
+    ageRange: { max: 5, min: 3 },
+    descriptionVi: 'Demo',
+    id: 'invalid-duplicate-cross-scene-vocabulary',
+    scenes: [
+      makeScene('first-scene', 'cat'),
+      makeScene('second-scene', 'kitten'),
+    ],
+    themeId: 'nhung-nguoi-ban-dong-vat',
+    titleEn: 'Invalid duplicate cross-scene vocabulary',
+    titleVi: 'Từ vựng trùng giữa hai cảnh',
+  };
+
+  const issues = validateLesson(invalidLesson);
+
+  expect(issues).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        message: `Duplicate id "${sharedVocabularyId}".`,
+        path: 'invalid-duplicate-cross-scene-vocabulary.scenes[1:second-scene].vocabulary[0]',
+        severity: 'error',
+      }),
+    ]),
+  );
+});
+
+test('validator requires vocabulary for an authored speech-practice step', () => {
+  const invalidLesson: Lesson = {
+    ageRange: { max: 8, min: 3 },
+    descriptionVi: 'Demo',
+    id: 'invalid-speech-practice-lesson',
+    scenes: [
+      {
+        background: {
+          id: 'invalid-speech-background',
+          source: 'lessons/invalid-speech/images/background.png',
+          type: 'image',
+        },
+        id: 'invalid-speech-scene',
+        objects: [],
+        steps: [
+          {
+            id: 'invalid-speech-step',
+            instructionVi: 'Nói cùng cô nhé.',
+            interaction: { type: 'listen' },
+            speechPractice: 'optional',
+            successFeedbackVi: 'Giỏi lắm!',
+            targetObjectIds: [],
+            type: 'practice',
+          },
+        ],
+        titleEn: 'Invalid speech practice',
+        titleVi: 'Luyện nói sai',
+      },
+    ],
+    themeId: 'mot-ngay-cua-be',
+    titleEn: 'Invalid speech practice',
+    titleVi: 'Luyện nói sai',
+  };
+
+  const issues = validateLesson(invalidLesson);
+
+  expect(issues).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({
+        message:
+          'Speech-practice step must reference vocabulary through vocabId or a target object.',
+        severity: 'error',
+      }),
+    ]),
   );
 });
 

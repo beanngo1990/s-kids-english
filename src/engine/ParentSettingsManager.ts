@@ -52,12 +52,13 @@ export type ParentSettings = {
   backgroundMusicEnabled: boolean;
   cloudProgressSync: CloudProgressSyncPreference;
   crashReportingEnabled: boolean;
+  disabledThemeIds?: string[];
   enableSceneEditor?: boolean;
   hasCompletedOnboarding: boolean;
   journeyMode: 'guided' | 'free';
   learningMode: LearningMode;
   updatedAt?: string;
-  visibleLessonIds?: string[]; // If undefined, all lessons are visible
+  visibleLessonIds?: string[]; // If undefined, every lesson is selected
   appLanguage: AppLanguage;
   englishAccent: EnglishAccent;
   teacherPromptMode: TeacherPromptMode;
@@ -195,6 +196,20 @@ export async function getParentSettings(): Promise<ParentSettings> {
   return normalizeParentSettings(JSON.parse(rawSettings));
 }
 
+export async function resolveLearningModePreference(
+  preferredMode?: LearningMode,
+): Promise<LearningMode> {
+  if (preferredMode) {
+    return preferredMode;
+  }
+
+  try {
+    return (await getParentSettings()).learningMode;
+  } catch {
+    return 'core';
+  }
+}
+
 export async function saveParentSettings(
   settings: Partial<ParentSettings>,
   options: SaveParentSettingsOptions = {},
@@ -286,6 +301,7 @@ function normalizeParentSettings(value: unknown): ParentSettings {
       settings.cloudProgressSync,
     ),
     crashReportingEnabled: Boolean(settings.crashReportingEnabled),
+    disabledThemeIds: normalizeDisabledThemeIds(settings.disabledThemeIds),
     enableSceneEditor: Boolean(settings.enableSceneEditor),
     hasCompletedOnboarding: Boolean(settings.hasCompletedOnboarding),
     journeyMode: settings.journeyMode === 'free' ? 'free' : 'guided',
@@ -305,6 +321,25 @@ function normalizeParentSettings(value: unknown): ParentSettings {
       settings.voiceRecordingLibrary,
     ),
   };
+}
+
+function normalizeDisabledThemeIds(value: unknown) {
+  if (!Array.isArray(value)) {
+    return undefined;
+  }
+
+  const requestedThemeIds = new Set(
+    value.filter((id): id is string => typeof id === 'string'),
+  );
+  const disabledThemeIds = themes
+    .map(theme => theme.id)
+    .filter(themeId => requestedThemeIds.has(themeId));
+
+  if (disabledThemeIds.length >= themes.length) {
+    disabledThemeIds.shift();
+  }
+
+  return disabledThemeIds.length > 0 ? disabledThemeIds : undefined;
 }
 
 function normalizeVisibleLessonIds(value: unknown) {

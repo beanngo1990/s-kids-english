@@ -6,6 +6,10 @@
   `src/assets/source/master/lessons/<lesson>/<scene>/images/`.
 - Keep raw/chroma generation inputs in `src/assets/source/lessons/`.
 - Treat `src/assets/lessons/**/images/*.webp` as generated output.
+- Base object images and every `SceneObject.variants[].asset` follow the same
+  PNG-master/WebP contract. Generic catalog, audit/build/verify, missing-image,
+  and runtime preload scans include variants even when their object starts
+  hidden or the variant is not active at entry.
 - Keep bundled UI icons and mascot images outside this lesson pipeline.
 - Bundled app UI PNG icons live in `src/assets/icons/app-ui/`; they are imported
   with local `require(...)` calls and are not uploaded to R2.
@@ -37,7 +41,10 @@
   `src/assets/lessons/<lesson>/<scene>/audio/{en-US,en-GB}/neural2-c-r1/`
   and `src/assets/shared/audio/{en-US,en-GB}/neural2-c-r1/`.
 - Keep `audio/en/` as the legacy en-US compatibility and rollback corpus.
-  Vietnamese audio remains under `audio/vi/`.
+  Vietnamese audio remains under `audio/vi/`. The audio generator treats every
+  registered `VocabularyItem.meaningVi` as a standalone Vietnamese target for
+  vocabulary review, in addition to authored instructions and feedback; equal
+  normalized meanings are generated only once.
 - `src/assets/source/` (raw master PNGs) and `src/assets/lessons/` (generated WebP images and WAV/MP3 audio) are excluded from Git repository tracking via `.gitignore` to maintain a lightweight Git repository (~30-50 MB instead of ~1.9 GB).
 - Lesson audio is synthesized via Google TTS (LINEAR16 24kHz), trimmed for silence, and encoded to MP3 (96 kbps mono) for optimal local disk usage and fast R2 delivery.
 - Runtime resolves all lesson images and audio from R2 CDN (`https://assets.sungy.net`). Local source and lesson asset folders are used solely during authoring, local audio/image build, and R2 upload workflows.
@@ -98,6 +105,141 @@ through R2. Restart Metro after creating or changing the preview lesson.
 All image scripts accept `--lesson=<lesson-id>`. `assets:build` also accepts
 `--force`; otherwise it skips outputs whose source hash, profile, and config
 signature are unchanged.
+
+If a lesson's gitignored PNG masters are lost but its immutable production WebP
+files are still on R2, restore a continuity copy with:
+
+```bash
+npm run assets:restore-masters-from-r2 -- --lesson=supermarket-trip --dry-run
+npm run assets:restore-masters-from-r2 -- --lesson=supermarket-trip
+```
+
+The restore command downloads every lesson WebP through `assets.sungy.net`,
+checks its byte count and SHA-256 against `src/assets/asset-manifest.json`, writes
+the exact production WebP locally, and decodes a PNG master. It updates only
+source provenance; output hashes and the image revision remain unchanged, so a
+normal `assets:build` skips the recovered assets. These PNGs are continuity
+copies derived from compressed production WebP, not replacements for original
+lossless authoring files. Do not use `assets:build --force` on them unless an
+intentional re-encode is acceptable; replace them with original/regenerated
+lossless masters when those become available.
+
+The `plant-a-seed` pilot has a bounded authoring command:
+
+```bash
+npm run assets:generate-plant-a-seed-pilot
+```
+
+It keeps the approved empty-pot master at
+`src/assets/source/master/lessons/plant-a-seed/shared/images/pot-empty.png`,
+derives same-canvas pot state masters, creates the remaining local pilot masters,
+and writes five optimized bundled map icons. Pass `--force` only when deliberately
+regenerating the pilot set. This command does not build WebP, generate audio, or
+contact R2; continue with the normal audit/build/verify commands afterward.
+
+Production art for this lesson is cut from a small set of shared generation
+sheets under
+`src/assets/source/lessons/plant-a-seed/production-sheets/`. Keep one portrait
+background master, one chroma-key object sheet per scene and the shared 3x2
+`action-objects-chroma.png`; objects must stay in the grid order encoded by the
+cutting script. Action cells are text-free transparent illustrations: do not put
+captions, card backgrounds, borders or labels into the raster. Runtime teacher
+copy and vocabulary own all child-facing text. After adding or replacing the
+sheets, generate all named PNG masters, pot state variants and bundled map icons
+together:
+
+```bash
+npm run assets:cut-plant-a-seed-production -- --force
+npm run assets:verify-plant-a-seed-cutouts
+```
+
+The cutter removes the magenta sheet background, writes final PNG masters to
+`src/assets/source/master/lessons/plant-a-seed/`, and preserves the approved
+empty-pot silhouette across every state. Continue with `assets:audit`,
+`assets:build`, and `assets:verify`; the cutter does not create WebP, synthesize
+audio, or contact R2.
+
+The `help-it-grow` vertical slice follows the same bounded sheet workflow. Its
+three alpha-keyed scene sheets live under
+`src/assets/source/lessons/help-it-grow/production-sheets/`; the cutter also
+reuses the approved pilot background, watering can, and time cue so the garden
+and hero-plant journey remain visually continuous:
+
+```bash
+npm run assets:cut-help-it-grow-production -- --force
+npm run assets:verify-help-it-grow-cutouts
+```
+
+This writes text-free 1024x1024 transparent object/action masters, three
+941x1672 background masters, and four bundled map icons. Continue with the
+standard lesson audit/build/verify commands. Neither command generates audio or
+contacts R2.
+
+`garden-friends` continues the bounded workflow with one text-free chroma sheet
+per scene so related objects are generated together before being cut:
+
+```bash
+npm run assets:cut-garden-friends-production -- --force
+npm run assets:verify-garden-friends-cutouts
+```
+
+The cutter keys the three local sheets, writes 1024x1024 transparent PNG
+masters, reuses the approved 941x1672 garden background, and generates four
+bundled map icons. It does not create WebP, synthesize audio, or contact R2;
+continue with the standard lesson audit/build/verify commands. These sheets
+use authored row gutters instead of three equal-height rows because the tall
+plant cells extend below the first equal division. The cutter rejects a cell
+whose visible pixels reach the crop border, and the cutout verifier rejects
+detached fragments around an observation ring; this prevents a clipped pot
+bottom from leaking into a butterfly or magnifying-glass asset.
+
+`harvest-day` also uses three text-free chroma sheets and a bounded cutter:
+
+```bash
+npm run assets:cut-harvest-day-production -- --force
+```
+
+The cutter writes the eroded mask back as a raw alpha channel before trim/resize;
+do not replace this with `joinChannel` on the encoded grayscale PNG buffer, which
+can silently return RGB output and turn transparent pixels into an opaque black
+matte. In addition to transparent crop-border checks, the cutter rejects any
+harvest cutout whose near-black opaque pixels exceed 12% of its canvas. Continue
+with the standard lesson audit/build/verify commands afterward.
+
+`garden-to-table` uses the same bounded three-sheet pattern:
+
+```bash
+npm run assets:cut-garden-to-table-production -- --force
+npm run assets:verify-garden-to-table-cutouts
+```
+
+The cutter removes the flat magenta plate, strips small connected fragments that
+touch a cell gutter, writes raw alpha before trim/resize, and generates three
+scene icons plus the lesson milestone icon. Both cutter and verifier reject
+opaque corners, visible chroma residue, empty sprites, and an opaque near-black
+matte above 12% of the canvas. This is the required guard for all 36 source
+cutouts; visual QA should additionally flatten the resulting PNG masters onto a
+light background so detached fragments remain easy to spot. The approved Theme
+4 garden background is reused for all three scenes. These commands do not create
+audio, WebP release outputs, or contact R2.
+
+`care-for-the-rabbit` and `groom-the-kitten` use one 4x3 chroma sheet per scene. Generate related
+poses and props together so every scene shares a locked character identity, then crop by stable
+row-major cell index:
+
+```bash
+npm run assets:cut-care-for-the-rabbit-production -- --force
+npm run assets:verify-care-for-the-rabbit-cutouts
+npm run assets:cut-groom-the-kitten-production -- --force
+npm run assets:verify-groom-the-kitten-cutouts
+```
+
+The rabbit sheets contain 11/9/11 populated cells. The kitten sheets contain 7/9/9 populated
+cells; `kitten-shiny-coat` is cell 9 of the grooming sheet so it cannot drift to a different
+render style or character identity. `--force` rebuilds alpha sheets, PNG masters and bundled map
+icons from the current chroma sheets. It does not replace those sheets from legacy IDE artifacts;
+that import is available only through the explicit `--import-artifacts` flag. Continue with the
+normal lesson audit/build/verify commands. These cutters do not generate audio or contact R2.
 
 The generated `src/assets/asset-manifest.json` records source and output hashes,
 dimensions, selected profile, alpha information, and the global image revision.

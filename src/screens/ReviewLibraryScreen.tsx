@@ -6,14 +6,18 @@ import { KidModeHeader } from '../components/KidModeHeader';
 import { KidModeTabs } from '../components/KidModeTabs';
 import { KidPlayPanel } from '../components/KidPlayPanel';
 import { Screen } from '../components/Screen';
+import { lessons } from '../data/lessons';
+import { themes } from '../data/themes';
 import { useMonetizationSnapshot } from '../engine/MonetizationManager';
 import { getParentSettings } from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
 import { useSavedAppLanguage } from '../i18n';
 import { layout } from '../theme/spacing';
 import type { RootStackParamList } from '../types/navigation';
+import { getEnabledLessonIds } from '../utils/lessonPlan';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ReviewLibrary'>;
+const allLessonIds = lessons.map(lesson => lesson.id);
 
 export function ReviewLibraryScreen({ navigation }: Props) {
   const monetizationSnapshot = useMonetizationSnapshot();
@@ -21,6 +25,28 @@ export function ReviewLibraryScreen({ navigation }: Props) {
   const [visibleLessonIds, setVisibleLessonIds] = useState<
     string[] | undefined
   >(undefined);
+  const [disabledThemeIds, setDisabledThemeIds] = useState<string[]>([]);
+  const enabledLessonIds = useMemo(
+    () =>
+      getEnabledLessonIds(
+        allLessonIds,
+        visibleLessonIds,
+        themes,
+        disabledThemeIds,
+      ),
+    [disabledThemeIds, visibleLessonIds],
+  );
+  const disabledThemeIdSet = useMemo(
+    () => new Set(disabledThemeIds),
+    [disabledThemeIds],
+  );
+  const activeThemeId =
+    themes.find(
+      theme =>
+        theme.id === progress?.activeThemeId &&
+        !disabledThemeIdSet.has(theme.id),
+    )?.id ??
+    themes.find(theme => !disabledThemeIdSet.has(theme.id))?.id;
   const appLanguage = useSavedAppLanguage();
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
@@ -35,8 +61,14 @@ export function ReviewLibraryScreen({ navigation }: Props) {
       .then(setProgress)
       .catch(() => setProgress(null));
     getParentSettings()
-      .then(settings => setVisibleLessonIds(settings.visibleLessonIds))
-      .catch(() => setVisibleLessonIds(undefined));
+      .then(settings => {
+        setDisabledThemeIds(settings.disabledThemeIds ?? []);
+        setVisibleLessonIds(settings.visibleLessonIds);
+      })
+      .catch(() => {
+        setDisabledThemeIds([]);
+        setVisibleLessonIds(undefined);
+      });
   }, []);
 
   useEffect(() => {
@@ -59,7 +91,7 @@ export function ReviewLibraryScreen({ navigation }: Props) {
           style={styles.scrollArea}
         >
           <KidPlayPanel
-            activeThemeId={progress?.activeThemeId}
+            activeThemeId={activeThemeId}
             appLanguage={appLanguage}
             completedReviewGameIds={completedReviewGameIds}
             completedSceneIds={completedSceneIds}
@@ -75,7 +107,7 @@ export function ReviewLibraryScreen({ navigation }: Props) {
             onOpenStickerPlayground={() =>
               navigation.navigate('StickerPlayground')
             }
-            visibleLessonIds={visibleLessonIds}
+            visibleLessonIds={enabledLessonIds}
           />
         </ScrollView>
         <KidModeTabs

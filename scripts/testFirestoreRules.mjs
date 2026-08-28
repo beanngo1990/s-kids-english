@@ -252,6 +252,7 @@ function validParentSettings(overrides = {}) {
       birthYear: 2020,
       name: 'Sweet kid',
     },
+    disabledThemeIds: ['theme-a'],
     englishAccent: 'en-US',
     hasCompletedOnboarding: true,
     journeyMode: 'guided',

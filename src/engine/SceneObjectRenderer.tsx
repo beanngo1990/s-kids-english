@@ -29,6 +29,7 @@ import { type DragTranslation, getPercentRectStyle } from './PositionUtils';
 export type SceneObjectEffect = ObjectAnimationEffect;
 
 type SceneObjectRendererProps = {
+  animateEntrance?: boolean;
   object: SceneObject;
   label: string;
   isTargeted: boolean;
@@ -37,6 +38,7 @@ type SceneObjectRendererProps = {
   isDraggable?: boolean;
   isInteractionTarget?: boolean;
   shouldMagnify?: boolean;
+  reduceMotion?: boolean;
   effect: SceneObjectEffect;
   onPress: (objectId: string) => void;
   onDragStart?: (objectId: string) => void;
@@ -52,6 +54,7 @@ const fallbackSmallSidePercent = 11;
 const fallbackFocusedObjectScale = 1.16;
 
 export function SceneObjectRenderer({
+  animateEntrance = false,
   object,
   label,
   isTargeted,
@@ -60,6 +63,7 @@ export function SceneObjectRenderer({
   isDraggable = false,
   isInteractionTarget = false,
   shouldMagnify = true,
+  reduceMotion = false,
   effect,
   onPress,
   onDragStart,
@@ -75,6 +79,9 @@ export function SceneObjectRenderer({
     string | null
   >(null);
   const targetPulse = useRef(new Animated.Value(0)).current;
+  const entranceProgress = useRef(
+    new Animated.Value(animateEntrance && !reduceMotion ? 0 : 1),
+  ).current;
   const focusScale = useRef(new Animated.Value(1)).current;
   const scale = useRef(new Animated.Value(1)).current;
   const translateX = useRef(new Animated.Value(0)).current;
@@ -95,6 +102,8 @@ export function SceneObjectRenderer({
   const shouldShowFallback = !canUseImage || hasImageError;
   const isDragEnabled = isDraggable && !isDisabled && object.isInteractive;
   const isLearningObject = object.role === 'learning';
+  const isTransparentObject =
+    isLearningObject || object.presentation === 'cutout';
   const imageHeightRatio = isLearningObject
     ? 0.86
     : object.role === 'character'
@@ -169,6 +178,26 @@ export function SceneObjectRenderer({
     // Default generous hit slop for kids if no touchArea is defined
     return { top: 24, bottom: 24, left: 24, right: 24 };
   }, [object.touchArea, object.position, stageSize]);
+
+  useEffect(() => {
+    entranceProgress.stopAnimation();
+
+    if (!animateEntrance || reduceMotion) {
+      entranceProgress.setValue(1);
+      return;
+    }
+
+    entranceProgress.setValue(0);
+    const animation = Animated.timing(entranceProgress, {
+      duration: 260,
+      easing: Easing.out(Easing.cubic),
+      toValue: 1,
+      useNativeDriver: true,
+    });
+    animation.start();
+
+    return () => animation.stop();
+  }, [animateEntrance, entranceProgress, reduceMotion]);
 
   useEffect(() => {
     if (shouldBounce(effect)) {
@@ -291,6 +320,14 @@ export function SceneObjectRenderer({
     inputRange: [0, 1],
     outputRange: [1, 1.08],
   });
+  const entranceOpacity = entranceProgress.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, isDimmed ? dimOpacity : 1],
+  });
+  const entranceScale = entranceProgress.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.94, 1],
+  });
 
   return (
     <Animated.View
@@ -299,12 +336,13 @@ export function SceneObjectRenderer({
       style={[
         getPercentRectStyle(object.position),
         styles.wrapper,
-        isDimmed && styles.dimmed,
         isInteractionTarget && styles.interactionTargetWrapper,
         isTargeted && styles.targetedWrapper,
         isDragEnabled && styles.draggableWrapper,
         {
+          opacity: entranceOpacity,
           transform: [
+            { scale: entranceScale },
             { scale },
             { translateX: drag.x },
             { translateY: drag.y },
@@ -324,7 +362,7 @@ export function SceneObjectRenderer({
         onPress={() => onPress(object.id)}
         style={({ pressed }) => [
           styles.pressable,
-          isLearningObject && styles.learningPressable,
+          isTransparentObject && styles.transparentPressable,
           object.role === 'character' && styles.character,
           isDragEnabled && styles.draggable,
           pressed && !isDisabled && styles.pressed,
@@ -333,7 +371,7 @@ export function SceneObjectRenderer({
         <Animated.View
           style={[
             styles.assetBubble,
-            isLearningObject && styles.learningAssetBubble,
+            isTransparentObject && styles.transparentAssetBubble,
             object.role === 'character' && styles.characterAssetBubble,
             { transform: [{ scale: focusScale }] },
           ]}
@@ -565,9 +603,6 @@ const styles = createThemedStyles(() => ({
     bottom: '1%',
     top: '1%',
   },
-  dimmed: {
-    opacity: dimOpacity,
-  },
   draggable: {
     borderColor: colors.primary,
   },
@@ -600,7 +635,7 @@ const styles = createThemedStyles(() => ({
     textAlign: 'center',
     ...typography.caption,
   },
-  learningAssetBubble: {
+  transparentAssetBubble: {
     backgroundColor: 'transparent',
     padding: 0,
   },
@@ -623,7 +658,7 @@ const styles = createThemedStyles(() => ({
     paddingHorizontal: spacing.sm,
     paddingVertical: 2,
   },
-  learningPressable: {
+  transparentPressable: {
     backgroundColor: 'transparent',
     borderWidth: 0,
     elevation: 0,

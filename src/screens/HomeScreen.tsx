@@ -23,8 +23,12 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { type SKidsIconName } from '../assets/icons/skids';
 import { KidBadge } from '../components/KidBadge';
 import { KidModeHeader } from '../components/KidModeHeader';
-import { KidModeTabs, type KidModeTab } from '../components/KidModeTabs';
+import {
+  KidModeTabShell,
+  useKidModeActiveTab,
+} from '../components/KidModeTabShell';
 import { KidPlayPanel } from '../components/KidPlayPanel';
+import { KidPressable } from '../components/KidPressable';
 import { MascotSpeechBubble } from '../components/mascot';
 import { PremiumIcon } from '../components/PremiumIcon';
 import { Screen } from '../components/Screen';
@@ -44,8 +48,12 @@ import {
   getMonetizationSnapshot,
   useMonetizationSnapshot,
 } from '../engine/MonetizationManager';
-import { getParentSettings } from '../engine/ParentSettingsManager';
+import {
+  getParentSettings,
+  resolveLearningModePreference,
+} from '../engine/ParentSettingsManager';
 import { getProgress, type LocalProgress } from '../engine/ProgressManager';
+import { hasSceneVocabularyVisuals } from '../engine/VocabularyVisualResolver';
 import {
   getLocalizedLessonTitle,
   getLocalizedSceneTitle,
@@ -61,6 +69,7 @@ import {
 } from '../theme/colors';
 import { layout, radius, spacing } from '../theme/spacing';
 import { shadows } from '../theme/shadows';
+import { useReducedMotion } from '../theme/motion';
 import { typography } from '../theme/typography';
 import type { LearningMode, Lesson, LessonTheme, Scene } from '../types/lesson';
 import type { RootStackParamList } from '../types/navigation';
@@ -73,6 +82,7 @@ import {
   getSceneProgressId,
   isSceneProgressComplete,
 } from '../utils/lessonProgress';
+import { getEnabledLessonIds } from '../utils/lessonPlan';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 type MapAlignment = 'left' | 'center' | 'right';
@@ -106,43 +116,56 @@ const connectorDots = Array.from({ length: 9 }, (_, index) => index);
 const connectorHeight = 56;
 const connectorLongHeight = 72;
 const connectorShortHeight = 44;
+const allLessonIds = lessons.map(lesson => lesson.id);
 
 export function HomeScreen({ navigation, route }: Props) {
   useThemeSync();
   const t = useI18n();
+  const reducedMotion = useReducedMotion();
   const monetizationSnapshot = useMonetizationSnapshot();
-  const [activeTab, setActiveTab] = useState<KidModeTab>(
-    route?.params?.activeTab ?? 'map',
-  );
-
-  useEffect(() => {
-    if (route?.params?.activeTab) {
-      setActiveTab(route.params.activeTab);
-    }
-  }, [route?.params?.activeTab]);
   const [progress, setProgress] = useState<LocalProgress | null>(null);
-  const [learningMode, setLearningMode] = useState<LearningMode>('core');
+  const [learningMode, setLearningMode] = useState<LearningMode>();
   const [journeyMode, setJourneyMode] = useState<'guided' | 'free'>('guided');
   const appLanguage = useSavedAppLanguage();
   const [visibleLessonIds, setVisibleLessonIds] = useState<
     string[] | undefined
   >(undefined);
+  const [disabledThemeIds, setDisabledThemeIds] = useState<string[]>([]);
   const [mapLayoutVersion, setMapLayoutVersion] = useState(0);
-  const [showFocusButton, setShowFocusButton] = useState(false);
   const [isHubOpen, setIsHubOpen] = useState(false);
-  const mapScrollRef = useRef<ScrollView | null>(null);
   const mapRootYByKeyRef = useRef<Record<string, number>>({});
   const mapSectionYByKeyRef = useRef<Record<string, number>>({});
   const mapSectionBodyYByKeyRef = useRef<Record<string, number>>({});
   const mapNodeYByKeyRef = useRef<Record<string, number>>({});
-  const lastAutoScrolledNodeKeyRef = useRef<string | null>(null);
   const lastKidLockPromptAtRef = useRef(0);
-  const activeThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
+  const disabledThemeIdSet = useMemo(
+    () => new Set(disabledThemeIds),
+    [disabledThemeIds],
+  );
+  const storedActiveThemeId = progress?.activeThemeId ?? DEFAULT_THEME_ID;
   const activeTheme =
-    getThemeById(activeThemeId) ?? getThemeById(DEFAULT_THEME_ID) ?? themes[0];
+    themes.find(
+      theme =>
+        theme.id === storedActiveThemeId &&
+        !disabledThemeIdSet.has(theme.id),
+    ) ??
+    themes.find(theme => !disabledThemeIdSet.has(theme.id)) ??
+    getThemeById(DEFAULT_THEME_ID) ??
+    themes[0];
+  const activeThemeId = activeTheme.id;
+  const enabledLessonIds = useMemo(
+    () =>
+      getEnabledLessonIds(
+        allLessonIds,
+        visibleLessonIds,
+        themes,
+        disabledThemeIds,
+      ),
+    [disabledThemeIds, visibleLessonIds],
+  );
   const themeLessons = useMemo(
-    () => getThemeLessons(activeTheme, visibleLessonIds),
-    [activeTheme, visibleLessonIds],
+    () => getThemeLessons(activeTheme, enabledLessonIds),
+    [activeTheme, enabledLessonIds],
   );
   const mapNodes = useMemo(
     () => buildThemeMapNodes(themeLessons, appLanguage),
@@ -152,6 +175,17 @@ export function HomeScreen({ navigation, route }: Props) {
     () => buildThemeMapSections(themeLessons, appLanguage),
     [appLanguage, themeLessons],
   );
+  const vocabularyPlaygroundNodeKeys = useMemo(() => {
+    if (!learningMode) {
+      return new Set<string>();
+    }
+
+    return new Set(
+      mapNodes
+        .filter(node => hasSceneVocabularyVisuals(node.scene, learningMode))
+        .map(node => node.key),
+    );
+  }, [learningMode, mapNodes]);
   const completedSceneIds = useMemo(
     () => new Set(progress?.completedSceneIds ?? []),
     [progress],
@@ -287,11 +321,13 @@ export function HomeScreen({ navigation, route }: Props) {
       .then(settings => {
         setLearningMode(settings.learningMode);
         setJourneyMode(settings.journeyMode);
+        setDisabledThemeIds(settings.disabledThemeIds ?? []);
         setVisibleLessonIds(settings.visibleLessonIds);
       })
       .catch(() => {
         setLearningMode('core');
         setJourneyMode('guided');
+        setDisabledThemeIds([]);
         setVisibleLessonIds(undefined);
       });
   }, []);
@@ -300,126 +336,6 @@ export function HomeScreen({ navigation, route }: Props) {
     refreshHomeData();
     return navigation.addListener('focus', refreshHomeData);
   }, [navigation, refreshHomeData]);
-
-  useEffect(() => {
-    if (activeTab !== 'map') {
-      lastAutoScrolledNodeKeyRef.current = null;
-    }
-  }, [activeTab]);
-
-  useEffect(() => {
-    const targetNodeKey = ctaNode?.key;
-
-    if (
-      activeTab !== 'map' ||
-      !targetNodeKey ||
-      lastAutoScrolledNodeKeyRef.current === targetNodeKey
-    ) {
-      return;
-    }
-
-    const rootY = mapRootYByKeyRef.current;
-    const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
-    const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
-    const nodeY = mapNodeYByKeyRef.current[targetNodeKey];
-
-    if (
-      rootY.container === undefined ||
-      rootY.world === undefined ||
-      rootY.learningMap === undefined ||
-      sectionY === undefined ||
-      sectionBodyY === undefined ||
-      nodeY === undefined
-    ) {
-      return;
-    }
-
-    const targetY =
-      rootY.container +
-      rootY.world +
-      rootY.learningMap +
-      sectionY +
-      sectionBodyY +
-      nodeY;
-    const scrollY = Math.max(targetY - 160, 0);
-    const scrollTimeout = setTimeout(() => {
-      mapScrollRef.current?.scrollTo({ animated: false, y: scrollY });
-      lastAutoScrolledNodeKeyRef.current = targetNodeKey;
-    }, 40);
-
-    return () => clearTimeout(scrollTimeout);
-  }, [activeTab, ctaNode, mapLayoutVersion]);
-
-  const scrollToCurrentNode = useCallback(() => {
-    const targetNodeKey = ctaNode?.key;
-    if (!targetNodeKey) return;
-
-    const rootY = mapRootYByKeyRef.current;
-    const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
-    const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
-    const nodeY = mapNodeYByKeyRef.current[targetNodeKey];
-
-    if (
-      rootY.container === undefined ||
-      rootY.world === undefined ||
-      rootY.learningMap === undefined ||
-      sectionY === undefined ||
-      sectionBodyY === undefined ||
-      nodeY === undefined
-    ) {
-      return;
-    }
-
-    const targetY =
-      rootY.container +
-      rootY.world +
-      rootY.learningMap +
-      sectionY +
-      sectionBodyY +
-      nodeY;
-    const scrollY = Math.max(targetY - 160, 0);
-    mapScrollRef.current?.scrollTo({ animated: true, y: scrollY });
-  }, [ctaNode]);
-
-  const handleMapScroll = useCallback(
-    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-      const offsetY = event.nativeEvent.contentOffset.y;
-
-      const targetNodeKey = ctaNode?.key;
-      if (!targetNodeKey) return;
-
-      const rootY = mapRootYByKeyRef.current;
-      const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
-      const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
-      const nodeY = mapNodeYByKeyRef.current[targetNodeKey];
-
-      if (
-        rootY.container === undefined ||
-        rootY.world === undefined ||
-        rootY.learningMap === undefined ||
-        sectionY === undefined ||
-        sectionBodyY === undefined ||
-        nodeY === undefined
-      ) {
-        return;
-      }
-
-      const targetY =
-        rootY.container +
-        rootY.world +
-        rootY.learningMap +
-        sectionY +
-        sectionBodyY +
-        nodeY;
-
-      const optimalY = Math.max(targetY - 160, 0);
-      const isFar = Math.abs(offsetY - optimalY) > 500;
-      if (showFocusButton !== isFar) {
-        setShowFocusButton(isFar);
-      }
-    },
-    [ctaNode, showFocusButton],
-  );
 
   const promptLanguage = useSavedPromptLanguage();
 
@@ -483,14 +399,40 @@ export function HomeScreen({ navigation, route }: Props) {
   );
 
   const openNode = useCallback(
-    (node: ThemeMapNode) => {
+    async (node: ThemeMapNode) => {
       if (!canAccessLesson(node.lessonId, getMonetizationSnapshot())) {
         showPremiumLock(node.lessonId);
         return;
       }
 
-      navigation.navigate('ScenePlayer', {
+      const activeLearningMode = await resolveLearningModePreference(
         learningMode,
+      );
+      navigation.navigate('ScenePlayer', {
+        learningMode: activeLearningMode,
+        lessonId: node.lessonId,
+        sceneId: node.scene.id,
+      });
+    },
+    [learningMode, navigation, showPremiumLock],
+  );
+
+  const openVocabularyPlayground = useCallback(
+    async (node: ThemeMapNode) => {
+      if (!canAccessLesson(node.lessonId, getMonetizationSnapshot())) {
+        showPremiumLock(node.lessonId);
+        return;
+      }
+
+      const activeLearningMode = await resolveLearningModePreference(
+        learningMode,
+      );
+      if (!hasSceneVocabularyVisuals(node.scene, activeLearningMode)) {
+        return;
+      }
+
+      navigation.navigate('SceneVocabularyPlayground', {
+        learningMode: activeLearningMode,
         lessonId: node.lessonId,
         sceneId: node.scene.id,
       });
@@ -499,15 +441,18 @@ export function HomeScreen({ navigation, route }: Props) {
   );
 
   const openReviewGame = useCallback(
-    (lessonId: string) => {
+    async (lessonId: string) => {
       if (!canAccessReview(lessonId, getMonetizationSnapshot())) {
         showPremiumLock(lessonId);
         return;
       }
 
+      const activeLearningMode = await resolveLearningModePreference(
+        learningMode,
+      );
       navigation.navigate('ReviewGame', {
         lessonId,
-        learningMode,
+        learningMode: activeLearningMode,
       });
     },
     [learningMode, navigation, showPremiumLock],
@@ -523,6 +468,16 @@ export function HomeScreen({ navigation, route }: Props) {
   }, []);
 
   const handleHubPrimaryPress = useCallback(() => {
+    const isPrimaryLockedNow = Boolean(
+      hubPrimaryLessonId &&
+        !canAccessLesson(
+          hubPrimaryLessonId,
+          getMonetizationSnapshot(),
+        ),
+    );
+    if (!isPrimaryLockedNow) {
+      playTapSound().catch(() => undefined);
+    }
     setIsHubOpen(false);
 
     if (pendingReviewLesson?.reviewGame) {
@@ -533,13 +488,13 @@ export function HomeScreen({ navigation, route }: Props) {
     if (ctaNode) {
       openNode(ctaNode);
     }
-  }, [ctaNode, openNode, openReviewGame, pendingReviewLesson]);
-
-  const handleHubFocusPress = useCallback(() => {
-    setIsHubOpen(false);
-    setActiveTab('map');
-    setTimeout(scrollToCurrentNode, 80);
-  }, [scrollToCurrentNode]);
+  }, [
+    ctaNode,
+    hubPrimaryLessonId,
+    openNode,
+    openReviewGame,
+    pendingReviewLesson,
+  ]);
 
   const handleOpenStickerCollection = useCallback(() => {
     playTapSound().catch(() => undefined);
@@ -548,7 +503,6 @@ export function HomeScreen({ navigation, route }: Props) {
   }, [navigation]);
 
   const handleOpenStickerPlayground = useCallback(() => {
-    playTapSound().catch(() => undefined);
     navigation.navigate('StickerPlayground');
   }, [navigation]);
 
@@ -562,21 +516,19 @@ export function HomeScreen({ navigation, route }: Props) {
           onOpenParent={() => navigation.navigate('Parent')}
           onOpenThemeLibrary={() => navigation.navigate('ThemeLibrary')}
         />
-        <View style={styles.tabContent}>
-          <View
-            style={[
-              styles.tabPane,
-              activeTab !== 'map' && styles.tabPaneHidden,
-            ]}
-          >
-            <ScrollView
-              ref={mapScrollRef}
-              contentInsetAdjustmentBehavior="automatic"
-              contentContainerStyle={styles.scrollContent}
-              style={styles.scrollArea}
-              showsVerticalScrollIndicator={false}
-              onScroll={handleMapScroll}
-              scrollEventThrottle={32}
+        <KidModeTabShell
+          initialTab={route?.params?.activeTab ?? 'map'}
+          requestedTab={route?.params?.activeTab}
+          mapPane={
+            <HomeMapPane
+              ctaNode={ctaNode}
+              focusAccessibilityLabel={t('home.map.focusCurrent')}
+              mapLayoutVersion={mapLayoutVersion}
+              mapNodeYByKeyRef={mapNodeYByKeyRef}
+              mapRootYByKeyRef={mapRootYByKeyRef}
+              mapSectionBodyYByKeyRef={mapSectionBodyYByKeyRef}
+              mapSectionYByKeyRef={mapSectionYByKeyRef}
+              reducedMotion={reducedMotion}
             >
               <View
                 onLayout={(event: LayoutChangeEvent) =>
@@ -626,6 +578,7 @@ export function HomeScreen({ navigation, route }: Props) {
                           appLanguage,
                         )}
                         onPress={() => openParentPremium(nextPremiumLesson.id)}
+                        reducedMotion={reducedMotion}
                         total={freeContentProgress.total}
                       />
                     ) : null}
@@ -945,6 +898,11 @@ export function HomeScreen({ navigation, route }: Props) {
                                   ctaNode?.key === node.key ||
                                   nextNode?.key === node.key ||
                                   isThemeComplete;
+                                const hasVocabularyPlayground = Boolean(
+                                  isCompleted &&
+                                    !isLessonPremiumLocked &&
+                                    vocabularyPlaygroundNodeKeys.has(node.key),
+                                );
 
                                 return (
                                   <React.Fragment key={node.key}>
@@ -971,6 +929,9 @@ export function HomeScreen({ navigation, route }: Props) {
                                         node.sceneIndexInLesson
                                       }
                                       sceneTitle={node.sceneTitle}
+                                      hasVocabularyPlayground={
+                                        hasVocabularyPlayground
+                                      }
                                       onLayout={(event: LayoutChangeEvent) =>
                                         updateMapLayoutY(
                                           mapNodeYByKeyRef,
@@ -995,6 +956,10 @@ export function HomeScreen({ navigation, route }: Props) {
 
                                         openNode(node);
                                       }}
+                                      onVocabularyPlaygroundPress={() =>
+                                        openVocabularyPlayground(node)
+                                      }
+                                      reducedMotion={reducedMotion}
                                     />
                                     {nodeIndex < section.nodes.length - 1 ? (
                                       <MapConnector
@@ -1053,6 +1018,7 @@ export function HomeScreen({ navigation, route }: Props) {
                                         showProgressLock();
                                       }
                                     }}
+                                    reducedMotion={reducedMotion}
                                   />
 
                                   {section.lessonIndex <
@@ -1074,21 +1040,9 @@ export function HomeScreen({ navigation, route }: Props) {
                   </View>
                 ) : null}
               </View>
-            </ScrollView>
-
-            {showFocusButton && activeTab === 'map' ? (
-              <Pressable style={styles.focusFab} onPress={scrollToCurrentNode}>
-                <SKidsIcon name="focusLesson" size={32} />
-              </Pressable>
-            ) : null}
-          </View>
-
-          <View
-            style={[
-              styles.tabPane,
-              activeTab !== 'play' && styles.tabPaneHidden,
-            ]}
-          >
+            </HomeMapPane>
+          }
+          playPane={
             <ScrollView
               contentInsetAdjustmentBehavior="automatic"
               contentContainerStyle={styles.playScrollContent}
@@ -1104,19 +1058,12 @@ export function HomeScreen({ navigation, route }: Props) {
                 onOpenPremium={openParentPremium}
                 onOpenReviewGame={openReviewGame}
                 onOpenStickerPlayground={handleOpenStickerPlayground}
-                visibleLessonIds={visibleLessonIds}
+                visibleLessonIds={enabledLessonIds}
               />
             </ScrollView>
-          </View>
-        </View>
-        <KidModeTabs
-          activeTab={activeTab}
-          onSelectMap={() => setActiveTab('map')}
-          onSelectPlay={() => setActiveTab('play')}
+          }
         />
         <SKidsHubSheet
-          activeThemeEmoji={activeTheme?.thumbnailEmoji ?? '★'}
-          activeThemeIconName={activeTheme?.iconName}
           activeThemeTitle={
             activeTheme
               ? getLocalizedThemeTitle(activeTheme, appLanguage)
@@ -1130,10 +1077,10 @@ export function HomeScreen({ navigation, route }: Props) {
           isPrimaryPremiumResolving={isHubPrimaryPremiumResolving}
           nextNode={ctaNode}
           onClose={closeHub}
-          onFocusCurrent={handleHubFocusPress}
           onOpenPrimary={handleHubPrimaryPress}
           onOpenStickerCollection={handleOpenStickerCollection}
           pendingReviewLesson={pendingReviewLesson}
+          reducedMotion={reducedMotion}
           total={mapNodes.length}
           visible={isHubOpen}
         />
@@ -1142,10 +1089,190 @@ export function HomeScreen({ navigation, route }: Props) {
   );
 }
 
+type MapLayoutRef = React.MutableRefObject<Record<string, number>>;
+
+type HomeMapPaneProps = {
+  children: React.ReactNode;
+  ctaNode: ThemeMapNode | undefined;
+  focusAccessibilityLabel: string;
+  mapLayoutVersion: number;
+  mapNodeYByKeyRef: MapLayoutRef;
+  mapRootYByKeyRef: MapLayoutRef;
+  mapSectionBodyYByKeyRef: MapLayoutRef;
+  mapSectionYByKeyRef: MapLayoutRef;
+  reducedMotion: boolean;
+};
+
+function HomeMapPane({
+  children,
+  ctaNode,
+  focusAccessibilityLabel,
+  mapLayoutVersion,
+  mapNodeYByKeyRef,
+  mapRootYByKeyRef,
+  mapSectionBodyYByKeyRef,
+  mapSectionYByKeyRef,
+  reducedMotion,
+}: HomeMapPaneProps) {
+  const activeTab = useKidModeActiveTab();
+  const isMapActive = activeTab === 'map';
+  const [showFocusButton, setShowFocusButton] = useState(false);
+  const mapScrollRef = useRef<ScrollView | null>(null);
+  const lastAutoScrolledNodeKeyRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    const targetNodeKey = ctaNode?.key;
+    if (
+      !isMapActive ||
+      !targetNodeKey ||
+      lastAutoScrolledNodeKeyRef.current === targetNodeKey
+    ) {
+      return;
+    }
+
+    const scrollY = getMapTargetScrollY(
+      ctaNode,
+      mapRootYByKeyRef,
+      mapSectionYByKeyRef,
+      mapSectionBodyYByKeyRef,
+      mapNodeYByKeyRef,
+    );
+    if (scrollY === undefined) {
+      return;
+    }
+
+    const scrollTimeout = setTimeout(() => {
+      mapScrollRef.current?.scrollTo({ animated: false, y: scrollY });
+      lastAutoScrolledNodeKeyRef.current = targetNodeKey;
+    }, 40);
+
+    return () => clearTimeout(scrollTimeout);
+  }, [
+    ctaNode,
+    isMapActive,
+    mapLayoutVersion,
+    mapNodeYByKeyRef,
+    mapRootYByKeyRef,
+    mapSectionBodyYByKeyRef,
+    mapSectionYByKeyRef,
+  ]);
+
+  const scrollToCurrentNode = useCallback(() => {
+    const scrollY = getMapTargetScrollY(
+      ctaNode,
+      mapRootYByKeyRef,
+      mapSectionYByKeyRef,
+      mapSectionBodyYByKeyRef,
+      mapNodeYByKeyRef,
+    );
+    if (scrollY !== undefined) {
+      mapScrollRef.current?.scrollTo({ animated: true, y: scrollY });
+    }
+  }, [
+    ctaNode,
+    mapNodeYByKeyRef,
+    mapRootYByKeyRef,
+    mapSectionBodyYByKeyRef,
+    mapSectionYByKeyRef,
+  ]);
+
+  const handleMapScroll = useCallback(
+    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+      const scrollY = getMapTargetScrollY(
+        ctaNode,
+        mapRootYByKeyRef,
+        mapSectionYByKeyRef,
+        mapSectionBodyYByKeyRef,
+        mapNodeYByKeyRef,
+      );
+      if (scrollY === undefined) {
+        return;
+      }
+
+      const offsetY = event.nativeEvent.contentOffset.y;
+      const isFar = Math.abs(offsetY - scrollY) > 500;
+      setShowFocusButton(current => (current === isFar ? current : isFar));
+    },
+    [
+      ctaNode,
+      mapNodeYByKeyRef,
+      mapRootYByKeyRef,
+      mapSectionBodyYByKeyRef,
+      mapSectionYByKeyRef,
+    ],
+  );
+
+  return (
+    <>
+      <ScrollView
+        ref={mapScrollRef}
+        contentInsetAdjustmentBehavior="automatic"
+        contentContainerStyle={styles.scrollContent}
+        onScroll={handleMapScroll}
+        scrollEventThrottle={32}
+        showsVerticalScrollIndicator={false}
+        style={styles.scrollArea}
+      >
+        {children}
+      </ScrollView>
+      {showFocusButton && isMapActive ? (
+        <KidPressable
+          accessibilityLabel={focusAccessibilityLabel}
+          accessibilityRole="button"
+          feedback="soft"
+          onPress={scrollToCurrentNode}
+          playSound
+          reducedMotion={reducedMotion}
+          style={styles.focusFab}
+        >
+          <SKidsIcon name="focusLesson" size={32} />
+        </KidPressable>
+      ) : null}
+    </>
+  );
+}
+
+function getMapTargetScrollY(
+  ctaNode: ThemeMapNode | undefined,
+  mapRootYByKeyRef: MapLayoutRef,
+  mapSectionYByKeyRef: MapLayoutRef,
+  mapSectionBodyYByKeyRef: MapLayoutRef,
+  mapNodeYByKeyRef: MapLayoutRef,
+) {
+  if (!ctaNode) {
+    return undefined;
+  }
+
+  const rootY = mapRootYByKeyRef.current;
+  const sectionY = mapSectionYByKeyRef.current[ctaNode.lessonId];
+  const sectionBodyY = mapSectionBodyYByKeyRef.current[ctaNode.lessonId];
+  const nodeY = mapNodeYByKeyRef.current[ctaNode.key];
+  if (
+    rootY.container === undefined ||
+    rootY.world === undefined ||
+    rootY.learningMap === undefined ||
+    sectionY === undefined ||
+    sectionBodyY === undefined ||
+    nodeY === undefined
+  ) {
+    return undefined;
+  }
+
+  const targetY =
+    rootY.container +
+    rootY.world +
+    rootY.learningMap +
+    sectionY +
+    sectionBodyY +
+    nodeY;
+  return Math.max(targetY - 160, 0);
+}
+
 type FreeProgressPremiumCtaProps = {
   completed: number;
   nextLessonTitle: string;
   onPress: () => void;
+  reducedMotion: boolean;
   total: number;
 };
 
@@ -1153,21 +1280,21 @@ function FreeProgressPremiumCta({
   completed,
   nextLessonTitle,
   onPress,
+  reducedMotion,
   total,
 }: FreeProgressPremiumCtaProps) {
   const t = useI18n();
 
   return (
-    <Pressable
+    <KidPressable
       accessibilityLabel={t('home.freePremiumCta.accessibility', {
         lessonTitle: nextLessonTitle,
       })}
       accessibilityRole="button"
+      feedback="card"
       onPress={onPress}
-      style={({ pressed }) => [
-        styles.freePremiumCta,
-        pressed && styles.freePremiumCtaPressed,
-      ]}
+      reducedMotion={reducedMotion}
+      style={styles.freePremiumCta}
     >
       <View style={styles.freePremiumCtaIcon}>
         <PremiumIcon size={34} />
@@ -1193,13 +1320,11 @@ function FreeProgressPremiumCta({
           <Text style={styles.freePremiumCtaActionArrow}>→</Text>
         </View>
       </View>
-    </Pressable>
+    </KidPressable>
   );
 }
 
 type SKidsHubSheetProps = {
-  activeThemeEmoji: string;
-  activeThemeIconName?: SKidsIconName;
   activeThemeTitle: string;
   appLanguage: AppLanguage;
   completed: number;
@@ -1209,17 +1334,15 @@ type SKidsHubSheetProps = {
   isPrimaryPremiumResolving: boolean;
   nextNode: ThemeMapNode | undefined;
   onClose: () => void;
-  onFocusCurrent: () => void;
   onOpenPrimary: () => void;
   onOpenStickerCollection: () => void;
   pendingReviewLesson: Lesson | undefined;
+  reducedMotion: boolean;
   total: number;
   visible: boolean;
 };
 
 function SKidsHubSheet({
-  activeThemeEmoji,
-  activeThemeIconName,
   activeThemeTitle,
   appLanguage,
   completed,
@@ -1229,10 +1352,10 @@ function SKidsHubSheet({
   isPrimaryPremiumResolving,
   nextNode,
   onClose,
-  onFocusCurrent,
   onOpenPrimary,
   onOpenStickerCollection,
   pendingReviewLesson,
+  reducedMotion,
   total,
   visible,
 }: SKidsHubSheetProps) {
@@ -1308,137 +1431,117 @@ function SKidsHubSheet({
             showsVerticalScrollIndicator={false}
           >
             <View style={styles.hubHeader}>
-              <View style={styles.hubLogoBadge}>
-                {activeThemeIconName ? (
-                  <SKidsIcon name={activeThemeIconName} size={44} />
-                ) : (
-                  <Text style={styles.hubLogoEmoji}>{activeThemeEmoji}</Text>
-                )}
-              </View>
-              <View style={styles.hubHeaderText}>
-                <Text style={styles.hubEyebrow}>Sungy Hub</Text>
-                <Text style={styles.hubTitle}>{t('home.hub.title')}</Text>
-              </View>
-              <Pressable
+              <Text style={styles.hubTitle}>{t('home.hub.title')}</Text>
+              <KidPressable
                 accessibilityLabel={t('home.hub.closeAccessibility')}
                 accessibilityRole="button"
+                feedback="soft"
+                hitSlop={8}
                 onPress={onClose}
-                style={({ pressed }) => [
-                  styles.hubCloseButton,
-                  pressed && styles.hubButtonPressed,
-                ]}
+                playSound
+                reducedMotion={reducedMotion}
+                style={styles.hubCloseButton}
               >
-                <Text style={styles.hubCloseText}>{t('common.close')}</Text>
-              </Pressable>
+                <Text style={styles.hubCloseText}>×</Text>
+              </KidPressable>
             </View>
 
-            <View style={styles.hubHeroCard}>
-              <View style={styles.hubHeroIcon}>
-                <SKidsIcon name={heroIconName} size={54} />
-              </View>
-              <View style={styles.hubHeroText}>
-                <Text numberOfLines={2} style={styles.hubHeroTitle}>
-                  {heroTitle}
-                </Text>
-                <Text style={styles.hubHeroSubtitle}>{heroSubtitle}</Text>
-              </View>
-            </View>
-
-            <View style={styles.hubProgressBlock}>
-              <View style={styles.hubProgressTopRow}>
-                <Text style={styles.hubSectionTitle}>{activeThemeTitle}</Text>
-                <Text style={styles.hubProgressLabel}>
-                  {safeCompleted}/{safeTotal}
-                </Text>
-              </View>
-              <View
-                accessibilityLabel={t('home.hub.progressAccessibility', {
-                  percent: String(completionPercent),
-                })}
-                accessibilityRole="progressbar"
-                style={styles.hubProgressTrack}
-              >
-                <View
-                  style={[
-                    styles.hubProgressFill,
-                    { width: `${completionPercent}%` },
-                  ]}
-                />
-              </View>
-            </View>
-
-            <View style={styles.hubStatsRow}>
-              <View style={styles.hubStatCard}>
-                <Text style={styles.hubStatValue}>{safeCompleted}</Text>
-                <Text style={styles.hubStatLabel}>
-                  {t('home.hub.starsEarned')}
-                </Text>
-              </View>
-              <View style={styles.hubStatCard}>
-                <Text style={styles.hubStatValue}>
-                  {Math.max(safeTotal - safeCompleted, 0)}
-                </Text>
-                <Text style={styles.hubStatLabel}>
-                  {t('home.hub.stopsRemaining')}
-                </Text>
-              </View>
-            </View>
-
-            <Pressable
-              accessibilityLabel={t('home.hub.openStickerCollection')}
+            <KidPressable
+              accessibilityLabel={t('home.hub.primaryCardAccessibility', {
+                action: primaryLabel,
+                completed: String(safeCompleted),
+                title: heroTitle,
+                total: String(safeTotal),
+              })}
               accessibilityRole="button"
-              onPress={onOpenStickerCollection}
-              style={({ pressed }) => [
-                styles.hubGiftCard,
-                pressed && styles.hubButtonPressed,
+              accessibilityState={{ disabled: primaryActionDisabled }}
+              disabled={primaryActionDisabled}
+              feedback="card"
+              onPress={onOpenPrimary}
+              reducedMotion={reducedMotion}
+              style={[
+                styles.hubHeroCard,
+                primaryActionDisabled && styles.hubActionDisabled,
               ]}
             >
+              <View style={styles.hubHeroRow}>
+                <View style={styles.hubHeroIcon}>
+                  <SKidsIcon name={heroIconName} size={48} />
+                </View>
+                <View style={styles.hubHeroText}>
+                  <Text numberOfLines={2} style={styles.hubHeroTitle}>
+                    {heroTitle}
+                  </Text>
+                  <Text style={styles.hubHeroSubtitle}>{heroSubtitle}</Text>
+                </View>
+              </View>
+              <View style={styles.hubHeroDivider} />
+              <View style={styles.hubProgressBlock}>
+                <View style={styles.hubProgressTopRow}>
+                  <Text numberOfLines={2} style={styles.hubSectionTitle}>
+                    {activeThemeTitle}
+                  </Text>
+                  <Text style={styles.hubProgressLabel}>
+                    {t('home.hub.progressCount', {
+                      completed: String(safeCompleted),
+                      total: String(safeTotal),
+                    })}
+                  </Text>
+                </View>
+                <View
+                  accessibilityLabel={t('home.hub.progressAccessibility', {
+                    percent: String(completionPercent),
+                  })}
+                  accessibilityRole="progressbar"
+                  style={styles.hubProgressTrack}
+                >
+                  <View
+                    style={[
+                      styles.hubProgressFill,
+                      { width: `${completionPercent}%` },
+                    ]}
+                  />
+                </View>
+              </View>
+            </KidPressable>
+
+            <KidPressable
+              accessibilityLabel={t('home.hub.openStickerCollection')}
+              accessibilityRole="button"
+              feedback="card"
+              onPress={onOpenStickerCollection}
+              reducedMotion={reducedMotion}
+              style={styles.hubGiftCard}
+            >
               <View style={styles.hubGiftIcon}>
-                <SKidsIcon name="sticker" size={40} />
+                <SKidsIcon name="sticker" size={34} />
               </View>
               <View style={styles.hubGiftText}>
-                <Text style={styles.hubGiftTitle}>
-                  {t('home.hub.giftTitle')}
-                </Text>
                 <Text style={styles.hubGiftCopy}>{giftText}</Text>
-                <Text style={styles.hubGiftAction}>
+                <Text style={styles.hubGiftLink}>
                   {t('home.hub.openStickerCollection')}
                 </Text>
               </View>
-            </Pressable>
+              <Text style={styles.hubGiftAction}>›</Text>
+            </KidPressable>
 
-            <View style={styles.hubActions}>
-              <Pressable
-                accessibilityLabel={primaryLabel}
-                accessibilityRole="button"
-                accessibilityState={{ disabled: primaryActionDisabled }}
-                disabled={primaryActionDisabled}
-                onPress={onOpenPrimary}
-                style={({ pressed }) => [
-                  styles.hubPrimaryAction,
-                  pressed && !primaryActionDisabled && styles.hubButtonPressed,
-                  primaryActionDisabled && styles.hubActionDisabled,
-                ]}
-              >
+            <KidPressable
+              accessibilityLabel={primaryLabel}
+              accessibilityRole="button"
+              accessibilityState={{ disabled: primaryActionDisabled }}
+              disabled={primaryActionDisabled}
+              onPress={onOpenPrimary}
+              reducedMotion={reducedMotion}
+              style={[
+                styles.hubPrimaryAction,
+                primaryActionDisabled && styles.hubActionDisabled,
+              ]}
+            >
+              <View style={styles.hubPrimaryActionContent}>
+                <SKidsIcon name={heroIconName} size={30} />
                 <Text style={styles.hubPrimaryActionText}>{primaryLabel}</Text>
-              </Pressable>
-              <Pressable
-                accessibilityLabel={t('home.hub.focusAccessibility')}
-                accessibilityRole="button"
-                accessibilityState={{ disabled: !nextNode }}
-                disabled={!nextNode}
-                onPress={onFocusCurrent}
-                style={({ pressed }) => [
-                  styles.hubSecondaryAction,
-                  pressed && nextNode && styles.hubButtonPressed,
-                  !nextNode && styles.hubActionDisabled,
-                ]}
-              >
-                <Text style={styles.hubSecondaryActionText}>
-                  {t('home.hub.focusCurrent')}
-                </Text>
-              </Pressable>
-            </View>
+              </View>
+            </KidPressable>
           </ScrollView>
         </View>
       </View>
@@ -1448,6 +1551,7 @@ function SKidsHubSheet({
 
 type SceneMapStopProps = {
   alignment: MapAlignment;
+  hasVocabularyPlayground: boolean;
   iconName: SKidsIconName;
   isCompleted: boolean;
   isCurrent: boolean;
@@ -1459,6 +1563,8 @@ type SceneMapStopProps = {
   lessonTitle: string;
   onLayout: (event: LayoutChangeEvent) => void;
   onPress: () => void;
+  onVocabularyPlaygroundPress: () => void;
+  reducedMotion: boolean;
   sceneCountInLesson: number;
   sceneIndexInLesson: number;
   sceneTitle: string;
@@ -1466,6 +1572,7 @@ type SceneMapStopProps = {
 
 function SceneMapStop({
   alignment,
+  hasVocabularyPlayground,
   iconName,
   isCompleted,
   isCurrent,
@@ -1477,6 +1584,8 @@ function SceneMapStop({
   lessonTitle,
   onLayout,
   onPress,
+  onVocabularyPlaygroundPress,
+  reducedMotion,
   sceneCountInLesson,
   sceneIndexInLesson,
   sceneTitle,
@@ -1508,92 +1617,134 @@ function SceneMapStop({
         sceneTitle,
       });
 
+  const alignmentTransform =
+    alignment === 'left'
+      ? [{ translateX: -90 }]
+      : alignment === 'right'
+      ? [{ translateX: 90 }]
+      : [];
+
   return (
-    <Pressable
-      accessibilityLabel={accessibilityLabel}
-      accessibilityRole="button"
+    <View
       onLayout={onLayout}
-      onPress={onPress}
-      style={({ pressed }) => {
-        const isPressed = pressed;
-        return [
-          styles.mapStop,
-          alignment === 'left' && styles.mapStopLeft,
-          alignment === 'center' && styles.mapStopCenter,
-          alignment === 'right' && styles.mapStopRight,
-          isVisuallyLocked && styles.mapStopLocked,
-          isPressed && { opacity: 0.92 },
-          {
-            transform: [
-              ...(alignment === 'left' ? [{ translateX: -90 }] : []),
-              ...(alignment === 'right' ? [{ translateX: 90 }] : []),
-              ...(isPressed ? [{ translateY: 2 }, { scale: 0.98 }] : []),
-            ],
-          },
-        ];
-      }}
+      style={[
+        styles.mapStop,
+        alignment === 'left' && styles.mapStopLeft,
+        alignment === 'center' && styles.mapStopCenter,
+        alignment === 'right' && styles.mapStopRight,
+        isVisuallyLocked && styles.mapStopLocked,
+        { transform: alignmentTransform },
+      ]}
     >
-      {isCurrent && !isPremiumLocked ? (
-        <CurrentStopNode>
-          <SKidsIcon name={iconName} size={64} />
-          <View style={[styles.stopNumber, styles.stopNumberCurrent]}>
-            <Text style={styles.stopNumberText}>{sceneIndexInLesson + 1}</Text>
-          </View>
-        </CurrentStopNode>
-      ) : (
-        <View
-          style={[
-            styles.stopNode,
-            isAvailable && styles.stopNodeAvailable,
-            isCompleted && styles.stopNodeDone,
-            isVisuallyLocked && styles.stopNodeLocked,
-          ]}
-        >
-          {isVisuallyLocked ? (
-            <View pointerEvents="none" style={styles.lockedOverlay} />
-          ) : null}
-          <SKidsIcon
-            name={iconName}
-            size={isVisuallyLocked ? 44 : 52}
-            style={isVisuallyLocked ? styles.lockedIcon : undefined}
-          />
+      <KidPressable
+        accessibilityLabel={accessibilityLabel}
+        accessibilityRole="button"
+        feedback="standard"
+        onPress={onPress}
+        playSound={!isVisuallyLocked}
+        reducedMotion={reducedMotion}
+        style={styles.mapStopPrimaryAction}
+      >
+        {isCurrent && !isPremiumLocked ? (
+          <CurrentStopNode reducedMotion={reducedMotion}>
+            <SKidsIcon name={iconName} size={64} />
+            <View style={[styles.stopNumber, styles.stopNumberCurrent]}>
+              <Text style={styles.stopNumberText}>
+                {sceneIndexInLesson + 1}
+              </Text>
+            </View>
+          </CurrentStopNode>
+        ) : (
           <View
             style={[
-              styles.stopNumber,
-              isCompleted && styles.stopNumberDone,
-              isVisuallyLocked && styles.stopNumberLocked,
+              styles.stopNode,
+              isAvailable && styles.stopNodeAvailable,
+              isCompleted && styles.stopNodeDone,
+              isVisuallyLocked && styles.stopNodeLocked,
             ]}
           >
-            <Text
+            {isVisuallyLocked ? (
+              <View pointerEvents="none" style={styles.lockedOverlay} />
+            ) : null}
+            <SKidsIcon
+              name={iconName}
+              size={isVisuallyLocked ? 44 : 52}
+              style={isVisuallyLocked ? styles.lockedIcon : undefined}
+            />
+            <View
               style={[
-                styles.stopNumberText,
-                isCompleted && styles.stopNumberTextDone,
-                isVisuallyLocked && styles.stopNumberTextLocked,
+                styles.stopNumber,
+                isCompleted && styles.stopNumberDone,
+                isVisuallyLocked && styles.stopNumberLocked,
               ]}
             >
-              {sceneIndexInLesson + 1}
-            </Text>
+              <Text
+                style={[
+                  styles.stopNumberText,
+                  isCompleted && styles.stopNumberTextDone,
+                  isVisuallyLocked && styles.stopNumberTextLocked,
+                ]}
+              >
+                {sceneIndexInLesson + 1}
+              </Text>
+            </View>
+            {isCompleted ? (
+              <View style={styles.doneBadge}>
+                <Text style={styles.doneBadgeText}>✓</Text>
+              </View>
+            ) : null}
+            {isVisuallyLocked ? (
+              <View style={styles.lockBadge}>
+                <SKidsIcon name="parentLock" size={28} />
+              </View>
+            ) : null}
           </View>
-          {isCompleted ? (
-            <View style={styles.doneBadge}>
-              <Text style={styles.doneBadgeText}>✓</Text>
-            </View>
-          ) : null}
-          {isVisuallyLocked ? (
-            <View style={styles.lockBadge}>
-              <SKidsIcon name="parentLock" size={28} />
-            </View>
-          ) : null}
-        </View>
-      )}
-    </Pressable>
+        )}
+      </KidPressable>
+      {hasVocabularyPlayground ? (
+        <KidPressable
+          accessibilityLabel={t(
+            'home.mapStop.vocabularyPlaygroundAccessibility',
+            { sceneTitle },
+          )}
+          accessibilityRole="button"
+          hitSlop={6}
+          onPress={onVocabularyPlaygroundPress}
+          playSound
+          reducedMotion={reducedMotion}
+          style={[
+            styles.mapVocabularyPlaygroundButton,
+            alignment === 'right'
+              ? styles.mapVocabularyPlaygroundButtonOuterRight
+              : styles.mapVocabularyPlaygroundButtonOuterLeft,
+          ]}
+          testID={`map-vocabulary-playground-${lessonIndex}-${sceneIndexInLesson}`}
+        >
+          <SKidsIcon name="vocabularyReview" size={38} />
+        </KidPressable>
+      ) : null}
+    </View>
   );
 }
 
-function CurrentStopNode({ children }: { children: React.ReactNode }) {
+function CurrentStopNode({
+  children,
+  reducedMotion,
+}: {
+  children: React.ReactNode;
+  reducedMotion: boolean;
+}) {
+  const activeTab = useKidModeActiveTab();
+  const isMapActive = activeTab === 'map';
   const pulse = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
+    if (reducedMotion || !isMapActive) {
+      pulse.stopAnimation();
+      pulse.setValue(0);
+      return;
+    }
+
     const animation = Animated.loop(
       Animated.sequence([
         Animated.timing(pulse, {
@@ -1614,7 +1765,7 @@ function CurrentStopNode({ children }: { children: React.ReactNode }) {
     animation.start();
 
     return () => animation.stop();
-  }, [pulse]);
+  }, [isMapActive, pulse, reducedMotion]);
 
   const currentScale = pulse.interpolate({
     inputRange: [0, 1],
@@ -1669,8 +1820,9 @@ type LessonMilestoneProps = {
   isPremiumLocked: boolean;
   isPremiumResolving: boolean;
   isUnlocked?: boolean;
-  title: string;
   onPress: () => void;
+  reducedMotion: boolean;
+  title: string;
 };
 
 type LessonSectionHeaderProps = {
@@ -1759,8 +1911,9 @@ function LessonMilestone({
   isPremiumLocked,
   isPremiumResolving,
   isUnlocked,
-  title,
   onPress,
+  reducedMotion,
+  title,
 }: LessonMilestoneProps) {
   const t = useI18n();
   const isDarkMode = getActiveColorScheme() === 'dark';
@@ -1769,7 +1922,7 @@ function LessonMilestone({
   const isProgressOnlyLocked = !isUnlocked && !isPremiumLocked;
 
   return (
-    <Pressable
+    <KidPressable
       accessibilityLabel={
         isPremiumLocked
           ? `${title}. ${t(
@@ -1785,17 +1938,16 @@ function LessonMilestone({
             })
       }
       accessibilityRole="button"
+      feedback="card"
       onPress={onPress}
-      style={({ pressed }) => {
-        const isPressed = pressed;
-        return [
-          styles.lessonMilestone,
-          alignment === 'left' && styles.lessonMilestoneLeft,
-          alignment === 'center' && styles.lessonMilestoneCenter,
-          alignment === 'right' && styles.lessonMilestoneRight,
-          isPressed && { opacity: 0.92, transform: [{ scale: 0.98 }] },
-        ];
-      }}
+      playSound={isActionAvailable}
+      reducedMotion={reducedMotion}
+      style={[
+        styles.lessonMilestone,
+        alignment === 'left' && styles.lessonMilestoneLeft,
+        alignment === 'center' && styles.lessonMilestoneCenter,
+        alignment === 'right' && styles.lessonMilestoneRight,
+      ]}
     >
       <View
         style={[
@@ -1952,7 +2104,7 @@ function LessonMilestone({
           </View>
         </View>
       </View>
-    </Pressable>
+    </KidPressable>
   );
 }
 
@@ -2338,10 +2490,6 @@ const styles = createThemedStyles(() => ({
     justifyContent: 'center',
     width: 62,
   },
-  freePremiumCtaPressed: {
-    opacity: 0.92,
-    transform: [{ translateY: 2 }, { scale: 0.99 }],
-  },
   freePremiumCtaSubtitle: {
     color: colors.textSoft,
     ...typography.caption,
@@ -2356,10 +2504,6 @@ const styles = createThemedStyles(() => ({
   hubActionDisabled: {
     opacity: 0.48,
   },
-  hubActions: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
   hubBackdrop: {
     backgroundColor: 'rgba(37, 54, 66, 0.32)',
     bottom: 0,
@@ -2368,71 +2512,63 @@ const styles = createThemedStyles(() => ({
     right: 0,
     top: 0,
   },
-  hubButtonPressed: {
-    opacity: 0.9,
-    transform: [{ translateY: 2 }, { scale: 0.99 }],
-  },
   hubCloseButton: {
     alignItems: 'center',
     backgroundColor: colors.surfaceBlue,
     borderColor: colors.border,
     borderRadius: radius.pill,
     borderWidth: 2,
+    height: 46,
     justifyContent: 'center',
-    minHeight: 42,
-    paddingHorizontal: spacing.md,
+    width: 46,
   },
   hubCloseText: {
     color: colors.primaryDark,
-    fontSize: 13,
+    fontSize: 30,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 17,
-  },
-  hubEyebrow: {
-    color: colors.primaryDark,
-    fontSize: 12,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 15,
-    textTransform: 'uppercase',
+    lineHeight: 32,
   },
   hubGiftCard: {
     alignItems: 'center',
     backgroundColor: colors.surfaceSoft,
     borderColor: colors.borderWarm,
-    borderRadius: radius.lg,
-    borderWidth: 2,
+    borderRadius: radius.md,
+    borderWidth: 1,
     flexDirection: 'row',
     gap: spacing.sm,
-    padding: spacing.md,
+    minHeight: 70,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
   },
   hubGiftCopy: {
-    color: colors.textSoft,
+    color: colors.text,
     flexShrink: 1,
     ...typography.caption,
   },
   hubGiftAction: {
     color: colors.primaryDark,
-    ...typography.caption,
+    fontSize: 30,
+    fontWeight: '900',
+    lineHeight: 32,
   },
   hubGiftIcon: {
     alignItems: 'center',
     backgroundColor: colors.surface,
     borderColor: colors.secondary,
     borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 56,
+    borderWidth: 1,
+    height: 46,
     justifyContent: 'center',
-    width: 56,
+    width: 46,
+  },
+  hubGiftLink: {
+    color: colors.primaryDark,
+    ...typography.caption,
   },
   hubGiftText: {
     flex: 1,
     gap: 2,
-  },
-  hubGiftTitle: {
-    color: colors.text,
-    ...typography.caption,
   },
   hubHandle: {
     alignSelf: 'center',
@@ -2446,22 +2582,21 @@ const styles = createThemedStyles(() => ({
     alignItems: 'center',
     flexDirection: 'row',
     gap: spacing.sm,
-  },
-  hubHeaderText: {
-    flex: 1,
-    gap: 2,
-    minWidth: 0,
+    justifyContent: 'space-between',
   },
   hubHeroCard: {
-    alignItems: 'center',
     backgroundColor: colors.primarySoft,
     borderColor: colors.outlineStrong,
     borderRadius: radius.lg,
-    borderWidth: 3,
-    flexDirection: 'row',
-    gap: spacing.md,
+    borderWidth: 2,
+    gap: spacing.sm,
     padding: spacing.md,
     ...shadows.soft,
+  },
+  hubHeroDivider: {
+    backgroundColor: colors.outlineStrong,
+    height: 1,
+    opacity: 0.45,
   },
   hubHeroIcon: {
     alignItems: 'center',
@@ -2469,9 +2604,14 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.primary,
     borderRadius: radius.pill,
     borderWidth: 2,
-    height: 72,
+    height: 64,
     justifyContent: 'center',
-    width: 72,
+    width: 64,
+  },
+  hubHeroRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.md,
   },
   hubHeroSubtitle: {
     color: colors.textSoft,
@@ -2490,21 +2630,6 @@ const styles = createThemedStyles(() => ({
     letterSpacing: 0,
     lineHeight: 26,
   },
-  hubLogoBadge: {
-    alignItems: 'center',
-    backgroundColor: colors.secondarySoft,
-    borderColor: colors.secondary,
-    borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 54,
-    justifyContent: 'center',
-    width: 54,
-    ...shadows.soft,
-  },
-  hubLogoEmoji: {
-    fontSize: 28,
-    lineHeight: 34,
-  },
   hubModalRoot: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -2515,14 +2640,20 @@ const styles = createThemedStyles(() => ({
     borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
     borderWidth: 3,
-    flex: 1,
     justifyContent: 'center',
     minHeight: 58,
     paddingHorizontal: spacing.md,
     ...shadows.warm,
   },
+  hubPrimaryActionContent: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: spacing.sm,
+    justifyContent: 'center',
+  },
   hubPrimaryActionText: {
     color: colors.text,
+    flexShrink: 1,
     textAlign: 'center',
     ...typography.button,
   },
@@ -2551,25 +2682,9 @@ const styles = createThemedStyles(() => ({
     backgroundColor: colors.border,
     borderColor: colors.outlineStrong,
     borderRadius: radius.pill,
-    borderWidth: 2,
-    height: 18,
+    borderWidth: 1,
+    height: 14,
     overflow: 'hidden',
-  },
-  hubSecondaryAction: {
-    alignItems: 'center',
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.sky,
-    borderRadius: radius.pill,
-    borderWidth: 3,
-    flex: 1,
-    justifyContent: 'center',
-    minHeight: 58,
-    paddingHorizontal: spacing.md,
-  },
-  hubSecondaryActionText: {
-    color: colors.primaryDark,
-    textAlign: 'center',
-    ...typography.caption,
   },
   hubSectionTitle: {
     color: colors.text,
@@ -2582,48 +2697,23 @@ const styles = createThemedStyles(() => ({
     borderTopLeftRadius: radius.lg,
     borderTopRightRadius: radius.lg,
     borderWidth: 1,
-    maxHeight: '86%',
+    maxHeight: '78%',
     overflow: 'hidden',
     ...shadows.floating,
   },
   hubSheetContent: {
     gap: spacing.md,
-    padding: spacing.lg,
-    paddingBottom: spacing.xl,
-  },
-  hubStatCard: {
-    alignItems: 'center',
-    backgroundColor: colors.surfaceBlue,
-    borderColor: colors.border,
-    borderRadius: radius.lg,
-    borderWidth: 2,
-    flex: 1,
-    gap: spacing.xxs,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.md,
-  },
-  hubStatLabel: {
-    color: colors.textSoft,
-    textAlign: 'center',
-    ...typography.caption,
-  },
-  hubStatsRow: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
-  hubStatValue: {
-    color: colors.text,
-    fontSize: 30,
-    fontWeight: '900',
-    letterSpacing: 0,
-    lineHeight: 34,
+    paddingBottom: spacing.lg,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.md,
   },
   hubTitle: {
     color: colors.text,
-    fontSize: 22,
+    flex: 1,
+    fontSize: 24,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 27,
+    lineHeight: 30,
   },
   learningMap: {
     minHeight: 520,
@@ -3415,11 +3505,32 @@ const styles = createThemedStyles(() => ({
   mapStopLocked: {
     opacity: 0.82,
   },
-  mapStopPressed: {
-    opacity: 0.92,
-  },
   mapStopRight: {
     alignSelf: 'center',
+  },
+  mapStopPrimaryAction: {
+    alignItems: 'center',
+    width: 136,
+  },
+  mapVocabularyPlaygroundButton: {
+    alignItems: 'center',
+    backgroundColor: colors.surface,
+    borderColor: colors.border,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    height: 48,
+    justifyContent: 'center',
+    position: 'absolute',
+    top: 16,
+    width: 48,
+    zIndex: 4,
+    ...shadows.soft,
+  },
+  mapVocabularyPlaygroundButtonOuterLeft: {
+    left: -14,
+  },
+  mapVocabularyPlaygroundButtonOuterRight: {
+    right: -14,
   },
   scrollArea: {
     flex: 1,
@@ -3443,7 +3554,7 @@ const styles = createThemedStyles(() => ({
   },
   scrollContent: {
     padding: layout.screenPadding,
-    paddingBottom: 20,
+    paddingBottom: 112,
   },
   playScrollContent: {
     padding: layout.screenPadding,
@@ -3474,15 +3585,6 @@ const styles = createThemedStyles(() => ({
     right: 74,
     top: 10,
     transform: [{ rotate: '12deg' }],
-  },
-  tabContent: {
-    flex: 1,
-  },
-  tabPane: {
-    flex: 1,
-  },
-  tabPaneHidden: {
-    display: 'none',
   },
   stopGlow: {
     backgroundColor: colors.secondarySoft,

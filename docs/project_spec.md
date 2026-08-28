@@ -2,12 +2,14 @@
 
 **Trạng thái tài liệu:** ảnh chụp implementation hiện tại
 
-**Kiểm chứng gần nhất:** 2026-08-11
+**Kiểm chứng gần nhất:** 2026-08-25
 
 **Implementation baseline:** commit `f8dc0279b59c38cd6fadd97217c3ee7b46e6f7aa` cộng với thay đổi
 localization foundation, Firebase parent auth, opt-in cloud learning data sync, dual-accent English
-audio rollout, monetization Phase 1-3, app-update policy và parent-only app review trong working
-tree hiện tại.
+audio rollout, monetization Phase 1-3, app-update policy, parent-only app review, Scene State v1 và
+năm lesson `plant-a-seed`/`help-it-grow`/`garden-friends`/`harvest-day`/`garden-to-table` của
+Theme 4 cùng sáu vertical slice `feed-the-puppy`/`play-with-the-puppy`/`find-the-kitten`/
+`clean-muddy-paws`/`care-for-the-rabbit`/`groom-the-kitten` của Theme 5 trong working tree hiện tại.
 
 **Phạm vi:** product behavior, domain model, architecture, persistence, native modules và asset
 delivery đang có trong repository.
@@ -44,7 +46,109 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 Đặc điểm hiện tại:
 
 - **Implemented:** học theo theme -> lesson pack -> mini-scene -> review -> reward.
+- **Implemented:** mỗi scene đã hoàn thành mở được `Góc chơi từ vựng`, một sandbox theo
+  `learningMode`; một bản của từng từ có hình riêng được đặt sẵn trên background để bé chạm nghe
+  English, tùy chọn nghe tiếp nghĩa tiếng Việt production và kéo tự do. Bố cục cùng lựa chọn phát
+  nghĩa được lưu local, không thay đổi progress/reward và không thay thế review game cuối lesson.
 - **Implemented:** tương tác nghe, chạm, tìm object, kéo thả và luyện nói bằng cách ghi/phát lại.
+- **Implemented:** Scene State v1 cho object variants, trạng thái ẩn/hiện và thay đổi state chỉ sau
+  tương tác đúng trong phạm vi lượt chạy scene hiện tại.
+- **Implemented:** pilot `plant-a-seed` dùng Scene State v1 để nối ba scene chuẩn bị chậu, gieo hạt
+  và tưới lần đầu thành một chuỗi nhân-quả; ảnh/audio hiện hành nằm trong corpus R2 đã verify.
+- **Implemented:** vertical slice `help-it-grow` nối ba tình huống nắng, mưa và gió bằng cùng một
+  lineage cây cà chua non. Vocabulary-first revision ngày 2026-08-25 dùng lại 40 ảnh, nâng
+  vocabulary/pronunciation lên 8/12/16, khóa meaningful turn 21/27/34 và giữ review 4/5/6.
+  User-facing payoff là bông hoa vàng đã nở; tên asset/variant `flower-bud` chỉ còn là technical
+  identifier ổn định. Google TTS tạo đúng 58 audio delta; lesson/full-corpus audit đạt
+  439/16.012 target với missing 0, invalid 0. R2 upload 59 object gồm audio và một WebP rebuild,
+  verify đủ 401/401, post-upload delta bằng 0; CDN smoke audio mới khớp local.
+- **Implemented:** `garden-friends` nối ba scene khám phá giun/ốc sên, ong/bướm và sâu bướm
+  bằng observation controls thay vì cho bé kéo/chạm trực tiếp con vật. Lesson data, review 4/5/6,
+  production PNG masters, bundled map icons, WebP và action-first audio đã có. Vocabulary-first
+  revision ngày 2026-08-25 dùng lại 35 WebP, nâng vocabulary/pronunciation lên 8/12/16 và nhịp
+  meaningful turn lên 19/25/34. Google TTS tạo đúng 78 audio delta; lesson/full-corpus audit đạt
+  432/16.090 target với missing 0, invalid 0. R2 verify đủ 455/455, post-upload delta bằng 0;
+  CDN smoke audio mới khớp local.
+- **Implemented:** `harvest-day` nối ba scene tìm quả chín, hái bằng tay và phân loại thành
+  quả. Pacing revision giữ quả xanh trên cây, cho bé hái lần lượt hai quả chín, kiểm tra cành sau
+  lượt đầu và xác nhận giỏ có đủ hai quả; scene cuối xác nhận riêng khay người lớn và payoff ba
+  giỏ đã phân loại. Vocabulary/pronunciation hiện là 8/12/16, review vẫn 4/5/6 và nhịp ngoài intro
+  vẫn là 18/27/36 meaningful turns theo core/expanded/challenge. Google TTS đã tạo đúng 46 audio
+  delta cho revision; lesson audit 459 target và full-corpus audit 15.903 target đều thiếu 0, lỗi 0. Production R2 hiện có 34 WebP + 413 audio, verify đủ 447/447 ngày 2026-08-25 và post-upload
+  delta bằng 0; audio `separate.mp3` tải qua production CDN khớp local theo size và SHA-256. Local
+  image build/verify pass 34/34. Sau khi sửa cutter làm mất alpha nội bộ, 30 cutout cũ đã được
+  rebuild/upload với asset revision mới; device smoke test sau audio revision 8/12/16 chưa chạy.
+- **Implemented:** `garden-to-table` nối ba scene rửa rau quả, làm/chia sẻ món nguội và nhờ người
+  lớn giữ hạt khô cho mùa sau. Vocabulary/pronunciation hiện là 8/12/16, nhịp meaningful turn là
+  21/28/35 và review vẫn 4/5/6. Rau quả đi `dirty -> clean`; expanded colander đi từ `empty` ->
+  xà lách hiện riêng -> `filled`; tô đi `empty -> with-lettuce -> prepared -> mixed -> shared`;
+  phong bì đi `empty -> filled -> closed -> stored`. 37 WebP runtime assets và bốn bundled icons
+  được giữ nguyên. Visual QA correction retire
+  pointer-hand sai ngữ nghĩa, dùng hình phong bì trên kệ cho `store it for next season` và cho
+  safety action chạm phong bì đã đóng. Google TTS đã tạo 69 audio ở revision đầu và thêm đúng 12
+  audio correction; lesson/full-corpus audit đạt 443/15.969 target với missing 0, invalid 0. R2
+  upload thêm 14 object correction, verify đủ 404/404 asset và post-upload delta bằng 0 ngày
+  2026-08-25; audio instruction mới trên production CDN khớp local theo size và SHA-256. Device
+  smoke test chưa chạy. Follow-up audit thêm một hành động riêng để xà lách sạch hiện trong rổ
+  trước khi dưa leo được đặt vào; thay đổi tái sử dụng 37 WebP và audio delta đã publish.
+- **Published revision:** correctness audit Theme 4 giữ nguyên vocabulary budget nhưng làm meaning
+  trực tiếp hơn: `help-it-grow` dạy cọc/dây trên trạng thái đã lắp đúng tỉ lệ và dùng cây có hoa
+  làm representative; `garden-friends` giữ ong/bướm sát hoa và dùng composite ba đối tượng cho
+  `visit the flower`; `harvest-day` bổ sung representative trực tiếp cho `red`, `branch`,
+  `gentle`, `carrot`, `separate` và giữ payoff phân loại; `garden-to-table` cho xà lách vào rổ ở
+  lượt riêng. Audio/image delta đã publish và R2-verify; device QA chưa chạy.
+- **Implemented:** vertical slice Foundation `feed-the-puppy` v2 nối ba scene gặp cún,
+  chuẩn bị bát và giúp cún dùng bữa an toàn. Vocabulary/action/pronunciation budgets là 9/18/27,
+  18/36/54 và 9/18/27 theo core/expanded/challenge; auto-micro giảm còn 9/12/15, phân bố 3/4/5
+  mỗi scene. Mỗi lượt nói vẫn xen kẽ với action, còn cún thật non-interactive trong scene ăn.
+  Review vẫn chọn 4/5/6 visual
+  distinct item. HUD lesson hiển thị tên cảnh và thanh tiến độ trực quan, bỏ dòng text mode/cảnh/bước để giao diện học gọn gàng. Asset pipeline v2 có 43 lesson
+  master, 37 image được runtime tham chiếu sau khi `wag-action` trở thành representative trực
+  tiếp; sáu image còn lại được giữ như orphan local. Revision hậu bữa ăn thêm một sheet alpha 3×2 để mọi
+  cue `carry/ask/put down/step` đều dùng bát trống, còn cue `feed` trước bữa vẫn dùng bát đầy;
+  bốn map icons và theme icon giữ nguyên. Google TTS đã tạo 480 clip còn thiếu; audio audit v2
+  có 626 target, thiếu 0 và lỗi 0. R2 đã upload delta 490 object, verify đủ 801/801 object với
+  lỗi 0. Bản tối ưu cue-anchor tiếp theo upload thêm 6 WebP; tập authoring hiện hành verify đủ
+  798/798 object với lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Publish không xóa key cũ
+  khỏi bucket. Revision meal/cleanup tiếp theo sửa scene dùng bữa thành `wait -> feed -> eat -> finished ->
+celebrate -> carry -> ask an adult -> put it down -> step back`, chỉ kéo bát một lần và không phục
+  hồi bát đầy sau khi cún ăn. Google TTS đã tạo thêm 36 clip; audio audit revision có 629 target,
+  thiếu 0 và lỗi 0. R2 đã upload delta 36 audio, verify đủ 834/834 object với lỗi 0 và post-upload
+  dry-run còn `Changed/new: 0`. Revision hình bát trống đã publish thêm năm WebP; R2 verify đủ
+  835/835 object với lỗi 0 và post-upload dry-run còn `Changed/new: 0`.
+- **Implemented:** Foundation lesson `play-with-the-puppy` nối ba scene chọn bóng,
+  lăn/bắt bóng và cún mang bóng về. Budget vocabulary/action/pronunciation là 9/18/27,
+  18/36/54 và 9/18/27; auto-micro 9/12/15, review 4/5/6. Chỉ `roll` là drag, cún không phải drag
+  target và state đi một chiều `choose -> roll -> catch -> bring -> give`. Ba sheet chung đã
+  được tách alpha thật thành 33 PNG master, build 33 WebP và bốn bundled icon; local image verify
+  pass 33/33, lỗi 0. Google TTS đã tạo 508 clip còn thiếu; audio audit có 613 target, missing 0
+  và invalid 0. R2 upload/verify đúng 541/541 object gồm 508 audio + 33 image, lỗi 0;
+  post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy cho lesson này.
+- **Implemented:** Foundation lesson `find-the-kitten` nối ba scene nghe tiếng mèo, kiểm tra chỗ
+  trốn và gọi mèo bước ra. Budget vocabulary/action/pronunciation là 9/18/27, 18/36/54 và
+  9/18/27; auto-micro 9/12/15, review 4/5/6. State đi một chiều `sitting -> hiding`,
+  `hiding -> peeking -> found`, rồi `peeking -> out -> happy -> near -> rubbing`; `happy` ở đây là
+  technical variant ID, không phải vocabulary anchor, và lesson không có drag.
+  Hai action cue kiểm tra hộp/giỏ đều hiển thị chỗ trống, còn tương tác cuối dạy đưa tay thấp,
+  chờ mèo tự đến và vuốt nhẹ. Ba sheet chung được tách theo component thành 40 PNG master,
+  build 40 WebP và bốn bundled icon; local cutout/image verify pass. Google TTS đã tạo 520 clip;
+  full-corpus audit có 14.279 target, missing 0 và invalid 0. R2 upload/verify 560/560 object, lỗi
+  0; post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy cho lesson này.
+- **Implemented:** Foundation lesson `clean-muddy-paws` nối ba scene nhận ra chân cún dính bùn,
+  rửa bằng nước sạch với người lớn và lau khô. Budget vocabulary/action/pronunciation là
+  9/18/27, 18/36/54 và 9/18/27; auto-micro 9/12/15, review 4/5/6. Core tự kết thúc ở state
+  `muddy -> washing -> clean-wet -> dry`; Expanded/Challenge chỉ nối thêm chờ trên thảm, kiểm tra
+  nước có bùn, để người lớn mang chậu đi và rửa tay, không quay lại state bẩn. Local pipeline có
+  37 PNG master cùng bốn bundled icon; cutout audit pass. Google TTS đã tạo 512 clip; production
+  audio audit có 14.791 target, missing 0 và invalid 0. R2 upload/verify đủ 549/549 object, lỗi 0;
+  post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy.
+- **Published asset revision:** `care-for-the-rabbit` và `groom-the-kitten` đã khóa
+  lại character identity theo cùng phong cách hoạt hình 3D mềm của Theme 5. Sáu sheet 4×3 tạo
+  cùng lúc các pose/prop liên quan rồi crop theo cell tuần tự; bài thỏ dùng một thỏ trắng xuyên
+  suốt, bài mèo dùng đúng mèo cam vằn mắt nâu, vòng cổ xanh và chuông vàng của
+  `find-the-kitten`. Local cutout/audit/build/image verify đạt 37/37 và 28/28, 0 missing/orphan;
+  R2 upload đúng 34 + 25 WebP, verify đủ 637/637 và 768/768 lesson object, lỗi 0; post-upload
+  dry-run của cả hai còn `Changed/new: 0`. Device QA chưa chạy.
 - **Implemented:** Kid Mode, Parent Mode, progress/XP/sticker collection, activity/streak, daily
   reminder, Sticker Playground, Light/Dark/System theme.
 - **Partial:** localization foundation cho UI `vi`/`en`, localized domain titles và teacher prompt
@@ -61,7 +165,7 @@ cụm UI quan trọng và mode hướng dẫn `vi`/`en`/`bilingual`.
 - **Implemented:** parent account sign-in qua Firebase Authentication với Google và Apple.
 - **Implemented:** parent opt-in cloud learning data sync qua Firestore; mặc định tắt và sync
   các field học tập của `LocalProgress` cùng selected parent settings/child profile, không sync
-  activity/voice recordings hoặc bố cục Sticker Playground local-only.
+  activity/voice recordings, bố cục Sticker Playground hoặc bố cục Góc chơi từ vựng local-only.
 - **Implemented:** client monetization foundation với free tier cố định, content locks, Parent
   adult gate, màn Premium và RevenueCat entitlement lifecycle.
 - **Implemented trong repository:** Remote Config purchase kill switch và Founder cutoff/duration;
@@ -138,12 +242,15 @@ Contract params nằm trong `src/types/navigation.ts`:
 - `LessonList`
 - `LessonPack { lessonId, openedFromParent? }`
 - `ScenePlayer { lessonId, learningMode?, openedFromParent?, sceneId? }`
+- `SceneVocabularyPlayground { lessonId, sceneId, learningMode?, openedFromParent? }`
 - `ReviewGame { lessonId, learningMode?, openedFromParent? }`
 - `ReviewLibrary`
 - `Reward { lessonId, playedWordIds?, xp/reward fields... }`
 - `StickerCollection { highlightedStickerId? }`
 - `StickerPlayground`
 - `Parent { intent?: 'dashboard' | 'premium' | 'founderPromo', lessonId? }`
+- `ParentLessonPlan`
+- `ParentVoiceLibrary`
 - `Premium`
 
 Route registration nằm trong `src/navigation/AppNavigator.tsx`. Mọi thay đổi route phải cập nhật
@@ -152,8 +259,9 @@ cả registration, param types và call sites.
 Các route còn hiển thị stack header dùng chung `KidSafeRouteHeader`: title pill một dòng và
 safe-area spacing giống header trong Lesson Pack/Review. Route phân cấp dùng nút quay lại không
 kèm tên route trước đó; `Reward` và `StickerPlayground` dùng nút đóng vì là flow toàn màn hình.
-Đóng Reward kết thúc flow về Home thay vì quay lại game vừa hoàn thành. Các route fullscreen khác
-(`Home`, lesson runtime và review library) tiếp tục tự sở hữu header/HUD.
+Đóng Reward kết thúc flow về tab Map của Home thay vì quay lại game vừa hoàn thành. Đóng
+Sticker Playground kết thúc về tab Play. Các route fullscreen khác (`Home`, lesson runtime và
+review library) tiếp tục tự sở hữu header/HUD.
 
 ## 4. Source architecture
 
@@ -180,11 +288,13 @@ Native code nằm trong `android/` và `ios/`. Build/generation/upload utilities
 
 ### Current catalog
 
-Hiện có ba themes:
+Hiện có năm themes và 38 lesson packs:
 
 - `mot-ngay-cua-be` / “Một ngày của bé”.
 - `be-ra-ngoai-kham-pha` / “Bé ra ngoài khám phá”.
 - `co-the-cam-xuc-va-tu-cham-soc` / “Cơ thể, cảm xúc và tự chăm sóc”.
+- `khu-vuon-cua-be` / “Khu vườn của bé”.
+- `nhung-nguoi-ban-dong-vat` / “Những người bạn động vật”.
 
 Theme `mot-ngay-cua-be` chứa 11 lesson packs theo thứ tự:
 
@@ -228,8 +338,220 @@ hàng dưới. Hướng dẫn chính không đọc vị trí màn hình; vị tr
 hint. Drag chỉ dùng khi object có đích đến trực quan, còn cảm xúc, trạng thái và phrase card dùng
 tap.
 
+Theme `khu-vuon-cua-be` hiện chứa năm lesson theo thứ tự:
+
+1. `plant-a-seed`
+2. `help-it-grow`
+3. `garden-friends`
+4. `harvest-day`
+5. `garden-to-table`
+
+Pilot có ba scene theo thứ tự `prepare-the-pot` -> `plant-the-seed` -> `first-watering`. Mỗi scene
+có 3/5/7 vocabulary targets ở `core`/`expanded`/`challenge`; cả ba mode giữ cùng chuỗi core và
+cùng end state hợp lý. Chậu chuyển `empty -> soil-low -> soil-ready`, tiếp tục
+`flat -> hole-open -> seed-visible -> covered`, rồi `dry -> damp`. Mầm chỉ hiện sau cue ngày-đêm,
+không hiện ngay khi vừa tưới; success path giữ vũng nước ẩn. Review `random` dùng bốn anchor hình
+rõ. Content architecture v2 trong `docs/theme-4-content-draft.md` khóa hành trình năm lesson theo
+thứ tự `plant-a-seed` -> `help-it-grow` -> `garden-friends` -> `harvest-day` ->
+`garden-to-table`; cả năm lesson đã được đăng ký runtime. Ba blueprint cũ
+`garden-ready`, `garden-weather`, `garden-cycle` đã bị loại trước runtime registration nên không
+cần migration. Vì free tier vẫn chỉ gồm `morning-routine` và `at-school`, pilot này là Premium
+theo policy hiện tại.
+
+Storyboard Mốc 4B trong `docs/theme-4-help-it-grow-storyboard.md` khóa `help-it-grow` thành ba
+scene `new-leaf-and-sunlight` -> `rainy-day-care` -> `wind-and-support`, dùng cùng lineage cây cà
+chua non và kết thúc bằng bông hoa vàng đã nở sau cue thời gian. Vocabulary-first revision ngày
+2026-08-25 khóa budget 8/12/16 New Anchors theo core/expanded/challenge. Core gồm `watering can`,
+`leaf`, `sunlight`, `rain`, `soil`, `flower`, `wind`, `stem`; expanded thêm `shade`, `roots`,
+`stake`, `soft tie`; challenge thêm `move into sunlight`, `check the soil`,
+`wait for the rain to stop`, `support the stem`. Chậu/đích kéo, vòng thời gian, mái che, mây và
+que đỡ/dây buộc rời còn là Action Enabler; trạng thái cọc và dây đã lắp cạnh thân cây mới là
+target trực tiếp cho `stake` và `soft tie`. Nhịp ngoài intro là core 7/7/7, expanded 9/9/9 và
+challenge 11/12/11, tương ứng 21/27/34 meaningful turns. Không có hai pronunciation panels liền
+nhau, và review executable được khóa ở 4/5/6 item. Mốc 4C đã author và đăng ký lesson, tạo map icons cùng 40 PNG
+masters text-free từ ba production sheets. Đường mở lesson/review/replay luôn truyền learning
+mode đã chọn; nếu route cũ thiếu mode, ScenePlayer khôi phục setting đã lưu thay vì mặc định Core.
+Các illustration lựa chọn Challenge chỉ hiện trong đúng teach/review beat và được ẩn cả cặp ngay
+sau câu trả lời đúng, nên không trở thành đạo cụ thừa trong payoff/closure kế tiếp.
+Revision dùng lại toàn bộ 40 ảnh. Asset filename/variant `plant-flower-bud` được giữ vì ổn định
+technical key, nhưng copy/audio dạy `flower`. Google TTS tạo 58 audio delta; lesson/full-corpus
+audit đạt 439/16.012 target với missing 0, invalid 0. R2 upload 59 object gồm audio và một WebP
+rebuild, verify đủ 401/401 và post-upload delta bằng 0 ngày 2026-08-25; audio
+`move_into_sunlight.mp3` trên production CDN khớp local theo size và SHA-256.
+
+Storyboard `docs/theme-4-garden-friends-storyboard.md` khóa `garden-friends` thành ba scene
+`under-the-leaf` -> `flower-visitors` -> `quiet-garden-watch`, vocabulary/pronunciation 8/12/16
+và review executable 4/5/6. Nhịp ngoài intro là 19/25/34 meaningful turns theo
+core/expanded/challenge. Animal
+cutouts luôn non-interactive; bé thao tác lên lá, đất, observation ring,
+time cue, nước hoặc hình hành động. Một production sheet text-free cho mỗi scene được cắt thành
+32 object masters, cùng ba background và bốn bundled map icons. Cả năm lesson Theme 4 hiển thị
+age label `6-8 tuổi · Nâng cao`; đây là nhãn content track cho phụ huynh, không thêm setting mới
+và không thay thế `core`/`expanded`/`challenge`. Đợt đầu có 257 file audio mới cùng 35 WebP được
+upload và verify đủ 292/292 object trên R2 ngày 2026-08-14 (`Changed/new: 0`, remote verify
+`Errors: 0`). Sau khi sửa hướng dẫn action-first, pipeline resolve 343 audio target; 85 file mới
+đã được Google TTS tạo và publish. Cutter cũng được sửa theo gutter thực của sheet, build lại 9
+WebP từng bị cắt cụt hoặc dính mảnh từ hàng bên cạnh. R2 đã nhận delta 94/94, verify đủ 377/377;
+post-upload dry-run `Changed/new: 0`, audio dry-run `Missing files: 0`, `Invalid files: 0`.
+Vocabulary-first revision thêm `leaf`, `fruit`, `wings`, `water drop`, `shell` và
+`visit the flower` bằng đúng ảnh/state hiện có; con vật và duplicate mô tả bộ phận vẫn
+non-interactive, nên bé tiếp tục thao tác qua kính lúp, hoa, lá hoặc cây. Google TTS tạo 78 audio
+delta; lesson/full-corpus audit đạt 432/16.090 target với missing 0, invalid 0. R2 verify đủ
+455/455 và post-upload delta bằng 0 ngày 2026-08-25; audio `visit_the_flower.mp3` trên production
+CDN khớp local theo size và SHA-256.
+Các step tương tác dùng hướng dẫn action-first, gọi observation control bằng tên cụ thể `kính
+lúp`, thêm đặc điểm hình và chỉ dẫn vị trí khi cảnh có nhiều mục tiêu tương tự. Không dùng câu chỉ
+giải nghĩa mà thiếu động từ `Chạm`/`Kéo`/`Tìm`, và vị trí trong câu hướng dẫn phải khớp geometry
+thực tế của object.
+
+Storyboard `docs/theme-4-harvest-day-storyboard.md` khóa `harvest-day` thành ba scene
+`find-the-ripe-ones` -> `pick-gently` -> `sort-the-harvest`, vocabulary/pronunciation 8/12/16 và
+review executable 4/5/6. Revision giữ nhịp ngoài intro thành 18/27/36 meaningful turns và scene
+rhythm 6/6/6, 9/9/9, 12/12/12 theo core/expanded/challenge; mỗi vocabulary có đúng một
+pronunciation encounter và không có hai pronunciation panel liền nhau. Scene đầu học thêm `red`
+và `leave it on the plant` khi so sánh quả đỏ với quả xanh. Scene hai dạy `basket`, `gentle` và
+`branch` trong hai lượt hái bằng tay mà không đổi state hero plant. Scene cuối thêm `carrot` và
+`separate`, đưa quả bị dập tới khay có bàn tay người lớn rồi xác nhận ba giỏ tách riêng. Revision
+tái sử dụng toàn bộ 34 WebP hiện có; local image build/verify của release asset gần nhất pass
+34/34, lỗi 0. Google TTS đã tạo đúng 46 audio delta; lesson audit 459 logical target và full-corpus
+audit 15.903 target đều có missing 0, invalid 0, đồng thời audio manifest và English provenance đã
+được cập nhật. R2 upload đúng 46 audio object, verify 447/447 và post-upload delta bằng 0. Device
+smoke test sau revision 8/12/16 chưa chạy. Cutter thay alpha bằng raw channel thay vì `joinChannel` trên
+PNG buffer và từ chối output có opaque-black matte vượt 12% canvas; guard này ngăn nền đen hình
+chữ nhật lọt qua kiểm tra alpha/corner như bản đầu.
+
+Storyboard `docs/theme-4-garden-to-table-storyboard.md` khóa lesson cuối thành ba scene
+`rinse-and-drain` -> `make-and-share` -> `save-for-next-season`, vocabulary/pronunciation 8/12/16
+và review executable 4/5/6. Nhịp ngoài intro là 21/28/35 meaningful turn. Rau quả chuyển
+`dirty -> clean`; ở expanded, rổ đi từ `empty` -> xà lách hiện riêng trong rổ -> `filled`; tô chuyển
+`empty -> with-lettuce -> prepared -> mixed -> shared`; phong bì được người lớn xử lý theo
+`empty -> filled -> closed -> stored`. `seed` là core anchor nhưng hạt nhỏ không draggable và
+luôn do người lớn xử lý. Challenge phrase `store it for next season` dùng hình phong bì đã
+được cất trên kệ; safety action kế tiếp chạm phong bì đã đóng để nhờ người lớn cất, không dùng
+pointer-hand control. Ba sheet chroma text-free được cắt thành 35 cutout PNG, thêm ba background,
+build 37 WebP runtime asset và tạo bốn bundled map icons. Cutter loại component nhỏ chạm gutter và
+từ chối chroma, opaque corner hoặc opaque-black matte. Local asset audit pass với 0
+missing/orphaned reference và verify đủ 37/37. Google TTS đã tạo 69 audio delta ở revision đầu và
+thêm đúng 12 audio cho visual/copy correction; lesson audit 443 target và full-corpus audit 15.969
+target đều missing 0, invalid 0, đồng thời audio manifest và English provenance đã được cập nhật.
+R2 upload thêm 14 correction object, verify 404/404 và post-upload delta bằng 0; audio instruction
+mới tải qua production CDN khớp local theo size và SHA-256. Device smoke test sau revision 8/12/16
+chưa chạy. Follow-up audit thêm một lượt kéo xà lách sạch vào rổ trước lượt kéo dưa leo và tái sử
+dụng cutout `lettuce-clean`; audio delta đã publish trong full-corpus run.
+
+Revision hiện tại của `help-it-grow`, `garden-friends` và `garden-to-table` đã generate/publish
+prompt/audio target delta; `harvest-day` tái sử dụng audio và 34 WebP hiện có. Full R2 verify đạt
+21.296/21.296 object với lỗi 0; cả bốn correction vẫn chờ device smoke test.
+
 Catalog được khai báo tại `src/data/themes.ts` và `src/data/lessons.ts`. Validators chạy khi
 catalog được import; trong development, validation errors có thể throw và warnings được log.
+Validator từ chối ID trùng trong danh sách vocabulary, object, drop zone và step của cùng một
+scene. Khi một learned word được cố ý dùng lại ở nhiều scene, cùng `vocabId` chỉ hợp lệ nếu toàn bộ
+định nghĩa vocabulary giống nhau; reuse có word/meaning/level/type/audio/scope mâu thuẫn sẽ là lỗi,
+ngoài các kiểm tra reference hiện có.
+
+Theme `nhung-nguoi-ban-dong-vat` hiện đăng ký sáu lesson Foundation:
+
+1. `feed-the-puppy`
+2. `play-with-the-puppy`
+3. `find-the-kitten`
+4. `clean-muddy-paws`
+5. `care-for-the-rabbit`
+6. `groom-the-kitten`
+
+Mốc 5A khóa kiến trúc của sáu lesson hiện đã author và đăng ký runtime trong
+`docs/theme-5-content-draft.md`; Mốc 5B ban đầu khóa storyboard pilot tại
+`docs/theme-5-feed-the-puppy-storyboard.md`. Pilot v2 author ba scene `meet-the-puppy` ->
+`fill-the-bowl` -> `puppy-eats`, vocabulary 9/18/27, nhịp 18/36/54, pronunciation encounter
+9/18/27 và auto-micro 9/12/15 theo core/expanded/challenge; review chọn 4/5/6 item. Mỗi lượt nói
+nối ngay với một action áp dụng nghĩa,
+state giữ các chuỗi `waiting -> looking/wagging`, `empty -> filled/ready` và
+`waiting -> eating -> happy`, trong đó `happy` chỉ là technical variant ID; prompt luôn có
+`Chạm`/`Kéo`/`Tìm`. Từ gắn với cún, bát hoặc
+thảm dùng story object; cue còn lại neo sát vùng hành động. Runtime v2 tham chiếu 37 lesson images,
+bốn map icons và `themeAnimalFriends`; HUD hiển thị tên cảnh và thanh tiến độ bài học. Google TTS đã tạo 480 clip còn thiếu; audio audit có 626 target, thiếu 0 và lỗi 0. R2 đã
+upload delta 490 object, verify đủ 801/801 object với lỗi 0. Bản tối ưu cue-anchor sau đó upload
+thêm 6 WebP; tập authoring hiện hành verify đủ 798/798 object với lỗi 0 và post-upload dry-run
+còn `Changed/new: 0`; không xóa key cũ khỏi bucket. Revision meal/cleanup tiếp theo khóa scene dùng bữa
+theo thứ tự `wait -> feed -> eat -> finished -> celebrate -> carry -> ask an adult -> put it down ->
+step back`, chỉ `feed` kéo bát và không có state regression sau `eat`. Audio audit revision có 629
+target, thiếu 0 và lỗi 0. Google TTS đã tạo 36 clip mới; R2 đã upload delta 36 audio, verify đủ
+834/834 object với lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Revision hình bát trống đã
+publish thêm năm WebP; R2 verify đủ 835/835 object với lỗi 0 và post-upload dry-run còn
+`Changed/new: 0`; chưa chạy device QA cho revision này.
+
+Storyboard `docs/theme-5-play-with-the-puppy-storyboard.md` khóa lesson thứ hai thành
+`choose-the-ball` -> `roll-and-catch` -> `bring-it-back`. Runtime author 9/18/27 vocabulary,
+18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Core đi đúng thứ tự
+`play -> ball -> choose`, `roll -> run -> catch`, `fetch -> bring -> give`; chỉ bước `roll` kéo
+bóng, mọi bước còn lại chạm/tìm để giữ mạch nhân-quả. Review trả 4/5/6 item. Local asset pipeline
+có 33 PNG master, 33 WebP và bốn icon; image verify pass 33/33. Google TTS đã tạo 508 clip còn
+thiếu; audio audit 613 target có missing 0, invalid 0. R2 upload/verify 541/541 object, lỗi 0 và
+post-upload dry-run còn `Changed/new: 0`. Scene authoring giữ tối đa một story puppy và một trạng
+thái bóng trong mỗi nhịp; cue có chứa cún/bóng dùng thẳng hero hoặc thay thế tạm story object để
+không chồng silhouette. Happy-puppy runtime dùng master đầy đủ phần đầu thay cho cell sheet bị cắt;
+revision đã upload delta một WebP lên R2, verify đủ 541/541 object, post-upload dry-run còn
+`Changed/new: 0`; device QA cho revision này chưa chạy.
+
+Storyboard `docs/theme-5-find-the-kitten-storyboard.md` khóa lesson thứ ba thành
+`hear-the-kitten` -> `check-the-hiding-spots` -> `welcome-the-kitten`. Runtime author 9/18/27
+vocabulary, 18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Story đi từ
+nghe tiếng `meow`/theo dấu chân tới kiểm tra hộp, giỏ và gọi mèo ra; không dùng drag. Review trả
+4/5/6 item. Local asset pipeline có 40 PNG master, 40 WebP và bốn icon; cutout audit cùng image
+verify đều pass. Google TTS đã tạo 520 clip; full-corpus audit có missing 0, invalid 0. R2
+upload/verify đủ 560/560 object, lỗi 0 và post-upload dry-run còn `Changed/new: 0`; device QA chưa
+chạy.
+
+Storyboard `docs/theme-5-clean-muddy-paws-storyboard.md` khóa lesson thứ tư thành
+`notice-the-muddy-paws` -> `wash-the-paws` -> `dry-the-paws`. Runtime author 9/18/27 vocabulary,
+18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Story đi từ nhận ra
+`paws` có `mud`, đứng chờ người lớn, rửa sạch, kiểm tra nước đã có bùn, lau khô rồi rửa tay.
+Review trả 4/5/6 item `paws`/`mud`/`water`/`towel` + `basin` + `dry the paws`. Local asset
+pipeline có 37 PNG master và bốn icon; cutout audit pass. Google TTS đã tạo 512 clip; production
+audio audit có 14.791 target, missing 0 và invalid 0. R2 upload/verify đủ 549/549 object, lỗi 0;
+post-upload dry-run còn `Changed/new: 0`. Device QA chưa chạy.
+
+Storyboard `docs/theme-5-care-for-the-rabbit-storyboard.md` khóa lesson thứ năm thành
+`prepare-the-hay` -> `fill-the-water` -> `rabbit-snack-and-hop`. Runtime author 9/18/27
+vocabulary, 18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Story đi từ
+chuẩn bị cỏ khô thơm vào máng, thêm nước sạch vào bát, thưởng mẩu cà rốt nhỏ đã chuẩn bị, vuốt nhẹ
+và quan sát thỏ bật nhảy nhẹ quanh chỗ đứng (`hop`). Review trả 4/5/6 item
+`rabbit`/`hay`/`water`/`hop` + `hay rack` +
+`feed the rabbit`. Local asset pipeline có 37 PNG master, 37 WebP và bốn icon map/milestone;
+cutout audit pass. Google TTS đã tạo 495 clip; audio audit có 607 target, missing 0 và invalid 0.
+R2 upload/verify đủ 532/532 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Follow-up
+visual revision tạo ba sheet 4×3 với một character thỏ trắng duy nhất, tái tạo 37/37 local image;
+cutout audit, lesson audit và image verify đều pass, 0 missing/orphan. R2 upload đúng 34 WebP,
+verify đủ 637/637 object, lỗi 0 và post-upload dry-run còn `Changed/new: 0`; device QA chưa chạy.
+
+Storyboard `docs/theme-5-groom-the-kitten-storyboard.md` khóa lesson thứ sáu thành
+`get-the-brush` -> `brush-the-fur` -> `kitten-purrs`. Runtime author 9/18/27 vocabulary,
+18/36/54 action, 9/18/27 pronunciation encounter và 9/12/15 auto-micro. Story đi từ lấy chiếc bàn chải
+lông chuyên dụng, chải lông nhẹ nhàng xuôi chiều gỡ rối, đến khi bộ lông suôn mượt và mèo con
+nghỉ và phát tiếng gừ gừ (`purr`). Review trả 4/5/6 item `kitten`/`brush`/`smooth`/`purr` + `mat` +
+`brush the fur`. Local asset pipeline có 28 PNG master, 28 WebP và bốn icon map/milestone;
+cutout audit pass. Google TTS đã tạo 587 clip; audio audit có 610 target, missing 0 và invalid 0.
+R2 upload/verify đủ 615/615 object, lỗi 0; post-upload dry-run còn `Changed/new: 0`. Follow-up
+visual revision tạo ba sheet 4×3 bằng đúng identity mèo cam vằn của `find-the-kitten`, đồng thời
+đưa `kitten-shiny-coat` vào cell thứ chín của sheet chải lông để loại hình phẳng mắt xanh cũ.
+Cutout audit, lesson audit và image verify local đạt 28/28, 0 missing/orphan. R2 upload đúng 25
+WebP, verify đủ 768/768 object, lỗi 0 và post-upload dry-run còn `Changed/new: 0`; device QA chưa
+chạy.
+
+Revision vocabulary ownership ngày 2026-08-25 giữ `happy` là New Anchor của `my-feelings` ở
+Theme 3, không dạy lại từ này trong Theme 4–5. Follow-up audit khóa tám anchor Theme 5 theo ngữ
+cảnh thành `celebrate`, `playful`, `friendly`, `stand`, `calm`, `the rabbit hops`, `cheerful` và
+`relaxed`; tên asset hoặc Scene State variant legacy có chứa `happy` chỉ là technical identifier,
+không mở pronunciation panel. Exact duplicates giữa các lesson Theme 5 chỉ còn allowlist phục vụ
+lesson Foundation độc lập hoặc an toàn: `ask an adult`, `bowl`, `empty`, `hungry`, `kitten`,
+`mat`, `pet gently`, `put it down`, `ready`, `wait` và `water`; test ownership sẽ fail nếu có từ
+trùng ngoài danh sách. Delta 148 audio/R2 đã publish thuộc revision ownership đầu trong ngày;
+follow-up đổi anchor/copy/representative đã tạo thêm 279 audio và publish cùng sáu WebP trong một
+delta 285 object. Full-corpus audit đạt 16.156 target với thiếu 0/lỗi 0; R2 verify đủ
+21.296/21.296 object, lỗi 0 và post-upload `Changed/new: 0`. Grooming audit dùng representative
+trực tiếp cho `bristles`, `neat`, `relaxed` và dedicated `kitten-shiny-coat` cho `shiny coat`,
+không dùng chung hình `neat` để thay cho độ óng của bộ lông. Current audit của cả sáu lesson chỉ
+còn chờ device QA.
 
 ### Hierarchy
 
@@ -247,9 +569,9 @@ Scene
   -> background
   -> optional character
   -> vocabulary[]
-  -> objects[]
+  -> objects[] với optional variants/initial state
   -> dropZones[]
-  -> steps[]
+  -> steps[] với optional successStateChanges[] / afterSuccessStateChanges[]
   -> optional completionReward
 ```
 
@@ -261,6 +583,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Vocabulary level: `easy`, `medium`, `hard`.
 - Object roles: `learning`, `decoration`, `dropZone`, `character`.
 - Vị trí và touch areas dùng `PercentRect` để responsive theo scene.
+- `SceneObject` luôn có base asset và có thể thêm `variants[]`, `initialVariantId` hoặc
+  `initialVisibility`. Variant có thể override asset/position/touch area; phần thiếu kế thừa từ
+  object gốc.
 - `AssetRef` hỗ trợ type `image`, `audio`, `lottie`, `sprite`; runtime support thực tế phụ thuộc
   renderer/registry hiện có.
 
@@ -269,9 +594,18 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Step types: `intro`, `teach`, `practice`, `review`.
 - Interaction types: `listen`, `tap`, `drag`, `find`.
 - `StepController` quyết định listen/interactive flow, đánh giá tap/find/drag, next step và
-  success/fail feedback.
+  success/fail feedback; chỉ kết quả đúng mới trả `successStateChanges` cho runtime.
 - `ScenePlayer` render scene, phát instruction/audio, khóa tương tác trong thời điểm cần thiết,
-  điều phối effects, prefetch và progress.
+  điều phối effects, scene object state, prefetch và progress.
+- Với step `teach` có từ vựng và tương tác `tap`/`drag`/`find`, bé vẫn có thể thao tác trong lúc
+  instruction đang phát. Kết quả đúng phản hồi hình ảnh ngay, nhưng runtime phải bảo đảm từ tiếng
+  Anh mục tiêu đã phát xong ít nhất một lần trước success feedback và chuyển bước; nếu playback
+  bị treo hoặc không khả dụng, failsafe tối đa 3 giây cho phép lesson tiếp tục để không khóa bé
+  trong scene.
+- Scene State v1 có ba action: `setObjectVariant`, `showObject`, `hideObject`. Không có branching,
+  inventory, biến tùy ý hoặc state xuyên scene.
+- Object có `initialVisibility: hidden` được `showObject` sẽ fade-scale trong 260 ms; Reduce Motion
+  bật thì snap thẳng về trạng thái cuối. Entrance này không dùng sparkle/bounce success semantic.
 
 ### Learning modes
 
@@ -280,7 +614,7 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - `challenge`: thêm nội dung có `minMode: challenge`.
 
 `src/data/learningModes.ts` lọc đồng bộ vocabulary, character, objects, drop zones và steps theo
-`learningScope`, đồng thời bỏ dangling `nextStepId` sau khi lọc.
+`learningScope`, đồng thời bỏ dangling `nextStepId` và state action mất target/variant sau khi lọc.
 
 - **Implemented:** mode filtering bằng `learningScope.minMode`.
 - **Partial:** `learningScope.minAge` được hỗ trợ bởi helper và tests, nhưng runtime call sites
@@ -301,6 +635,49 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 - `HomeScreen` là trải nghiệm Kid Mode chính với Map và Play tabs.
 - Theme map hiển thị lesson/scene progression, CTA hiện tại và review đang chờ.
+- Chạm cụm thương hiệu Sungy trên Home header mở bottom sheet **Chặng tiếp theo** gọn theo trạng
+  thái hiện tại: học tiếp, ôn tập, hoàn thành hoặc khóa Premium. Sheet gom tên trạm, lời hướng dẫn
+  và tiến độ theme vào một card; không lặp tiến độ thành các ô sao/trạm riêng. Phần sticker chỉ là
+  banner phụ có nhãn rõ để mở bộ sưu tập. Toàn bộ card chặng và CTA cuối sheet cùng gọi một action
+  chính theo trạng thái, có pressed feedback và tap sound để bé chạm vào vùng nổi bật không bị im
+  lặng. Nút `×` và backdrop đóng sheet; khóa Premium giữ CTA **Nhờ ba mẹ mở khóa** và tiếp tục qua
+  adult gate mà không phát chồng tap sound với lời nhắc khóa.
+- Các action chính của Kid Mode dùng feedback chung: tab Map/Play, scene node, review milestone,
+  card Play và CTA Hub co nhẹ/hạ 1–2 px ngay khi nhấn, phát tap SFX cho action khả dụng và chặn lần
+  nhấn lặp trên cùng control trong 350 ms. Nút mở thư viện theme và các card theme khả dụng cũng
+  phát tap SFX trước khi điều hướng hoặc đổi bản đồ. Action khóa không phát tap chung vì lời nhắc
+  khóa đã có audio riêng. Khi system Reduce Motion bật, control chỉ đổi opacity; pulse của trạm
+  hiện tại và nhịp bounce icon khi đổi tab đều tắt.
+- Node cảnh đã hoàn thành giữ thao tác chính để học lại cảnh. Nếu scene có ít nhất một vocabulary
+  visual hợp lệ trong `learningMode` hiện tại và lesson vẫn truy cập được, node có thêm nút ôn từ
+  48×48 với icon hai thẻ từ và mũi tên vòng, neo chồng nhẹ vào cạnh ngoài node để thể hiện quan hệ
+  với scene nhưng vẫn tránh đường nối và dấu hoàn thành. Nút mở thẳng `Góc chơi từ vựng`; cảnh chưa
+  hoàn thành, bị khóa hoặc không có visual không hiện shortcut này. Shortcut là action phụ gắn với
+  scene, không tạo thêm map station và không thay thế review milestone cuối lesson.
+- Màn hoàn thành scene và card scene đã hoàn thành trong Lesson Pack có CTA mở `Góc chơi từ
+  vựng` khi scene có ít nhất một vocabulary visual hợp lệ. Màn này chỉ dùng vocabulary thuộc scene
+  sau khi lọc theo `learningMode`; từ không resolve được hình riêng sẽ bị ẩn. Resolver visual dùng
+  chung với review games và chọn đúng object/variant đang hiện ở đầu teach step của từ đó, nên các
+  trạng thái theo timeline như `meal` và `ready` dùng đúng hình thay vì asset base. Trong cùng một
+  scene, mỗi object variant/asset chỉ đại diện cho tối đa một từ; noun và direct `vocabId` được ưu
+  tiên khi nhiều từ trỏ tới cùng hình để tránh hình trùng hoặc gắn nhãn mơ hồ. Mọi visual được đặt
+  sẵn trên scene background, ưu tiên tâm position của đúng variant rồi tự dịch các placement trùng
+  nhau. Đồ vật luôn ở trên tranh, không có thao tác xoá hoặc khay từ; bé chạm để nghe và kéo để chơi
+  tự do. Mỗi lần chạm thật sự, đồ vật squish-bounce kèm halo, sparkle và nhãn từ tạm thời cạnh đồ
+  vật trong lúc phát âm. Nhãn co giãn theo độ dài, tự xuống dòng không ellipsis, giữ font tối thiểu
+  18dp và clamp trong lề canvas; từ ngắn dùng capsule còn cụm/câu dài dùng bubble bo góc rộng hơn.
+  Thao tác kéo không kích hoạt hiệu ứng chạm và khi thả chỉ có một nhịp nảy nhẹ. Với Reduce Motion,
+  runtime bỏ bounce/sparkle và chỉ flash halo cùng nhãn từ. Nút `×` đóng màn, còn `Đặt lại` khôi
+  phục bố cục mặc định. Điều khiển và hướng dẫn chỉ là overlay gọn trên canvas. Sau mỗi lần thả,
+  vị trí chuẩn hóa và thứ tự chồng lớp của toàn bộ đồ vật được lưu local theo
+  `lessonId + sceneId + learningMode`; lần mở sau khôi phục các item vẫn còn hợp lệ, bỏ item đã
+  bị xóa khỏi content và dùng vị trí mặc định cho item mới. `Đặt lại` đồng thời xóa bố cục đã lưu
+  của đúng cảnh/chế độ hiện tại. Nút icon quả địa cầu kèm badge cờ Việt Nam nằm giữa nút đóng và
+  đặt lại, không hiển thị mã ngôn ngữ; mặc định tắt trên dữ liệu cũ/install mới và ghi nhớ chung
+  trên thiết bị. Badge cờ được làm mờ khi tắt; khi bật, nút đổi màu, cờ sáng và hiện dấu kiểm. Mỗi
+  lần đổi trạng thái phát một câu tiếng Việt production xác nhận. Khi bật, chạm đồ vật phát English
+  trước, nghỉ 400 ms rồi phát authored `meaningVi`; nhãn nổi hiển thị English lớn và nghĩa tiếng
+  Việt nhỏ. Một lần chạm mới hoặc đổi toggle hủy narration cũ để không phát chồng tiếng.
 - Mỗi scene node trên theme map dùng đúng bundled icon riêng của scene; icon milestone đại diện
   lesson không được dùng làm lý do thay scene icon bằng một fallback chung.
 - Mỗi milestone/review node cuối lesson dùng một bundled milestone icon riêng theo chủ đề bài học,
@@ -310,23 +687,32 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Play tab có card mở `StickerPlaygroundScreen`. Bé chọn một trong ba nền phòng ngủ, công viên và
   bãi biển; chỉ sticker bài học/thành tựu đã mở khóa mới xuất hiện trong khay. Mỗi sticker chỉ có
   một placement trên từng nền: chạm lần đầu thêm ở giữa canvas, chạm lại chọn/đưa bản hiện có lên
-  trên, còn nhấn giữ và kéo lại sẽ chuyển bản hiện có tới vị trí thả. Sticker trên canvas hỗ trợ
-  pan, pinch zoom và rotation đồng thời, cùng các thao tác hoàn tác, xóa sticker đang chọn và dọn
-  riêng nền hiện tại có xác nhận.
+  trên, còn kéo thẳng lên từ khay sẽ đặt sticker tại vị trí thả hoặc chuyển bản hiện có tới đó.
+  Gesture kéo dọc được ưu tiên theo ngưỡng hướng, còn vuốt ngang tiếp tục cuộn khay; thả ngoài
+  canvas không thay đổi board. Sticker trên canvas hỗ trợ pan, pinch zoom và rotation đồng thời,
+  cùng các thao tác hoàn tác, xóa sticker đang chọn và dọn riêng nền hiện tại có xác nhận.
 - `guided`: mở theo progress và scene đầu tiên chưa hoàn tất.
 - `free`: cho phép mở nội dung không phụ thuộc thứ tự progress.
-- Sau reward, CTA **Bài tiếp theo** mở lesson pack kế tiếp thay vì đi thẳng vào scene/review;
-  nếu lesson kế tiếp thuộc theme khác thì `activeThemeId` được đồng bộ trước khi mở pack.
+- Sau reward, CTA **Bài tiếp theo** đồng bộ `activeThemeId` khi cần rồi mở thẳng scene chưa hoàn
+  tất đầu tiên của lesson kế tiếp; navigation history được làm mới về Home/Map + scene mới để thao
+  tác đóng không quay lại reward hoặc lesson vừa hoàn thành.
 - **Implemented:** trong theme map, trạm/review bị khóa do tiến độ vẫn nhận thao tác chạm để hiện
   giải thích; khóa tiến độ, Premium và trạng thái đang kiểm tra Premium phát lời nhắc ngắn theo
-  `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry cùng một số lời Sungy
-  Home/Onboarding, và được throttle để tránh phát lặp khi bé chạm liên tục.
-- `visibleLessonIds` có thể ẩn lesson khỏi plan; `undefined` nghĩa là hiển thị tất cả. Kế hoạch
-  tùy chỉnh luôn giữ ít nhất một lesson cho mỗi theme; khi catalog thêm theme mới, settings cũ
-  được normalize để tự thêm lesson đầu tiên của theme đó mà không bật lại các lesson đã ẩn.
-- `ThemeLibrary` hiển thị và cho chọn giữa các themes trong catalog. Home header có entry mở
-  thư viện này để bé/ba mẹ đổi bản đồ active; theme mới có thể bị khóa Premium nếu không có lesson
-  nào thuộc free tier.
+  `appLanguage`. Các clip Google TTS nằm trong bundled UI audio registry cùng các lời Sungy
+  Home/Onboarding tĩnh tương ứng ở cả Việt/Anh, và được throttle để tránh phát lặp khi bé chạm
+  liên tục.
+- `visibleLessonIds` lưu lựa chọn lesson bên trong từng theme; `undefined` nghĩa là chọn tất cả.
+  `disabledThemeIds` ẩn toàn bộ theme khỏi Kid Mode nhưng không xóa lựa chọn lesson của theme đó,
+  nên bật lại sẽ khôi phục đúng selection trước đây. Normalization luôn giữ ít nhất một theme đang
+  bật và ít nhất một lesson đã chọn trong mỗi theme; khi catalog thêm theme mới, settings cũ tự
+  thêm lesson đầu tiên của theme mới mà không bật lại các lesson đã ẩn.
+- `ThemeLibrary` tách theme active thành card `Hành trình của bé` gọn, chỉ giữ hình, tên, tiến độ và
+  CTA chính. Theme chưa học trạm nào dùng `Bắt đầu hành trình`, theme đang học dùng `Tiếp tục trên
+  bản đồ`, còn theme đạt đủ số trạm hiển thị `Đã hoàn thành` cùng CTA `Xem lại bản đồ`. Các theme
+  còn lại nằm trong lưới trực quan hai cột trên điện thoại và ba cột trên tablet, ưu tiên hình minh
+  họa/tên/trạng thái ngắn; chạm toàn bộ card để đổi bản đồ. Kid Mode không hiển thị mô tả dài hoặc
+  ghi chú dành cho phụ huynh trên màn này. Home header có entry mở thư viện để bé/ba mẹ đổi bản đồ
+  active; theme mới có thể bị khóa Premium nếu không có lesson nào thuộc free tier.
 
 ### Parent Mode
 
@@ -354,21 +740,29 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - **Implemented:** các chip từ vựng và tip text trong Parent stats review card, cùng lesson
   preview, dùng vocabulary khả dụng theo `learningMode` hiện tại; từ ở mode cao hơn không hiển thị
   khi phụ huynh đang chọn mode dễ hơn.
-- **Implemented:** tab Bài học chỉnh difficulty, guided/free journey và visible lessons. Nội dung
-  được sắp theo luồng: tổng quan "Lộ trình học của bé" -> "Chọn phạm vi bài học" -> các chủ đề và
-  bài đang học -> "Cách bé học" (guided/free journey và difficulty). Card tổng quan hiển thị số bài
-  đang bật và thanh tiến độ theo
-  `completedVisibleLessonCount / visibleLessons.length`; "Tất cả bài" chỉ nghĩa là bật toàn bộ
-  lesson trong plan, còn guided/free journey vẫn là setting riêng. Ba lựa chọn phạm vi loại trừ
-  nhau; khi mở "Tự chọn", app giữ nguyên các bài đang bật để ba mẹ bắt đầu tinh chỉnh nhưng chỉ
-  hiển thị "Tự chọn" là lựa chọn hiện hành. Nhịp "Nhẹ nhàng" bật 3 bài gần bài focus hiện tại,
-  không phải 3 bài vừa học gần nhất. Khi ba mẹ bật lại một lesson đang ẩn
-  thuộc theme khác, progress `activeThemeId` được đổi sang theme của lesson đó để Home map phản
-  hồi đúng theme vừa bật. Tab Cài đặt chỉnh child profile, Light/Dark/System theme,
-  app-language preference, teacher prompt mode, English accent, daily reminder time, optional
-  background music, thư viện giọng đọc local, contact support email và app version đọc trực tiếp
-  từ native release metadata. Card giọng đọc có toggle và thao tác xóa toàn bộ độc lập, nên phụ
-  huynh có thể dọn lịch sử mà vẫn giữ tự động lưu cho các buổi sau.
+- **Implemented:** tab Bài học giữ phần tổng quan ngắn gồm preset hiện hành, số bài đang bật và
+  entry `Chỉnh lộ trình`; guided/free journey và difficulty vẫn nằm trong phần `Cách bé học` bên
+  dưới. Việc chọn phạm vi bài chuyển sang route parent-only `ParentLessonPlan`, gồm ba preset
+  `Gợi ý` / `Tất cả` / `Tự chọn`, sau đó là danh sách lesson chia theo theme có thể thu gọn. `Gợi
+  ý` chọn lesson đầu tiên của mỗi theme để luôn khớp invariant ít nhất một lesson/theme; `Tất cả`
+  bật toàn bộ catalog; `Tự chọn` giữ nguyên selection để phụ huynh chỉnh từng dòng. Toàn bộ dòng
+  lesson là checkbox, không hiển thị progress hoặc preview; lesson cuối còn bật trong theme bị
+  khóa và mỗi theme có thao tác `Chọn tất cả`. Header theme có switch bật/tắt; tắt theme thu gọn
+  card, ẩn theme cùng các lesson của nó khỏi Home Map, Play/Review, lesson list và Theme Library,
+  nhưng giữ nguyên lesson selection để khôi phục khi bật lại. Switch theme cuối đang bật bị khóa.
+  Thay đổi chỉ được persist khi bấm `Lưu thay đổi`; CTA này chỉ bật khi cấu hình khác trạng thái
+  ban đầu. Mở/thu danh sách bài không làm draft bị dirty. Nếu quay lại khi có thay đổi chưa lưu,
+  màn hình yêu cầu xác nhận trước khi bỏ draft. Chỉnh từng lesson không đổi
+  `progress.activeThemeId`; nếu tắt đúng theme đang mở, màn hình báo trước và khi lưu sẽ chuyển
+  active map sang theme đang bật kế tiếp. Tab Cài đặt bỏ hero/card giới thiệu lớn và dùng các nhóm
+  danh sách nhất quán theo thứ tự `Hồ sơ của bé`, `Thói quen học`, `Giọng đọc & dữ liệu`, `Ứng
+  dụng`, `Tài khoản & đồng bộ`, `Liên hệ & thông tin`. Tab này chỉnh child profile,
+  Light/Dark/System theme, app-language preference, teacher prompt mode, English accent, daily
+  reminder time, optional background music, thư viện giọng đọc local, crash reporting, contact
+  support email và app version đọc trực tiếp từ native release metadata. Các lựa chọn tiếp tục tự
+  lưu theo từng thao tác; nhóm hồ sơ giữ name field và birth-year picker ngay trong danh sách gọn.
+  Card giọng đọc có toggle và thao tác xóa toàn bộ độc lập, nên phụ huynh có thể dọn lịch sử mà vẫn
+  giữ tự động lưu cho các buổi sau.
 - **Implemented:** đánh giá ứng dụng là parent-only. Prompt native chỉ được cân nhắc khi Parent
   dashboard đã ổn định, app đã được theo dõi ít nhất 7 ngày, có hoạt động học ở ít nhất 3 ngày và
   đã hoàn thành ít nhất 3 lesson. App chờ 2,5 giây tại điểm nghỉ, không hiện cùng update/crash/
@@ -386,7 +780,11 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   tiếng Anh, giao diện, nhạc nền, thư viện giọng đọc, crash reporting và cloud learning data sync.
 - **Implemented:** parent account card hỗ trợ đăng nhập/đăng xuất/xóa tài khoản Firebase Auth bằng
   Google và Apple. Đây là tài khoản phụ huynh. Trên iOS hỗ trợ Apple Sign-In, nút Apple đứng trước
-  Google trong Parent/Premium, kể cả luồng kích hoạt Founder; Android chỉ hiện Google.
+  Google trong Parent/Premium, kể cả luồng kích hoạt Founder; Android chỉ hiện Google. Trong nhóm
+  `Tài khoản & đồng bộ` của tab Cài đặt, trạng thái đã đăng nhập hiển thị thành một summary row gồm
+  tên, provider và badge Premium nếu có; cloud sync là một row riêng gồm status cùng switch. Quản
+  lý gói và đăng xuất dùng action row gọn, còn xóa tài khoản là destructive link ít nổi bật ở cuối
+  nhóm thay vì ba nút lớn xếp dọc.
 - **Implemented:** trong account card, phụ huynh chủ động bật/tắt cloud learning data sync. Consent
   modal liệt kê progress và selected settings được sync; opt-out cho phép giữ hoặc xóa bản cloud.
   Daily activity, voice recordings, lesson assets và per-device notification permission/schedule
@@ -451,12 +849,12 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   `PremiumScreen`; hạn dùng/gia hạn nằm trong màn Premium chi tiết. Phần tài khoản phụ huynh cũng
   gắn badge Premium với account đang đăng nhập. Khi status là `signedOut`, `free` hoặc
   `unavailable`, Parent dashboard hiển thị teaser card mềm để ba mẹ xem gói Premium; teaser ẩn
-  trong lúc `initializing` để tránh nhấp nháy. Trong tab Bài học của Parent Mode, các bài ngoài
-  free tier hiển thị trạng thái Premium và affordance mở khóa ngay trên dòng bài; bấm dòng bài bị
-  khóa mở `PremiumScreen` thay vì chỉ mở preview. Kid Home Map cũng hiển thị CTA Premium theo
-  tiến độ sau khi toàn bộ free lesson IDs đã nằm trong `completedLessonIds`; CTA ẩn với tài khoản
-  Premium hoặc khi monetization còn `initializing`, và mở Parent intent `premium` cho bài Premium
-  kế tiếp.
+  trong lúc `initializing` để tránh nhấp nháy. Trình chỉnh lộ trình không dùng entitlement để thay
+  đổi selection: phụ huynh có thể cấu hình toàn bộ phạm vi nội dung, còn trạng thái khóa và CTA mở
+  Premium tiếp tục được hiển thị ở các màn học nơi lesson được mở. Kid Home Map cũng hiển thị CTA
+  Premium theo tiến độ sau khi toàn bộ free lesson IDs đã nằm trong `completedLessonIds`; CTA ẩn
+  với tài khoản Premium hoặc khi monetization còn `initializing`, và mở Parent intent `premium`
+  cho bài Premium kế tiếp.
 - `src/engine/MonetizationManager.ts` dùng Firebase parent UID làm RevenueCat App User ID khi
   parent đã sign in, và dùng anonymous RevenueCat customer khi parent chưa sign in. Verified
   `CustomerInfo.entitlements.active.premium` là source of truth cho quyền đã mua, luôn ưu tiên và
@@ -474,6 +872,10 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   `founder_premium_duration_days`, so sánh với RevenueCat `CustomerInfo.firstSeen` và chỉ mở nội
   dung sau khi Firebase parent sign-in. Cutoff rỗng/date không hợp lệ fail closed; cơ chế này không
   phải quota chính xác 500 và không được mô tả là “500 lượt tải đầu tiên”.
+- Khi anonymous customer đang đủ điều kiện Founder nhưng phụ huynh chưa đăng nhập, `PremiumScreen`
+  ưu tiên hero quà tặng `0đ · 365 ngày` trước quyền lợi và chỉ hiển thị một nhóm CTA đăng nhập để
+  kích hoạt. Các package trả phí mặc định được thu gọn sau action phụ `Xem các gói trả phí`; nếu
+  phụ huynh chủ động mở phần này, checkout không lặp lại card đăng nhập tùy chọn của luồng mua.
 
 ### Scene learning
 
@@ -489,17 +891,84 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 - Scene title hiển thị theo `appLanguage` (`titleEn` cho English UI, `titleVi` cho Vietnamese UI);
   vocabulary và phát âm mục tiêu vẫn luôn là English. `englishAccent` chỉ chọn biến thể audio
   en-US/en-GB cho cùng English text, không thay đổi text hiển thị.
-- Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả.
+- Vocabulary English trên instruction/pronunciation card chỉ là copy hỗ trợ, không phải kênh giải
+  nghĩa chính cho trẻ chưa biết đọc; runtime không hiển thị `meaningVi` như một bản dịch phải đọc.
+  Với cụm hành động mới, một teach step phải cho bé xem hành động, nghe lời Việt giải thích nghĩa,
+  rồi nghe mẫu English và tập nói trước khi cụm đó xuất hiện trong step review. Lời hướng dẫn của
+  review phải nhắc lại nghĩa bằng tiếng Việt và mô tả dấu hiệu hình ảnh đủ cụ thể để bé thao tác
+  mà không cần đọc English hoặc `meaningVi`. Mỗi lời Việt chỉ nên có một ý và một yêu cầu thao
+  tác; pre-reader path đặt authoring target tối đa 12 từ cho teach và 10 từ cho review. Prompt
+  được audit trên toàn bộ scene: khi nhiều object cùng khớp một khái niệm, lời nói phải gọi đúng
+  dạng nhìn thấy hoặc dấu hiệu phân biệt của target; ảnh vocabulary phải thể hiện khái niệm dương,
+  không dùng ảnh có dấu phủ định hoặc before-state không thể hiện hành động đang dạy.
+- Speech practice là policy riêng trên step: `speechPractice: 'auto'` mở panel và tự bắt đầu micro
+  sau khi bé hoàn thành tương tác; `optional` mở panel nhưng cho bé chọn nói hoặc tiếp tục. Khi
+  không khai báo, teach step giữ hành vi `auto` cũ còn các step khác không mở luyện nói. Pilot
+  `plant-a-seed` cho đủ 21/21 vocabulary một cơ hội phát âm và dùng `auto` cho toàn bộ encounter,
+  để micro tự bật sau lời yêu cầu “Bé nói theo cô nhé.”; mỗi vocabulary vẫn chỉ có một encounter
+  để tránh micro bật lặp lại khi bé chạm lại object. Riêng `seed` được giới thiệu bằng một teach
+  step khi hạt rời vẫn hiện rõ: bé nghe nghĩa “hạt giống”, chạm đúng hạt, nghe mẫu và nói `seed`,
+  rồi mới kéo hạt giống vào lỗ ở step hành động tiếp theo. Pilot cũng dạy `soil` trước cụm
+  `fill the pot with soil`; gọi rõ `drainage hole` là “lỗ thoát nước”; gọi rõ quan hệ giữa bình
+  tưới với bộ phận `spout` trong khi chỉ đầu vòi là target tương tác;
+  giải thích chuyển đổi đất khô sang sẫm màu/hơi ướt trước khi dạy `damp`.
+- Content architecture Theme 4 v2 phân biệt ba authoring roles mà không thêm field schema:
+  `New Anchor` có `VocabularyItem`/`vocabId`, được dạy sâu, luyện nói một lần và vào review pool;
+  `Quick Recall` gọi lại từ cũ bằng lựa chọn/hành động ngắn, không tạo learned-word ID hay mở
+  speech practice; `Action Enabler` là object/công cụ giúp câu chuyện tiến lên và ưu tiên phản ứng
+  state/SFX tức thì. Quick Recall phải vẫn giải được bằng lời Việt và hình nếu bé vào lesson theo
+  free journey mà bỏ qua bài trước; từ ở mode cao hơn không trở thành core prerequisite. Bốn
+  lesson được vocabulary-first revise đặt mục tiêu 8 core New Anchors trên ba scene, expanded thêm
+  4 và challenge thêm 4; đây là authoring target chứ chưa phải validator hồi tố cho lesson cũ.
+  Mọi deep-learn/pronunciation panel (kể cả `optional`) phải được ngăn bởi action/visual payoff.
+  `promptText` không tự phát model word độc lập ở Vietnamese mode nếu step
+  không có vocabulary semantics, nên Quick Recall hiện là cue khái niệm bằng lời Việt và hình,
+  không phải bài kiểm tra nghe English ẩn. Pilot 21/21 auto encounters là ngoại lệ lịch sử, không
+  phải mẫu mật độ cho lesson mới. Onboarding preselect `expanded`, nên Theme 4 phải xem expanded
+  như một primary pre-reader path và QA riêng core/expanded; không coi expanded mặc định là nội
+  dung chỉ dành cho trẻ lớn.
+- Tap/find/drag được đánh giá bằng target IDs/drop zones; feedback/effects chạy sau kết quả. Hiệu
+  ứng success mặc định chỉ áp dụng lên đúng object bé vừa chọn, không áp dụng lên toàn bộ
+  `targetObjectIds` vì danh sách đó có thể gồm cả đáp án nhiễu; lesson chỉ làm nhiều object chuyển
+  động khi khai báo animation effect tường minh.
+- Khi step đúng có `successStateChanges`, ScenePlayer áp dụng tuần tự object variant/show/hide ngay
+  sau khi controller xác nhận success. `afterSuccessStateChanges` dành cho cleanup sau khi lời
+  xác nhận đúng đã phát xong, ngay trước khi vào bước kế; nhờ vậy đáp án đúng còn đủ lâu để nhận
+  bounce/sparkle, distractor mờ đi, rồi cả cặp mới biến mất. Incorrect/ignored interaction không
+  đổi state. Object ẩn không render và không nhận hit test; variant mới có thể đổi asset cùng
+  optional geometry. Nếu required success feedback lỗi và runtime phải giữ nguyên step, state
+  transaction tức thời được rollback và deferred cleanup không chạy để target không biến mất hoặc
+  làm bài bị kẹt.
+- Scene object state chỉ sống trong lượt chạy scene hiện tại và reset khi replay hoặc chuyển scene.
+  State này không persist qua scene/app session và current-step pointer hiện tại không khôi phục
+  chính xác state trung gian.
+- `Góc chơi từ vựng` không chạy lại Scene State hoặc interaction đúng/sai. Visual của mỗi từ ưu
+  tiên object có `vocabId`, sau đó representative target của vocabulary step. Resolver mô phỏng
+  tuần tự các `successStateChanges` và `afterSuccessStateChanges` trước từng step để chọn asset,
+  position và variant đúng với lúc từ bắt đầu được dạy; cùng resolver này cung cấp visual cho các
+  review games. Từ không có visual renderable và từ dùng trùng object variant/asset với một lựa chọn
+  mạnh hơn sẽ không xuất hiện trong playground. Tâm authored của đúng variant là anchor cho
+  placement mặc định; collision fallback chỉ thay đổi vị trí sandbox, không sửa lesson data.
 - Step `intro`/`teach` highlight `targetObjectIds` ngay để bé nối instruction/từ mới với hình;
   highlight hướng dẫn ban đầu này không làm mờ các object khác. Step `practice`/`review` giữ đáp
   án trung tính lúc bắt đầu để bé có cơ hội tự nhớ; drag vẫn luôn hiển thị drop zone và affordance
   kéo hiện có. Trong step tương tác, target được nâng lên trên các sibling object về z-order để
   không bị hitbox của hình chồng lấp chặn thao tác; ưu tiên lớp này không tự bật glow/dimming.
 - Với step tương tác `tap`/`find`/`drag`, Auto-Hint bắt đầu đếm 7 giây sau khi instruction hoặc
-  feedback audio đã phát xong. Nếu bé chưa tương tác, runtime bật pulse glow cho toàn bộ
-  `targetObjectIds` và làm mờ nhẹ các learning object không liên quan. Chạm object, bắt đầu/thả
-  kéo, Continue hoặc nghe lại instruction/từ mẫu đều xóa hint và khởi động lại khoảng chờ; timer
+  feedback audio đã phát xong. Nếu bé chưa tương tác, runtime bật pulse glow cho
+  `interaction.correctObjectIds` hoặc `targetObjectId`; `targetObjectIds` vẫn có thể mô tả toàn bộ
+  lựa chọn nhưng distractor không bị viền như đáp án. Runtime làm mờ nhẹ các learning object không
+  liên quan. Chạm object, bắt đầu/thả
+  kéo, Continue hoặc nghe lại instruction/từ mẫu đều xóa hint và khởi động lại khoảng chờ; khi
+  nghe lại instruction của step tương tác, hiệu ứng nhắc chỉ áp dụng cho
+  `correctObjectIds` hoặc `targetObjectId`, không làm chuyển động cả đáp án nhiễu; timer
   được cleanup khi đổi step/scene hoặc unmount. Listen step không dùng Auto-Hint.
+- Với mọi step tương tác, instruction hành động được giữ trên instruction card; nếu step có
+  vocabulary thì từ tiếng Anh nằm ngay dưới instruction. Bé không phải nhớ câu vừa nghe để biết
+  cần chạm, tìm hay kéo gì.
+- Asset vật thể và lựa chọn hành động trong scene là cutout nền trong suốt, không chứa caption,
+  nhãn hoặc chữ vẽ chết trong raster; instruction card/vocabulary UI chịu trách nhiệm hiển thị
+  toàn bộ text để tránh lặp chữ và giữ khả năng localize.
 - Success, fail và info feedback đều hiển thị text trong instruction card. Fail feedback giữ
   tương tác object để bé thử lại và tự ẩn ngay khi audio phản hồi phát xong; info feedback khi
   nghe lại instruction/từ vựng tự ẩn sau một khoảng ngắn.
@@ -509,9 +978,9 @@ Shared contracts nằm trong `src/types/lesson.ts`.
   geometry gốc. Target lớn, step nhiều target và object đang kéo chỉ dùng viền highlight, không
   dùng zoom này.
 - Trước khi vào bài, ScenePlayer chỉ chặn trên gói tài nguyên cần để bắt đầu an toàn: toàn bộ ảnh
-  scene cần render/effect và audio của entry step đúng với `teacherPromptMode` cùng
-  `englishAccent` đang chọn. Foreground image/audio preparation tự retry một lần khi gặp lỗi tạm
-  thời; các foreground audio trùng key dùng chung in-flight preparation.
+  scene cần render/effect, gồm base/hidden/variant object assets, và audio của entry step đúng với
+  `teacherPromptMode` cùng `englishAccent` đang chọn. Foreground image/audio preparation tự retry
+  một lần khi gặp lỗi tạm thời; các foreground audio trùng key dùng chung in-flight preparation.
 - Audio còn lại của current scene và next scene được warm best-effort ở nền theo batch nhỏ để
   không tạo một đợt request lớn chặn lần mở bài đầu tiên. Khi step thực sự cần audio, foreground
   prepare vẫn xác nhận file đã có trong cache trước khi phát.
@@ -531,12 +1000,21 @@ Shared contracts nằm trong `src/types/lesson.ts`.
 
 ### Speech practice
 
-- **Implemented:** teach step có vocabulary có thể hiển thị `SpeakPracticeControls`.
+- **Implemented:** mọi teach step có vocabulary đều cho bé luyện phát âm bằng
+  `SpeakPracticeControls`. Teach step dùng `listen` đi thẳng vào luyện nói; teach step dùng
+  `tap`/`find`/`drag` hoàn tất hành động và success feedback trước, sau đó mới mở luyện nói rồi
+  cho bé chủ động tiếp tục. Vì vậy speech practice không chiếm cú chạm scene và cũng không tạo
+  bước cụt khi recorder không nghe thấy giọng hoặc không khả dụng.
 - **Implemented:** phát từ mẫu, request record permission, ghi âm, native on-device voice activity
   detection/endpointing, auto-stop và hỗ trợ phát lại local recording theo yêu cầu. Native chỉ
   đưa snapshot mức cao (`waitingForSpeech`, `candidateSpeech`, `speaking`, `trailingSilence`,
   `ended`) qua React Native bridge; PCM không được truyền qua bridge. Sau khi prompt và từ mẫu
   phát xong, lượt tự ghi chuyển thẳng sang khởi động recorder, không tạo thêm narration session.
+- Sau khi từ tiếng Anh mục tiêu đã phát xong, nút mic vẫn nhận thao tác trong phần hướng dẫn
+  **Bé nói theo cô** hoặc auto prompt/từ mẫu của speech practice. Bé chạm sớm sẽ thấy trạng thái
+  chuẩn bị ngay, request auto cũ bị vô hiệu hóa, narration được dừng và recorder chỉ bắt đầu sau
+  handoff yên lặng 200 ms; chạm lặp trong lúc handoff bị bỏ qua. Trước mốc nghe từ mục tiêu, mic
+  vẫn khóa; nếu bé không chạm, luồng prompt/từ mẫu rồi auto-record tiếp tục như trước.
 - Parent setting `voiceRecordingLibrary` mặc định tắt và là local-only. Settings chỉ hiển thị một
   hàng toggle gọn cùng icon thông tin; lần bật đầu tiên cần xác nhận disclosure, các lần bật lại sau
   khi consent hiện hành đã được lưu thì áp dụng trực tiếp. Tắt toggle chỉ ngừng lưu bản mới và luôn
@@ -666,6 +1144,9 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
   trao sticker trước review. Với lesson không có review game, scene cuối cùng có thể đánh dấu lesson
   complete, nhưng sticker vẫn được trao ở `completeLessonProgress` để reward UI nhận được
   `unlockedSticker`.
+- Huy hiệu hạt dẻ trên `KidModeHeader` biểu diễn cấp độ từ total XP. Khi bé chạm, huy hiệu phát
+  tap SFX, nảy nhẹ nếu Reduce Motion đang tắt và hiện tạm thời số hạt dẻ còn thiếu để lên cấp kế
+  tiếp; thao tác này không cộng XP hoặc trao phần thưởng.
 - `completeLessonProgress`: review mới +2 XP, replay +1 XP; đánh dấu lesson/review complete,
   thêm learned words và trao sticker của lesson nếu sticker đó chưa có. Replay không duplicate
   sticker nhưng có thể repair progress cũ đã complete lesson mà thiếu sticker.
@@ -700,7 +1181,10 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
   notification permission và trigger `daily-reminder` thực tế để không báo đang nhắc khi lịch native
   không hoạt động.
 - Row "Giờ nhắc" vẫn chỉnh được khi reminder đang tắt để phụ huynh chọn giờ trước; subtitle phân
-  biệt giờ dự kiến khi tắt và lịch nhắc hằng ngày đang hoạt động khi bật.
+  biệt giờ dự kiến khi tắt và lịch nhắc hằng ngày đang hoạt động khi bật. Trên iOS, row này mở
+  modal Sungy chứa spinner và hai CTA; trên Android, app chỉ mở một native clock dialog 24 giờ,
+  không lồng thêm modal phía dưới. App chỉ persist/reschedule sau `Xác nhận`/native confirm; `Hủy`,
+  chạm ra ngoài hoặc đóng dialog giữ nguyên giờ cũ.
 - Service cancel notification cũ trước khi tạo schedule mới.
 - **Partial verification:** chưa có native E2E tests trong repo chứng minh behavior trên cả hai OS;
   thay đổi reminder cần kiểm tra trên platform hoặc báo rõ chưa chạy.
@@ -716,7 +1200,7 @@ Những completion flow biết `learningMode` hiện tại chỉ auto-add learne
 
 ## 7. Local persistence, parent auth và cloud learning data
 
-App luôn dùng bảy AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
+App luôn dùng tám AsyncStorage stores làm persistence local. Firestore chỉ giữ optional cloud copy
 của learning progress và selected parent settings sau parent opt-in:
 
 ### Parent settings
@@ -724,9 +1208,9 @@ của learning progress và selected parent settings sau parent opt-in:
 - Key: `@skidsenglish/parent-settings/v1`.
 - Manager: `src/engine/ParentSettingsManager.ts`.
 - Fields chính: onboarding flag, journey/learning mode, optional editor flag, visible lessons,
-  app language, teacher prompt mode, English accent, app theme, reminder state/time, child profile,
-  background music opt-in, crash reporting opt-in, `voiceRecordingLibrary` local consent preference
-  và `cloudProgressSync` consent preference.
+  disabled themes, app language, teacher prompt mode, English accent, app theme, reminder
+  state/time, child profile, background music opt-in, crash reporting opt-in,
+  `voiceRecordingLibrary` local consent preference và `cloudProgressSync` consent preference.
 - Normalization cung cấp defaults và chịu được field thiếu từ dữ liệu cũ.
 - `englishAccent` nhận `en-US` hoặc `en-GB`; giá trị thiếu/không hợp lệ normalize về `en-US` để
   giữ hành vi legacy.
@@ -735,8 +1219,8 @@ của learning progress và selected parent settings sau parent opt-in:
 - `voiceRecordingLibrary` mặc định `enabled: false`; trạng thái true chỉ được giữ khi có consent
   version hiện tại và consent timestamp hợp lệ, nên dữ liệu legacy/malformed không tự bật ghi âm.
 - Khi cloud sync bật, các field synced từ Parent settings là onboarding flag, journey/learning
-  mode, visible lessons, app language, teacher prompt mode, English accent, app theme, reminder
-  enabled/time và child profile. `cloudProgressSync` consent, `backgroundMusicEnabled`,
+  mode, visible lessons, disabled themes, app language, teacher prompt mode, English accent, app
+  theme, reminder enabled/time và child profile. `cloudProgressSync` consent, `backgroundMusicEnabled`,
   `crashReportingEnabled`, `enableSceneEditor` và `voiceRecordingLibrary` là local-only.
 - Reminder sync chỉ đồng bộ lựa chọn mong muốn; permission và native notification schedule vẫn là
   trạng thái riêng trên từng thiết bị.
@@ -762,6 +1246,20 @@ của learning progress và selected parent settings sau parent opt-in:
   timestamp để một remote learning snapshot không xóa trang trí trên thiết bị.
 - Playground không hiện nhãn khi autosave đã hoàn tất; trạng thái chỉ xuất hiện tạm thời khi đang
   lưu hoặc khi lần lưu gần nhất gặp lỗi để giữ thanh chọn hình nền gọn trên màn hình hẹp.
+
+### Scene vocabulary playground layouts
+
+- Key: `@skidsenglish/scene-vocabulary-layouts/v1`.
+- Manager: `src/engine/SceneVocabularyLayoutStore.ts`.
+- Mỗi layout được tách theo `lessonId + sceneId + learningMode` và giữ danh sách
+  `itemId + normalized x/y + zIndex`; root store đồng thời giữ boolean `meaningEnabled` dùng chung
+  cho mọi cảnh. Tọa độ chuẩn hóa giúp bố cục thích ứng với kích thước màn hình khác nhau. Runtime
+  chỉ ghi best-effort sau khi bé thả đồ vật, không ghi theo từng frame kéo.
+- Parser bỏ key/item malformed, clamp tọa độ và z-index, bỏ duplicate item ID, giới hạn 64 item mỗi
+  layout và 256 layout mới nhất. Các thao tác đọc/ghi/xóa dùng chung operation queue để hai lần thả
+  hoặc hai cảnh lưu sát nhau không ghi đè state của nhau.
+- Store này local-only, không nằm trong Firestore payload/fingerprint. Nút `Đặt lại` xóa riêng
+  layout hiện tại; thao tác xóa dữ liệu local của tài khoản phụ huynh xóa toàn bộ store.
 
 ### Cloud sync checkpoint
 
@@ -845,14 +1343,15 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Apple account deletion flow gọi `revokeToken` trước `deleteUser` khi tài khoản có provider
   `apple.com`.
 - Sign-out confirmation có hai nhánh: đăng xuất và giữ local learning data trên thiết bị, hoặc đăng
-  xuất rồi xóa local settings/progress/daily activity/voice recordings/cloud-sync checkpoint. Nhánh
-  giữ local là mặc định để tránh mất tiến độ ngoài ý muốn.
+  xuất rồi xóa local settings, progress, daily activity, voice recordings, bố cục Góc chơi từ vựng
+  và cloud-sync checkpoint. Nhánh giữ local là mặc định để tránh mất tiến độ ngoài ý muốn.
 - Account deletion UI xóa `users/{uid}/progress/current` và `users/{uid}/settings/current` trước
   khi xóa Firebase Auth. Nếu cloud deletion thất bại, auth deletion dừng để tránh để lại document
   không còn owner đăng nhập. Sau khi xóa cloud data, RevenueCat customer và Firebase Auth thành
   công, app xóa các local stores `@skidsenglish/parent-settings/v1`, `@skidsenglish/progress/v1`,
   `@skidsenglish/daily-activity/v1`, `@skidsenglish/cloud-progress-sync-state/v1`, metadata/file
-  của `@skidsenglish/voice-recordings/v1` và hủy daily reminder local.
+  của `@skidsenglish/voice-recordings/v1`, `@skidsenglish/scene-vocabulary-layouts/v1` và hủy
+  daily reminder local.
 
 ### Crash reporting
 
@@ -863,7 +1362,7 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 - Parent setting local-only: `crashReportingEnabled` trong
   `@skidsenglish/parent-settings/v1`, mặc định `false` cho cả install mới và persisted settings
   legacy. Setting này không sync qua tài khoản/cloud.
-- Parent UI entry: tab Settings, nhóm "Dành cho ba mẹ", toggle "Gửi báo cáo lỗi". Khi Crashlytics
+- Parent UI entry: tab Settings, nhóm "Giọng đọc & dữ liệu", toggle "Gửi báo cáo lỗi". Khi Crashlytics
   đang tắt và native báo có unsent crash report, Settings hiển thị thêm CTA inline chỉ cho report
   đó: "Gửi báo cáo lỗi" hoặc "Không gửi". Mọi hành động đều đi qua parent gate vì nằm trong Parent
   Mode.
@@ -1064,7 +1563,8 @@ Mọi schema/key change cần migration hoặc backward-compatible normalization
 5. Bundled Kid Mode/Sungy UI voice prompts nằm trong `src/assets/ui/audio/`, giữ WAV production làm
    source/provenance theo `audioManifest`, nhưng `npm run assets:optimize-ui-audio` tạo MP3 sidecar
    64 kbps và rewrite `GeneratedUiAudioRegistry.ts` để các key manifest WAV resolve tới MP3 nhỏ hơn
-   khi build app.
+   khi build app. Các key Home/Onboarding tĩnh được generator đọc trực tiếp theo cùng key từ hai
+   dictionary `vi.ts`/`en.ts`; không duy trì một bản copy audio-only riêng có thể lệch với UI.
 
 `AudioManager` giữ playback primitive và effects theo hướng best-effort, còn `ScenePlayer` áp dụng
 readiness gate cho audio bài học bắt buộc. Nếu audio bắt buộc chưa sẵn sàng, scene hiển thị lựa chọn
@@ -1137,7 +1637,7 @@ quota, UI và dữ liệu review; app không nhận nội dung/rating hoặc bi�
   Google TTS, không sửa production manifest, không bundle WAV và không upload R2. Các lesson khác
   vẫn giữ hành vi QA audio chưa publish hiện tại.
 - Production generator `generateMissingAudio.mjs` dùng `GOOGLE_CLOUD_PROJECT`, rồi
-  `GCLOUD_PROJECT`, và mặc định quota/billing project là `fir-rootwords-prod`; token OAuth vẫn lấy
+  `GCLOUD_PROJECT`, và mặc định quota/billing project là `project-264a7ff9-a6b6-41ab-90e`; token OAuth vẫn lấy
   từ account `gcloud` active trừ khi `GOOGLE_TTS_ACCOUNT` chọn account khác.
 - Image URLs có manifest revision query để tránh stale device/CDN image cache.
 - English audio cache identity chứa cả accent và immutable release segment
@@ -1149,8 +1649,17 @@ quota, UI và dữ liệu review; app không nhận nội dung/rating hoặc bi�
   `src/assets/source/master/lessons/<lesson>/<scene>/images/*.png` (Gitignored local build artifact).
 - Raw/chroma inputs: `src/assets/source/lessons/` (Gitignored local build artifact).
 - Generated WebP: `src/assets/lessons/<lesson>/<scene>/images/*.webp` (Gitignored local build artifact).
+- Khi gitignored PNG master của một lesson bị mất nhưng production WebP immutable vẫn còn trên R2,
+  `npm run assets:restore-masters-from-r2 -- --lesson=<lesson-id>` tải từng WebP qua CDN, xác minh
+  byte count/SHA-256 theo asset manifest và phục hồi local WebP + PNG continuity master mà không
+  đổi output hash/image revision. PNG phục hồi là bản giải mã từ WebP đã nén, không thay thế
+  lossless authoring original và không được force-rebuild nếu chưa chủ động chấp nhận re-encode.
 - Runtime `AssetRegistry` hiện có bundled registry trống và resolve lesson images sang R2 CDN.
-- Current/next scene image prefetch dùng React Native `Image.prefetch`.
+- Catalog/audit/build/verify và missing-image check scan cả base object asset lẫn mọi
+  `SceneObject.variants[].asset`; variant kế thừa role và dùng geometry override nếu có để chọn
+  image profile.
+- Current/next scene image prefetch dùng React Native `Image.prefetch` và bao gồm cả variant/hidden
+  object assets để state transition không đợi tải ảnh giữa bước.
 - App UI icons: PNG bundle nằm trong `src/assets/icons/app-ui/`, import qua
   `AppUiIcon`, tách khỏi lesson WebP generation và R2 upload.
 - Bundled UI art như `src/assets/images/app-logo.png`, Sungy mascot poses/source poster,
@@ -1177,7 +1686,11 @@ trong `docs/asset-pipeline.md`.
 - `audio/en/*.wav` là legacy en-US compatibility/rollback corpus; giữ nguyên nhưng không ghi
   production release mới vào đây. Manifest chỉ thêm `legacy` fallback cho target đã có file legacy
   tương ứng.
-- Vietnamese instruction/feedback: `audio/vi/*.wav`.
+- Vietnamese instruction/feedback và standalone vocabulary meanings: `audio/vi/*.mp3`.
+- Standalone Vietnamese vocabulary meanings used by `Góc chơi từ vựng` are also generated from
+  every registered `VocabularyItem.meaningVi`; equal normalized meanings are deduplicated across
+  the catalog. Runtime therefore resolves the authored meaning through `audioManifest` before
+  using system TTS as a best-effort fallback.
 - Không có `audio/bilingual`; song ngữ là runtime sequence phát `vi` rồi `en`.
 - `generateMissingAudio.mjs` scan registered catalog, audit/generate theo language/accent và chỉ
   publish sau khi toàn bộ target en-US, en-GB và Vietnamese hiện hành tồn tại và pass WAV
@@ -1258,13 +1771,28 @@ chưa chạy, phải ghi rõ thay vì ngầm coi đã pass.
 Tại lần kiểm chứng gần nhất:
 
 - `npx tsc --noEmit`: pass.
-- Jest: 442/442 tests pass trong 67 suites.
+- Jest: 85/86 suites và 862/863 tests pass. Một baseline failure còn lại nằm ở
+  `__tests__/iosPermissionLocalization.test.ts` vì localized `InfoPlist.strings` đang thiếu
+  `NSPhotoLibraryUsageDescription`; audit Theme 4/5 không chạm iOS/localization. Mười ba suite mục
+  tiêu cho lesson, vocabulary ownership, lesson validation và audio provenance pass 382/382.
+- Audio generation/full-corpus audit hiện có 17.035 target, 0 file thiếu và 0 file lỗi. Pipeline
+  standalone `meaningVi` đã tạo/publish đúng 877 clip Google TTS mới với tổng dung lượng 8,1 MiB;
+  toggle icon-only tạo/publish thêm hai câu xác nhận bật/tắt. Full remote verify đạt
+  22.175/22.175 object, lỗi 0 và post-upload dry-run còn `Changed/new: 0`. Production CDN
+  `assets.sungy.net` trả
+  `kitten-shiny-coat.webp` và audio en-US `shiny_coat_teach_success_77a8ad20.mp3` với HTTP 200,
+  đúng content type và immutable cache headers.
+- Image audit/build/verify của các delta trực tiếp đạt: `help-it-grow` 39/39,
+  `feed-the-puppy` 37/37, visual revision `care-for-the-rabbit` 37/37 và `groom-the-kitten` 28/28;
+  tất cả đều 0 missing, 0 oversized; hai lesson visual revision cũng 0 orphan. Các WebP
+  cũ không còn được tham chiếu vẫn được giữ local, không bị xóa trong audit này. Full image
+  reference check có 1.241 asset và không thiếu ảnh. Generated manifest local cũng có đủ 1.241
+  entry ở revision `ca34c03471b10985`. Visual revision thỏ/mèo đã upload 59 WebP; remote verify
+  đạt 637/637 và 768/768 lesson object, lỗi 0, còn post-upload delta bằng 0.
 - Functions: 7/7 tests pass; Firestore Rules emulator pass sau khi bỏ Founder quota/outbox.
-- Native build-only: iOS Simulator arm64 pass cho working tree hiện tại. Android
-  `:app:compileDebugKotlin` pass; full `assembleDebug` hiện bị chặn trước app link bởi
-  `libreactnative.so` thiếu trong local Gradle transform cache, trong khi Android Debug baseline
-  trước đó đã pass. Store sandbox/physical-device purchase matrix vẫn chưa chạy vì external
-  keys/products/test accounts chưa có.
+- Native build-only: iOS Simulator arm64 pass cho working tree trước đó. Android full
+  `assembleDebug` pass ngày 2026-08-14 sau pacing revision `feed-the-puppy`. Store sandbox/physical-
+  device purchase matrix vẫn chưa chạy vì external keys/products/test accounts chưa có.
 - ESLint: pass với 26 warnings hiện có, chủ yếu là inline styles trong UI/animation và một nested
   component warning trong navigator; không có lint error.
 - Repository chưa có tracked CI workflow.
@@ -1284,8 +1812,8 @@ Support summary:
 | RevenueCat client entitlement lifecycle         | Implemented     |
 | Store-ready keys/products/legal config          | Partial         |
 | Remote Config monetization switches             | Implemented     |
-| Remote Config app-update policy                  | Implemented     |
-| Parent-only optional + kid-safe required update  | Implemented     |
+| Remote Config app-update policy                 | Implemented     |
+| Parent-only optional + kid-safe required update | Implemented     |
 | Parent-only system app review prompt            | Implemented     |
 | Persistent Android review store link            | Implemented     |
 | Persistent iOS review store link                | Implemented     |
@@ -1298,12 +1826,13 @@ Support summary:
 | English pronunciation en-US/en-GB               | Implemented     |
 | Mode-based lesson filtering                     | Implemented     |
 | Age-based runtime filtering                     | Partial         |
+| Scene object state/variants v1                  | Implemented     |
 | Scene-level resume                              | Implemented     |
 | Exact step resume                               | Partial         |
 | Record/playback + endpoint speech practice      | Implemented     |
 | Parent local voice recording library            | Implemented     |
-| Target-word assisted endpointing                 | Implemented     |
-| Transcription/pronunciation scoring              | Unsupported     |
+| Target-word assisted endpointing                | Implemented     |
+| Transcription/pronunciation scoring             | Unsupported     |
 | Android audio disk cache                        | Implemented     |
 | iOS audio disk cache                            | Unsupported     |
 | Full offline lesson bundle                      | Unsupported     |

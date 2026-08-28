@@ -12,8 +12,10 @@ import ReactTestRenderer from 'react-test-renderer';
 import { KidIconButton } from '../src/components/KidIconButton';
 import { SpeakPracticeControls } from '../src/components/SpeakPracticeControls';
 import {
+  cancelNarration,
   playSoundEffect,
   speakTeacherPromptSegments,
+  speakWord,
   startNarrationSession,
 } from '../src/engine/AudioManager';
 import {
@@ -28,6 +30,7 @@ import {
 } from '../src/engine/VoiceRecorder';
 
 jest.mock('../src/engine/AudioManager', () => ({
+  cancelNarration: jest.fn(() => Promise.resolve()),
   playSoundEffect: jest.fn(() => Promise.resolve()),
   playTapSound: jest.fn(() => Promise.resolve()),
   speakTeacherPromptSegments: jest.fn(() => Promise.resolve()),
@@ -86,10 +89,14 @@ const mockedStartVoiceRecording = startVoiceRecording as jest.MockedFunction<
 const mockedPlaySoundEffect = playSoundEffect as jest.MockedFunction<
   typeof playSoundEffect
 >;
+const mockedCancelNarration = cancelNarration as jest.MockedFunction<
+  typeof cancelNarration
+>;
 const mockedSpeakTeacherPromptSegments =
   speakTeacherPromptSegments as jest.MockedFunction<
     typeof speakTeacherPromptSegments
   >;
+const mockedSpeakWord = speakWord as jest.MockedFunction<typeof speakWord>;
 const mockedStartNarrationSession =
   startNarrationSession as jest.MockedFunction<typeof startNarrationSession>;
 let mockAppStateListener: ((state: AppStateStatus) => void) | null = null;
@@ -207,6 +214,246 @@ test('starts automatic recording without opening a redundant narration session',
   await ReactTestRenderer.act(async () => {
     tree?.unmount();
     await flushPromises();
+  });
+});
+
+test('plays the practice prompt before auto-recording after a scene action', async () => {
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls
+        autoStartRequestId={1}
+        autoStartWithPrompt
+        word="spout"
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedStartNarrationSession).toHaveBeenCalledTimes(1);
+  expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledTimes(1);
+  expect(mockedStartVoiceRecording).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+    await flushPromises();
+  });
+});
+
+test('lets a mic tap interrupt the auto prompt and records after a quiet handoff', async () => {
+  jest.useFakeTimers();
+  let finishPrompt: (() => void) | undefined;
+  mockedSpeakTeacherPromptSegments.mockImplementationOnce(
+    () =>
+      new Promise<void>(resolve => {
+        finishPrompt = resolve;
+      }),
+  );
+  const onBusyChange = jest.fn();
+  const onContinue = jest.fn();
+  const onRecordingIntent = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls
+        autoStartRequestId={1}
+        autoStartWithPrompt
+        onBusyChange={onBusyChange}
+        onContinue={onContinue}
+        onRecordingIntent={onRecordingIntent}
+        word="spout"
+      />,
+    );
+    await flushPromises();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledTimes(1);
+  expect(mockedStartVoiceRecording).not.toHaveBeenCalled();
+  const microphoneButton = findByAccessibilityLabel(tree, 'Bé nói spout');
+  expect(microphoneButton.props.disabled).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    microphoneButton.props.onPress();
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(getTextValues(tree)).toContain('Chuẩn bị đọc...');
+  expect(findByAccessibilityLabel(tree, 'Bé nói spout').props.disabled).toBe(
+    true,
+  );
+  expect(onBusyChange).toHaveBeenLastCalledWith(true);
+  expect(findContinueButton(tree, onContinue).props.disabled).toBe(true);
+  expect(onRecordingIntent).toHaveBeenCalledTimes(1);
+  expect(mockedCancelNarration).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    microphoneButton.props.onPress();
+    await flushPromises();
+  });
+  expect(onRecordingIntent).toHaveBeenCalledTimes(1);
+  expect(mockedCancelNarration).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(199);
+    await flushPromises();
+  });
+  expect(mockedStartVoiceRecording).not.toHaveBeenCalled();
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(1);
+    await flushPromises();
+    await flushPromises();
+  });
+  expect(mockedStartVoiceRecording).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    finishPrompt?.();
+    await flushPromises();
+    await flushPromises();
+  });
+  expect(mockedSpeakTeacherPromptSegments).toHaveBeenCalledTimes(1);
+  expect(mockedSpeakWord).not.toHaveBeenCalled();
+  expect(mockedStartVoiceRecording).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+    await flushPromises();
+  });
+});
+
+test('does not start a late recording when controls unmount during handoff', async () => {
+  jest.useFakeTimers();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls isInstructionPlaying word="blanket" />,
+    );
+    await flushPromises();
+  });
+
+  await ReactTestRenderer.act(async () => {
+    findByAccessibilityLabel(tree, 'Bé nói blanket').props.onPress();
+    await flushPromises();
+  });
+  expect(mockedCancelNarration).toHaveBeenCalledTimes(1);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(200);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedStartVoiceRecording).not.toHaveBeenCalled();
+});
+
+test('keeps Continue available when an interrupted instruction cannot get mic permission', async () => {
+  jest.useFakeTimers();
+  mockedRequestVoiceRecordingPermission.mockResolvedValue('denied');
+  const onContinue = jest.fn();
+  const onRecordingIntent = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls
+        isInstructionPlaying
+        onContinue={onContinue}
+        onRecordingIntent={onRecordingIntent}
+        word="blanket"
+      />,
+    );
+    await flushPromises();
+  });
+
+  await ReactTestRenderer.act(async () => {
+    findByAccessibilityLabel(tree, 'Bé nói blanket').props.onPress();
+    tree?.update(
+      <SpeakPracticeControls
+        onContinue={onContinue}
+        onRecordingIntent={onRecordingIntent}
+        word="blanket"
+      />,
+    );
+    await flushPromises();
+  });
+  expect(onRecordingIntent).toHaveBeenCalledTimes(1);
+  expect(findContinueButton(tree, onContinue).props.disabled).toBe(true);
+
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(200);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedRequestVoiceRecordingPermission).toHaveBeenCalledWith(
+    expect.any(Object),
+    { source: 'manual' },
+  );
+  expect(mockedStartVoiceRecording).not.toHaveBeenCalled();
+  expect(findContinueButton(tree, onContinue).props.disabled).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
+  });
+});
+
+test('recovers when recorder startup fails after interrupting an instruction', async () => {
+  jest.useFakeTimers();
+  mockedStartVoiceRecording.mockRejectedValueOnce(
+    new Error('recorder startup failed'),
+  );
+  const onContinue = jest.fn();
+  const onRecordingIntent = jest.fn();
+  let tree: ReactTestRenderer.ReactTestRenderer | undefined;
+
+  await ReactTestRenderer.act(async () => {
+    tree = ReactTestRenderer.create(
+      <SpeakPracticeControls
+        isInstructionPlaying
+        onContinue={onContinue}
+        onRecordingIntent={onRecordingIntent}
+        word="blanket"
+      />,
+    );
+    await flushPromises();
+  });
+
+  await ReactTestRenderer.act(async () => {
+    findByAccessibilityLabel(tree, 'Bé nói blanket').props.onPress();
+    tree?.update(
+      <SpeakPracticeControls
+        onContinue={onContinue}
+        onRecordingIntent={onRecordingIntent}
+        word="blanket"
+      />,
+    );
+    await flushPromises();
+  });
+  await ReactTestRenderer.act(async () => {
+    jest.advanceTimersByTime(200);
+    await flushPromises();
+    await flushPromises();
+  });
+
+  expect(mockedStartVoiceRecording).toHaveBeenCalledTimes(1);
+  expect(getTextValues(tree)).toContain(
+    'Mic chưa dùng được. Bé nghe mẫu rồi tiếp tục nhé.',
+  );
+  expect(findContinueButton(tree, onContinue).props.disabled).toBe(false);
+
+  await ReactTestRenderer.act(async () => {
+    tree?.unmount();
   });
 });
 

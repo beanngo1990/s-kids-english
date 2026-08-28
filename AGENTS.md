@@ -89,9 +89,14 @@ Luôn lấy dependency range được khai báo từ `package.json` và phiên b
 - `android/`, `ios/`: native configuration, permissions và custom native modules.
 - `__tests__/`: Jest tests.
 
-Catalog hiện có ba themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`,
-`co-the-cam-xuc-va-tu-cham-soc`) và 27 lesson packs, theo thứ tự khai báo trong
-`src/data/themes.ts` và `src/data/lessons.ts`.
+Catalog hiện có năm themes (`mot-ngay-cua-be`, `be-ra-ngoai-kham-pha`,
+`co-the-cam-xuc-va-tu-cham-soc`, `khu-vuon-cua-be`, `nhung-nguoi-ban-dong-vat`) và 38 lesson
+packs, theo thứ tự khai báo trong
+`src/data/themes.ts` và `src/data/lessons.ts`. Theme 4 runtime hiện đăng ký `plant-a-seed`,
+`help-it-grow`, `garden-friends`, `harvest-day` và `garden-to-table`; content architecture nằm trong
+`docs/theme-4-content-draft.md`. Theme 5 hiện đăng ký `feed-the-puppy`, `play-with-the-puppy`,
+`find-the-kitten`, `clean-muddy-paws`, `care-for-the-rabbit` và `groom-the-kitten`; architecture cùng storyboard nằm trong
+`docs/theme-5-content-draft.md` và các file `docs/theme-5-*-storyboard.md` tương ứng.
 
 ## 4. Những fact sản phẩm cần biết trước khi sửa code
 
@@ -249,7 +254,7 @@ chưa có trên disk.
 
 ## 9. Persistence và notifications
 
-Bảy local stores hiện tại:
+Tám local stores hiện tại:
 
 - `@skidsenglish/parent-settings/v1` qua `ParentSettingsManager.ts`.
 - `@skidsenglish/progress/v1` qua `ProgressManager.ts`.
@@ -262,6 +267,8 @@ Bảy local stores hiện tại:
   local để throttle lời mời đánh giá trong Parent Mode.
 - `@skidsenglish/voice-recordings/v1` qua `VoiceRecordingStore.ts`, giữ metadata first/latest và
   pending file cleanup cho thư viện giọng đọc local-only; audio nằm trong native no-backup storage.
+- `@skidsenglish/scene-vocabulary-layouts/v1` qua `SceneVocabularyLayoutStore.ts`, giữ vị trí đồ
+  vật theo lesson/scene/learning mode và preference dịch nghĩa local-only của Góc chơi từ vựng.
 
 Không đổi hoặc xóa key versioned nếu chưa có migration/compatibility plan. Normalizer phải chịu
 được dữ liệu thiếu field từ version cũ.

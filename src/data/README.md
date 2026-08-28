@@ -59,13 +59,14 @@ src/assets/ui/audio/en-GB/neural2-c-r1/
 src/assets/ui/audio/vi/
 ```
 
-Their copy currently comes from `src/data/kidLockAudioPrompts.ts` plus selected
-Sungy Home/Onboarding English lines in `src/i18n/dictionaries/en.ts`; the
-generator owns `src/engine/GeneratedUiAudioRegistry.ts`. Do not edit the
-generated registry by hand. Keep the WAV files as the manifest/provenance
-source, then run `npm run assets:optimize-ui-audio` to create bundled MP3
-sidecars and rewrite the registry so stable WAV manifest keys resolve to those
-smaller local files.
+Their copy currently comes from `src/data/kidLockAudioPrompts.ts` plus matching
+Sungy Home/Onboarding keys in `src/i18n/dictionaries/vi.ts` and
+`src/i18n/dictionaries/en.ts`; the generator owns
+`src/engine/GeneratedUiAudioRegistry.ts`. Do not duplicate these localized UI
+lines in a separate audio-only catalog. Do not edit the generated registry by
+hand. Keep the WAV files as the manifest/provenance source, then run
+`npm run assets:optimize-ui-audio` to create bundled MP3 sidecars and rewrite
+the registry so stable WAV manifest keys resolve to those smaller local files.
 
 `audio/en/` is the legacy en-US corpus. Keep it intact as a compatibility and
 rollback source, but do not write new production English releases there. New
@@ -113,9 +114,14 @@ provide explicit English copy (`instructionEn`, `successFeedbackEn`, and
 `completionReward.messageEn`) instead of reusing a scene title as a translation.
 Location hints are resolved as English hints rather than being collapsed into a
 generic tap instruction.
-Vietnamese audio comes from `instructionVi`, `successFeedbackVi`,
-`failFeedbackVi`, completion messages and shared Vietnamese prompts such as
-speech-practice feedback and review-game intros. Bilingual
+Vietnamese audio comes from every vocabulary item's `meaningVi`,
+`instructionVi`, `successFeedbackVi`, `failFeedbackVi`, completion messages and
+shared Vietnamese prompts such as speech-practice feedback and review-game
+intros, including the icon-only vocabulary meaning toggle's spoken state
+confirmations. The generator deduplicates equal normalized meanings across the
+registered catalog, so adding a lesson with authored `meaningVi` values makes
+their standalone review audio part of the next generation run automatically.
+Bilingual
 teacher mode does not have its own generated files; runtime plays the Vietnamese
 segment and then the English segment.
 
@@ -142,7 +148,7 @@ gcloud auth print-access-token
 ```
 
 OAuth requests use `GOOGLE_CLOUD_PROJECT`, then `GCLOUD_PROJECT`, and default
-to the quota/billing project `fir-rootwords-prod`. The active `gcloud` account
+to the quota/billing project `project-264a7ff9-a6b6-41ab-90e`. The active `gcloud` account
 provides the token unless `GOOGLE_TTS_ACCOUNT` selects a different account.
 
 Optional filters:
@@ -213,6 +219,22 @@ scene position, uses up to 1280 pixels for large characters, and 2048 pixels
 for backgrounds. It never enlarges a master image. Configuration and per-asset
 overrides live in `scripts/assets/config.mjs`.
 
+Object state variants use the same master/generated layout as base object
+images. The catalog, audit, build, verify, missing-image check, and runtime
+preloader scan every `SceneObject.variants[].asset`; a variant may therefore be
+initially hidden and still remains a required scene image.
+
+The Theme 4 narrative slices have bounded sheet cutters before the standard
+pipeline. `plant-a-seed` uses `assets:cut-plant-a-seed-production` and
+`assets:verify-plant-a-seed-cutouts`; `help-it-grow` uses
+`assets:cut-help-it-grow-production` and `assets:verify-help-it-grow-cutouts`;
+`garden-friends` uses `assets:cut-garden-friends-production` and
+`assets:verify-garden-friends-cutouts`. The garden-friends cutter takes one
+text-free chroma sheet per scene, cuts transparent masters, reuses the approved
+garden background and creates its four bundled map icons.
+These commands only create local PNG masters and bundled map icons. They do not
+create WebP, synthesize audio, or contact R2.
+
 R2 uses the `v1` prefix. Generated URLs include an image manifest revision so
 an iPad does not reuse a stale device cache after the R2/CDN cache is purged.
 Use `npm run r2:clear -- --prefix=v1/` to preview a purge; destructive execution
@@ -229,15 +251,88 @@ Use helpers from `src/data/lessonAuthoring.ts`:
 import {
   characterObject,
   dragStep,
+  findStep,
   imageAsset,
   learningObject,
   listenStep,
+  objectVariant,
   rect,
+  sceneObject,
+  sceneStateChanges,
   tapStep,
 } from '../lessonAuthoring';
 ```
 
 They keep object shape, position, and interaction config consistent.
+Use `sceneObject` for non-vocabulary action/decoration/drop-zone objects and
+`findStep` when the child is asked to locate an object. The registered
+`src/data/lessons/plantASeed.ts` pilot is the end-to-end reference for combining
+these helpers with learning-mode filtering and Scene State v1.
+
+## Scene State v1
+
+Use Scene State v1 when a successful action needs a visible, durable result for
+the rest of the current scene session. Objects keep their required base `asset`
+and may add image `variants`, an `initialVariantId`, or an
+`initialVisibility` of `hidden`/`visible`. A variant can override `position` and
+`touchArea`; otherwise it inherits the base object geometry.
+
+```ts
+const pot = learningObject({
+  assetSource: 'lessons/plant-a-seed/prepare-the-pot/images/pot-empty.webp',
+  id: 'prepare-pot-pot',
+  position: rect(38, 46, 24, 24),
+  variants: [
+    objectVariant({
+      assetSource:
+        'lessons/plant-a-seed/prepare-the-pot/images/pot-filled.webp',
+      id: 'soil-ready',
+    }),
+  ],
+  vocab: vocabulary.pot,
+});
+
+const step = tapStep({
+  id: 'prepare-pot-add-soil',
+  instructionVi: 'Chạm vào đất để cho vào chậu nhé.',
+  successFeedbackVi: 'Chậu đã có đất rồi!',
+  successStateChanges: [
+    sceneStateChanges.setVariant(pot.id, 'soil-ready'),
+    sceneStateChanges.hide('prepare-pot-soil-bag'),
+    sceneStateChanges.show('prepare-pot-ready-mark'),
+  ],
+  targetObjectId: 'prepare-pot-soil-bag',
+  type: 'practice',
+});
+```
+
+`successStateChanges` supports only three v1 actions:
+
+- `setObjectVariant`: switch one object to one of its authored variant IDs;
+- `showObject`: make an initially/runtime-hidden object visible;
+- `hideObject`: remove an object from rendering and hit testing.
+
+Use `afterSuccessStateChanges` for cleanup that must wait until the success
+feedback finishes. The chosen object stays rendered long enough for its
+bounce/sparkle and teacher confirmation; runtime applies the deferred changes
+only while advancing to the next step. A common use is hiding both illustrations
+after a two-choice review. Keep visible cause/effect changes in
+`successStateChanges`; do not use deferred changes as a general timing system.
+
+The controller exposes these changes only for a correct interaction. Incorrect
+and ignored interactions never change object state. Runtime applies immediate
+changes in authored order, then applies deferred changes after successful
+feedback playback. If required success-feedback playback fails and the runtime
+must keep the child on the same step, that step's immediate state transaction is
+rolled back and deferred cleanup is never applied, so its target remains
+playable. Runtime resets all object state on scene replay/transition and does
+not persist state across scenes or app sessions. V1 has no branching, inventory,
+arbitrary variables, cross-scene state, or exact-step resume.
+
+Variants inherit the parent object's `learningScope`. Mode filtering removes a
+state change if its target object is unavailable in the selected mode; it does
+not independently filter variants. Keep all core prerequisites and core end
+state objects in `core` scope.
 
 ## Learning Modes
 
@@ -260,6 +355,90 @@ needs author-written copy.
 Keep `VocabularyItem.word` natural when spoken aloud: action phrases should
 include required articles or possessives, such as `open the book`,
 `raise your hand`, and `wash your hands`.
+For pre-readers, never rely on a written `meaningVi` label to introduce an
+action phrase. Author a `teach` step before its first `review` step: highlight
+the text-free action image, explain the action naturally in `instructionVi`,
+then let the normal English model and speech-practice sequence run. Repeat the
+Vietnamese meaning and a concrete visual cue in the review instruction so the
+child can answer without reading the English phrase. Keep each Vietnamese
+instruction to one idea and one action; for the pre-reader path, aim for at
+most 12 spoken words in teach and 10 in review.
+
+Audit instructions against the whole visible scene, not only the correct
+object. If a concept matches more than one object, name the correct visual form
+or distinguishing feature (`túi đất có hình mầm`, `đống đất bên trái`, `giọt
+nước màu xanh`). A vocabulary image must show the positive concept itself; do
+not teach `puddle` with a crossed-out puddle or teach an action with a before-
+state that does not visibly perform that action.
+
+For a new concrete noun, introduce the English model and speech practice while
+the referenced object is still clearly visible. If a later action hides or
+transforms that object, teach the noun first, then use it in the action; do not
+wait until after the object disappears to ask the child to repeat the word.
+Teach a prerequisite noun such as `soil` before a longer phrase that contains
+it. For a part such as `spout`, keep the whole object visible in the scene and
+name its relationship to the part without adding the whole object to the
+interactive target list. For a visual state such as `damp`, narrate the visible
+before/after change before asking the child to identify the new state.
+
+After a correct tap/find/drag interaction, the engine applies its implicit
+success animation only to the object the child selected. `targetObjectIds` may
+include distractors and must not be treated as a list of objects to celebrate.
+Declare explicit animation effects when a successful action intentionally
+needs to animate additional scene objects.
+
+`SceneStep.speechPractice` separates vocabulary coverage from forced recording:
+
+- `auto` opens the pronunciation panel and starts the microphone after a correct
+  interaction.
+- `optional` opens the same panel without starting the microphone, so the child
+  can speak or continue.
+- When omitted, `teach` keeps the legacy `auto` behavior; other step types do
+  not open speech practice.
+
+Prefer one speech-practice encounter per vocabulary item. Use `auto` for core
+anchors and selected challenge action phrases, and `optional` for secondary
+expanded vocabulary so tapping an object does not repeatedly trigger recording.
+Do not narrate the imperative prompt `Bé nói theo cô nhé.` for an `optional`
+encounter. The `plant-a-seed` pilot uses `auto` for all authored encounters so
+the microphone starts after that prompt; each vocabulary still receives only
+one encounter. Treat that pilot coverage as an explicit historical exception,
+not as the default density for future narrative lessons.
+
+### Vocabulary encounter roles
+
+For a narrative lesson, classify each important English encounter during
+storyboarding. These roles are authoring semantics and do not add fields to the
+lesson schema:
+
+- **New Anchor** introduces a word or phrase that the current lesson owns. Add a
+  `VocabularyItem`, reference it with `vocabId`, teach its meaning through audio
+  and visuals, and give it one speech-practice encounter. Only New Anchors belong
+  in that lesson's review pool.
+- **Quick Recall** actively reuses a previously introduced concept in a short
+  choice or action. It normally does not duplicate the word as a new
+  `VocabularyItem`, set `vocabId`, or open speech practice. `promptText` can
+  provide context when resolving an English teacher prompt, but without
+  vocabulary/model-word semantics it does not independently play the English
+  word in Vietnamese teacher mode. Do not put English into `instructionVi` as a
+  workaround.
+- **Action Enabler** is a familiar object/action used to move the story forward.
+  Author it as a regular interactive scene object without `vocabId`; prioritize
+  immediate SFX/state feedback over another model-word or recording interruption.
+
+Do not use a global exact-string overlap as proof that a child already knows a
+word: free journey order and independently accessible themes mean prior exposure
+is not guaranteed. A Quick Recall must remain solvable through Vietnamese audio
+and a concrete visual cue even when the child skipped the earlier lesson. Respect
+learning-mode scope as well: an expanded-only word cannot become a core
+prerequisite later. Repeating a deep-teach flow for an old word requires an
+explicit content decision; default to Quick Recall or Action Enabler instead.
+
+Vary pacing around the stable interaction grammar. Reserve the full meaning ->
+English model -> action -> speech -> state-change flow for New Anchors. Interleave
+short actions, discovery reveals, sequence checks, and celebration beats. Separate
+every deep-learn/pronunciation panel with a meaningful action or visual payoff;
+`optional` still opens the panel and therefore counts as an interruption too.
 Use vocabulary type `adjective` for standalone describing words such as
 `happy`, `quiet`, or `hungry`; do not model them as nouns only to reuse noun
 teacher copy.
@@ -283,11 +462,16 @@ mode counts: 4 for `core`, 5 for `expanded`, and 6 for `challenge`.
 `assertValidLessons()` runs automatically when `src/data/lessons.ts` loads in
 dev. It catches common mistakes:
 
-- duplicated lesson, scene, object, drop zone, or step ids
+- duplicated lesson/scene ids, or duplicated object, drop-zone, vocabulary, or
+  step ids within a scene
+- conflicting vocabulary definitions that reuse one id across two scenes; an
+  identical definition may be intentionally reused for the same learned word
+- duplicated object variant ids or an invalid `initialVariantId`
 - missing `targetObjectId`, `correctObjectIds`, `dropZoneId`, or `nextStepId`
+- scene-state changes that reference a missing object or variant
 - tap, find, or drag targets marked as non-interactive
 - object `vocabId` not listed in scene vocabulary
-- invalid percent positions
+- invalid object, variant, or drop-zone percent positions
 - unreachable steps
 - review game vocabulary ids not included in the lesson
 

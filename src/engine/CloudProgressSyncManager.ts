@@ -921,6 +921,7 @@ async function applyCloudParentSettings(
   try {
     const nextSettings = await saveParentSettingsFromCloud({
       ...settings,
+      disabledThemeIds: settings.disabledThemeIds,
       visibleLessonIds: settings.visibleLessonIds,
     });
     currentSettings = nextSettings;

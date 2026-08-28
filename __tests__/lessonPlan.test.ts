@@ -1,7 +1,10 @@
 import {
+  getEnabledLessonIds,
   getLessonCompletionPercent,
   getLessonPlanSelection,
+  getRecommendedLessonIds,
   haveSameLessonIds,
+  isOnlyVisibleLessonInTheme,
 } from '../src/utils/lessonPlan';
 
 test('lesson plan completion percent reflects completed enabled lessons', () => {
@@ -11,31 +14,78 @@ test('lesson plan completion percent reflects completed enabled lessons', () => 
 });
 
 test('lesson plan id comparison ignores order but not missing lessons', () => {
-  expect(haveSameLessonIds(['lesson-b', 'lesson-a'], ['lesson-a', 'lesson-b']))
-    .toBe(true);
-  expect(haveSameLessonIds(['lesson-a', 'lesson-a'], ['lesson-a', 'lesson-b']))
-    .toBe(false);
+  expect(
+    haveSameLessonIds(['lesson-b', 'lesson-a'], ['lesson-a', 'lesson-b']),
+  ).toBe(true);
+  expect(
+    haveSameLessonIds(['lesson-a', 'lesson-a'], ['lesson-a', 'lesson-b']),
+  ).toBe(false);
 });
 
-test('lesson plan selection keeps preset and custom states mutually exclusive', () => {
+test('recommended lesson plan keeps one starting lesson from each theme', () => {
+  expect(
+    getRecommendedLessonIds([
+      { lessonIds: ['theme-a-1', 'theme-a-2'] },
+      { lessonIds: [] },
+      { lessonIds: ['theme-b-1', 'theme-b-2'] },
+      { lessonIds: ['theme-a-1', 'theme-c-1'] },
+    ]),
+  ).toEqual(['theme-a-1', 'theme-b-1', 'theme-c-1']);
+});
+
+test('lesson plan selection infers recommended, all and custom states', () => {
   const allLessonIds = ['lesson-a', 'lesson-b', 'lesson-c'];
-  const gentleLessonIds = ['lesson-a', 'lesson-b'];
+  const recommendedLessonIds = ['lesson-a', 'lesson-b'];
+
+  expect(getLessonPlanSelection(undefined, recommendedLessonIds)).toBe('all');
+  expect(
+    getLessonPlanSelection(recommendedLessonIds, recommendedLessonIds),
+  ).toBe('recommended');
+  expect(getLessonPlanSelection(['lesson-a'], recommendedLessonIds)).toBe(
+    'custom',
+  );
+  expect(getLessonPlanSelection(allLessonIds, recommendedLessonIds)).toBe(
+    'custom',
+  );
+  expect(
+    getLessonPlanSelection(undefined, recommendedLessonIds, ['theme-a']),
+  ).toBe('custom');
+});
+
+test('filters lessons from disabled themes without changing stored selections', () => {
+  const storedLessonIds = ['theme-a-1', 'theme-a-2', 'theme-b-1'];
 
   expect(
-    getLessonPlanSelection(allLessonIds, allLessonIds, gentleLessonIds, false),
-  ).toBe('full');
-  expect(
-    getLessonPlanSelection(
-      gentleLessonIds,
-      allLessonIds,
-      gentleLessonIds,
-      false,
+    getEnabledLessonIds(
+      storedLessonIds,
+      storedLessonIds,
+      [
+        { id: 'theme-a', lessonIds: ['theme-a-1', 'theme-a-2'] },
+        { id: 'theme-b', lessonIds: ['theme-b-1'] },
+      ],
+      ['theme-a'],
     ),
-  ).toBe('gentle');
+  ).toEqual(['theme-b-1']);
+  expect(storedLessonIds).toEqual([
+    'theme-a-1',
+    'theme-a-2',
+    'theme-b-1',
+  ]);
+});
+
+test('protects only the final visible lesson inside its theme', () => {
+  const themeLessonIds = ['lesson-a', 'lesson-b', 'lesson-c'];
+
   expect(
-    getLessonPlanSelection(['lesson-a'], allLessonIds, gentleLessonIds, false),
-  ).toBe('custom');
+    isOnlyVisibleLessonInTheme('lesson-a', themeLessonIds, ['lesson-a']),
+  ).toBe(true);
   expect(
-    getLessonPlanSelection(allLessonIds, allLessonIds, gentleLessonIds, true),
-  ).toBe('custom');
+    isOnlyVisibleLessonInTheme('lesson-a', themeLessonIds, [
+      'lesson-a',
+      'lesson-b',
+    ]),
+  ).toBe(false);
+  expect(
+    isOnlyVisibleLessonInTheme('lesson-c', themeLessonIds, ['lesson-a']),
+  ).toBe(false);
 });

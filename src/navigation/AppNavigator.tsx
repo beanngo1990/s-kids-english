@@ -14,12 +14,14 @@ import {
   LessonListScreen,
   LessonPackScreen,
   OnboardingScreen,
+  ParentLessonPlanScreen,
   ParentScreen,
   ParentVoiceLibraryScreen,
   RewardScreen,
   ReviewGameScreen,
   ReviewLibraryScreen,
   ScenePlayerScreen,
+  SceneVocabularyPlaygroundScreen,
   StickerCollectionScreen,
   StickerPlaygroundScreen,
   ThemeLibraryScreen,
@@ -169,6 +171,11 @@ function AnimatedSplashMascot() {
           options={{ headerShown: false, gestureEnabled: false }}
         />
         <Stack.Screen
+          name="SceneVocabularyPlayground"
+          component={SceneVocabularyPlaygroundScreen}
+          options={{ gestureEnabled: false, headerShown: false }}
+        />
+        <Stack.Screen
           name="ReviewGame"
           component={ReviewGameScreen}
           options={{ headerShown: false, gestureEnabled: false }}
@@ -204,6 +211,11 @@ function AnimatedSplashMascot() {
           options={{ title: t('nav.parentVoiceLibrary') }}
         />
         <Stack.Screen
+          name="ParentLessonPlan"
+          component={ParentLessonPlanScreen}
+          options={{ title: t('nav.parentLessonPlan') }}
+        />
+        <Stack.Screen
           name="Premium"
           component={PremiumScreen}
           options={{ title: t('nav.premium') }}
@@ -224,12 +236,17 @@ function AppStackHeader({
   const showsVoiceLibraryInfo = route.name === 'ParentVoiceLibrary';
   const handleHeaderAction = () => {
     if (route.name === 'Reward') {
-      const rewardParams = route.params as
-        | RootStackParamList['Reward']
-        | undefined;
-      navigation.navigate('Home', {
-        activeTab:
-          rewardParams?.sourceScreen === 'ReviewGame' ? 'play' : 'map',
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home', params: { activeTab: 'map' } }],
+      });
+      return;
+    }
+
+    if (route.name === 'StickerPlayground') {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Home', params: { activeTab: 'play' } }],
       });
       return;
     }
@@ -239,10 +256,7 @@ function AppStackHeader({
       return;
     }
 
-    navigation.navigate(
-      'Home',
-      route.name === 'StickerPlayground' ? { activeTab: 'play' } : undefined,
-    );
+    navigation.navigate('Home');
   };
 
   return (
