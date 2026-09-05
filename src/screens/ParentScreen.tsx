@@ -1365,16 +1365,18 @@ export function ParentScreen({ navigation, route }: Props) {
 
   if (!isUnlocked) {
     return (
-      <Screen
-        scroll
-        withBottomSpace={false}
-        keyboardAvoiding
-        keyboardOffset={90}
-      >
-        <View style={styles.gateContainer}>
-          <ParentGateChallengeCard />
-        </View>
-      </Screen>
+      <View style={styles.screenContainer}>
+        <Screen
+          scroll
+          withBottomSpace={false}
+          keyboardAvoiding
+          keyboardOffset={90}
+        >
+          <View style={styles.gateContainer}>
+            <ParentGateChallengeCard />
+          </View>
+        </Screen>
+      </View>
     );
   }
 
