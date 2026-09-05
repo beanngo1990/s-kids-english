@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   AppState,
+  Keyboard,
   Pressable,
   Text,
   TextInput,
@@ -61,11 +62,16 @@ export function ParentGateChallengeCard({
   const [hasError, setHasError] = useState(false);
   const [wrongAttemptCount, setWrongAttemptCount] = useState(0);
   const [isCoolingDown, setIsCoolingDown] = useState(false);
+  const inputRef = useRef<TextInput>(null);
+  const isSubmittingRef = useRef(false);
   const cooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const submitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const resetChallenge = () => {
       clearCooldownTimer();
+      clearSubmitTimer();
+      isSubmittingRef.current = false;
       setChallenge(createParentGateChallenge());
       setAnswer('');
       setHasError(false);
@@ -81,19 +87,26 @@ export function ParentGateChallengeCard({
     return () => {
       subscription.remove();
       clearCooldownTimer();
+      clearSubmitTimer();
     };
   }, []);
 
   const submitChallenge = () => {
-    if (isCoolingDown || answer.trim().length === 0) {
+    if (isSubmittingRef.current || isCoolingDown || answer.trim().length === 0) {
       return;
     }
 
     if (Number(answer.trim()) === challenge.answer) {
+      isSubmittingRef.current = true;
       setHasError(false);
       setWrongAttemptCount(0);
-      grantParentAccess();
-      onGranted?.();
+      inputRef.current?.blur();
+      Keyboard.dismiss();
+      clearSubmitTimer();
+      submitTimerRef.current = setTimeout(() => {
+        grantParentAccess();
+        onGranted?.();
+      }, 50);
       return;
     }
 
@@ -126,6 +139,7 @@ export function ParentGateChallengeCard({
       <Text style={styles.hint}>{hint ?? t('parent.gate.challengeHint')}</Text>
       <Text style={styles.question}>{challenge.expression} = ?</Text>
       <TextInput
+        ref={inputRef}
         accessibilityLabel={t('parent.gate.challengePlaceholder')}
         editable={!isCoolingDown}
         keyboardType="number-pad"
@@ -166,6 +180,13 @@ export function ParentGateChallengeCard({
     if (cooldownTimerRef.current) {
       clearTimeout(cooldownTimerRef.current);
       cooldownTimerRef.current = null;
+    }
+  }
+
+  function clearSubmitTimer() {
+    if (submitTimerRef.current) {
+      clearTimeout(submitTimerRef.current);
+      submitTimerRef.current = null;
     }
   }
 }
