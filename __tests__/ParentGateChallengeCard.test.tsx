@@ -102,4 +102,75 @@ describe('ParentGateChallengeCard', () => {
       renderer?.unmount();
     });
   });
+
+  test('submits correct answer and grants access on keyboardDidHide when keyboard is visible', () => {
+    jest.spyOn(Keyboard, 'isVisible').mockReturnValue(true);
+    let hideListener: (() => void) | undefined;
+    jest.spyOn(Keyboard, 'addListener').mockImplementation(((event: string, callback: unknown) => {
+      if (event === 'keyboardDidHide') {
+        hideListener = callback as () => void;
+      }
+      return { remove: jest.fn() };
+    }) as never);
+
+    const onGranted = jest.fn();
+
+    let renderer: ReactTestRenderer.ReactTestRenderer | undefined;
+    act(() => {
+      renderer = ReactTestRenderer.create(
+        <ParentGateChallengeCard onGranted={onGranted} />,
+      );
+    });
+
+    const allTexts = renderer!.root.findAllByType(Text);
+    const questionNode = allTexts.find(node =>
+      typeof node.props.children === 'string'
+        ? node.props.children.includes('= ?')
+        : Array.isArray(node.props.children) &&
+          node.props.children.some((c: unknown) => typeof c === 'string' && c.includes('= ?')),
+    );
+    const fullQuestionText = Array.isArray(questionNode!.props.children)
+      ? questionNode!.props.children.join('')
+      : String(questionNode!.props.children);
+
+    const expressionPart = fullQuestionText.replace(' = ?', '').trim();
+    let expectedAnswer: number;
+    if (expressionPart.includes('+')) {
+      const [a, b] = expressionPart.split('+').map((s: string) => Number(s.trim()));
+      expectedAnswer = a + b;
+    } else {
+      const [a, b] = expressionPart.split('\u2212').map((s: string) => Number(s.trim()));
+      expectedAnswer = a - b;
+    }
+
+    const textInput = renderer!.root.findByType(TextInput);
+    act(() => {
+      textInput.props.onChangeText(String(expectedAnswer));
+    });
+
+    const submitButton = renderer!.root.findByProps({
+      accessibilityRole: 'button',
+    });
+
+    act(() => {
+      submitButton.props.onPress();
+    });
+
+    // Access should NOT be granted yet before keyboard hides
+    expect(mockGrantParentAccess).not.toHaveBeenCalled();
+    expect(onGranted).not.toHaveBeenCalled();
+    expect(hideListener).toBeDefined();
+
+    // Trigger keyboardDidHide
+    act(() => {
+      hideListener!();
+    });
+
+    expect(mockGrantParentAccess).toHaveBeenCalledTimes(1);
+    expect(onGranted).toHaveBeenCalledTimes(1);
+
+    act(() => {
+      renderer?.unmount();
+    });
+  });
 });

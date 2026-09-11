@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   AppState,
   Keyboard,
+  Platform,
   Pressable,
   Text,
   TextInput,
@@ -14,6 +15,7 @@ import { useI18n } from '../i18n';
 import { colors, createThemedStyles, useThemeSync } from '../theme/colors';
 import { radius, spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
+import { useResponsiveLayout } from '../theme/responsive';
 import { AppCard } from './AppCard';
 import { KidBadge } from './KidBadge';
 
@@ -57,6 +59,7 @@ export function ParentGateChallengeCard({
 }: ParentGateChallengeCardProps) {
   useThemeSync();
   const t = useI18n();
+  const responsiveLayout = useResponsiveLayout();
   const [challenge, setChallenge] = useState(createParentGateChallenge);
   const [answer, setAnswer] = useState('');
   const [hasError, setHasError] = useState(false);
@@ -66,6 +69,12 @@ export function ParentGateChallengeCard({
   const isSubmittingRef = useRef(false);
   const cooldownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const submitTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const keyboardHideSubRef = useRef<{ remove: () => void } | null>(null);
+
+  const isTabletIos =
+    Platform.OS === 'ios' && (Platform.isPad || responsiveLayout.isTablet);
+  const keyboardType = isTabletIos ? 'numbers-and-punctuation' : 'number-pad';
+  const returnKeyType = isTabletIos ? 'default' : 'done';
 
   useEffect(() => {
     const resetChallenge = () => {
@@ -103,10 +112,33 @@ export function ParentGateChallengeCard({
       inputRef.current?.blur();
       Keyboard.dismiss();
       clearSubmitTimer();
-      submitTimerRef.current = setTimeout(() => {
+
+      let hasFinished = false;
+      const finishUnlock = () => {
+        if (hasFinished) {
+          return;
+        }
+        hasFinished = true;
+        clearSubmitTimer();
         grantParentAccess();
         onGranted?.();
-      }, 50);
+      };
+
+      const isKeyboardOpen =
+        typeof Keyboard.isVisible === 'function' ? Keyboard.isVisible() : false;
+
+      if (!isKeyboardOpen) {
+        submitTimerRef.current = setTimeout(finishUnlock, 100);
+        return;
+      }
+
+      // On iPad, unmounting the view while UIKit is animating keyboard dismissal causes
+      // an EXC_BAD_ACCESS crash. Waiting for keyboardDidHide ensures the animation has completed.
+      keyboardHideSubRef.current = Keyboard.addListener(
+        'keyboardDidHide',
+        finishUnlock,
+      );
+      submitTimerRef.current = setTimeout(finishUnlock, 350);
       return;
     }
 
@@ -141,8 +173,11 @@ export function ParentGateChallengeCard({
       <TextInput
         ref={inputRef}
         accessibilityLabel={t('parent.gate.challengePlaceholder')}
+        autoCapitalize="none"
+        autoCorrect={false}
+        blurOnSubmit
         editable={!isCoolingDown}
-        keyboardType="number-pad"
+        keyboardType={keyboardType}
         onChangeText={value => {
           setAnswer(value.replace(/[^0-9-]/g, ''));
           setHasError(false);
@@ -150,7 +185,8 @@ export function ParentGateChallengeCard({
         onSubmitEditing={submitChallenge}
         placeholder={t('parent.gate.challengePlaceholder')}
         placeholderTextColor={colors.muted}
-        returnKeyType="done"
+        returnKeyType={returnKeyType}
+        spellCheck={false}
         style={styles.answerInput}
         value={answer}
       />
@@ -188,6 +224,10 @@ export function ParentGateChallengeCard({
       clearTimeout(submitTimerRef.current);
       submitTimerRef.current = null;
     }
+    if (keyboardHideSubRef.current) {
+      keyboardHideSubRef.current.remove();
+      keyboardHideSubRef.current = null;
+    }
   }
 }
 
@@ -198,10 +238,12 @@ const styles = createThemedStyles(() => ({
     borderRadius: radius.lg,
     borderWidth: 1,
     color: colors.text,
-    minHeight: 56,
+    fontSize: 28,
+    fontWeight: '700',
+    height: 56,
     paddingHorizontal: spacing.md,
+    paddingVertical: 0,
     textAlign: 'center',
-    ...typography.title,
   },
   button: {
     alignItems: 'center',

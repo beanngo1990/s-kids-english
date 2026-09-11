@@ -62,7 +62,7 @@ export function Screen({
     <View style={styles.content}>{children}</View>
   );
 
-  if (keyboardAvoiding) {
+  if (keyboardAvoiding && !responsiveLayout.isTablet) {
     content = (
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
