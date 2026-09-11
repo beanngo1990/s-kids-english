@@ -9,6 +9,7 @@ import {
   Alert,
   AppState,
   FlatList,
+  Keyboard,
   Linking,
   Modal,
   Pressable,
@@ -1367,14 +1368,18 @@ export function ParentScreen({ navigation, route }: Props) {
     return (
       <View style={styles.screenContainer}>
         <Screen
-          scroll
+          scroll={false}
           withBottomSpace={false}
-          keyboardAvoiding
+          keyboardAvoiding={!responsiveLayout.isTablet}
           keyboardOffset={90}
         >
-          <View style={styles.gateContainer}>
+          <Pressable
+            style={styles.gateContainer}
+            onPress={Keyboard.dismiss}
+            accessible={false}
+          >
             <ParentGateChallengeCard />
-          </View>
+          </Pressable>
         </Screen>
       </View>
     );
@@ -2920,9 +2925,12 @@ const styles = createThemedStyles(() => ({
     gap: spacing.md,
   },
   gateContainer: {
-    flexGrow: 1,
+    alignSelf: 'center',
+    flex: 1,
     justifyContent: 'center',
+    maxWidth: 520,
     padding: spacing.lg,
+    width: '100%',
   },
   configTitleRow: {
     alignItems: 'center',
